@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/03/02/shange/g.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/02/shange/h.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/02/shange/i.png">
-<meta property="og:updated_time" content="2018-03-02T10:49:14.909Z">
+<meta property="og:updated_time" content="2018-03-02T13:32:18.661Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解Bootstrap的栅格布局">
 <meta name="twitter:description" content="1.栅格系统（布局）Bootstrap内置了一套响应式、移动设备优先的流式栅格系统，随着屏幕设备或视口(viewport)尺寸的增加，系统会自动分为最多12列。我在这里是把Bootstrap中的栅格系统叫做布局。它就是一系列的行(row)与列(column)的组合创建页面布局，然后你的内容就可以放入到你创建好的布局当中。下面就简单介绍一下Bootstrao栅格系统的工作原理:网格系统的实现原理非常">
@@ -58,7 +58,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -74,7 +74,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -97,21 +97,24 @@
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-03-02T07:08:09.000Z" itemprop="datePublished"> Published 2018-03-02</time>
+    <time datetime="2018-03-02T07:08:09.000Z" itemprop="datePublished"> 發表於 2018-03-02</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1.栅格系统（布局）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.使用规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">3.栅格选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">4.基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1.栅格系统（布局）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.使用规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">3.栅格选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">4.基本用法</span></a></li></ol>
 		
 		</div>
 		
-		<h3>1.栅格系统（布局）</h3><br>Bootstrap内置了一套响应式、移动设备优先的流式栅格系统，随着屏幕设备或视口(viewport)尺寸的增加，系统会自动分为最多12列。<br><br>我在这里是把Bootstrap中的栅格系统叫做布局。它就是一系列的行(row)与列(column)的组合创建页面布局，然后你的内容就可以放入到你创建好的布局当中。下面就简单介绍一下Bootstrao栅格系统的工作原理:<br><br>网格系统的实现原理非常简单，仅仅是通过定义容器大小，平分12份(也有平分成24份或32份，但是12份是最常见的），再调整内外边距，最后结合媒体查询，就制作出了强大的响应式网格系统。Bootstrap框架中的网格系统就是将容器平分成12份。<br><br>在使用的时候大家可以根据实际情况重新编译LESS(或Sass)源码来修改12这个数值(也就是换成24或32，当然你也可以分成更多，但不建议这样使用。<br><h3>2.使用规则</h3><br>1.数据行(.row)必须包含在容器(.container)中，以便为其赋予合适的对齐方式和内距(padding)。<br><br>2.在行(.row)中可以添加列(.column),但列数总和不能超过平分的总列数，比如12。<br><br>3.具体内容应当放置在容器(column)之内，而且只有列(column)才可以作为行容器(.row)的直接子元素<br><br>4.通过设置内距(padding)从而创建列与列之间的间距。然后通过为第一列和最后一列设置负值的外距(margin)来抵消内距(padding)的影响。<br><br>为了更好的理解Bootstrap的框架的网格系统工作原理，我们来看一张草图:<img src="/2018/03/02/shange/a.jpg"><br>简单对图解释一下:<br>1.最外边框，带有一大片白色区域，就是相当于浏览器的可视区域。在Bootstrap框架的网络系统中带有响应式效果，其带有四种类型的浏览器(超小屏，小屏，中屏和大屏),其断点（像素的分界点）是768px、992px、1220px。<br><br>2.第二个边框(1)相当于容器(.container)。针对不同的浏览器分辨率，其宽度也不一样：自动、750px、970px和1170px。在bootstrap.css的第736行～第756行进行设置：<br><img src="/2018/03/02/shange/b.png"><br>3、２号横条阐述的是，将容器的行（.row）平分了12等份，也就是列。每个列都有一个“padding-left:15px”(图中粉红色部分)和一个“padding-right:15px”(图中紫色部分)。这样也导致了第一个列的padding-left和最后一列的padding-right占据了总宽度的30px，从而致使页面不美观，当然，如果你需要留有一定的间距，这个做法是不错的。如bootstrap.css中第767行~第772行所示：<br><img src="/2018/03/02/shange/b.png"><br>4、３号横条就是行容器(.row),其定义了“margin-left”和”margin-right”值为”-15px”，用来抵消第一个列的左内距和最后一列的右内距。在bootstrap.css的第763行~第767行可以看到：<br><img src="/2018/03/02/shange/d.png"><br>5、将行与列给合在一起就能看到横条4的效果。也就是我们期望看到的效果，第一列和最后一列与容器（.container）之间没有间距。<br><br>横条５只是想向大家展示，你可以根据需要，任意组合列与列，只是他们的组合数之和不要超过总列数。<br><h3>3.栅格选项</h3><br>通过下面的截图可以比较清楚的来查看Bootstrap的栅格系统是如何在多种不同的移动设备上面进行工作的。<br><img src="/2018/03/02/shange/e.png"><br>从上面的截图可以看出来，Bootstrap针对不同尺寸的屏幕(包括手机、平版、PC等等)设置了不同样式类，这样让开发人员在开发时可以有更多的选择。根据我的理解：如果一个人在一个元素上使用多个不同的上面的样式类，那么元素会根据在不同尺寸选择最合适（匹配最理想的）的样式类。简单的举例进行说明：比如在一个元素上我们使用了两个样式类：.col-md和.col-lg。可以对照上面的截图来看<br><br>第一张情况:尺寸&gt;=1200px;那么会选择.col-lg。<br><br>第二种情况:尺寸&gt;=992px并且尺寸&lt;=1200px;那么会选择.col-md。<br><br>第三种情况:如果尺寸&lt;=992px;那么这两个样式类都将不会作用于元素上。<br><h3>4.基本用法</h3><br>网格系统用来布局，其实就是列的组合。Bootstrap框架的网格系统中有四种基本的用法。由于Bootstrap框架在不同屏幕尺寸使用了不同的网格样式，在这一节中所涉及到的示例，我们都以中屏(970px)为例进行介绍，其他屏幕的使用也类似着一种。<br>我写了一个示范<br><img src="/2018/03/02/shange/f.png"><br>然后我们来看看在不同分辨率下的效果<br>pc端全屏效果<br><img src="/2018/03/02/shange/g.png"><br>然后我们把页面缩小试试.当页面缩小到一个值时，它的排版会发生变化<br><img src="/2018/03/02/shange/h.png"><br>接着我们来看看手机端的效果<br><img src="/2018/03/02/shange/i.png"><br>我们以iphone7为例，可以看到它并不会因为屏幕的缩小而导致排版很乱.<br><h3>总结</h3>
-
+		<p></p><h3>1.栅格系统（布局）</h3><br>Bootstrap内置了一套响应式、移动设备优先的流式栅格系统，随着屏幕设备或视口(viewport)尺寸的增加，系统会自动分为最多12列。<br><br>我在这里是把Bootstrap中的栅格系统叫做布局。它就是一系列的行(row)与列(column)的组合创建页面布局，然后你的内容就可以放入到你创建好的布局当中。下面就简单介绍一下Bootstrao栅格系统的工作原理:<br><br>网格系统的实现原理非常简单，仅仅是通过定义容器大小，平分12份(也有平分成24份或32份，但是12份是最常见的），再调整内外边距，最后结合媒体查询，就制作出了强大的响应式网格系统。Bootstrap框架中的网格系统就是将容器平分成12份。<br><br>在使用的时候大家可以根据实际情况重新编译LESS(或Sass)源码来修改12这个数值(也就是换成24或32，当然你也可以分成更多，但不建议这样使用。<p></p>
+<p></p><h3>2.使用规则</h3><br>1.数据行(.row)必须包含在容器(.container)中，以便为其赋予合适的对齐方式和内距(padding)。<br><br>2.在行(.row)中可以添加列(.column),但列数总和不能超过平分的总列数，比如12。<br><br>3.具体内容应当放置在容器(column)之内，而且只有列(column)才可以作为行容器(.row)的直接子元素<br><br>4.通过设置内距(padding)从而创建列与列之间的间距。然后通过为第一列和最后一列设置负值的外距(margin)来抵消内距(padding)的影响。<br><br>为了更好的理解Bootstrap的框架的网格系统工作原理，我们来看一张草图:<img src="/2018/03/02/shange/a.jpg"><br>简单对图解释一下:<br>1.最外边框，带有一大片白色区域，就是相当于浏览器的可视区域。在Bootstrap框架的网络系统中带有响应式效果，其带有四种类型的浏览器(超小屏，小屏，中屏和大屏),其断点（像素的分界点）是768px、992px、1220px。<br><br>2.第二个边框(1)相当于容器(.container)。针对不同的浏览器分辨率，其宽度也不一样：自动、750px、970px和1170px。在bootstrap.css的第736行～第756行进行设置：<br><img src="/2018/03/02/shange/b.png"><br>3、２号横条阐述的是，将容器的行（.row）平分了12等份，也就是列。每个列都有一个“padding-left:15px”(图中粉红色部分)和一个“padding-right:15px”(图中紫色部分)。这样也导致了第一个列的padding-left和最后一列的padding-right占据了总宽度的30px，从而致使页面不美观，当然，如果你需要留有一定的间距，这个做法是不错的。如bootstrap.css中第767行~第772行所示：<br><img src="/2018/03/02/shange/b.png"><br>4、３号横条就是行容器(.row),其定义了“margin-left”和”margin-right”值为”-15px”，用来抵消第一个列的左内距和最后一列的右内距。在bootstrap.css的第763行~第767行可以看到：<br><img src="/2018/03/02/shange/d.png"><br>5、将行与列给合在一起就能看到横条4的效果。也就是我们期望看到的效果，第一列和最后一列与容器（.container）之间没有间距。<p></p>
+<p>横条５只是想向大家展示，你可以根据需要，任意组合列与列，只是他们的组合数之和不要超过总列数。</p>
+<p></p><h3>3.栅格选项</h3><br>通过下面的截图可以比较清楚的来查看Bootstrap的栅格系统是如何在多种不同的移动设备上面进行工作的。<br><img src="/2018/03/02/shange/e.png"><br>从上面的截图可以看出来，Bootstrap针对不同尺寸的屏幕(包括手机、平版、PC等等)设置了不同样式类，这样让开发人员在开发时可以有更多的选择。根据我的理解：如果一个人在一个元素上使用多个不同的上面的样式类，那么元素会根据在不同尺寸选择最合适（匹配最理想的）的样式类。简单的举例进行说明：比如在一个元素上我们使用了两个样式类：.col-md和.col-lg。可以对照上面的截图来看<br><br>第一张情况:尺寸&gt;=1200px;那么会选择.col-lg。<br><br>第二种情况:尺寸&gt;=992px并且尺寸&lt;=1200px;那么会选择.col-md。<br><br>第三种情况:如果尺寸&lt;=992px;那么这两个样式类都将不会作用于元素上。<p></p>
+<p></p><h3>4.基本用法</h3><br>网格系统用来布局，其实就是列的组合。Bootstrap框架的网格系统中有四种基本的用法。由于Bootstrap框架在不同屏幕尺寸使用了不同的网格样式，在这一节中所涉及到的示例，我们都以中屏(970px)为例进行介绍，其他屏幕的使用也类似着一种。<br>我写了一个示范<br><img src="/2018/03/02/shange/f.png"><br>然后我们来看看在不同分辨率下的效果<br>pc端全屏效果<br><img src="/2018/03/02/shange/g.png"><br>然后我们把页面缩小试试.当页面缩小到一个值时，它的排版会发生变化<br><img src="/2018/03/02/shange/h.png"><br>接着我们来看看手机端的效果<br><img src="/2018/03/02/shange/i.png"><br>我们以iphone7为例，可以看到它并不会因为屏幕的缩小而导致排版很乱.<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -158,22 +161,22 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1.栅格系统（布局）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.使用规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">3.栅格选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">4.基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1.栅格系统（布局）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.使用规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">3.栅格选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">4.基本用法</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -182,7 +185,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 		  
@@ -220,7 +223,7 @@
   
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情鏈接</p>
     <ul>
         
           <li>
@@ -242,11 +245,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -477,7 +480,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
