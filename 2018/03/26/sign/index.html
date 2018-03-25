@@ -19,7 +19,7 @@
 <meta property="og:description" content="写这篇文章的时候已经是深夜1点了，刚刚在实验室终于解决了这个困扰了我一个晚上的问题。 问题描述要实现一个用户在登陆后，可以进行签到，但是每一天只能签到一次，如果今天签到过了再去签到就会跳转到一个签到失败页面，如果今天是第一次签到，就会跳转到一个签到成功页面，并且将签到数据传输到数据库中。 解决思路这个问题看起来不难，但是要实际实现起来其实也并不容易。我们首先需要获取到用户的用户名，然后用sql语">
 <meta property="og:image" content="http://yoursite.com/2018/03/26/sign/a.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/26/sign/b.png">
-<meta property="og:updated_time" content="2018-03-25T16:55:40.173Z">
+<meta property="og:updated_time" content="2018-03-25T16:59:43.502Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP实现签到功能">
 <meta name="twitter:description" content="写这篇文章的时候已经是深夜1点了，刚刚在实验室终于解决了这个困扰了我一个晚上的问题。 问题描述要实现一个用户在登陆后，可以进行签到，但是每一天只能签到一次，如果今天签到过了再去签到就会跳转到一个签到失败页面，如果今天是第一次签到，就会跳转到一个签到成功页面，并且将签到数据传输到数据库中。 解决思路这个问题看起来不难，但是要实际实现起来其实也并不容易。我们首先需要获取到用户的用户名，然后用sql语">
@@ -51,7 +51,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -67,7 +67,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -90,14 +90,14 @@
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-03-25T16:39:17.000Z" itemprop="datePublished"> 發表於 2018-03-26</time>
+    <time datetime="2018-03-25T16:39:17.000Z" itemprop="datePublished"> Published 2018-03-26</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">解决思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">具体实现</span></a></li></ol>
 		
@@ -105,7 +105,7 @@
 		
 		<p> 写这篇文章的时候已经是深夜1点了，刚刚在实验室终于解决了这个困扰了我一个晚上的问题。</p>
 <p></p><h3>问题描述</h3><br>要实现一个用户在登陆后，可以进行签到，但是每一天只能签到一次，如果今天签到过了再去签到就会跳转到一个签到失败页面，如果今天是第一次签到，就会跳转到一个签到成功页面，并且将签到数据传输到数据库中。<p></p>
-<p></p><h3>解决思路</h3><br>这个问题看起来不难，但是要实际实现起来其实也并不容易。我们首先需要获取到用户的用户名，然后用sql语句将用户的签到信息从数据库中读取出来，然后再获取读取到的信息中的签到时间数据。再将这个签到时间与今天的时间进行一个if判断，如果一样就失败；不一样就成功。这里还涉及到一个对世界进行格式转变的技巧。<p></p>
+<p></p><h3>解决思路</h3><br>这个问题看起来不难，但是要实际实现起来其实也并不容易。我们首先需要获取到用户的用户名，然后用sql语句将用户的签到信息从数据库中读取出来，然后再获取读取到的信息中的签到时间数据。再将这个签到时间与今天的时间进行一个if判断，如果一样就失败；不一样就成功。这里还涉及到一个对时间进行格式转变的技巧。<p></p>
 <p></p><h3>具体实现</h3><br><img src="/2018/03/26/sign/a.png"><br><br><br><img src="/2018/03/26/sign/b.png"><p></p>
   
 	</div>
@@ -153,22 +153,22 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">Contents</strong>
  
  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">解决思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">具体实现</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github 名片</p>
+<p class="asidetitle">Github Card</p>
 <div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -177,7 +177,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分類</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -219,7 +219,7 @@
   
 
   <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -241,11 +241,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -476,7 +476,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
