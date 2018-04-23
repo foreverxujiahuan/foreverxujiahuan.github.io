@@ -4,25 +4,27 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>值得关注的abc | zzulixjh</title>
+    <title>python3中的map、reduce、filter函数 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="ABC已成为时代的新主题。A即AI，人工智能；B即Big Data,大数据；C即could，即云计算。这是未来计算机行业发展的关键词，同时也是社会发展的关键词。如果学计算机的学弟学妹对自己未来的发展迷茫，不知道该学什么的话，可以尝试着去了解一下ABC。">
+    <meta name="description" content="一:python3中的map()函数map()函数接收两个参数，第一个是function，第二个是list.map()是 Python 内置的高阶函数，它接收一个函数 f 和一个 list，并通过把函数 f 依次作用在 list 的每个元素上，得到一个新的 list 并返回。demo:给一个List中的每个数字+1;二:python3中的reduce()函数python3中，要使用reduce,得">
 <meta property="og:type" content="article">
-<meta property="og:title" content="值得关注的abc">
-<meta property="og:url" content="http://yoursite.com/2018/02/16/abc/index.html">
+<meta property="og:title" content="python3中的map、reduce、filter函数">
+<meta property="og:url" content="http://yoursite.com/2018/04/23/python-notes2/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="ABC已成为时代的新主题。A即AI，人工智能；B即Big Data,大数据；C即could，即云计算。这是未来计算机行业发展的关键词，同时也是社会发展的关键词。如果学计算机的学弟学妹对自己未来的发展迷茫，不知道该学什么的话，可以尝试着去了解一下ABC。">
-<meta property="og:image" content="http://yoursite.com/2018/02/16/abc/ai.jpg">
-<meta property="og:updated_time" content="2018-02-16T08:07:35.343Z">
+<meta property="og:description" content="一:python3中的map()函数map()函数接收两个参数，第一个是function，第二个是list.map()是 Python 内置的高阶函数，它接收一个函数 f 和一个 list，并通过把函数 f 依次作用在 list 的每个元素上，得到一个新的 list 并返回。demo:给一个List中的每个数字+1;二:python3中的reduce()函数python3中，要使用reduce,得">
+<meta property="og:image" content="http://yoursite.com/2018/04/23/python-notes2/python-notes1/c.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/23/python-notes2/python-notes1/d.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/23/python-notes2/python-notes1/e.png">
+<meta property="og:updated_time" content="2018-04-23T04:37:00.278Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="值得关注的abc">
-<meta name="twitter:description" content="ABC已成为时代的新主题。A即AI，人工智能；B即Big Data,大数据；C即could，即云计算。这是未来计算机行业发展的关键词，同时也是社会发展的关键词。如果学计算机的学弟学妹对自己未来的发展迷茫，不知道该学什么的话，可以尝试着去了解一下ABC。">
-<meta name="twitter:image" content="http://yoursite.com/2018/02/16/abc/ai.jpg">
+<meta name="twitter:title" content="python3中的map、reduce、filter函数">
+<meta name="twitter:description" content="一:python3中的map()函数map()函数接收两个参数，第一个是function，第二个是list.map()是 Python 内置的高阶函数，它接收一个函数 f 和一个 list，并通过把函数 f 依次作用在 list 的每个元素上，得到一个新的 list 并返回。demo:给一个List中的每个数字+1;二:python3中的reduce()函数python3中，要使用reduce,得">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/23/python-notes2/python-notes1/c.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -82,14 +84,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/02/16/abc/" title="值得关注的abc" itemprop="url">值得关注的abc</a>
+      <a href="/2018/04/23/python-notes2/" title="python3中的map、reduce、filter函数" itemprop="url">python3中的map、reduce、filter函数</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-02-16T07:58:47.000Z" itemprop="datePublished"> 发表于 2018-02-16</time>
+    <time datetime="2018-04-23T04:22:03.000Z" itemprop="datePublished"> 发表于 2018-04-23</time>
     
   </p>
 </header>
@@ -102,7 +104,7 @@
 		
 		</div>
 		
-		<p>ABC已成为时代的新主题。A即AI，人工智能；B即Big Data,大数据；C即could，即云计算。这是未来计算机行业发展的关键词，同时也是社会发展的关键词。如果学计算机的学弟学妹对自己未来的发展迷茫，不知道该学什么的话，可以尝试着去了解一下ABC。<br><img src="/2018/02/16/abc/ai.jpg" width="600px"></p>
+		<p>一:python3中的map()函数<br>map()函数接收两个参数，第一个是function，第二个是list.map()是 Python 内置的高阶函数，它接收一个函数 f 和一个 list，并通过把函数 f 依次作用在 list 的每个元素上，得到一个新的 list 并返回。<br>demo:给一个List中的每个数字+1;<br><img src="/2018/04/23/python-notes2/python-notes1/c.png"><br><br>二:python3中的reduce()函数<br>python3中，要使用reduce,得从functools中引入,在文件开头加上<br>from functools import reduce<br>reduce()函数也是Python内置的一个高阶函数。reduce()函数接收的参数和 map()类似，一个函数 f，一个list，但行为和 map()不同，reduce()传入的函数 f 必须接收两个参数，reduce()对list的每个元素反复调用函数f，并返回最终结果值。demo:<br><img src="/2018/04/23/python-notes2/python-notes1/d.png"><br>输出3360<br>三、python3中的filter()函数<br>filter()函数是 Python 内置的另一个有用的高阶函数，filter()函数接收一个函数 f 和一个list，这个函数 f 的作用是对每个元素进行判断，返回 True或 False，filter()根据判断结果自动过滤掉不符合条件的元素，返回由符合条件元素组成的新list。demo:返回1-100中所有平方根是整数的数<br><img src="/2018/04/23/python-notes2/python-notes1/e.png"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -110,7 +112,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/pc/">计算机</a>
+  <a class="article-category-link" href="/categories/Python/">Python</a>
 </div>
 
 
@@ -120,7 +122,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/02/16/abc/" data-title="值得关注的abc | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/04/23/python-notes2/" data-title="python3中的map、reduce、filter函数 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -133,19 +135,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/02/16/github/" title="github">
-  <strong>上一篇：</strong><br/>
-  <span>
-  github</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/02/15/php/"  title="php命令环境的配置">
+<a href="/2018/04/23/python-notes1/"  title="python函数式编程">
  <strong>下一篇：</strong><br/> 
- <span>php命令环境的配置
+ <span>python函数式编程
 </span>
 </a>
 </div>
