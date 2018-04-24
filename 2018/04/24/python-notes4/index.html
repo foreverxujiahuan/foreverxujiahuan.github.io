@@ -4,30 +4,27 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>lanmp | zzulixjh</title>
+    <title>Python3中的模块 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="lanmp是php开发者经常使用的一个环境。LANMP是指由Linux(CentOs),Nignx,Apache,Mysql,PHP组成的一套生产环境安装包。下面我来说一下Lanmp的配置方法。首先我们要有一个linux主机，如果是云服务器的话，我们可以用一款名为Xshell5的软件来远程连接服务器。如果连接遇到问题的话自行百度。进去后我们输入命令wget http://dl.wdlinux.cn">
+    <meta name="description" content="模块是一个包含所有你定义的函数和变量的文件，其后缀名是.py。模块可以被别的程序引入，以使用该模块中的函数等功能。这也是使用 python 标准库的方法。 模块让你能够有逻辑地组织你的python代码段；把相关的代码分配到一个模块里能让你的代码更好用，更易懂。 模块能定义函数，类和变量，模块里也能包含可执行的代码。demo:输出: hello python2、模块的引入模块定义好后，可以使用imp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lanmp">
-<meta property="og:url" content="http://yoursite.com/2018/02/16/lanmp/index.html">
+<meta property="og:title" content="Python3中的模块">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/python-notes4/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="lanmp是php开发者经常使用的一个环境。LANMP是指由Linux(CentOs),Nignx,Apache,Mysql,PHP组成的一套生产环境安装包。下面我来说一下Lanmp的配置方法。首先我们要有一个linux主机，如果是云服务器的话，我们可以用一款名为Xshell5的软件来远程连接服务器。如果连接遇到问题的话自行百度。进去后我们输入命令wget http://dl.wdlinux.cn">
-<meta property="og:image" content="http://yoursite.com/2018/02/16/lanmp/step1.png">
-<meta property="og:image" content="http://yoursite.com/2018/02/16/lanmp/step2.png">
-<meta property="og:image" content="http://yoursite.com/2018/02/16/lanmp/step3.png">
-<meta property="og:image" content="http://yoursite.com/2018/02/16/lanmp/step4.png">
-<meta property="og:image" content="http://yoursite.com/2018/02/16/lanmp/step5.png">
-<meta property="og:image" content="http://yoursite.com/2018/02/16/lanmp/step6.png">
-<meta property="og:updated_time" content="2018-02-17T13:39:59.473Z">
+<meta property="og:description" content="模块是一个包含所有你定义的函数和变量的文件，其后缀名是.py。模块可以被别的程序引入，以使用该模块中的函数等功能。这也是使用 python 标准库的方法。 模块让你能够有逻辑地组织你的python代码段；把相关的代码分配到一个模块里能让你的代码更好用，更易懂。 模块能定义函数，类和变量，模块里也能包含可执行的代码。demo:输出: hello python2、模块的引入模块定义好后，可以使用imp">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/python-notes4/a.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/python-notes4/b.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/python-notes4/c.png">
+<meta property="og:updated_time" content="2018-04-24T10:56:49.099Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lanmp">
-<meta name="twitter:description" content="lanmp是php开发者经常使用的一个环境。LANMP是指由Linux(CentOs),Nignx,Apache,Mysql,PHP组成的一套生产环境安装包。下面我来说一下Lanmp的配置方法。首先我们要有一个linux主机，如果是云服务器的话，我们可以用一款名为Xshell5的软件来远程连接服务器。如果连接遇到问题的话自行百度。进去后我们输入命令wget http://dl.wdlinux.cn">
-<meta name="twitter:image" content="http://yoursite.com/2018/02/16/lanmp/step1.png">
+<meta name="twitter:title" content="Python3中的模块">
+<meta name="twitter:description" content="模块是一个包含所有你定义的函数和变量的文件，其后缀名是.py。模块可以被别的程序引入，以使用该模块中的函数等功能。这也是使用 python 标准库的方法。 模块让你能够有逻辑地组织你的python代码段；把相关的代码分配到一个模块里能让你的代码更好用，更易懂。 模块能定义函数，类和变量，模块里也能包含可执行的代码。demo:输出: hello python2、模块的引入模块定义好后，可以使用imp">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/24/python-notes4/a.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -87,14 +84,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/02/16/lanmp/" title="lanmp" itemprop="url">lanmp</a>
+      <a href="/2018/04/24/python-notes4/" title="Python3中的模块" itemprop="url">Python3中的模块</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-02-16T12:54:48.000Z" itemprop="datePublished"> Published 2018-02-16</time>
+    <time datetime="2018-04-24T10:23:48.000Z" itemprop="datePublished"> Published 2018-04-24</time>
     
   </p>
 </header>
@@ -107,7 +104,40 @@
 		
 		</div>
 		
-		<p>lanmp是php开发者经常使用的一个环境。LANMP是指由Linux(CentOs),Nignx,Apache,Mysql,PHP组成的一套生产环境安装包。下面我来说一下Lanmp的配置方法。首先我们要有一个linux主机，如果是云服务器的话，我们可以用一款名为Xshell5的软件来远程连接服务器。<br><img src="/2018/02/16/lanmp/step1.png"><br>如果连接遇到问题的话自行百度。进去后我们输入命令wget <a href="http://dl.wdlinux.cn/lanmp_laster.tar.gz" target="_blank" rel="noopener">http://dl.wdlinux.cn/lanmp_laster.tar.gz</a><br>看到如下字样后说明成功了<br><img src="/2018/02/16/lanmp/step2.png"><br>接着输入命令tar zxvf lanmp_laster.tar.gz<br><img src="/2018/02/16/lanmp/step3.png"><br>然后输入命令sh lanmp.sh<br><img src="/2018/02/16/lanmp/step4.png"><br>这里他会问你需要配置什么环境(其实连我自己也不知道我要配置什么环境)所以我们就选择4，install全部，这个过程可能有点慢，大概40分钟左右。<br>看到如下图后就说明搭建成功了<br><img src="/2018/02/16/lanmp/step5.png"><br>接着我们可以在浏览器中输入自己云服务器的ip，如果安全组配置没有问题的话那么我们可以看到lanmp的欢迎页面<br><img src="/2018/02/16/lanmp/step6.png"></p>
+		<p>模块是一个包含所有你定义的函数和变量的文件，其后缀名是.py。模块可以被别的程序引入，以使用该模块中的函数等功能。这也是使用 python 标准库的方法。</p>
+<p>模块让你能够有逻辑地组织你的python代码段；把相关的代码分配到一个模块里能让你的代码更好用，更易懂。</p>
+<p>模块能定义函数，类和变量，模块里也能包含可执行的代码。<br>demo:<br><img src="/2018/04/24/python-notes4/a.png"><br><img src="/2018/04/24/python-notes4/b.png"><br>输出: hello python<br>2、模块的引入<br>模块定义好后，可以使用import语句来引入模块，语法如下：</p>
+<p>import module1,[module2[,………moduleN]]</p>
+<p>比如要引用模块math，就可以在文件最开始用import math来引入，在调用math模块中的函数时，必须使用:模块名.函数名，来使用函数。</p>
+<p>一个模块只会被导入一次，不管执行了多少次import，这样可以防止导入模块被重复执行。</p>
+<p>from  …   import语句：</p>
+<p>python中的from语句让你从模块中导入一个指定的部分到当前命名空间中，语法如下：</p>
+<p>from modname import name1,name2……….nameN</p>
+<p>from mod import  func_1    #导入mod模块中的func_1函数<br>这个声明不会把整个mod模块导入到当前命名空间中，它只会将mod里的func_1单个引入到执行这个声明的模块的全局符号表。</p>
+<p>from … import *  ：这样会把模块中的所有内容导入到当前命名空间，一般不建议使用，消耗内存空间，也容易出现未预知的问题。<br>3、搜索路径<br>当导入一个模块后，python解析器对模块位置的搜索顺序是：</p>
+<p>当前目录—-shell变量PYTHONPATH下的每个目录———-python模块路径目录</p>
+<p>模块的搜索路径存储在system模块的sys.path变量中，包括当前目录，pythonpath和安装过程决定的默认目录。<br><img src="/2018/04/24/python-notes4/c.png"><br>其中的空字符串表示当前工作目录，当安装第三方模块的时候，如果不是按照标准方式安装，则为了能够引用这些模块，必须将这些模块的安装路径添加到sys.path中，有以下几种方法：</p>
+<p>1）最简单的方法,是在sys.path的某个目录下添加路径配置文件，最常见的就是在…./site-package/目录下，路径配置文件的扩展名为’.pth’，其中的每一行包含一个单独的路径，该路径会添加到sys.path列表中，“.pth”中的路径可以是绝对路径也可以是相对路径，如果是相对路径则相对于包含”.pth”文件的路径而言的。<br>4、命名空间和作用域<br>变量是拥有匹配对象的名字（标识符）。命名空间是一个包含了变量名称们（键）和它们各自相应的对象们（值）的字典。</p>
+<p>一个 Python 表达式可以访问局部命名空间和全局命名空间里的变量。如果一个局部变量和一个全局变量重名，则局部变量会覆盖全局变量。</p>
+<p>每个函数都有自己的命名空间。类的方法的作用域规则和通常函数的一样。</p>
+<p>Python 会智能地猜测一个变量是局部的还是全局的，它假设任何在函数内赋值的变量都是局部的。</p>
+<p>因此，如果要给函数内的全局变量赋值，必须使用 global 语句。</p>
+<p>global VarName 的表达式会告诉 Python， VarName 是一个全局变量，这样 Python 就不会在局部命名空间里寻找这个变量了。</p>
+<p>例如，我们在全局命名空间里定义一个变量 Money。我们再在函数内给变量 Money 赋值，然后 Python 会假定 Money 是一个局部变量。然而，我们并没有在访问前声明一个局部变量 Money，结果就是会出现一个 UnboundLocalError 的错误。取消 global 语句的注释就能解决这个问题。<br>dir()函数<br>dir() 函数一个排好序的字符串列表，内容是一个模块里定义过的名字。</p>
+<p>返回的列表容纳了在一个模块里定义的所有模块，变量和函数。</p>
+<p>复制代码<br>import TEST<br>print(TEST.add(8,9))<br>con = dir(TEST)<br>print(con)</p>
+<p>[‘<strong>builtins</strong>‘, ‘<strong>cached</strong>‘, ‘<strong>doc</strong>‘, ‘<strong>file</strong>‘, ‘<strong>loader</strong>‘, ‘<strong>name</strong>‘, ‘<strong>package</strong>‘, ‘<strong>spec</strong>‘, ‘add’]</p>
+<p>#特殊字符串变量<strong>name</strong>指向模块的名字，<strong>file</strong>指向该模块的导入文件名，add为函数名。<br>6、globals()和locals()函数</p>
+<p>根据调用地方的不同，globals() 和 locals() 函数可被用来返回全局和局部命名空间里的名字。</p>
+<p>如果在函数内部调用 locals()，返回的是所有能在该函数里访问的命名。</p>
+<p>如果在函数内部调用 globals()，返回的是所有在该函数里能访问的全局名字。</p>
+<p>两个函数的返回类型都是字典。所以名字们能用 keys() 函数摘取。</p>
+<p>7、reload() 函数</p>
+<p>当一个模块被导入到一个脚本，模块顶层部分的代码只会被执行一次。</p>
+<p>因此，如果你想重新执行模块里顶层部分的代码，可以用 reload() 函数。该函数会重新导入之前导入过的模块。</p>
+<p>8、python中的包</p>
+<p>包是一个分层次的文件目录结构，它定义了一个由模块及子包，和子包下的子包等组成的 Python 的应用环境。</p>
+<p>简单来说，包就是文件夹，但该文件夹下必须存在 <strong>init</strong>.py 文件, 该文件的内容可以为空。<strong>int</strong>.py用于标识当前文件夹是一个包。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -115,7 +145,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/PHP/">PHP</a>
+  <a class="article-category-link" href="/categories/Python/">Python</a>
 </div>
 
 
@@ -125,7 +155,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/02/16/lanmp/" data-title="lanmp | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/04/24/python-notes4/" data-title="Python3中的模块 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -138,19 +168,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/02/16/wdcp/" title="wdcp">
-  <strong>上一篇：</strong><br/>
-  <span>
-  wdcp</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/02/16/github/"  title="github">
+<a href="/2018/04/24/python-notes3/"  title="python3中的装饰器">
  <strong>下一篇：</strong><br/> 
- <span>github
+ <span>python3中的装饰器
 </span>
 </a>
 </div>
