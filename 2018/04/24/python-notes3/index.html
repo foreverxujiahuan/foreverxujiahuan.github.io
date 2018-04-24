@@ -4,33 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>深入理解Bootstrap的栅格布局 | zzulixjh</title>
+    <title>python3中的装饰器 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="1.栅格系统（布局）Bootstrap内置了一套响应式、移动设备优先的流式栅格系统，随着屏幕设备或视口(viewport)尺寸的增加，系统会自动分为最多12列。我在这里是把Bootstrap中的栅格系统叫做布局。它就是一系列的行(row)与列(column)的组合创建页面布局，然后你的内容就可以放入到你创建好的布局当中。下面就简单介绍一下Bootstrao栅格系统的工作原理:网格系统的实现原理非常">
+    <meta name="description" content="想理解Python的decorator首先要知道在Python中函数也是一个对象，所以你可以 将函数复制给变量将函数当做参数返回一个函数函数在Python中给变量的用法一样也是一等公民，也就是高阶函数(High Order Function)。所有的魔法都是由此而来。1，起源我们想在函数login中输出调试信息，我们可以这样做这个方法讨厌的是每次调用login是，都通过printdebug来调用，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解Bootstrap的栅格布局">
-<meta property="og:url" content="http://yoursite.com/2018/03/02/shange/index.html">
+<meta property="og:title" content="python3中的装饰器">
+<meta property="og:url" content="http://yoursite.com/2018/04/24/python-notes3/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="1.栅格系统（布局）Bootstrap内置了一套响应式、移动设备优先的流式栅格系统，随着屏幕设备或视口(viewport)尺寸的增加，系统会自动分为最多12列。我在这里是把Bootstrap中的栅格系统叫做布局。它就是一系列的行(row)与列(column)的组合创建页面布局，然后你的内容就可以放入到你创建好的布局当中。下面就简单介绍一下Bootstrao栅格系统的工作原理:网格系统的实现原理非常">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/shange/a.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/shange/b.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/shange/b.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/shange/d.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/shange/e.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/shange/f.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/shange/g.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/shange/h.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/shange/i.png">
-<meta property="og:updated_time" content="2018-03-02T13:32:18.661Z">
+<meta property="og:description" content="想理解Python的decorator首先要知道在Python中函数也是一个对象，所以你可以 将函数复制给变量将函数当做参数返回一个函数函数在Python中给变量的用法一样也是一等公民，也就是高阶函数(High Order Function)。所有的魔法都是由此而来。1，起源我们想在函数login中输出调试信息，我们可以这样做这个方法讨厌的是每次调用login是，都通过printdebug来调用，">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/python-notes3/a.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/python-notes3/b.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/python-notes3/c.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/python-notes3/d.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/python-notes3/e.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/python-notes3/f.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/python-notes3/g.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/24/python-notes3/h.png">
+<meta property="og:updated_time" content="2018-04-24T09:44:59.768Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解Bootstrap的栅格布局">
-<meta name="twitter:description" content="1.栅格系统（布局）Bootstrap内置了一套响应式、移动设备优先的流式栅格系统，随着屏幕设备或视口(viewport)尺寸的增加，系统会自动分为最多12列。我在这里是把Bootstrap中的栅格系统叫做布局。它就是一系列的行(row)与列(column)的组合创建页面布局，然后你的内容就可以放入到你创建好的布局当中。下面就简单介绍一下Bootstrao栅格系统的工作原理:网格系统的实现原理非常">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/02/shange/a.jpg">
+<meta name="twitter:title" content="python3中的装饰器">
+<meta name="twitter:description" content="想理解Python的decorator首先要知道在Python中函数也是一个对象，所以你可以 将函数复制给变量将函数当做参数返回一个函数函数在Python中给变量的用法一样也是一等公民，也就是高阶函数(High Order Function)。所有的魔法都是由此而来。1，起源我们想在函数login中输出调试信息，我们可以这样做这个方法讨厌的是每次调用login是，都通过printdebug来调用，">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/24/python-notes3/a.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -90,14 +89,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/03/02/shange/" title="深入理解Bootstrap的栅格布局" itemprop="url">深入理解Bootstrap的栅格布局</a>
+      <a href="/2018/04/24/python-notes3/" title="python3中的装饰器" itemprop="url">python3中的装饰器</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-03-02T07:08:09.000Z" itemprop="datePublished"> 发表于 2018-03-02</time>
+    <time datetime="2018-04-24T07:30:56.000Z" itemprop="datePublished"> 发表于 2018-04-24</time>
     
   </p>
 </header>
@@ -106,15 +105,18 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1.栅格系统（布局）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.使用规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">3.栅格选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">4.基本用法</span></a></li></ol>
+			
 		
 		</div>
 		
-		<p></p><h3>1.栅格系统（布局）</h3><br>Bootstrap内置了一套响应式、移动设备优先的流式栅格系统，随着屏幕设备或视口(viewport)尺寸的增加，系统会自动分为最多12列。<br><br>我在这里是把Bootstrap中的栅格系统叫做布局。它就是一系列的行(row)与列(column)的组合创建页面布局，然后你的内容就可以放入到你创建好的布局当中。下面就简单介绍一下Bootstrao栅格系统的工作原理:<br><br>网格系统的实现原理非常简单，仅仅是通过定义容器大小，平分12份(也有平分成24份或32份，但是12份是最常见的），再调整内外边距，最后结合媒体查询，就制作出了强大的响应式网格系统。Bootstrap框架中的网格系统就是将容器平分成12份。<br><br>在使用的时候大家可以根据实际情况重新编译LESS(或Sass)源码来修改12这个数值(也就是换成24或32，当然你也可以分成更多，但不建议这样使用。<p></p>
-<p></p><h3>2.使用规则</h3><br>1.数据行(.row)必须包含在容器(.container)中，以便为其赋予合适的对齐方式和内距(padding)。<br><br>2.在行(.row)中可以添加列(.column),但列数总和不能超过平分的总列数，比如12。<br><br>3.具体内容应当放置在容器(column)之内，而且只有列(column)才可以作为行容器(.row)的直接子元素<br><br>4.通过设置内距(padding)从而创建列与列之间的间距。然后通过为第一列和最后一列设置负值的外距(margin)来抵消内距(padding)的影响。<br><br>为了更好的理解Bootstrap的框架的网格系统工作原理，我们来看一张草图:<img src="/2018/03/02/shange/a.jpg"><br>简单对图解释一下:<br>1.最外边框，带有一大片白色区域，就是相当于浏览器的可视区域。在Bootstrap框架的网络系统中带有响应式效果，其带有四种类型的浏览器(超小屏，小屏，中屏和大屏),其断点（像素的分界点）是768px、992px、1220px。<br><br>2.第二个边框(1)相当于容器(.container)。针对不同的浏览器分辨率，其宽度也不一样：自动、750px、970px和1170px。在bootstrap.css的第736行～第756行进行设置：<br><img src="/2018/03/02/shange/b.png"><br>3、２号横条阐述的是，将容器的行（.row）平分了12等份，也就是列。每个列都有一个“padding-left:15px”(图中粉红色部分)和一个“padding-right:15px”(图中紫色部分)。这样也导致了第一个列的padding-left和最后一列的padding-right占据了总宽度的30px，从而致使页面不美观，当然，如果你需要留有一定的间距，这个做法是不错的。如bootstrap.css中第767行~第772行所示：<br><img src="/2018/03/02/shange/b.png"><br>4、３号横条就是行容器(.row),其定义了“margin-left”和”margin-right”值为”-15px”，用来抵消第一个列的左内距和最后一列的右内距。在bootstrap.css的第763行~第767行可以看到：<br><img src="/2018/03/02/shange/d.png"><br>5、将行与列给合在一起就能看到横条4的效果。也就是我们期望看到的效果，第一列和最后一列与容器（.container）之间没有间距。<p></p>
-<p>横条５只是想向大家展示，你可以根据需要，任意组合列与列，只是他们的组合数之和不要超过总列数。</p>
-<p></p><h3>3.栅格选项</h3><br>通过下面的截图可以比较清楚的来查看Bootstrap的栅格系统是如何在多种不同的移动设备上面进行工作的。<br><img src="/2018/03/02/shange/e.png"><br>从上面的截图可以看出来，Bootstrap针对不同尺寸的屏幕(包括手机、平版、PC等等)设置了不同样式类，这样让开发人员在开发时可以有更多的选择。根据我的理解：如果一个人在一个元素上使用多个不同的上面的样式类，那么元素会根据在不同尺寸选择最合适（匹配最理想的）的样式类。简单的举例进行说明：比如在一个元素上我们使用了两个样式类：.col-md和.col-lg。可以对照上面的截图来看<br><br>第一张情况:尺寸&gt;=1200px;那么会选择.col-lg。<br><br>第二种情况:尺寸&gt;=992px并且尺寸&lt;=1200px;那么会选择.col-md。<br><br>第三种情况:如果尺寸&lt;=992px;那么这两个样式类都将不会作用于元素上。<p></p>
-<p></p><h3>4.基本用法</h3><br>网格系统用来布局，其实就是列的组合。Bootstrap框架的网格系统中有四种基本的用法。由于Bootstrap框架在不同屏幕尺寸使用了不同的网格样式，在这一节中所涉及到的示例，我们都以中屏(970px)为例进行介绍，其他屏幕的使用也类似着一种。<br>我写了一个示范<br><img src="/2018/03/02/shange/f.png"><br>然后我们来看看在不同分辨率下的效果<br>pc端全屏效果<br><img src="/2018/03/02/shange/g.png"><br>然后我们把页面缩小试试.当页面缩小到一个值时，它的排版会发生变化<br><img src="/2018/03/02/shange/h.png"><br>接着我们来看看手机端的效果<br><img src="/2018/03/02/shange/i.png"><br>我们以iphone7为例，可以看到它并不会因为屏幕的缩小而导致排版很乱.<p></p>
+		<p>想理解Python的decorator首先要知道在Python中函数也是一个对象，所以你可以</p>
+<p>将函数复制给变量<br>将函数当做参数<br>返回一个函数<br>函数在Python中给变量的用法一样也是一等公民，也就是高阶函数(High Order Function)。所有的魔法都是由此而来。<br>1，起源<br>我们想在函数login中输出调试信息，我们可以这样做<br><img src="/2018/04/24/python-notes3/a.png"><br>这个方法讨厌的是每次调用login是，都通过printdebug来调用，但毕竟这是可行的。<br>2，让代码变得优美一点<br>既然函数可以作为返回值，可以赋值给变量，我们可以让代码优美一点。<br><img src="/2018/04/24/python-notes3/b.png"><br>这样我们每次只要调用debug_login就可以了，这个名字更符合直觉。我们将原先的两个函数printdebug和login绑定到一起，成为debug_login。这种耦合叫内聚:-)。<br>3，让代码再优美一点<br>printdebug和login是通过debug_login = printdebug(login)这一句来结合的，这一句似乎也是多余的，能不能在定义login是加个标注，从而将printdebug和login结合起来？<br>上面的代码从语句组织的角度来讲很难再优美了，Python的解决方案是提供一个语法糖(Syntax Sugar)，用一个@符号来结合它们。<br><img src="/2018/04/24/python-notes3/c.png"><br>可以看出decorator就是一个：使用函数作参数并且返回函数的函数。通过改进我们可以得到：<br>更简短的代码，将结合点放在函数定义时<br>不改变原函数的函数名<br>在Python解释器发现login调用时，他会将login转换为printdebug(login)()。也就是说真正执行的是<strong>decorator这个函数。<br>4，加上参数<br>1，login函数带参数<br>login函数可能有参数，比如login的时候传人user的信息。也就是说，我们要这样调用login：login(user)<br>Python会将login的参数直接传给</strong>decorator这个函数。我们可以直接在__decorator中使用user变量：<br><img src="/2018/04/24/python-notes3/d.png"><br>我们来解释一下login(‘jatsz’)的调用过程：</p>
+<p>[decorated] login(‘jatsz’)   =&gt;   printdebug(login)(‘jatsz’)  =&gt;  __decorator(‘jatsz’)  =&gt;  [real] login(‘jatsz’)<br>2，装饰器本身有参数</p>
+<p>我们在定义decorator时，也可以带入参数，比如我们这样使用decorator，我们传入一个参数来指定debug level。<br>@printdebug(level=5)<br>def login<br>    pass<br>为了给接收decorator传来的参数，我们在原本的decorator上在包装一个函数来接收参数：<br><img src="/2018/04/24/python-notes3/e.png"><br>我们再来解释一下login(‘jatsz’)整个调用过程：</p>
+<p>[decorated]login(‘jatsz’) =&gt; printdebug_level(5) =&gt; printdebug<a href="login">with closure value 5</a>(‘jatsz’) =&gt; <strong>decorator(‘jatsz’)[use value 5]  =&gt; [real]login(‘jatsz’)<br>5，装饰有返回值的函数<br>有时候login会有返回值，比如返回message来表明login是否成功。<br>login_result = login(‘jatsz’)<br>我们需要将返回值在decorator和调用函数间传递：<br><img src="/2018/04/24/python-notes3/f.png"><br>我们解释一下返回值的传递过程：<br>…omit for brief…[real][msg from login(‘jatsz’) =&gt; [result from]</strong>decorator =&gt; [assign to] result1<br>6，应用多个装饰器<br>我们可以对一个函数应用多个装饰器，这时我们需要留心的是应用装饰器的顺序对结果会产生。影响比如：<br><img src="/2018/04/24/python-notes3/g.png"><br>输出<br><img src="/2018/04/24/python-notes3/h.png"><br>我们看到两个装饰器都已经成功应用上去了，不过输出却不相同。造成这个输出不同的原因是我们应用装饰器的顺序不同。回头看看我们login的定义，我们是先应用others，然后才是printdebug。而logout函数真好相反，发生了什么？如果你仔细看logout函数的输出结果，可以看到装饰器的递归。从输出可以看出：logout函数先应用printdebug，打印出“enter the login”。printdebug的<strong>decorator调用中间应用了others的</strong>decorator，打印出“<strong><em>other decorator</em></strong>”。其实在逻辑上我们可以将logout函数应用装饰器的过程这样看（伪代码）：@printdebug    #switch decorator order<br>(<br>    @others<br>    (<br>        def logout():<br>            print(‘in logout:’)<br>    )<br>)<br>我们解释一下整个递归应用decorator的过程：</p>
+<p>[printdebug decorated]logout() =&gt;</p>
+<p>printdebug.__decorator[call [others decorated]logout() ] =&gt;</p>
+<p>printdebug.<strong>decorator.other.</strong>decorator[call real logout]</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -122,7 +124,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/front/">前端</a>
+  <a class="article-category-link" href="/categories/Python/">Python</a>
 </div>
 
 
@@ -132,7 +134,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/03/02/shange/" data-title="深入理解Bootstrap的栅格布局 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/04/24/python-notes3/" data-title="python3中的装饰器 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -145,19 +147,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/03/02/box/" title="深入理解css的盒子模型">
-  <strong>上一篇：</strong><br/>
-  <span>
-  深入理解css的盒子模型</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/03/01/bootstrap/"  title="响应式布局">
+<a href="/2018/04/23/python-notes2/"  title="python3中的map、reduce、filter函数">
  <strong>下一篇：</strong><br/> 
- <span>响应式布局
+ <span>python3中的map、reduce、filter函数
 </span>
 </a>
 </div>
@@ -174,7 +168,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1.栅格系统（布局）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.使用规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">3.栅格选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">4.基本用法</span></a></li></ol>
+ 
  
   </div>
 
