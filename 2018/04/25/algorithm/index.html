@@ -4,27 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>python3中的map、reduce、filter函数 | zzulixjh</title>
+    <title>桶排序、冒泡排序、快速排序 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="一:python3中的map()函数map()函数接收两个参数，第一个是function，第二个是list.map()是 Python 内置的高阶函数，它接收一个函数 f 和一个 list，并通过把函数 f 依次作用在 list 的每个元素上，得到一个新的 list 并返回。demo:给一个List中的每个数字+1;二:python3中的reduce()函数python3中，要使用reduce,得">
+    <meta name="description" content="一、桶排序(初级)举个例子，我们现在需要对五个0到10的数进行排序，我们可以申请一个大小为11的数组 int a[11],我们先将数组a[0]到a[10]全部初始化为0，如果第一个数是5，我们就将a[5]的值在原来的基础上增加一，表示5出现过了一次。第二个是3，我们就把相对应的a[3]的值在原来的基础上增加一，表示3出现过了一次。如果第三个又是5，我们需要将a[5]在原来的基础上再增加1，那么a[">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python3中的map、reduce、filter函数">
-<meta property="og:url" content="http://yoursite.com/2018/04/23/python-notes2/index.html">
+<meta property="og:title" content="桶排序、冒泡排序、快速排序">
+<meta property="og:url" content="http://yoursite.com/2018/04/25/algorithm/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="一:python3中的map()函数map()函数接收两个参数，第一个是function，第二个是list.map()是 Python 内置的高阶函数，它接收一个函数 f 和一个 list，并通过把函数 f 依次作用在 list 的每个元素上，得到一个新的 list 并返回。demo:给一个List中的每个数字+1;二:python3中的reduce()函数python3中，要使用reduce,得">
-<meta property="og:image" content="http://yoursite.com/2018/04/23/python-notes2/c.png">
-<meta property="og:image" content="http://yoursite.com/2018/04/23/python-notes2/d.png">
-<meta property="og:image" content="http://yoursite.com/2018/04/23/python-notes2/e.png">
-<meta property="og:updated_time" content="2018-04-24T07:19:25.152Z">
+<meta property="og:description" content="一、桶排序(初级)举个例子，我们现在需要对五个0到10的数进行排序，我们可以申请一个大小为11的数组 int a[11],我们先将数组a[0]到a[10]全部初始化为0，如果第一个数是5，我们就将a[5]的值在原来的基础上增加一，表示5出现过了一次。第二个是3，我们就把相对应的a[3]的值在原来的基础上增加一，表示3出现过了一次。如果第三个又是5，我们需要将a[5]在原来的基础上再增加1，那么a[">
+<meta property="og:image" content="http://yoursite.com/2018/04/25/algorithm/a.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/25/algorithm/b.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/25/algorithm/d.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/25/algorithm/e.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/25/algorithm/f.png">
+<meta property="og:updated_time" content="2018-04-25T14:55:45.051Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python3中的map、reduce、filter函数">
-<meta name="twitter:description" content="一:python3中的map()函数map()函数接收两个参数，第一个是function，第二个是list.map()是 Python 内置的高阶函数，它接收一个函数 f 和一个 list，并通过把函数 f 依次作用在 list 的每个元素上，得到一个新的 list 并返回。demo:给一个List中的每个数字+1;二:python3中的reduce()函数python3中，要使用reduce,得">
-<meta name="twitter:image" content="http://yoursite.com/2018/04/23/python-notes2/c.png">
+<meta name="twitter:title" content="桶排序、冒泡排序、快速排序">
+<meta name="twitter:description" content="一、桶排序(初级)举个例子，我们现在需要对五个0到10的数进行排序，我们可以申请一个大小为11的数组 int a[11],我们先将数组a[0]到a[10]全部初始化为0，如果第一个数是5，我们就将a[5]的值在原来的基础上增加一，表示5出现过了一次。第二个是3，我们就把相对应的a[3]的值在原来的基础上增加一，表示3出现过了一次。如果第三个又是5，我们需要将a[5]在原来的基础上再增加1，那么a[">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/25/algorithm/a.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -84,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/04/23/python-notes2/" title="python3中的map、reduce、filter函数" itemprop="url">python3中的map、reduce、filter函数</a>
+      <a href="/2018/04/25/algorithm/" title="桶排序、冒泡排序、快速排序" itemprop="url">桶排序、冒泡排序、快速排序</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-04-23T04:22:03.000Z" itemprop="datePublished"> 發表於 2018-04-23</time>
+    <time datetime="2018-04-25T12:47:33.000Z" itemprop="datePublished"> 發表於 2018-04-25</time>
     
   </p>
 </header>
@@ -104,7 +106,39 @@
 		
 		</div>
 		
-		<p>一:python3中的map()函数<br>map()函数接收两个参数，第一个是function，第二个是list.map()是 Python 内置的高阶函数，它接收一个函数 f 和一个 list，并通过把函数 f 依次作用在 list 的每个元素上，得到一个新的 list 并返回。<br>demo:给一个List中的每个数字+1;<br><img src="/2018/04/23/python-notes2/c.png"><br><br>二:python3中的reduce()函数<br>python3中，要使用reduce,得从functools中引入,在文件开头加上<br>from functools import reduce<br>reduce()函数也是Python内置的一个高阶函数。reduce()函数接收的参数和 map()类似，一个函数 f，一个list，但行为和 map()不同，reduce()传入的函数 f 必须接收两个参数，reduce()对list的每个元素反复调用函数f，并返回最终结果值。demo:<br><img src="/2018/04/23/python-notes2/d.png"><br>输出3360<br>三、python3中的filter()函数<br>filter()函数是 Python 内置的另一个有用的高阶函数，filter()函数接收一个函数 f 和一个list，这个函数 f 的作用是对每个元素进行判断，返回 True或 False，filter()根据判断结果自动过滤掉不符合条件的元素，返回由符合条件元素组成的新list。demo:返回1-100中所有平方根是整数的数<br><img src="/2018/04/23/python-notes2/e.png"></p>
+		<p>一、桶排序(初级)<br>举个例子，我们现在需要对五个0到10的数进行排序，我们可以申请一个大小为11的数组 int a[11],我们先将数组a[0]到a[10]全部初始化为0，如果第一个数是5，我们就将a[5]的值在原来的基础上增加一，表示5出现过了一次。第二个是3，我们就把相对应的a[3]的值在原来的基础上增加一，表示3出现过了一次。如果第三个又是5，我们需要将a[5]在原来的基础上再增加1，那么a[5]就变为了2.比如我们输入的是5 3 5 2 8<br><img src="/2018/04/25/algorithm/a.png"><br>完整代码如下<br><img src="/2018/04/25/algorithm/b.png"><br>这个算法好比就有11个桶，编号从0-10.每出现一个数，就在对应编号中放一个小旗子，最后只要数数每个桶中有几个小旗子就OK了。<br><img src="/2018/04/25/algorithm/d.png"><br>二、冒泡排序<br>冒泡排序的基本思想是:每次比较两个相邻的元素，如果他们的顺序错误就把他们交换过来。<br>例如我们需要将12 35 99 18 76这五个数进行从大到小的排序。我们将第一个数12不断得与它右边的数进行比较，经过四次后，它就出现在了它应该出现的地方<br><img src="/2018/04/25/algorithm/e.png"><br>这样我们的排序就已经将五个数中最小的一个归位了，我们重复刚才的过程，将剩下的四个数归位。<br>源代码:<br><img src="/2018/04/25/algorithm/f.png"><br>三、快速排序<br>快速排序是基于一种叫做”二分”的思想。demo:1-10的数排序<br>代码:#include <stdio.h><br>int a[101],n;//定义全局变量，这两个变量需要在子函数中使用<br>void quicksort(int left,int right)<br>{<br>    int i,j,t,temp;<br>    if(left&gt;right)<br>       return;</stdio.h></p>
+<pre><code>temp=a[left]; //temp中存的就是基准数
+i=left;
+j=right;
+while(i!=j)
+{
+               //顺序很重要，要先从右边开始找
+               while(a[j]&gt;=temp &amp;&amp; i&lt;j)
+                        j--;
+               //再找右边的
+               while(a[i]&lt;=temp &amp;&amp; i&lt;j)
+                        i++;
+               //交换两个数在数组中的位置
+               if(i&lt;j)
+               {
+                        t=a[i];
+                        a[i]=a[j];
+                        a[j]=t;
+               }
+}
+//最终将基准数归位
+a[left]=a[i];
+a[i]=temp;
+
+quicksort(left,i-1);//继续处理左边的，这里是一个递归的过程
+quicksort(i+1,right);//继续处理右边的 ，这里是一个递归的过程
+</code></pre><p>}<br>int main()<br>{<br>    int i,j,t;<br>    //读入数据<br>    scanf(“%d”,&amp;n);<br>    for(i=1;i&lt;=n;i++)<br>                   scanf(“%d”,&amp;a[i]);<br>    quicksort(1,n); //快速排序调用</p>
+<pre><code>//输出排序后的结果
+for(i=1;i&lt;=n;i++)
+    printf(&quot;%d &quot;,a[i]);
+getchar();getchar();
+return 0;
+</code></pre><p>}</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -112,7 +146,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Python/">Python</a>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
 </div>
 
 
@@ -122,7 +156,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/04/23/python-notes2/" data-title="python3中的map、reduce、filter函数 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/04/25/algorithm/" data-title="桶排序、冒泡排序、快速排序 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -135,19 +169,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/04/24/python-notes3/" title="python3中的装饰器">
-  <strong>上一篇：</strong><br/>
-  <span>
-  python3中的装饰器</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/04/23/python-notes1/"  title="python函数式编程">
+<a href="/2018/04/25/ml-notes1/"  title="监督学习与无监督学习">
  <strong>下一篇：</strong><br/> 
- <span>python函数式编程
+ <span>监督学习与无监督学习
 </span>
 </a>
 </div>
