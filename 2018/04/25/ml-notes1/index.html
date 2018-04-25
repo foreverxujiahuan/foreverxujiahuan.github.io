@@ -4,30 +4,30 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>lanmp | zzulixjh</title>
+    <title>监督学习与无监督学习 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="lanmp是php开发者经常使用的一个环境。LANMP是指由Linux(CentOs),Nignx,Apache,Mysql,PHP组成的一套生产环境安装包。下面我来说一下Lanmp的配置方法。首先我们要有一个linux主机，如果是云服务器的话，我们可以用一款名为Xshell5的软件来远程连接服务器。如果连接遇到问题的话自行百度。进去后我们输入命令wget http://dl.wdlinux.cn">
+    <meta name="description" content="监督学习(Supervised Learning)在监督学习中，给定一组数据，我们知道正确的输出结果应该是什么样子，并且知道在输入和输出之间有着一个特定的关系。这么说可能理解起来不是很清晰，没关系，后面有具体的例子。 监督学习的分类监督学习可分为“回归”和“分类”问题。在回归问题中，我们会预测一个连续值。也就是说我们试图将输入变量和输出用一个连续函数对应起来；而在分类问题中，我们会预测一个离散值，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lanmp">
-<meta property="og:url" content="http://yoursite.com/2018/02/16/lanmp/index.html">
+<meta property="og:title" content="监督学习与无监督学习">
+<meta property="og:url" content="http://yoursite.com/2018/04/25/ml-notes1/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="lanmp是php开发者经常使用的一个环境。LANMP是指由Linux(CentOs),Nignx,Apache,Mysql,PHP组成的一套生产环境安装包。下面我来说一下Lanmp的配置方法。首先我们要有一个linux主机，如果是云服务器的话，我们可以用一款名为Xshell5的软件来远程连接服务器。如果连接遇到问题的话自行百度。进去后我们输入命令wget http://dl.wdlinux.cn">
-<meta property="og:image" content="http://yoursite.com/2018/02/16/lanmp/step1.png">
-<meta property="og:image" content="http://yoursite.com/2018/02/16/lanmp/step2.png">
-<meta property="og:image" content="http://yoursite.com/2018/02/16/lanmp/step3.png">
-<meta property="og:image" content="http://yoursite.com/2018/02/16/lanmp/step4.png">
-<meta property="og:image" content="http://yoursite.com/2018/02/16/lanmp/step5.png">
-<meta property="og:image" content="http://yoursite.com/2018/02/16/lanmp/step6.png">
-<meta property="og:updated_time" content="2018-02-17T13:39:59.473Z">
+<meta property="og:description" content="监督学习(Supervised Learning)在监督学习中，给定一组数据，我们知道正确的输出结果应该是什么样子，并且知道在输入和输出之间有着一个特定的关系。这么说可能理解起来不是很清晰，没关系，后面有具体的例子。 监督学习的分类监督学习可分为“回归”和“分类”问题。在回归问题中，我们会预测一个连续值。也就是说我们试图将输入变量和输出用一个连续函数对应起来；而在分类问题中，我们会预测一个离散值，">
+<meta property="og:image" content="http://yoursite.com/2018/04/25/ml-notes1/a.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/25/ml-notes1/b.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/25/ml-notes1/c.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/25/ml-notes1/d.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/25/ml-notes1/e.png">
+<meta property="og:image" content="http://yoursite.com/2018/04/25/ml-notes1/f.png">
+<meta property="og:updated_time" content="2018-04-25T12:22:52.099Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lanmp">
-<meta name="twitter:description" content="lanmp是php开发者经常使用的一个环境。LANMP是指由Linux(CentOs),Nignx,Apache,Mysql,PHP组成的一套生产环境安装包。下面我来说一下Lanmp的配置方法。首先我们要有一个linux主机，如果是云服务器的话，我们可以用一款名为Xshell5的软件来远程连接服务器。如果连接遇到问题的话自行百度。进去后我们输入命令wget http://dl.wdlinux.cn">
-<meta name="twitter:image" content="http://yoursite.com/2018/02/16/lanmp/step1.png">
+<meta name="twitter:title" content="监督学习与无监督学习">
+<meta name="twitter:description" content="监督学习(Supervised Learning)在监督学习中，给定一组数据，我们知道正确的输出结果应该是什么样子，并且知道在输入和输出之间有着一个特定的关系。这么说可能理解起来不是很清晰，没关系，后面有具体的例子。 监督学习的分类监督学习可分为“回归”和“分类”问题。在回归问题中，我们会预测一个连续值。也就是说我们试图将输入变量和输出用一个连续函数对应起来；而在分类问题中，我们会预测一个离散值，">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/25/ml-notes1/a.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -87,14 +87,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/02/16/lanmp/" title="lanmp" itemprop="url">lanmp</a>
+      <a href="/2018/04/25/ml-notes1/" title="监督学习与无监督学习" itemprop="url">监督学习与无监督学习</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-02-16T12:54:48.000Z" itemprop="datePublished"> Published 2018-02-16</time>
+    <time datetime="2018-04-25T11:14:54.000Z" itemprop="datePublished"> Published 2018-04-25</time>
     
   </p>
 </header>
@@ -107,7 +107,13 @@
 		
 		</div>
 		
-		<p>lanmp是php开发者经常使用的一个环境。LANMP是指由Linux(CentOs),Nignx,Apache,Mysql,PHP组成的一套生产环境安装包。下面我来说一下Lanmp的配置方法。首先我们要有一个linux主机，如果是云服务器的话，我们可以用一款名为Xshell5的软件来远程连接服务器。<br><img src="/2018/02/16/lanmp/step1.png"><br>如果连接遇到问题的话自行百度。进去后我们输入命令wget <a href="http://dl.wdlinux.cn/lanmp_laster.tar.gz" target="_blank" rel="noopener">http://dl.wdlinux.cn/lanmp_laster.tar.gz</a><br>看到如下字样后说明成功了<br><img src="/2018/02/16/lanmp/step2.png"><br>接着输入命令tar zxvf lanmp_laster.tar.gz<br><img src="/2018/02/16/lanmp/step3.png"><br>然后输入命令sh lanmp.sh<br><img src="/2018/02/16/lanmp/step4.png"><br>这里他会问你需要配置什么环境(其实连我自己也不知道我要配置什么环境)所以我们就选择4，install全部，这个过程可能有点慢，大概40分钟左右。<br>看到如下图后就说明搭建成功了<br><img src="/2018/02/16/lanmp/step5.png"><br>接着我们可以在浏览器中输入自己云服务器的ip，如果安全组配置没有问题的话那么我们可以看到lanmp的欢迎页面<br><img src="/2018/02/16/lanmp/step6.png"></p>
+		<p>监督学习(Supervised Learning)<br>在监督学习中，给定一组数据，我们知道正确的输出结果应该是什么样子，并且知道在输入和输出之间有着一个特定的关系。这么说可能理解起来不是很清晰，没关系，后面有具体的例子。</p>
+<p>监督学习的分类<br>监督学习可分为“回归”和“分类”问题。<br><img src="/2018/04/25/ml-notes1/a.png"><br>在回归问题中，我们会预测一个连续值。也就是说我们试图将输入变量和输出用一个连续函数对应起来；而在分类问题中，我们会预测一个离散值，我们试图将输入变量与离散的类别对应起来。</p>
+<p>下面举两个例子，就会非常清楚这几个概念了。</p>
+<p>监督学习举例<br>回归<br>通过房地产市场的数据，预测一个给定面积的房屋的价格就是一个回归问题。这里我们可以把价格看成是面积的函数，它是一个连续的输出值。 但是，当把上面的问题改为“预测一个给定面积的房屋的价格是否比一个特定的价格高或者低”的时候，这就变成了一个分类问题, 因为此时的输出是‘高’或者‘低’两个离散的值。</p>
+<p><img src="/2018/04/25/ml-notes1/b.png"><br>分类<br>给定医学数据，通过肿瘤的大小来预测该肿瘤是恶性瘤还是良性瘤(课程中给的是乳腺癌的例子)，这就是一个分类问题，它的输出是0或者1两个离散的值。(0代表良性，1代表恶性)。</p>
+<p>分类问题的输出可以多于两个，比如在该例子中可以有{0,1,2,3}四种输出，分别对应{良性, 第一类肿瘤, 第二类肿瘤, 第三类肿瘤}。</p>
+<p>下图中上下两个图只是两种画法。第一个是有两个轴，Y轴表示是否是恶性瘤，X轴表示瘤的大小; 第二个是只用一个轴，但是用了不同的标记，用O表示良性瘤，X表示恶性瘤。<br><img src="/2018/04/25/ml-notes1/c.png"><br>在这个例子中特征只有一个，那就是瘤的大小。 有时候也有两个或者多个特征, 例如下图， 有“年龄”和“肿瘤大小”两个特征。(还可以有其他许多特征，如下图右侧所示)<br><img src="/2018/04/25/ml-notes1/d.png"><br>无监督学习<br>在无监督学习中，我们基本上不知道结果会是什么样子，但我们可以通过聚类的方式从数据中提取一个特殊的结构。在无监督学习中给定的数据是和监督学习中给定的数据是不一样的。在无监督学习中给定的数据没有任何标签或者说只有同一种标签。如下图所示：<br><img src="/2018/04/25/ml-notes1/e.png"><br>如下图所示，在无监督学习中，我们只是给定了一组数据，我们的目标是发现这组数据中的特殊结构。例如我们使用无监督学习算法会将这组数据分成两个不同的簇,，这样的算法就叫聚类算法<br><img src="/2018/04/25/ml-notes1/f.png"><br>无监督学习举例<br>新闻分类<br>第一个例子举的是Google News的例子。Google News搜集网上的新闻，并且根据新闻的主题将新闻分成许多簇, 然后将在同一个簇的新闻放在一起。如图中红圈部分都是关于BP Oil Well各种新闻的链接，当打开各个新闻链接的时候，展现的都是关于BP Oil Well的新闻。<br>根据给定基因将人群分类<br>如图是DNA数据，对于一组不同的人我们测量他们DNA中对于一个特定基因的表达程度。然后根据测量结果可以用聚类算法将他们分成不同的类型。这就是一种无监督学习, 因为我们只是给定了一些数据，而并不知道哪些是第一种类型的人，哪些是第二种类型的人等等。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -115,7 +121,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/PHP/">PHP</a>
+  <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
 </div>
 
 
@@ -125,7 +131,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/02/16/lanmp/" data-title="lanmp | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/04/25/ml-notes1/" data-title="监督学习与无监督学习 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -138,19 +144,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/02/16/wdcp/" title="wdcp">
-  <strong>上一篇：</strong><br/>
-  <span>
-  wdcp</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/02/16/github/"  title="github">
+<a href="/2018/04/24/python-notes6/"  title="python3中类的继承">
  <strong>下一篇：</strong><br/> 
- <span>github
+ <span>python3中类的继承
 </span>
 </a>
 </div>
