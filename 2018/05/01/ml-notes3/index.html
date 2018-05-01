@@ -4,26 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>npm install 失败问题 | zzulixjh</title>
+    <title>机器学习中的目标函数、损失函数、代价函数 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="npm是一款很好的包管理工具，但是有时候用它来Install一些东西会莫名奇妙的报错，如果确定命令没有敲错的话，那么八成就是权限问题。如果是windows10的话，可以以管理员身份打开powershell工具然后在里面输入命令即可">
+    <meta name="description" content="首先给出结论：损失函数和代价函数是同一个东西，目标函数是一个与他们相关但更广的概念，对于目标函数来说在有约束条件下的最小化就是损失函数（loss function）。上面三个图的函数依次为 f{1}(x) , f{2}(x) , f_{3}(x) 。我们是想用这三个函数分别来拟合Price，Price的真实值记为 Y 。我们给定  ，这三个函数都会输出一个  ,这个输出的  与真实值  可能是相同">
 <meta property="og:type" content="article">
-<meta property="og:title" content="npm install 失败问题">
-<meta property="og:url" content="http://yoursite.com/2018/02/15/npm/index.html">
+<meta property="og:title" content="机器学习中的目标函数、损失函数、代价函数">
+<meta property="og:url" content="http://yoursite.com/2018/05/01/ml-notes3/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="npm是一款很好的包管理工具，但是有时候用它来Install一些东西会莫名奇妙的报错，如果确定命令没有敲错的话，那么八成就是权限问题。如果是windows10的话，可以以管理员身份打开powershell工具然后在里面输入命令即可">
-<meta property="og:image" content="http://yoursite.com/2018/02/15/npm/p.png">
-<meta property="og:image" content="http://yoursite.com/2018/02/15/npm/s.png">
-<meta property="og:updated_time" content="2018-02-15T10:16:54.588Z">
+<meta property="og:description" content="首先给出结论：损失函数和代价函数是同一个东西，目标函数是一个与他们相关但更广的概念，对于目标函数来说在有约束条件下的最小化就是损失函数（loss function）。上面三个图的函数依次为 f{1}(x) , f{2}(x) , f_{3}(x) 。我们是想用这三个函数分别来拟合Price，Price的真实值记为 Y 。我们给定  ，这三个函数都会输出一个  ,这个输出的  与真实值  可能是相同">
+<meta property="og:image" content="http://yoursite.com/2018/05/01/ml-notes3/a.png">
+<meta property="og:updated_time" content="2018-05-01T04:59:10.402Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="npm install 失败问题">
-<meta name="twitter:description" content="npm是一款很好的包管理工具，但是有时候用它来Install一些东西会莫名奇妙的报错，如果确定命令没有敲错的话，那么八成就是权限问题。如果是windows10的话，可以以管理员身份打开powershell工具然后在里面输入命令即可">
-<meta name="twitter:image" content="http://yoursite.com/2018/02/15/npm/p.png">
+<meta name="twitter:title" content="机器学习中的目标函数、损失函数、代价函数">
+<meta name="twitter:description" content="首先给出结论：损失函数和代价函数是同一个东西，目标函数是一个与他们相关但更广的概念，对于目标函数来说在有约束条件下的最小化就是损失函数（loss function）。上面三个图的函数依次为 f{1}(x) , f{2}(x) , f_{3}(x) 。我们是想用这三个函数分别来拟合Price，Price的真实值记为 Y 。我们给定  ，这三个函数都会输出一个  ,这个输出的  与真实值  可能是相同">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/01/ml-notes3/a.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -83,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/02/15/npm/" title="npm install 失败问题" itemprop="url">npm install 失败问题</a>
+      <a href="/2018/05/01/ml-notes3/" title="机器学习中的目标函数、损失函数、代价函数" itemprop="url">机器学习中的目标函数、损失函数、代价函数</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-02-15T10:03:04.000Z" itemprop="datePublished"> 发表于 2018-02-15</time>
+    <time datetime="2018-05-01T04:57:19.000Z" itemprop="datePublished"> 发表于 2018-05-01</time>
     
   </p>
 </header>
@@ -103,7 +102,7 @@
 		
 		</div>
 		
-		<p>npm是一款很好的包管理工具，但是有时候用它来Install一些东西会莫名奇妙的报错，如果确定命令没有敲错的话，那么八成就是权限问题。如果是windows10的话，可以以管理员身份打开powershell工具<br><img src="/2018/02/15/npm/p.png"><br>然后在里面输入命令即可<br><img src="/2018/02/15/npm/s.png"></p>
+		<p>首先给出结论：损失函数和代价函数是同一个东西，目标函数是一个与他们相关但更广的概念，对于目标函数来说在有约束条件下的最小化就是损失函数（loss function）。<br><img src="/2018/05/01/ml-notes3/a.png"><br>上面三个图的函数依次为 f<em>{1}(x) , f</em>{2}(x) , f_{3}(x) 。我们是想用这三个函数分别来拟合Price，Price的真实值记为 Y 。<br>我们给定  ，这三个函数都会输出一个  ,这个输出的  与真实值  可能是相同的，也可能是不同的，为了表示我们拟合的好坏，我们就用一个函数来度量拟合的程度，比如： ，这个函数就称为损失函数(loss function)，或者叫代价函数(cost function)。损失函数越小，就代表模型拟合的越好。<br>那是不是我们的目标就只是让loss function越小越好呢？还不是。这个时候还有一个概念叫风险函数(risk function)。风险函数是损失函数的期望，这是由于我们输入输出的  遵循一个联合分布，但是这个联合分布是未知的，所以无法计算。但是我们是有历史数据的，就是我们的训练集，  关于训练集的平均损失称作经验风险(empirical risk)，即  ，所以我们的目标就是最小化  ，称为经验风险最小化。到这里完了吗？还没有。如果到这一步就完了的话，那我们看上面的图，那肯定是最右面的  的经验风险函数最小了，因为它对历史的数据拟合的最好嘛。但是我们从图上来看 肯定不是最好的，因为它过度学习历史数据，导致它在真正预测时效果会很不好，这种情况称为过拟合(over-fitting)。为什么会造成这种结果？大白话说就是它的函数太复杂了，都有四次方了，这就引出了下面的概念，我们不仅要让经验风险最小化，还要让结构风险最小化。这个时候就定义了一个函数  ，这个函数专门用来度量模型的复杂度，在机器学习中也叫正则化(regularization)。常用的有  ,  范数。到这一步我们就可以说我们最终的优化函数是： ，即最优化经验风险和结构风险，而这个函数就被称为目标函数。结合上面的例子来分析：最左面的  结构风险最小（模型结构最简单），但是经验风险最大（对历史数据拟合的最差）；最右面的  经验风险最小（对历史数据拟合的最好），但是结构风险最大（模型结构最复杂）;而  达到了二者的良好平衡，最适合用来预测未知数据集。以上的理解基于Coursera上Andrew Ng的公开课和李航的《统计学习方法》,如有理解错误，欢迎大家指正。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -111,7 +110,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/git/">git</a>
+  <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
 </div>
 
 
@@ -121,7 +120,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/02/15/npm/" data-title="npm install 失败问题 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/05/01/ml-notes3/" data-title="机器学习中的目标函数、损失函数、代价函数 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -134,19 +133,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/02/15/php/" title="php命令环境的配置">
-  <strong>上一篇：</strong><br/>
-  <span>
-  php命令环境的配置</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/02/15/wifi/"  title="wifi自动断开问题">
+<a href="/2018/04/29/algorithm-1/"  title="栈、队列、链表">
  <strong>下一篇：</strong><br/> 
- <span>wifi自动断开问题
+ <span>栈、队列、链表
 </span>
 </a>
 </div>
