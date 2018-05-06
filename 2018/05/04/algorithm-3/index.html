@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>最短路径 | zzulixjh</title>
+    <title>最短路径--Floyd-Warshall算法 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
@@ -13,7 +13,7 @@
     
     <meta name="description" content="一、只有五行的算法–Floyd-Warshall假设有人要去一些城市旅游。有些城市之间有公路，有些城市之间则没有，现在希望在出发之前知道两个城市之间的最短路径。上图中有4个城市8条公路，公路上的数字表示这条公路的长短。请注意这些公路是单向的。我们现在需要求任意两个城市之间的最短路程，也就是求任意两个点之间的最短路径。这个问题也被称为”多源最短路径”问题。现在需要一个数据结构来存储图的信息，我们仍然">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最短路径">
+<meta property="og:title" content="最短路径--Floyd-Warshall算法">
 <meta property="og:url" content="http://yoursite.com/2018/05/04/algorithm-3/index.html">
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="一、只有五行的算法–Floyd-Warshall假设有人要去一些城市旅游。有些城市之间有公路，有些城市之间则没有，现在希望在出发之前知道两个城市之间的最短路径。上图中有4个城市8条公路，公路上的数字表示这条公路的长短。请注意这些公路是单向的。我们现在需要求任意两个城市之间的最短路程，也就是求任意两个点之间的最短路径。这个问题也被称为”多源最短路径”问题。现在需要一个数据结构来存储图的信息，我们仍然">
@@ -26,9 +26,9 @@
 <meta property="og:image" content="http://yoursite.com/2018/05/04/algorithm-3/g.png">
 <meta property="og:image" content="http://yoursite.com/2018/05/04/algorithm-3/h.png">
 <meta property="og:image" content="http://yoursite.com/2018/05/04/algorithm-3/i.png">
-<meta property="og:updated_time" content="2018-05-04T14:28:09.291Z">
+<meta property="og:updated_time" content="2018-05-05T03:22:07.930Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最短路径">
+<meta name="twitter:title" content="最短路径--Floyd-Warshall算法">
 <meta name="twitter:description" content="一、只有五行的算法–Floyd-Warshall假设有人要去一些城市旅游。有些城市之间有公路，有些城市之间则没有，现在希望在出发之前知道两个城市之间的最短路径。上图中有4个城市8条公路，公路上的数字表示这条公路的长短。请注意这些公路是单向的。我们现在需要求任意两个城市之间的最短路程，也就是求任意两个点之间的最短路径。这个问题也被称为”多源最短路径”问题。现在需要一个数据结构来存储图的信息，我们仍然">
 <meta name="twitter:image" content="http://yoursite.com/2018/05/04/algorithm-3/a.png">
 
@@ -58,7 +58,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -74,7 +74,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -90,21 +90,21 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/05/04/algorithm-3/" title="最短路径" itemprop="url">最短路径</a>
+      <a href="/2018/05/04/algorithm-3/" title="最短路径--Floyd-Warshall算法" itemprop="url">最短路径--Floyd-Warshall算法</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-05-04T11:48:02.000Z" itemprop="datePublished"> Published 2018-05-04</time>
+    <time datetime="2018-05-04T11:48:02.000Z" itemprop="datePublished"> 发表于 2018-05-04</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			
 		
@@ -129,7 +129,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/05/04/algorithm-3/" data-title="最短路径 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/05/04/algorithm-3/" data-title="最短路径--Floyd-Warshall算法 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -166,22 +166,22 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -190,7 +190,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -218,7 +218,7 @@
 		  
 		
 		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>4</sup></a></li>
+			<li><a href="/categories/算法/" title="算法">算法<sup>6</sup></a></li>
 		  
 		
 		  
@@ -232,7 +232,7 @@
   
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -254,11 +254,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -489,7 +489,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
