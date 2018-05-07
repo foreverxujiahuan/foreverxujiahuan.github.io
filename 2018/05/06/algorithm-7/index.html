@@ -4,33 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>最短路径--Floyd-Warshall算法 | zzulixjh</title>
+    <title>树 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="一、只有五行的算法–Floyd-Warshall假设有人要去一些城市旅游。有些城市之间有公路，有些城市之间则没有，现在希望在出发之前知道两个城市之间的最短路径。上图中有4个城市8条公路，公路上的数字表示这条公路的长短。请注意这些公路是单向的。我们现在需要求任意两个城市之间的最短路程，也就是求任意两个点之间的最短路径。这个问题也被称为”多源最短路径”问题。现在需要一个数据结构来存储图的信息，我们仍然">
+    <meta name="description" content="一、树和图的区别上图中左边的是一颗树，而右边的是一个图。因为左边的没有回路，而右边的存在1-&amp;gt;2-&amp;gt;5-&amp;gt;3-&amp;gt;1这样的回路。二、树的特性因为树有着”不包含回路”这个特点，所以树就被赋予了很多特性。1.一颗树中的任意两个结点有且仅有唯一的一条路径联通。2.一颗树如果有n个结点，那么它一定恰好有n-1条边。3.在一颗树中加一条边将会构成一个回路。三、二叉树二叉树是一种特殊的树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最短路径--Floyd-Warshall算法">
-<meta property="og:url" content="http://yoursite.com/2018/05/04/algorithm-3/index.html">
+<meta property="og:title" content="树">
+<meta property="og:url" content="http://yoursite.com/2018/05/06/algorithm-7/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="一、只有五行的算法–Floyd-Warshall假设有人要去一些城市旅游。有些城市之间有公路，有些城市之间则没有，现在希望在出发之前知道两个城市之间的最短路径。上图中有4个城市8条公路，公路上的数字表示这条公路的长短。请注意这些公路是单向的。我们现在需要求任意两个城市之间的最短路程，也就是求任意两个点之间的最短路径。这个问题也被称为”多源最短路径”问题。现在需要一个数据结构来存储图的信息，我们仍然">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/algorithm-3/a.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/algorithm-3/b.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/algorithm-3/c.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/algorithm-3/d.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/algorithm-3/e.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/algorithm-3/f.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/algorithm-3/g.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/algorithm-3/h.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/algorithm-3/i.png">
-<meta property="og:updated_time" content="2018-05-05T03:22:07.930Z">
+<meta property="og:description" content="一、树和图的区别上图中左边的是一颗树，而右边的是一个图。因为左边的没有回路，而右边的存在1-&amp;gt;2-&amp;gt;5-&amp;gt;3-&amp;gt;1这样的回路。二、树的特性因为树有着”不包含回路”这个特点，所以树就被赋予了很多特性。1.一颗树中的任意两个结点有且仅有唯一的一条路径联通。2.一颗树如果有n个结点，那么它一定恰好有n-1条边。3.在一颗树中加一条边将会构成一个回路。三、二叉树二叉树是一种特殊的树">
+<meta property="og:image" content="http://yoursite.com/2018/05/06/algorithm-7/a.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/06/algorithm-7/b.png">
+<meta property="og:updated_time" content="2018-05-06T13:07:25.438Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最短路径--Floyd-Warshall算法">
-<meta name="twitter:description" content="一、只有五行的算法–Floyd-Warshall假设有人要去一些城市旅游。有些城市之间有公路，有些城市之间则没有，现在希望在出发之前知道两个城市之间的最短路径。上图中有4个城市8条公路，公路上的数字表示这条公路的长短。请注意这些公路是单向的。我们现在需要求任意两个城市之间的最短路程，也就是求任意两个点之间的最短路径。这个问题也被称为”多源最短路径”问题。现在需要一个数据结构来存储图的信息，我们仍然">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/04/algorithm-3/a.png">
+<meta name="twitter:title" content="树">
+<meta name="twitter:description" content="一、树和图的区别上图中左边的是一颗树，而右边的是一个图。因为左边的没有回路，而右边的存在1-&amp;gt;2-&amp;gt;5-&amp;gt;3-&amp;gt;1这样的回路。二、树的特性因为树有着”不包含回路”这个特点，所以树就被赋予了很多特性。1.一颗树中的任意两个结点有且仅有唯一的一条路径联通。2.一颗树如果有n个结点，那么它一定恰好有n-1条边。3.在一颗树中加一条边将会构成一个回路。三、二叉树二叉树是一种特殊的树">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/06/algorithm-7/a.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -90,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/05/04/algorithm-3/" title="最短路径--Floyd-Warshall算法" itemprop="url">最短路径--Floyd-Warshall算法</a>
+      <a href="/2018/05/06/algorithm-7/" title="树" itemprop="url">树</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-05-04T11:48:02.000Z" itemprop="datePublished"> 发表于 2018-05-04</time>
+    <time datetime="2018-05-06T12:40:35.000Z" itemprop="datePublished"> 发表于 2018-05-06</time>
     
   </p>
 </header>
@@ -110,8 +103,7 @@
 		
 		</div>
 		
-		<p>一、只有五行的算法–Floyd-Warshall<br>假设有人要去一些城市旅游。有些城市之间有公路，有些城市之间则没有，现在希望在出发之前知道两个城市之间的最短路径。<br><img src="/2018/05/04/algorithm-3/a.png"><br>上图中有4个城市8条公路，公路上的数字表示这条公路的长短。请注意这些公路是单向的。我们现在需要求任意两个城市之间的最短路程，也就是求任意两个点之间的最短路径。这个问题也被称为”多源最短路径”问题。<br>现在需要一个数据结构来存储图的信息，我们仍然可以用一个4<em>4的矩阵(二维数组e)来存储。比如1号城市到2号城市的路程为2，则设e[1][2]的值为2。2号城市无法到达4号城市，则设置e[2][4]的值为∞。另外此处约定一个城市自己到自己的路程也算0，例如e[1][1]为0，具体如下。<br><img src="/2018/05/04/algorithm-3/b.png"><br>我们已经知道通过深度或广度优先搜索可以求出两点之间的最短路径。所以进行n</em>n遍深度或广度优先搜索，即对每两个点都进行一次深度或广度优先搜索，便可以求得任意两点之间的最短路径。可是还有没有别的方法呢？<br> 我们可以想一下，如果要缩短两个城市之间的距离，a-&gt;b，如果没有第三个点k使得可以a-&gt;k-&gt;b的话，那么a-&gt;b之间的距离就是最短距离，如果能缩短距离那么必须得借助第三个甚至第四个点k1,k2来使得距离缩短。<br>假如现在只允许经过1号顶点，求任意两点之间的最短路程，该如何求呢？只需判断e[i][1]+e[1][j]是否比e[i][j]小即可。e[i][j]表示的是从i号顶点之间的路程。e[i][1]+e[1][j]表示的是从i号顶点优先到1号顶点，再从1号顶点到j号顶点的路程之和。其中i是1-n循环，j也算1-n循环，代码实现如下<br><img src="/2018/05/04/algorithm-3/c.png"><br>在只允许进过1号顶点的情况下，任意两点之间的最短路程更新为：<br><img src="/2018/05/04/algorithm-3/d.png"><br>通过上图我们发现:在只通过1号顶点中转的情况下，3号顶点到2号顶点(e[3][2]）、4号顶点到2号顶点(3[4][2]）以及4号顶点到3号顶点(e[4][3])的路程都变短了。<br> 接下来继续求在只允许经过1号和2号两个顶点的情况下任意两点之间的最短路程。如何做的？我们只需要在只允许经过1号顶点时任意两点的最短路程的结果下，再判断如果经过2号顶点是否可以是得i号顶点到j号顶点之间的路程变得更短，即判断e[i][2]+e[2][j]是否比e[i][j]要小，代码实现为如下。<br><img src="/2018/05/04/algorithm-3/e.png"><br>再只允许经过1号和2号顶点的情况下，任意两点之间的最短路程更新为:<br><img src="/2018/05/04/algorithm-3/f.png"><br>通过上图得知，在相比只允许通过1号顶点进行中转的情况下，这里允许通过1号和2号顶点进行中转，使得e[1][3]和e[4][3]的路程变得更短了。<br>  同理，继续在只允许通过1、2、3号顶点进行中转的情况下，求任意两点之间的最短路程。任意两点之间的最短路程更新为:<br><img src="/2018/05/04/algorithm-3/g.png"><br>最后允许通过所有顶点作为中转，任意两点之间的最终的最短路程为:<br><img src="/2018/05/04/algorithm-3/h.png"><br>整个算法过程虽然说看起来很麻烦，但是代码实现却非常简单，核心代码只有五行:<br><img src="/2018/05/04/algorithm-3/i.png"><br>这段代码的基本思想就是:最开始只允许经过1号顶点进行中转，接下来只允许经过1号和2号顶点进行中转、、、、、允许经过1-n号所有顶点进行中转，求任意两点之间的最短路程。用一句话概括就是:从i号顶点到j号顶点只经过前k号点的最短路程。其实这是一种”动态规划”的思想。<br>这个算法的完整代码:</p>
-<p>#include<stdio.h><br>int main()<br>{<br>    int e[10][10],k,i,j,n,m,t1,t2,t3;<br>    int inf=99999999;//存储无穷<br>    //读入n和m，n表示顶点个数，m表示边的条数<br>    scanf(“%d%d”,&amp;n,&amp;m);<br>    //对矩阵进行初始化<br>    for(i=1;i&lt;=n;i++)<br>    {<br>        for(j=1;j&lt;=n;j++)<br>        {<br>            if(i==j)<br>            {<br>                e[i][j]=0;<br>            }else<br>            {<br>                e[i][j]=inf;<br>            }<br>        }<br>    }<br>    //读入边<br>    for(i=1;i&lt;=m;i++)<br>    {<br>        scanf(“%d%d%d”,&amp;t1,&amp;t2,&amp;t3);<br>        e[t1][t2]=t3;<br>    }<br>    //Floyd-Warshall算法核心语句<br>    for(k=1;k&lt;=n;k++)<br>    {<br>        for(i=1;i&lt;=n;i++)<br>        {<br>            for(j=1;j&lt;=n;j++)<br>            {<br>                if(e[i][j]&gt;e[i][k]+e[k][j])<br>                {<br>                    e[i][j] = e[i][k] + e[k][j];<br>                }<br>            }<br>        }<br>    }<br>    //输出最终的结果<br>    for(i=1;i&lt;=n;i++)<br>    {<br>        for(j=1;j&lt;=n;j++)<br>        {<br>            printf(“%10d”,e[i][j]);<br>        }<br>        printf(“\n”);<br>    }<br>    return 0;<br>}</stdio.h></p>
+		<p>一、树和图的区别<br><img src="/2018/05/06/algorithm-7/a.png"><br>上图中左边的是一颗树，而右边的是一个图。因为左边的没有回路，而右边的存在1-&gt;2-&gt;5-&gt;3-&gt;1这样的回路。<br>二、树的特性<br>因为树有着”不包含回路”这个特点，所以树就被赋予了很多特性。<br>1.一颗树中的任意两个结点有且仅有唯一的一条路径联通。<br>2.一颗树如果有n个结点，那么它一定恰好有n-1条边。<br>3.在一颗树中加一条边将会构成一个回路。<br>三、二叉树<br>二叉树是一种特殊的树。二叉树的特点是每个结点做多有两个儿子，左边的叫做左儿子，右边的叫做右儿子，或者说每个结点最多有两棵子树。更加严格的递归定义是：二叉树要么为空，要么由根节点、左子树和右子树组成，而左子树和右子树分别是一棵二叉树。下面这棵树就是一棵二叉树。<br><img src="/2018/05/06/algorithm-7/b.png"><br>如果二叉树中每个内部结点都有两个儿子，这样的二叉树叫做满二叉树。它的严格定义是一颗深度为h且有2的h次方-1个结点的二叉树。<br>如果一颗二叉树除了最右边位置上有一个或者几个叶节点缺少外，其他都是丰满的，那么这样的二叉树就是完全二叉树。严格的定义是：若设二叉树的高度为h，除第h层外，其他各层（1~h-1)的结点数都达到最大个数，第h层从右向左连续缺若干结点，则这个二叉树就是完全二叉树。也就是说如果一个结点有右子结点，那么它也一定有左子节点。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -129,7 +121,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/05/04/algorithm-3/" data-title="最短路径--Floyd-Warshall算法 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/05/06/algorithm-7/" data-title="树 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -142,19 +134,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/05/04/jslearn/" title="js基础(培训)">
-  <strong>上一篇：</strong><br/>
-  <span>
-  js基础(培训)</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/05/01/algorithm-2/"  title="广度优先搜索BFS和深度优先搜索DFS">
+<a href="/2018/05/06/algorithm-6/"  title="最短路径算法对比分析">
  <strong>下一篇：</strong><br/> 
- <span>广度优先搜索BFS和深度优先搜索DFS
+ <span>最短路径算法对比分析
 </span>
 </a>
 </div>
