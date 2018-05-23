@@ -11,17 +11,18 @@
     
 
     
-    <meta name="description" content="快速排序的基本思想快速排序的思想非常简单:对于一个数组S，我们选择一个元素，成为pivot。将数组S中小于等于pivot的元素放在S的左边，大于等于povit的元素放在S的右边。左右两部分分别记为S1和S2，然后我们递归的按上述方式对S1、S2继续进行排序。 快速排序实现时的一些具体细节 如何选择pivot?至少有几种显而易见的方法:尝试一:选择数组中的第一个元素。成本低，但是当输入数组已经有序时">
+    <meta name="description" content="快速排序的基本思想快速排序的思想非常简单:对于一个数组S，我们选择一个元素，成为pivot。将数组S中小于等于pivot的元素放在S的左边，大于等于povit的元素放在S的右边。左右两部分分别记为S1和S2，然后我们递归的按上述方式对S1、S2继续进行排序。 快速排序的复杂度直接说结论，快速排序的时间复杂度为O(nlogn) 快速排序的实现快速排序用递归算法更容易编码。如下的脚本为客户定义了一个顶">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解快速排序(python实现)">
 <meta property="og:url" content="http://yoursite.com/2018/05/19/algorithm-10/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="快速排序的基本思想快速排序的思想非常简单:对于一个数组S，我们选择一个元素，成为pivot。将数组S中小于等于pivot的元素放在S的左边，大于等于povit的元素放在S的右边。左右两部分分别记为S1和S2，然后我们递归的按上述方式对S1、S2继续进行排序。 快速排序实现时的一些具体细节 如何选择pivot?至少有几种显而易见的方法:尝试一:选择数组中的第一个元素。成本低，但是当输入数组已经有序时">
+<meta property="og:description" content="快速排序的基本思想快速排序的思想非常简单:对于一个数组S，我们选择一个元素，成为pivot。将数组S中小于等于pivot的元素放在S的左边，大于等于povit的元素放在S的右边。左右两部分分别记为S1和S2，然后我们递归的按上述方式对S1、S2继续进行排序。 快速排序的复杂度直接说结论，快速排序的时间复杂度为O(nlogn) 快速排序的实现快速排序用递归算法更容易编码。如下的脚本为客户定义了一个顶">
 <meta property="og:image" content="http://yoursite.com/2018/05/19/algorithm-10/a.png">
-<meta property="og:updated_time" content="2018-05-19T13:40:10.130Z">
+<meta property="og:image" content="http://yoursite.com/2018/05/19/algorithm-10/c.png">
+<meta property="og:updated_time" content="2018-05-20T10:02:29.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解快速排序(python实现)">
-<meta name="twitter:description" content="快速排序的基本思想快速排序的思想非常简单:对于一个数组S，我们选择一个元素，成为pivot。将数组S中小于等于pivot的元素放在S的左边，大于等于povit的元素放在S的右边。左右两部分分别记为S1和S2，然后我们递归的按上述方式对S1、S2继续进行排序。 快速排序实现时的一些具体细节 如何选择pivot?至少有几种显而易见的方法:尝试一:选择数组中的第一个元素。成本低，但是当输入数组已经有序时">
+<meta name="twitter:description" content="快速排序的基本思想快速排序的思想非常简单:对于一个数组S，我们选择一个元素，成为pivot。将数组S中小于等于pivot的元素放在S的左边，大于等于povit的元素放在S的右边。左右两部分分别记为S1和S2，然后我们递归的按上述方式对S1、S2继续进行排序。 快速排序的复杂度直接说结论，快速排序的时间复杂度为O(nlogn) 快速排序的实现快速排序用递归算法更容易编码。如下的脚本为客户定义了一个顶">
 <meta name="twitter:image" content="http://yoursite.com/2018/05/19/algorithm-10/a.png">
 
     
@@ -50,7 +51,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -66,7 +67,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -89,27 +90,24 @@
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-05-19T02:14:46.000Z" itemprop="datePublished"> Published 2018-05-19</time>
+    <time datetime="2018-05-19T02:14:46.000Z" itemprop="datePublished"> 发表于 2018-05-19</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">快速排序的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">快速排序实现时的一些具体细节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">如何选择pivot?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">遇到相等的元素怎么办&gt;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">快速排序的复杂度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">快速排序的实现</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">快速排序的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">快速排序的复杂度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">快速排序的实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">关于快速排序的一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.0.0.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
 		
 		</div>
 		
 		<p></p><h1>快速排序的基本思想</h1><br>快速排序的思想非常简单:对于一个数组S，我们选择一个元素，成为pivot。将数组S中小于等于pivot的元素放在S的左边，大于等于povit的元素放在S的右边。左右两部分分别记为S1和S2，然后我们递归的按上述方式对S1、S2继续进行排序。<p></p>
-<p></p><h1>快速排序实现时的一些具体细节</h1><p></p>
-<p></p><h2>如何选择pivot?</h2><br>至少有几种显而易见的方法:<br>尝试一:选择数组中的第一个元素。成本低，但是当输入数组已经有序时，将导致O(n<em>n)的复杂度。例如S={1，2，3，4，5，6，7，8，9},如果选择第一个元素也就是1作为pivot,那么S1={1},S2={2,3,4,5,6,7,8,9}，两个子数组非常的不平衡。而当递归对S2排序时，选择2也就是S2中第一个元素作为pivot排序时，又会将S2分成两个及其不平衡的子数组。经过简单分析可知，此算法复杂度为O(n</em>n)。因此这不是一个理想健壮的方法。<br>尝试二:随机选择一个。这种方法一般都能很好work,但是随机子程序可能非常昂贵，这可能拖慢整个程序。<br>尝试三:取中位数。取中位数可以保证S的两个子数组是等大小的(或者相差1),但是计算中位数可不是一个轻轻松松的活儿，将会严重拖慢算法速度。<br>尝试四:三数取中。尝试3方法太昂贵，我们可以稍微改变下:取数组第一个元素、最后一个元素、中间元素这三个元素的中位数。<p></p>
-<p></p><h2>遇到相等的元素怎么办&gt;</h2><br>左右扫描，如果遇到和pivot相等的元素怎么办?是暂停扫描还是继续扫描?<br>首先，两个方向采取的策略应该是一样的，也就是要么都暂停(然后交换),要么都继续扫描。否则将导致两个子数组不平衡.<br>其次，为了更好分析这个问题，我们不妨考虑所有元素都相同的情形。如果我们遇到和pivot相等的时候不停止，那么从左到右扫描时，两指针将相遇，此次过程结束。结果呢？什么都没做，却得到了两个大小极其不均衡的数组。算法时间复杂度为O(n2)。如果我们选择遇到相等元素时停止扫描，然后交换，那么虽然看上去交换的次数变多了，但是我们将得到大小相等（或者差1）的两个子数组。算法的时间复杂度为O(nlgn)。<p></p>
-<p>因此，遇到和pivot相等的元素时候我们都暂停扫描，交换元素后继续，直到指针相遇或者交叉。</p>
 <p></p><h1>快速排序的复杂度</h1><br>直接说结论，快速排序的时间复杂度为O(nlogn)<p></p>
-<p></p><h1>快速排序的实现</h1><br>快速排序用递归算法更容易编码。如下的脚本为客户定义了一个顶层的quicksort函数；一个递归的quicksort函数，它隐藏了用于子列表终点的额外参数；还有一个partition函数。如下的脚本是在20个随机排序的整数组成的一个列表上执行快速排序。<br><img src="/2018/05/19/algorithm-10/a.png"><p></p>
-  
+<p></p><h1>快速排序的实现</h1><br>快速排序用递归算法更容易编码。如下的脚本为客户定义了一个顶层的quicksort函数；一个递归的quicksort函数，它隐藏了用于子列表终点的额外参数；还有一个partition函数。如下的脚本是在20个随机排序的整数组成的一个列表上执行快速排序。<br><img src="/2018/05/19/algorithm-10/a.png"><br>使用递归算法实现快速排序:<br><img src="/2018/05/19/algorithm-10/c.png"><p></p>
+<p></p><h1>关于快速排序的一些问题</h1><p></p>
+<h5></h5>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -163,22 +161,22 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">快速排序的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">快速排序实现时的一些具体细节</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">如何选择pivot?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">遇到相等的元素怎么办&gt;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">快速排序的复杂度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">快速排序的实现</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">快速排序的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">快速排序的复杂度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">快速排序的实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">关于快速排序的一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.0.0.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -187,7 +185,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -199,7 +197,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>9</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>10</sup></a></li>
 		  
 		
 		  
@@ -229,7 +227,7 @@
   
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -251,11 +249,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -486,7 +484,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
