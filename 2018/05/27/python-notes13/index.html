@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/05/27/python-notes13/a.png">
 <meta property="og:image" content="http://yoursite.com/2018/05/27/python-notes13/b.png">
 <meta property="og:image" content="http://yoursite.com/2018/05/27/python-notes13/c.png">
-<meta property="og:updated_time" content="2018-05-27T14:43:58.916Z">
+<meta property="og:updated_time" content="2018-05-29T04:39:09.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="继承和抽象类">
 <meta name="twitter:description" content="这是我不知道第几次学继承了，虽然是这样，但是还是没有掌握的很好。 继承在python3中，所有类默认继承object,但凡是继承了object的子类，以及该子类的子类，都称为新式类（在python3中所有的类都是新式类）继承是为了减少代码重用问题，以减少代码量继承是一种是什么是什么的关系，例如老师是人类，而非老师类是生日类继承类示例:class People:    passclass Anima">
@@ -106,7 +106,7 @@
 		
 		<p>这是我不知道第几次学继承了，虽然是这样，但是还是没有掌握的很好。</p>
 <p></p><h1>继承</h1><br>在python3中，所有类默认继承object,但凡是继承了object的子类，以及该子类的子类，都称为新式类（在python3中所有的类都是新式类）<br>继承是为了减少代码重用问题，以减少代码量<br>继承是一种是什么是什么的关系，例如老师是人类，而非老师类是生日类<br>继承类示例:<br>class People:<br>    pass<br>class Animal:<br>    pass<br>class Student(People,Animal): #People、Animal称为基类或父类，Student为子类，Student继承了People和Animal的所有属性<br>    pass<br>print(Student.<strong>bases</strong>)    #<strong>bases</strong>方法，查看继承的类的元组<br>print(People.<strong>bases</strong>)<br>print(Animal.<strong>bases</strong>)<br>输出结果:<br><img src="/2018/05/27/python-notes13/a.png"><br>这里的<strong>bases</strong>方法是用来查看这个类的父类是谁<br>我们再来看一个继承类示例:<br><img src="/2018/05/27/python-notes13/b.png"><p></p>
-<p></p><h3>派生</h3><br>派生是在子类继承父类的基础上，定义子类独有的属性，例如Teacher可以有教师等级的划分、有教学课程的划分，但是继承父类People类是没有等级和课程划分的。<br>我们也来看一个实例<br><img src="/2018/05/27/python-notes13/c.png"><br>在这个例子中我们定义了一个People父类，然后又定义了两个子类Teacher和Student继承了People,但是子类中要用到一些父类里没有的属性，例如Teacher中要用到level和salary两个属性，所以在它的<strong>init</strong>方法里，需要<p></p>
+<p></p><h3>派生</h3><br>派生是在子类继承父类的基础上，定义子类独有的属性，例如Teacher可以有教师等级的划分、有教学课程的划分，但是继承父类People类是没有等级和课程划分的。<br>我们也来看一个实例<br><img src="/2018/05/27/python-notes13/c.png"><br>在这个例子中我们定义了一个People父类，然后又定义了两个子类Teacher和Student继承了People,但是子类中要用到一些父类里没有的属性，例如Teacher中要用到level和salary两个属性，所以在它的<strong>init</strong>方法里，需要重新添加self.lever=lever和self.salary=salary<br>这样我们的Teacher就信增加了两个属性<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
