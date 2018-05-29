@@ -1,0 +1,920 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>ububtu常用命令 | zzulixjh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="zzulixjh">
+    
+
+    
+    <meta name="description" content="文件\文件夹管理ls 列出当前目录文件（不包括隐含文件）ls -a 列出当前目录文件（包括隐含文件）ls -l 列出当前目录下文件的详细信息  cd .. 回当前目录的上一级目录cd - 回上一次所在的目录cd ~ 或 cd 回当前用户的宿主目录mkdir 目录名 创建一个目录rmdir 空目录名 删除一个空目录rm 文件名 文件名 删除一个文件或多个文件rm -rf 非空目录名 删除一个非空目录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ububtu常用命令">
+<meta property="og:url" content="http://yoursite.com/2018/05/29/ububtu-cmd/index.html">
+<meta property="og:site_name" content="zzulixjh">
+<meta property="og:description" content="文件\文件夹管理ls 列出当前目录文件（不包括隐含文件）ls -a 列出当前目录文件（包括隐含文件）ls -l 列出当前目录下文件的详细信息  cd .. 回当前目录的上一级目录cd - 回上一次所在的目录cd ~ 或 cd 回当前用户的宿主目录mkdir 目录名 创建一个目录rmdir 空目录名 删除一个空目录rm 文件名 文件名 删除一个文件或多个文件rm -rf 非空目录名 删除一个非空目录">
+<meta property="og:updated_time" content="2018-05-29T13:22:55.992Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ububtu常用命令">
+<meta name="twitter:description" content="文件\文件夹管理ls 列出当前目录文件（不包括隐含文件）ls -a 列出当前目录文件（包括隐含文件）ls -l 列出当前目录下文件的详细信息  cd .. 回当前目录的上一级目录cd - 回上一次所在的目录cd ~ 或 cd 回当前用户的宿主目录mkdir 目录名 创建一个目录rmdir 空目录名 删除一个空目录rm 文件名 文件名 删除一个文件或多个文件rm -rf 非空目录名 删除一个非空目录">
+
+    
+    <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="zzulixjh" title="zzulixjh"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/05/29/ububtu-cmd/" title="ububtu常用命令" itemprop="url">ububtu常用命令</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
+		
+  <p class="article-time">
+    <time datetime="2018-05-29T13:22:18.000Z" itemprop="datePublished"> 发表于 2018-05-29</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">文件\文件夹管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">系统管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">打包/解压</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">打包/解压</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">make编译</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">apt命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">查看软件xxx安装内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-primary-network-interface-use-DHCP-to-find-our-address"><span class="toc-number">8.</span> <span class="toc-text">The primary network interface - use DHCP to find our address</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-primary-network-interface"><span class="toc-number">9.</span> <span class="toc-text">The primary network interface</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ubuntu-cn99-com-更新服务器（江苏省常州市电信，推荐电信用户使用。）"><span class="toc-number">10.</span> <span class="toc-text">Ubuntu.cn99.com 更新服务器（江苏省常州市电信，推荐电信用户使用。）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mirror-rootguide-org更新服务器-上海市-电信"><span class="toc-number">11.</span> <span class="toc-text">mirror.rootguide.org更新服务器 (上海市 电信):</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mirror-lupaworld-com-更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）"><span class="toc-number">12.</span> <span class="toc-text">Mirror.lupaworld.com 更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ubuntu-cnsite-org-更新服务器（福建省福州市-电信）"><span class="toc-number">13.</span> <span class="toc-text">ubuntu.cnsite.org 更新服务器（福建省福州市 电信）</span></a></li></ol>
+		
+		</div>
+		
+		<p></p><h1>文件\文件夹管理</h1><br>ls 列出当前目录文件（不包括隐含文件）<br>ls -a 列出当前目录文件（包括隐含文件）<br>ls -l 列出当前目录下文件的详细信息 <p></p>
+<p>cd .. 回当前目录的上一级目录<br>cd - 回上一次所在的目录<br>cd ~ 或 cd 回当前用户的宿主目录<br>mkdir 目录名 创建一个目录<br>rmdir 空目录名 删除一个空目录<br>rm 文件名 文件名 删除一个文件或多个文件<br>rm -rf 非空目录名 删除一个非空目录下的一切 </p>
+<p>mv 路经/文件 /经/文件移动相对路经下的文件到绝对路经下<br>mv 文件名 新名称 在当前目录下改名<br>find 路经 -name “字符串” 查找路经所在范围内满足字符串匹配的文件和目录 </p>
+<p></p><h1>系统管理</h1><br>fdisk fdisk -l 查看系统分区信息<br>fdisk fdisk /dev/sdb 为一块新的SCSI硬盘进行分区<br>chown chown root /home 把/home的属主改成root用户<br>chgrp chgrp root /home 把/home的属组改成root组 <p></p>
+<p>Useradd 创建一个新的用户<br>Groupadd 组名 创建一个新的组<br>Passwd 用户名 为用户创建密码<br>Passwd -d用户名 删除用户密码也能登陆<br>Passwd -S用户名 查询账号密码<br>Usermod -l 新用户名 老用户名 为用户改名<br>Userdel–r 用户名 删除用户一切 </p>
+<p>service [servicename] start/stop/restart 系统服务控制操作<br>/etc/init.d/[servicename] start/stop/restart 系统服务控制操作 </p>
+<p>uname -a 查看内核版本<br>cat /etc/issue 查看ubuntu版本<br>lsusb 查看usb设备<br>sudo ethtool eth0 查看网卡状态<br>cat /proc/cpuinfo 查看cpu信息<br>lshw 查看当前硬件信息<br>sudo fdisk -l 查看磁盘信息<br>df -h 查看硬盘剩余空间<br>free -m 查看当前的内存使用情况<br>ps -A 查看当前有哪些进程<br>kill 进程号(就是ps -A中的第一列的数字)或者 killall 进程名( 杀死一个进程)<br>kill -9 进程号 强制杀死一个进程 </p>
+<p>reboot Init 6 重启LINUX系统<br>Halt Init 0 Shutdown –h now 关闭LINUX系统 </p>
+<p></p><h1>打包/解压</h1><br>tar -c 创建包 –x 释放包 -v 显示命令过程 –z 代表压缩包<br>tar –cvf benet.tar /home/benet 把/home/benet目录打包<br>tar –zcvf benet.tar.gz /mnt 把目录打包并压缩<br>tar –zxvf benet.tar.gz 压缩包的文件解压恢复<br>tar –jxvf benet.tar.bz2 解压缩 <p></p>
+<p></p><h1>打包/解压</h1><br>tar -c 创建包 –x 释放包 -v 显示命令过程 –z 代表压缩包<br>tar –cvf benet.tar /home/benet 把/home/benet目录打包<br>tar –zcvf benet.tar.gz /mnt 把目录打包并压缩<br>tar –zxvf benet.tar.gz 压缩包的文件解压恢复<br>tar –jxvf benet.tar.bz2 解压缩 <p></p>
+<p></p><h1>make编译</h1><br>make 编译<br>make install 安装编译好的源码包 <p></p>
+<p></p><h1>apt命令</h1><br>apt-cache search package 搜索包<br>apt-cache show package 获取包的相关信息，如说明、大小、版本等<br>sudo apt-get install package 安装包<br>sudo apt-get install package - - reinstall 重新安装包<br>sudo apt-get -f install 修复安装”-f = –fix-missing”<br>sudo apt-get remove package 删除包<br>sudo apt-get remove package - - purge 删除包，包括删除配置文件等<br>sudo apt-get update 更新源<br>sudo apt-get upgrade 更新已安装的包<br>sudo apt-get dist-upgrade 升级系统<br>sudo apt-get dselect-upgrade 使用 dselect 升级<br>apt-cache depends package 了解使用依赖<br>apt-cache rdepends package 是查看该包被哪些包依赖<br>sudo apt-get build-dep package 安装相关的编译环境<br>apt-get source package 下载该包的源代码<br>sudo apt-get clean &amp;&amp; sudo apt-get autoclean 清理无用的包<br>sudo apt-get check 检查是否有损坏的依赖<br>sudo apt-get clean 清理所有软件缓存（即缓存在/var/cache/apt/archives目录里的deb包）<p></p>
+<p></p><h1>查看软件xxx安装内容</h1><p></p>
+<p>#dpkg -L xxx </p>
+<p>查找软件 </p>
+<p>#apt-cache search 正则表达式<br>查找文件属于哪个包 </p>
+<p>#dpkg -S filename apt-file search filename </p>
+<p>查询软件xxx依赖哪些包 </p>
+<p>#apt-cache depends xxx </p>
+<p>查询软件xxx被哪些包依赖 </p>
+<p>#apt-cache rdepends xxx </p>
+<p>增加一个光盘源 </p>
+<p>#sudo apt-cdrom add </p>
+<p>系统升级 </p>
+<p>#sudo apt-get update </p>
+<p>#sudo apt-get upgrade </p>
+<p>#sudo apt-get dist-upgrade </p>
+<p>清除所以删除包的残余配置文件 </p>
+<p>#dpkg -l |grep ^rc|awk ‘{print $2}’ |tr [“\n”] [“ “]|sudo xargs dpkg -P - </p>
+<p>编译时缺少h文件的自动处理 </p>
+<p>#sudo auto-apt run ./configure </p>
+<p>查看安装软件时下载包的临时存放目录 </p>
+<p>#ls /var/cache/apt/archives </p>
+<p>备份当前系统安装的所有包的列表 </p>
+<p>#dpkg –get-selections | grep -v deinstall &gt; ~/somefile </p>
+<p>从上面备份的安装包的列表文件恢复所有包 </p>
+<p>#dpkg –set-selections &lt; ~/somefile sudo dselect </p>
+<p>清理旧版本的软件缓存 </p>
+<p>#sudo apt-get autoclean </p>
+<p>清理所有软件缓存 </p>
+<p>#sudo apt-get clean </p>
+<p>删除系统不再使用的孤立软件 </p>
+<p>#sudo apt-get autoremove </p>
+<p>查看包在服务器上面的地址 </p>
+<p>#apt-get -qq –print-uris install ssh | cut -d\’ -f2 </p>
+<p>系统<br>查看内核 </p>
+<p>#uname -a </p>
+<p>查看Ubuntu版本 </p>
+<p>#cat /etc/issue </p>
+<p>查看内核加载的模块 </p>
+<p>#lsmod </p>
+<p>查看PCI设备 </p>
+<p>#lspci </p>
+<p>查看USB设备 </p>
+<p>#lsusb </p>
+<p>查看网卡状态 </p>
+<p>#sudo ethtool eth0 </p>
+<p>查看CPU信息 </p>
+<p>#cat /proc/cpuinfo </p>
+<p>显示当前硬件信息 </p>
+<p>#lshw </p>
+<p>硬盘<br>查看硬盘的分区 </p>
+<p>#sudo fdisk -l </p>
+<p>查看IDE硬盘信息 </p>
+<p>#sudo hdparm -i /dev/hda </p>
+<p>查看STAT硬盘信息 </p>
+<p>#sudo hdparm -I /dev/sda<br>或 </p>
+<p>#sudo apt-get install blktool </p>
+<p>#sudo blktool /dev/sda id </p>
+<p>查看硬盘剩余空间 </p>
+<p>#df -h </p>
+<p>#df -H </p>
+<p>查看目录占用空间 </p>
+<p>#du -hs 目录名 </p>
+<p>优盘没法卸载 </p>
+<p>#sync fuser -km /media/usbdisk </p>
+<p>内存<br>查看当前的内存使用情况 </p>
+<p>#free -m </p>
+<p>进程<br>查看当前有哪些进程 </p>
+<p>#ps -A<br>中止一个进程 </p>
+<p>#kill 进程号(就是ps -A中的第一列的数字) 或者 killall 进程名 </p>
+<p>强制中止一个进程(在上面进程中止不成功的时候使用) </p>
+<p>#kill -9 进程号 或者 killall -9 进程名 </p>
+<p>图形方式中止一个程序 </p>
+<p>#xkill 出现骷髅标志的鼠标，点击需要中止的程序即可 </p>
+<p>查看当前进程的实时状况 </p>
+<p>#top </p>
+<p>查看进程打开的文件 </p>
+<p>#lsof -p </p>
+<p>ADSL 配置 ADSL </p>
+<p>#sudo pppoeconf </p>
+<p>ADSL手工拨号 </p>
+<p>#sudo pon dsl-provider </p>
+<p>激活 ADSL </p>
+<p>#sudo /etc/ppp/pppoe_on_boot </p>
+<p>断开 ADSL </p>
+<p>#sudo poff </p>
+<p>查看拨号日志 </p>
+<p>#sudo plog </p>
+<p>如何设置动态域名 </p>
+<p>#首先去<a href="http://www.3322.org申请一个动态域名" target="_blank" rel="noopener">http://www.3322.org申请一个动态域名</a> </p>
+<p>#然后修改 /etc/ppp/ip-up 增加拨号时更新域名指令 sudo vim /etc/ppp/ip-up </p>
+<p>#在最后增加如下行 w3m -no-cookie -dump </p>
+<p>网络<br>根据IP查网卡地址 </p>
+<p>#arping IP地址 </p>
+<p>查看当前IP地址 </p>
+<p>#ifconfig eth0 |awk ‘/inet/ {split($2,x,”:”);print x[2]}’ </p>
+<p>查看当前外网的IP地址 </p>
+<p>#w3m -no-cookie -dumpwww.edu.cn|grep-o‘[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}’ </p>
+<p>#w3m -no-cookie -dumpwww.xju.edu.cn|grep-o’[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}’ </p>
+<p>#w3m -no-cookie -dump ip.loveroot.com|grep -o’[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}’ </p>
+<p>查看当前监听80端口的程序 </p>
+<p>#lsof -i :80 </p>
+<p>查看当前网卡的物理地址 </p>
+<p>#arp -a | awk ‘{print $4}’ ifconfig eth0 | head -1 | awk ‘{print $5}’ </p>
+<p>立即让网络支持nat </p>
+<p>#sudo echo 1 &gt; /proc/sys/net/ipv4/ip_forward </p>
+<p>#sudo iptables -t nat -I POSTROUTING -j MASQUERADE </p>
+<p>查看路由信息 </p>
+<p>#netstat -rn sudo route -n </p>
+<p>手工增加删除一条路由 </p>
+<p>#sudo route add -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1 </p>
+<p>#sudo route del -net 192.168.0.0 netmask 255.255.255.0 gw 172.16.0.1 </p>
+<p>修改网卡MAC地址的方法 </p>
+<p>#sudo ifconfig eth0 down 关闭网卡 </p>
+<p>#sudo ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE 然后改地址 </p>
+<p>#sudo ifconfig eth0 up 然后启动网卡 </p>
+<p>统计当前IP连接的个数 </p>
+<p>#netstat -na|grep ESTABLISHED|awk ‘{print $5}’|awk -F: ‘{print $1}’|sort|uniq -c|sort -r -n </p>
+<p>#netstat -na|grep SYN|awk ‘{print $5}’|awk -F: ‘{print $1}’|sort|uniq -c|sort -r -n </p>
+<p>统计当前20000个IP包中大于100个IP包的IP地址 </p>
+<p>#tcpdump -tnn -c 20000 -i eth0 | awk -F “.” ‘{print $1″.”$2″.”$3″.”$4}’ | sort | uniq -c | sort -nr | awk ‘ $1 &gt; 100 ‘ </p>
+<p>屏蔽IPV6 </p>
+<p>#echo “blacklist ipv6″ | sudo tee /etc/modprobe.d/blacklist-ipv6 </p>
+<p>服务<br>添加一个服务 </p>
+<p>#sudo update-rc.d 服务名 defaults 99 </p>
+<p>删除一个服务 </p>
+<p>#sudo update-rc.d 服务名 remove </p>
+<p>临时重启一个服务 </p>
+<p>#/etc/init.d/服务名 restart </p>
+<p>临时关闭一个服务 </p>
+<p>#/etc/init.d/服务名 stop </p>
+<p>临时启动一个服务 </p>
+<p>#/etc/init.d/服务名 start </p>
+<p>设置<br>配置默认Java使用哪个 </p>
+<p>#sudo update-alternatives –config java </p>
+<p>修改用户资料 </p>
+<p>#sudo chfn userid </p>
+<p>给apt设置代理 </p>
+<p>#export http_proxy=<a href="http://xx.xx.xx.xx:xxx" target="_blank" rel="noopener">http://xx.xx.xx.xx:xxx</a> </p>
+<p>修改系统登录信息 </p>
+<p>#sudo vim /etc/motd </p>
+<p>中文<br>转换文件名由GBK为UTF8 </p>
+<p>#sudo apt-get install convmv convmv -r -f cp936 -t utf8 –notest –nosmart * </p>
+<p>批量转换src目录下的所有文件内容由GBK到UTF8 </p>
+<p>#find src -type d -exec mkdir -p utf8/{} \; find src -type f -exec iconv -f GBK -t UTF-8 {} -o utf8/{} \; mv utf8/* src rm -fr utf8 </p>
+<p>转换文件内容由GBK到UTF8 </p>
+<p>#iconv -f gbk -t utf8 $i &gt; newfile </p>
+<p>转换 mp3 标签编码 </p>
+<p>#sudo apt-get install python-mutagen find . -iname “*.mp3” -execdir mid3iconv -e GBK {} \; </p>
+<p>控制台下显示中文 </p>
+<p>#sudo apt-get install zhcon 使用时，输入zhcon即可 </p>
+<p>文件<br>快速查找某个文件 </p>
+<p>#whereis filename </p>
+<p>#find 目录 -name 文件名 </p>
+<p>查看文件类型 </p>
+<p>#file filename </p>
+<p>显示xxx文件倒数6行的内容 </p>
+<p>#tail -n 6 xxx </p>
+<p>让tail不停地读地最新的内容 </p>
+<p>#tail -n 10 -f /var/log/apache2/access.log </p>
+<p>查看文件中间的第五行（含）到第10行（含）的内容 </p>
+<p>#sed -n ‘5,10p’ /var/log/apache2/access.log </p>
+<p>查找包含xxx字符串的文件 </p>
+<p>#grep -l -r xxx . </p>
+<p>全盘搜索文件(桌面可视化)<br>gnome-search-tool </p>
+<p>查找关于xxx的命令 </p>
+<p>#apropos xxx man -k xxx </p>
+<p>通过ssh传输文件 </p>
+<p>#scp -rp /path/filenameusername@remoteIP:/path </p>
+<p>#将本地文件拷贝到服务器上 </p>
+<p>#scp -rpusername@remoteIP:/path/filename/path </p>
+<p>#将远程文件从服务器下载到本地 </p>
+<p>查看某个文件被哪些应用程序读写 </p>
+<p>#lsof 文件名 </p>
+<p>把所有文件的后辍由rm改为rmvb </p>
+<p>#rename ’s/.rm$/.rmvb/’ * </p>
+<p>把所有文件名中的大写改为小写 </p>
+<p>#rename ‘tr/A-Z/a-z/’ * </p>
+<p>删除特殊文件名的文件，如文件名：–help.txt </p>
+<p>#rm — –help.txt 或者 rm ./–help.txt </p>
+<p>查看当前目录的子目录 </p>
+<p>#ls -d <em>/. 或 echo </em>/. </p>
+<p>将当前目录下最近30天访问过的文件移动到上级back目录 </p>
+<p>#find . -type f -atime -30 -exec mv {} ../back \; </p>
+<p>将当前目录下最近2小时到8小时之内的文件显示出来 </p>
+<p>#find . -mmin +120 -mmin -480 -exec more {} \; </p>
+<p>删除修改时间在30天之前的所有文件 </p>
+<p>#find . -type f -mtime +30 -mtime -3600 -exec rm {} \; </p>
+<p>查找guest用户的以avi或者rm结尾的文件并删除掉 </p>
+<p>#find . -name ‘<em>.avi’ -o -name ‘</em>.rm’ -user ‘guest’ -exec rm {} \; </p>
+<p>查找的不以java和xml结尾,并7天没有使用的文件删除掉 </p>
+<p>#find . ! -name <em>.java ! -name ‘</em>.xml’ -atime +7 -exec rm {} \; </p>
+<p>统计当前文件个数 </p>
+<p>#ls /usr/bin|wc -w </p>
+<p>统计当前目录个数 </p>
+<p>#ls -l /usr/bin|grep ^d|wc -l </p>
+<p>显示当前目录下2006-01-01的文件名 </p>
+<p>#ls -l |grep 2006-01-01 |awk ‘{print $8}’ </p>
+<p>FTP<br>上传下载文件工具-filezilla </p>
+<p>#sudo apt-get install filezilla </p>
+<p>filezilla无法列出中文目录？<br>站点-&gt;字符集-&gt;自定义-&gt;输入：GBK </p>
+<p>本地中文界面<br>1）下载filezilla中文包到本地目录，如~/<br>2）#unrar x Filezilla3_zhCN.rar<br>3) 如果你没有unrar的话，请先安装rar和unrar </p>
+<p>#sudo apt-get install rar unrar </p>
+<p>#sudo ln -f /usr/bin/rar /usr/bin/unrar<br>4）先备份原来的语言包,再安装；实际就是拷贝一个语言包。 </p>
+<p>#sudo cp /usr/share/locale/zh_CN/filezilla.mo /usr/share/locale/zh_CN/filezilla.mo.bak </p>
+<p>#sudo cp ~/locale/zh_CN/filezilla.mo /usr/share/locale/zh_CN/filezilla.mo<br>5）重启filezilla,即可！ </p>
+<p>解压缩<br>解压缩 xxx.tar.gz </p>
+<p>#tar -zxvf xxx.tar.gz </p>
+<p>解压缩 xxx.tar.bz2 </p>
+<p>#tar -jxvf xxx.tar.bz2 </p>
+<p>压缩aaa bbb目录为xxx.tar.gz </p>
+<p>#tar -zcvf xxx.tar.gz aaa bbb </p>
+<p>压缩aaa bbb目录为xxx.tar.bz2 </p>
+<p>#tar -jcvf xxx.tar.bz2 aaa bbb </p>
+<p>解压缩 RAR 文件<br>1) 先安装 </p>
+<p>#sudo apt-get install rar unrar </p>
+<p>#sudo ln -f /usr/bin/rar /usr/bin/unrar<br>2) 解压 </p>
+<p>#unrar x aaaa.rar </p>
+<p>Nautilus<br>显示隐藏文件<br>Ctrl+h </p>
+<p>显示地址栏<br>Ctrl+l </p>
+<p>特殊 URI 地址 </p>
+<ul>
+<li>computer:/// - 全部挂载的设备和网络 </li>
+<li>network:/// - 浏览可用的网络 </li>
+<li>burn:/// - 一个刻录 CDs/DVDs 的数据虚拟目录 </li>
+<li>smb:/// - 可用的 windows/samba 网络资源 </li>
+<li>x-nautilus-desktop:/// - 桌面项目和图标<br>*file:///- 本地文件 </li>
+<li>trash:/// - 本地回收站目录 </li>
+<li>ftp:// - FTP 文件夹 </li>
+<li>ssh:// - SSH 文件夹 </li>
+<li>fonts:/// - 字体文件夹，可将字体文件拖到此处以完成安装 </li>
+<li>themes:/// - 系统主题文件夹 </li>
+</ul>
+<p>查看已安装字体<br>在nautilus的地址栏里输入”fonts:///“，就可以查看本机所有的fonts </p>
+<p>程序<br>详细显示程序的运行信息 </p>
+<p>#strace -f -F -o outfile </p>
+<p>日期和时间 </p>
+<p>设置日期 </p>
+<p>#date -s mm/dd/yy </p>
+<p>设置时间 </p>
+<p>#date -s HH:MM </p>
+<p>将时间写入CMOS </p>
+<p>#hwclock –systohc </p>
+<p>读取CMOS时间 </p>
+<p>#hwclock –hctosys </p>
+<p>从服务器上同步时间 </p>
+<p>#sudo ntpdate time.nist.gov </p>
+<p>#sudo ntpdate time.windows.com </p>
+<p>控制台 </p>
+<p>不同控制台间切换<br>Ctrl + ALT + ← Ctrl + ALT + → </p>
+<p>指定控制台切换<br>Ctrl + ALT + Fn(n:1~7) </p>
+<p>控制台下滚屏<br>SHIFT + pageUp/pageDown </p>
+<p>控制台抓图 </p>
+<p>#setterm -dump n(n:1~7) </p>
+<p>数据库<br>mysql的数据库存放在地方 </p>
+<p>#/var/lib/mysql </p>
+<p>从mysql中导出和导入数据 </p>
+<p>#mysqldump 数据库名 &gt; 文件名 #导出数据库 </p>
+<p>#mysqladmin create 数据库名 #建立数据库 </p>
+<p>#mysql 数据库名 &lt; 文件名 #导入数据库 </p>
+<p>忘了mysql的root口令怎么办 </p>
+<p>#sudo /etc/init.d/mysql stop </p>
+<p>#sudo mysqld_safe –skip-grant-tables </p>
+<p>#sudo mysqladmin -u user password ‘newpassword” </p>
+<p>#sudo mysqladmin flush-privileges </p>
+<p>修改mysql的root口令 </p>
+<p>#sudo mysqladmin -uroot -p password ‘你的新密码’ </p>
+<p>其它<br>下载网站文档 </p>
+<p>#wget -r -p -np -k<a href="http://www.21cn.com" target="_blank" rel="noopener">http://www.21cn.com</a><br>· r：在本机建立服务器端目录结构；<br>· -p: 下载显示HTML文件的所有图片；<br>· -np：只下载目标站点指定目录及其子目录的内容；<br>· -k: 转换非相对链接为相对链接。 </p>
+<p>如何删除Totem电影播放机的播放历史记录 </p>
+<p>#rm ~/.recently-used </p>
+<p>如何更换gnome程序的快捷键<br>点击菜单，鼠标停留在某条菜单上，键盘输入任意你所需要的键，可以是组合键，会立即生效； 如果要清除该快捷键，请使用backspace </p>
+<p>vim 如何显示彩色字符 </p>
+<p>#sudo cp /usr/share/vim/vimcurrent/vimrc_example.vim /usr/share/vim/vimrc </p>
+<p>如何在命令行删除在会话设置的启动程序 </p>
+<p>#cd ~/.config/autostart rm 需要删除启动程序 </p>
+<p>如何提高wine的反应速度 </p>
+<p>#sudo sed -ie ‘/GBK/,/^}/d’ /usr/share/X11/locale/zh_CN.UTF-8/XLC_LOCALE </p>
+<p>#chgrp<br>[语法]: chgrp [-R] 文件组 文件…<br><a href="改变文件的存取模式，存取模式可表示为数字或符号串，例如：">说明</a>： 文件的GID表示文件的文件组，文件组可用数字表示， 也可用一个有效的组名表示，此命令改变一个文件的GID，可参看chown。<br>-R 递归地改变所有子目录下所有文件的存取模式<br>[例子]:<br>＃chgrp group file 将文件 file 的文件组改为 group </p>
+<p>#chmod<br>[语法]: chmod [-R] 模式 文件…<br>或 chmod [ugoa] {+|-|=} [rwxst] 文件… </p>
+<p>＃chmod nnnn file ， n为0-7的数字，意义如下:<br>4000 运行时可改变UID<br>2000 运行时可改变GID<br>1000 置粘着位<br>0400 文件主可读<br>0200 文件主可写<br>0100 文件主可执行<br>0040 同组用户可读<br>0020 同组用户可写<br>0010 同组用户可执行<br>0004 其他用户可读<br>0002 其他用户可写<br>0001 其他用户可执行<br>nnnn 就是上列数字相加得到的，例如 chmod 0777 file 是指将文件 file 存取权限置为所有用户可读可写可执行。<br>-R 递归地改变所有子目录下所有文件的存取模式<br>u 文件主<br>g 同组用户<br>o 其他用户<br>a 所有用户 </p>
+<ul>
+<li>增加后列权限 </li>
+</ul>
+<ul>
+<li>取消后列权限<br>= 置成后列权限<br>r 可读<br>w 可写<br>x 可执行<br>s 运行时可置UID<br>t 运行时可置GID<br>[例子]:<br>＃chmod 0666 file1 file2 将文件 file1 及 file2 置为所有用户可读可写<br>＃chmod u+x file 对文件 file 增加文件主可执行权限<br>＃chmod o-rwx 对文件file 取消其他用户的所有权限 </li>
+</ul>
+<p>#chown<br>[语法]: chown [-R] 文件主 文件…<br><a href="改变文件的存取模式，存取模式可表示为数字或符号串，例如：">说明</a>: 文件的UID表示文件的文件主，文件主可用数字表示， 也可用一个有效的用户名表示，此命令改变一个文件的UID，仅当此文件的文件主或超级用户可使用。<br>-R 递归地改变所有子目录下所有文件的存取模式<br>[例子]: </p>
+<p>#chown mary file 将文件 file 的文件主改为 mary </p>
+<p>#chown 150 file 将文件 file 的UID改为150 </p>
+<p>Ubuntu命令行下修改网络配置<br>以eth0为例 </p>
+<ol>
+<li><p>以DHCP方式配置网卡<br>编辑文件/etc/network/interfaces:<br>#sudo vi /etc/network/interfaces<br>并用下面的行来替换有关eth0的行: </p>
+<h1 id="The-primary-network-interface-use-DHCP-to-find-our-address"><a href="#The-primary-network-interface-use-DHCP-to-find-our-address" class="headerlink" title="The primary network interface - use DHCP to find our address"></a>The primary network interface - use DHCP to find our address</h1><p>auto eth0<br>iface eth0 inet dhcp<br>用下面的命令使网络设置生效:<br>#sudo /etc/init.d/networking restart<br>当然,也可以在命令行下直接输入下面的命令来获取地址<br>#sudo dhclient eth0 </p>
+</li>
+<li><p>为网卡配置静态IP地址<br>编辑文件/etc/network/interfaces:<br>#sudo vi /etc/network/interfaces<br>并用下面的行来替换有关eth0的行: </p>
+<h1 id="The-primary-network-interface"><a href="#The-primary-network-interface" class="headerlink" title="The primary network interface"></a>The primary network interface</h1><p>auto eth0<br>iface eth0 inet static<br>address 192.168.3.90<br>gateway 192.168.3.1<br>netmask 255.255.255.0<br>network 192.168.3.0<br>broadcast 192.168.3.255<br>将上面的ip地址等信息换成你自己就可以了. </p>
+</li>
+</ol>
+<p>用下面的命令使网络设置生效: </p>
+<p>#sudo /etc/init.d/networking restart </p>
+<ol>
+<li><p>设定第二个IP地址(虚拟IP地址)<br>编辑文件/etc/network/interfaces:<br>#sudo vi /etc/network/interfaces<br>在该文件中添加如下的行:<br>auto eth0:1<br>iface eth0:1 inet static<br>address 192.168.1.60<br>netmask 255.255.255.0<br>network x.x.x.x<br>broadcast x.x.x.x<br>gateway x.x.x.x<br>根据你的情况填上所有诸如address,netmask,network,broadcast和gateways等信息.<br>用下面的命令使网络设置生效:<br>#sudo /etc/init.d/networking restart </p>
+</li>
+<li><p>设置主机名称(hostname)<br>使用下面的命令来查看当前主机的主机名称:<br>#sudo /bin/hostname<br>使用下面的命令来设置当前主机的主机名称:<br>#sudo /bin/hostname newname<br>系统启动时,它会从/etc/hostname来读取主机的名称. </p>
+</li>
+<li><p>配置DNS<br>首先,你可以在/etc/hosts中加入一些主机名称和这些主机名称对应的IP地址,这是简单使用本机的静态查询.<br>要访问DNS 服务器来进行查询,需要设置/etc/resolv.conf文件.<br>假设DNS服务器的IP地址是192.168.3.2, 那么/etc/resolv.conf文件的内容应为:<br>search test.com<br>nameserver 192.168.3.2 </p>
+</li>
+</ol>
+<p>安装AMP服务<br>如果采用Ubuntu Server CD开始安装时，可以选择安装，这系统会自动装上apache2,php5和mysql5。下面主要说明一下如果不是安装的Ubuntu server时的安装方法。<br>用命令在Ubuntu下架设Lamp其实很简单，用一条命令就完成。在终端输入以下命令： </p>
+<p>#sudo apt-get install apache2 mysql-server php5 php5-mysql php5-gd #phpmyadmin<br>装好后，mysql管理员是root，无密码，通过<a href="http://localhost/phpmyadmin就可以访问mysql了" target="_blank" rel="noopener">http://localhost/phpmyadmin就可以访问mysql了</a> </p>
+<p>修改 MySql 密码<br>终端下输入： </p>
+<p>#mysql -u root </p>
+<p>#mysql&gt; GRANT ALL PRIVILEGES ON <em>.</em> TO root@localhost IDENTIFIED BY “123456″;<br>’123456‘是root的密码，可以自由设置，但最好是设个安全点的。 </p>
+<p>#mysql&gt; quit; 退出mysql </p>
+<p>apache2的操作命令<br>启动：#sudo /etc/init.d/apache2 start<br>重启：#sudo /etc/init.d/apache2 restart<br>关闭：#sudo /etc/init.d/apache2 stop<br>apache2的默认主目录：/var/www/ </p>
+<p>Ubuntu 7.10 更换软件源、更新系统<br>网通建议用台湾的源，电信就用cn99<br>在终端输入: #sudo gedit /etc/apt/sources.list </p>
+<h1 id="Ubuntu-cn99-com-更新服务器（江苏省常州市电信，推荐电信用户使用。）"><a href="#Ubuntu-cn99-com-更新服务器（江苏省常州市电信，推荐电信用户使用。）" class="headerlink" title="Ubuntu.cn99.com 更新服务器（江苏省常州市电信，推荐电信用户使用。）"></a>Ubuntu.cn99.com 更新服务器（江苏省常州市电信，推荐电信用户使用。）</h1><p>deb <a href="http://ubuntu.cn99.com/ubuntu/" target="_blank" rel="noopener">http://ubuntu.cn99.com/ubuntu/</a> gutsy main restricted universe multiverse<br>deb <a href="http://ubuntu.cn99.com/ubuntu/" target="_blank" rel="noopener">http://ubuntu.cn99.com/ubuntu/</a> gutsy-security main restricted universe multiverse<br>deb <a href="http://ubuntu.cn99.com/ubuntu/" target="_blank" rel="noopener">http://ubuntu.cn99.com/ubuntu/</a> gutsy-updates main restricted universe multiverse </p>
+<h1 id="mirror-rootguide-org更新服务器-上海市-电信"><a href="#mirror-rootguide-org更新服务器-上海市-电信" class="headerlink" title="mirror.rootguide.org更新服务器 (上海市 电信):"></a>mirror.rootguide.org更新服务器 (上海市 电信):</h1><p>deb <a href="http://mirror.rootguide.org/ubuntu/" target="_blank" rel="noopener">http://mirror.rootguide.org/ubuntu/</a> gutsy main restricted universe multiverse<br>deb-src <a href="http://mirror.rootguide.org/ubuntu/" target="_blank" rel="noopener">http://mirror.rootguide.org/ubuntu/</a> gutsy main restricted universe multiverse<br>deb <a href="http://mirror.rootguide.org/ubuntu/" target="_blank" rel="noopener">http://mirror.rootguide.org/ubuntu/</a> gutsy-updates main restricted universe multiverse </p>
+<h1 id="Mirror-lupaworld-com-更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）"><a href="#Mirror-lupaworld-com-更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）" class="headerlink" title="Mirror.lupaworld.com 更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）"></a>Mirror.lupaworld.com 更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）</h1><p>deb <a href="http://cn.archive.ubuntu.com/ubuntu" target="_blank" rel="noopener">http://cn.archive.ubuntu.com/ubuntu</a> gutsy main restricted universe multiverse<br>deb <a href="http://cn.archive.ubuntu.com/ubuntu" target="_blank" rel="noopener">http://cn.archive.ubuntu.com/ubuntu</a> gutsy-security main restricted universe multiverse<br>deb <a href="http://cn.archive.ubuntu.com/ubuntu" target="_blank" rel="noopener">http://cn.archive.ubuntu.com/ubuntu</a> gutsy-updates main restricted universe multiverse </p>
+<h1 id="ubuntu-cnsite-org-更新服务器（福建省福州市-电信）"><a href="#ubuntu-cnsite-org-更新服务器（福建省福州市-电信）" class="headerlink" title="ubuntu.cnsite.org 更新服务器（福建省福州市 电信）"></a>ubuntu.cnsite.org 更新服务器（福建省福州市 电信）</h1><p>deb <a href="http://ubuntu.cnsite.org/ubuntu/" target="_blank" rel="noopener">http://ubuntu.cnsite.org/ubuntu/</a> gutsy main restricted universe multiverse<br>deb-src <a href="http://ubuntu.cnsite.org/ubuntu/" target="_blank" rel="noopener">http://ubuntu.cnsite.org/ubuntu/</a> gutsy main restricted universe multiverse<br>deb <a href="http://ubuntu.cnsite.org/ubuntu/" target="_blank" rel="noopener">http://ubuntu.cnsite.org/ubuntu/</a> gutsy-updates main restricted universe multiverse </p>
+<p>#清华大学 更新服务器（教育网，推荐校园网和网通用户使用）<br>deb <a href="http://mirror9.net9.org/ubuntu/" target="_blank" rel="noopener">http://mirror9.net9.org/ubuntu/</a> gutsy main multiverse restricted universe<br>deb <a href="http://mirror9.net9.org/ubuntu/" target="_blank" rel="noopener">http://mirror9.net9.org/ubuntu/</a> gutsy-backports main multiverse restricted universe<br>deb <a href="http://mirror9.net9.org/ubuntu/" target="_blank" rel="noopener">http://mirror9.net9.org/ubuntu/</a> gutsy-proposed main multiverse restricted universe<br>将里面乱七八糟的东西删了，将你复制的源列表粘贴到里面，保存退出。<br>在终端输入 </p>
+<p>#sudo apt-get update </p>
+<p>#sudu apt-get upgrade </p>
+<p>这样便更新以及升级了系统。 </p>
+<p>桌面汉化：<br>System&gt;Language Support&gt;Chinese选项勾打上。 </p>
+<p>安装解码器、flashplayer、java虚拟机、微软字体<br>这是ubuntu推出的一个新软件包，将一次性将上面几个东东自动装好<br>在终端输入 </p>
+<p>#sudo apt-get install ubuntu-restricted-extras </p>
+<p>FireFox 中安装 FlashPlayer 插件<br>先下载插件: install_flash_player_9_linux.tar.gz </p>
+<p>#tar -zxf install_flash_player_9_linux.tar.gz </p>
+<p>#./flashplayer-installer </p>
+<p>回答(y/n/q)? n/q </p>
+<p>#sudo cp libflashplayer.so /usr/lib/firefox/plugins<br>启动 firefox 即可！ </p>
+<p>安装媒体播放器<br>安装的是mplayer<br>终端输入：#sudo apt-get install mplayer mozilla-mplayer totem-xine libxine-extracodecs </p>
+<p>另外需要一个w32codecs文件，是用来支持那些私有媒体格式的解码器，源里已经没有w32codecs了，我们可以从这里下载那个后缀为.deb的安装<br><a href="http://www.debian-multimedia.org/pool/main/w/w32codecs/" target="_blank" rel="noopener">http://www.debian-multimedia.org/pool/main/w/w32codecs/</a> </p>
+<p>mplayer调试(视频、字幕)<br>启动mplayer,右键－&gt;Preferences－&gt;Video<br>Available drivers选择xv<br>然后进入Font标签 Font里选择一个中文字体，Encoding里设置为Simplified Chinese charset (CP936) </p>
+<p>安装下载工具（多线程下载、BT下载、电驴）<br>还是终端输入：#sudo apt-get install d4x amule azureus<br>即可。<br>或者把 beryl-manager添加到启动项内 </p>
+<p>字体更换<br>我推荐大家使用文泉驿字体，在<br><a href="http://wqy.sourceforge.net" target="_blank" rel="noopener">http://wqy.sourceforge.net</a><br>下载deb包安装<br>在“系统“－&gt;”首选项“－&gt;”字体“中调整字体 </p>
+<p>apt下载的deb包清理<br>在使用完apt后，系统下载的deb包会留存在硬盘里，我们可以把它们删除，释放硬盘空间。<br>终端输入：#sudo apt-get clean </p>
+<p>安装rar压缩、解压工具<br>终端输入：#sudo apt-get install rar unrar </p>
+<p>启用root（最高权限）帐户<br>终端输入：#sudo passwd root<br>输入你希望的root用户的密码 </p>
+<p>安装QQ<br>终端输入：#sudo apt-get install eva<br>便可安装eva了，如果你是使用scim(选择中文语言支持的自动安装的就是scim)，为了可以在eva里面输入文字，要在终端输入：sudo apt-get install scim-qtimm<br>系统会安装支持QT的scim插件，这样你就可以使用eva聊qq了。 </p>
+<p>显卡驱动安装<br>进入“系统”－&gt;“系统管理”－&gt;“受限驱动管理器”<br>找到你的显卡，把那个框点成对号，会提示你安装显卡驱动，然后按照提示一步一步安装完毕，重启即可。 </p>
+<p>beryl的安装<br>你的系统在安装完毕之后就已经有了一个内置的桌面效果软件（能实现简单的桌面特效，包括3D立方体），使用方法是（必须将显卡驱动装好）进入“系统”“首选项”“桌面效果”，点击“启用桌面效果”，如果你需要使用3D立方体桌面，那么选中“立方体上的工作区”即可。<br>如果你对这个简单的桌面特效工具不太满意，想追求更华丽的桌面，那么安装beryl仍然是个很好的选择。如今安装beryl不会像以前一样麻烦了，feisty的源里已经有了beryl的软件包，我们只需要在终端里输入： </p>
+<p>#sudo apt-get install beryl-core beryl-plugins beryl-plugins-data emerald beryl-settings beryl-manager beryl beryl-dev emerald-themes<br>安装完毕即可了。<br>启动方法：“应用程序”－&gt;”系统工具”－&gt;”Beryl Manager”<br>或者直接在终端输入：#beryl-manager </p>
+<p>如何设定/改变/启用 root 使用者的密码? </p>
+<p>#sudo passwd root </p>
+<p>为了启用 root 帐号 (也就是 设置一个口令) 使用: </p>
+<p>#sudo passwd root </p>
+<p>当你使用完毕后屏蔽 root 帐号 使用: </p>
+<p>#sudo passwd -l root<br>这个将锁住 root 帐号. </p>
+<p>如何在终端机模式下切换到 root 身份? </p>
+<p>#sudo -s -H<br>Password: &lt;在这注明您的密码&gt; </p>
+<p>安装VNC server<br>第一步, 获取安装文件 </p>
+<p>#sudo apt-get install vnc4server<br>第二步, 修改VNC Password, 6-8位 </p>
+<p>#vncpasswd<br>Password: <strong>**</strong><br>Verify:<strong>*</strong><br>第三步, 修改配置<br>系统-&gt;首选项-&gt;远程桌面<br>选择-&gt;请求用户输入此密码-&gt;输入至少6位密码<br>第四步, 启动VNC server </p>
+<p>#vncserver<br>第五步，通过客户端连接 </p>
+<p>#vncviewer 192.168.0.1 </p>
+<p>安装MS字体 </p>
+<p>#sudo apt-get install msttcorefonts </p>
+<p>vim配置<br>1) 首先安装 vim 完整版本 </p>
+<p>#sudo apt-get install vim-full </p>
+<p>2) vim中文在线帮助<br>a. 先下载文档 vimcdoc-1.5.0.tar.gz<br>b. 解压, 执行./vimcdoc.sh, vi里面, 执行:help, 就都是中文的了. </p>
+<p>3) 启用本地配置 VIM version 7.1 (说明文档) </p>
+<p>#cp etc/vim/vimrc ~/.vimrc </p>
+<p>#vim ~/.vimrc </p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 一般设定<br>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 设定默认解码<br>set fenc=utf-8<br>set fencs=utf-8,usc-bom,euc-jp,gb18030,gbk,gb2312,cp936<br>“ 不要使用vi的键盘模式，而是vim自己的<br>set nocompatible </p>
+<p>“ history文件中需要记录的行数<br>set history=100 </p>
+<p>“ 在处理未保存或只读文件的时候，弹出确认<br>set confirm </p>
+<p>“ 与windows共享剪贴板<br>set clipboard+=unnamed </p>
+<p>“ 侦测文件类型<br>filetype on </p>
+<p>“ 载入文件类型插件<br>filetype plugin on </p>
+<p>“ 为特定文件类型载入相关缩进文件<br>filetype indent on </p>
+<p>“ 保存全局变量<br>set viminfo+=! </p>
+<p>“ 带有如下符号的单词不要被换行分割<br>set iskeyword+=_,$,@,%,#,- </p>
+<p>“ 语法高亮<br>syntax on </p>
+<p>“ 高亮字符，让其不受100列限制<br>:highlight OverLength ctermbg=red ctermfg=white guibg=red guifg=white<br>:match OverLength ‘\%101v.*’ </p>
+<p>“ 状态行颜色<br>highlight StatusLine guifg=SlateBlue guibg=Yellow<br>highlight StatusLineNC guifg=Gray guibg=White </p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 文件设置<br>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 不要备份文件（根据自己需要取舍）<br>set nobackup </p>
+<p>“ 不要生成swap文件，当buffer被丢弃的时候隐藏它<br>setlocal noswapfile<br>set bufhidden=hide </p>
+<p>“ 字符间插入的像素行数目<br>set linespace=0 </p>
+<p>“ 增强模式中的命令行自动完成操作<br>set wildmenu </p>
+<p>“ 在状态行上显示光标所在位置的行号和列号<br>set ruler<br>set rulerformat=%20(%2*%&lt;%f%=\ %m%r\ %3l\ %c\ %p%%%) </p>
+<p>“ 命令行（在状态行下）的高度，默认为1，这里是2<br>set cmdheight=2 </p>
+<p>“ 使回格键（backspace）正常处理indent, eol, start等<br>set backspace=2 </p>
+<p>“ 允许backspace和光标键跨越行边界<br>set whichwrap+=&lt;,&gt;,h,l </p>
+<p>“ 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）<br>set mouse=a<br>set selection=exclusive<br>set selectmode=mouse,key </p>
+<p>“ 启动的时候不显示那个援助索马里儿童的提示<br>set shortmess=atI </p>
+<p>“ 通过使用: commands命令，告诉我们文件的哪一行被改变过<br>set report=0 </p>
+<p>“ 不让vim发出讨厌的滴滴声<br>set noerrorbells </p>
+<p>“ 在被分割的窗口间显示空白，便于阅读<br>set fillchars=vert:\ ,stl:\ ,stlnc:\ </p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 搜索和匹配<br>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 高亮显示匹配的括号<br>set showmatch </p>
+<p>“ 匹配括号高亮的时间（单位是十分之一秒）<br>set matchtime=5 </p>
+<p>“ 在搜索的时候忽略大小写<br>set ignorecase </p>
+<p>“ 不要高亮被搜索的句子（phrases）<br>set nohlsearch </p>
+<p>“ 在搜索时，输入的词句的逐字符高亮（类似firefox的搜索）<br>set incsearch </p>
+<p>“ 输入:set list命令是应该显示些啥？<br>set listchars=tab:|\ ,trail:.,extends:&gt;,precedes:&lt;,eol:$ </p>
+<p>“ 光标移动到buffer的顶部和底部时保持3行距离<br>set scrolloff=3 </p>
+<p>“ 不要闪烁<br>set novisualbell </p>
+<p>“ 我的状态行显示的内容（包括文件类型和解码）<br>set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\”%d/%m/%y\ -\ %H:%M\”)} </p>
+<p>“ 总是显示状态行<br>set laststatus=2 </p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 文本格式和排版<br>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 自动格式化<br>set formatoptions=tcrqn </p>
+<p>“ 继承前一行的缩进方式，特别适用于多行注释<br>set autoindent </p>
+<p>“ 为C程序提供自动缩进<br>set smartindent </p>
+<p>“ 使用C样式的缩进<br>set cindent </p>
+<p>“ 制表符为4<br>set tabstop=4 </p>
+<p>“ 统一缩进为4<br>set softtabstop=4<br>set shiftwidth=4 </p>
+<p>“ 不要用空格代替制表符<br>set noexpandtab </p>
+<p>“ 不要换行<br>set nowrap </p>
+<p>“ 在行和段开始处使用制表符<br>set smarttab </p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ CTags的设定<br>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””<br>“ 按照名称排序<br>let Tlist_Sort_Type = “name” </p>
+<p>“ 在右侧显示窗口<br>let Tlist_Use_Right_Window = 1 </p>
+<p>“ 压缩方式<br>let Tlist_Compart_Format = 1 </p>
+<p>“ 如果只有一个buffer，kill窗口也kill掉buffer<br>let Tlist_Exist_OnlyWindow = 1 </p>
+<p>“ 不要关闭其他文件的tags<br>let Tlist_File_Fold_Auto_Close = 0 </p>
+<p>“ 不要显示折叠树<br>let Tlist_Enable_Fold_Column = 0 </p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Linux/">Linux</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/05/29/ububtu-cmd/" data-title="ububtu常用命令 | zzulixjh" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/05/29/ubuntu-install/"  title="ubuntu的安装">
+ <strong>下一篇：</strong><br/> 
+ <span>ubuntu的安装
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">文件\文件夹管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">系统管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">打包/解压</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">打包/解压</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">make编译</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">apt命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">查看软件xxx安装内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-primary-network-interface-use-DHCP-to-find-our-address"><span class="toc-number">8.</span> <span class="toc-text">The primary network interface - use DHCP to find our address</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#The-primary-network-interface"><span class="toc-number">9.</span> <span class="toc-text">The primary network interface</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ubuntu-cn99-com-更新服务器（江苏省常州市电信，推荐电信用户使用。）"><span class="toc-number">10.</span> <span class="toc-text">Ubuntu.cn99.com 更新服务器（江苏省常州市电信，推荐电信用户使用。）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mirror-rootguide-org更新服务器-上海市-电信"><span class="toc-number">11.</span> <span class="toc-text">mirror.rootguide.org更新服务器 (上海市 电信):</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mirror-lupaworld-com-更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）"><span class="toc-number">12.</span> <span class="toc-text">Mirror.lupaworld.com 更新服务器（浙江省杭州市电信，亚洲地区官方更新服务器）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ubuntu-cnsite-org-更新服务器（福建省福州市-电信）"><span class="toc-number">13.</span> <span class="toc-text">ubuntu.cnsite.org 更新服务器（福建省福州市 电信）</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/PHP/" title="PHP">PHP<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/front/" title="前端">前端<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/life/" title="生活">生活<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/pc/" title="计算机">计算机<sup>8</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m xujiahuan in zzuli. <br/>
+			This is my blog</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5638142666" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/foreverxujiahuan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="zzulixjh">zzulixjh</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
