@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>PHP分页原理 | zzulixjh</title>
+    <title>递归 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="一、分页原理所谓分页显示，也就是将数据库中的结果集人为的分成一段一段的来显示，这里需要两个初始的参数:每页多少条记录($PageSize)?当前是第几页($CurrentPageID)?现在只要再给我一个结果集，我就可以显示某段特定的结果出来。至于其他的参数，比如：上一页($PReviousPageID)、下一页($NextPageID)、总页数($numPages)等等，都可以根据前边这几个东西">
+    <meta name="description" content="递归的基本思想递归就是某个函数直接或间接调用自身的问题求解过程直接递归:函数在执行过程中调用本身。间接递归:函数在执行过程中调用其它函数再经过这些函数调用本身递归经常最为归纳法很分治法的结果自然地出现 关于递归函数的总结1.必须有可能最终达到的终止条件，否则程序将陷入无穷循环；2.子问题在规模上比原问题小，或更接近终止条件；3.子问题可通过再次递归调用求解或因满足终止条件而直接求解；4.子问题的解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP分页原理">
-<meta property="og:url" content="http://yoursite.com/2018/03/18/page/index.html">
+<meta property="og:title" content="递归">
+<meta property="og:url" content="http://yoursite.com/2018/05/29/recursion/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="一、分页原理所谓分页显示，也就是将数据库中的结果集人为的分成一段一段的来显示，这里需要两个初始的参数:每页多少条记录($PageSize)?当前是第几页($CurrentPageID)?现在只要再给我一个结果集，我就可以显示某段特定的结果出来。至于其他的参数，比如：上一页($PReviousPageID)、下一页($NextPageID)、总页数($numPages)等等，都可以根据前边这几个东西">
-<meta property="og:updated_time" content="2018-03-18T12:06:40.000Z">
+<meta property="og:description" content="递归的基本思想递归就是某个函数直接或间接调用自身的问题求解过程直接递归:函数在执行过程中调用本身。间接递归:函数在执行过程中调用其它函数再经过这些函数调用本身递归经常最为归纳法很分治法的结果自然地出现 关于递归函数的总结1.必须有可能最终达到的终止条件，否则程序将陷入无穷循环；2.子问题在规模上比原问题小，或更接近终止条件；3.子问题可通过再次递归调用求解或因满足终止条件而直接求解；4.子问题的解">
+<meta property="og:updated_time" content="2018-05-30T13:05:12.172Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP分页原理">
-<meta name="twitter:description" content="一、分页原理所谓分页显示，也就是将数据库中的结果集人为的分成一段一段的来显示，这里需要两个初始的参数:每页多少条记录($PageSize)?当前是第几页($CurrentPageID)?现在只要再给我一个结果集，我就可以显示某段特定的结果出来。至于其他的参数，比如：上一页($PReviousPageID)、下一页($NextPageID)、总页数($numPages)等等，都可以根据前边这几个东西">
+<meta name="twitter:title" content="递归">
+<meta name="twitter:description" content="递归的基本思想递归就是某个函数直接或间接调用自身的问题求解过程直接递归:函数在执行过程中调用本身。间接递归:函数在执行过程中调用其它函数再经过这些函数调用本身递归经常最为归纳法很分治法的结果自然地出现 关于递归函数的总结1.必须有可能最终达到的终止条件，否则程序将陷入无穷循环；2.子问题在规模上比原问题小，或更接近终止条件；3.子问题可通过再次递归调用求解或因满足终止条件而直接求解；4.子问题的解">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/03/18/page/" title="PHP分页原理" itemprop="url">PHP分页原理</a>
+      <a href="/2018/05/29/recursion/" title="递归" itemprop="url">递归</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-03-18T09:57:52.000Z" itemprop="datePublished"> 发表于 2018-03-18</time>
+    <time datetime="2018-05-29T14:11:18.000Z" itemprop="datePublished"> 发表于 2018-05-29</time>
     
   </p>
 </header>
@@ -96,21 +96,14 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">递归的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于递归函数的总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">归纳法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.0.1.</span> <span class="toc-text">选择排序</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<p>一、分页原理<br>所谓分页显示，也就是将数据库中的结果集人为的分成一段一段的来显示，这里需要两个初始的参数:<br><br>每页多少条记录($PageSize)?<br><br>当前是第几页($CurrentPageID)?<br><br>现在只要再给我一个结果集，我就可以显示某段特定的结果出来。<br><br>至于其他的参数，比如：上一页($PReviousPageID)、下一页($NextPageID)、总页数($numPages)等等，都可以根据前边这几个东西得到。<br><br>以MySQL数据库为例，如果要从表内截取某段内容，sql语句可以用:select<em>from table limit offset,rows。看看下面一组sql语句，尝试一下发现其中的规律。<br><br>前10条记录:select</em>from table limit 0,10<br><br>第11至20条记录:select<em>from table limit 20,10<br><br>……<br><br>这一组sql语句其实就是当$PageSize=10的时候取表内每一页数据的sql语句，我们可以总结出这样一个模板:<br><br>select</em>from table limit($CurrentPageID-1)<em>$PageSize,$PageSize<br>拿这个模板代入对应的值和上边那一组sql语句对照一下看看是不是那么回事。搞定了最重要的如何获取数据的问题以后，剩下的就仅仅是传递参数，构造合适的sql语句然后使用php从数据库内获取数据并显示了。<br><br>二、分页代码说明:五个步骤<br>直接上代码<br><br>&lt;?php<br>    //显示所有emp表的信息<br>    //1.连接数据库<br>    $conn=mysql_connect(‘localhost’,’root’,’1234abcd’) or die(‘连接数据库错误’.mysql_error());<br>    //2.选择数据库<br>    mysql_select_db(‘empManage’);<br>   //3.选择字符集<br>    mysql_query(‘set names utf8’);<br>   //4.发送sql语句并得到结果进行处理<br>    //4.1分页[分页要发出两个sql语句，一个是获得$rowCount,一个是通过sql的limit获得分页结果。所以我们会获得两个结果集，在命名的时候要记得区分。<br>分页 （四个值 两个sql语句）。]<br>  $pageSize=3;//每页显示多少条记录<br>   $rowCount=0;//共有多少条记录<br>    $pageNow=1;//希望显示第几页<br>    $pageCount=0;//一共有多少页 [分页共有这个四个指标，缺一不可。由于$rowCount可以从服务器获得的，所以可以给予初始值为0；<br>$pageNow希望显示第几页，这里最好是设置为0；$pageSize是每页显示多少条记录，这里根据网站需求提前制定。<br>.$pageCount=ceil($rowCount/$pageSize）,既然$rowCount可以初始值为0，那么$pageCount当然也就可以设置为0.四个指标，两个0 ，一个1，另一个为网站需求。]<br>         //4.15根据分页链接来修改$pageNow的值<br>         if(!empty($_GET[‘pageNow’])){<br>            $pageNow=$_GET[‘pageNow’];<br>        }[根据分页链接来修改$pageNow的值。]<br>     $sql=’select count(id) from emp’;<br>     $res1=mysql_query($sql);<br>    //4.11取出行数<br>     if($row=mysql_fetch_row($res1)){<br>        $rowCount=$row[0];<br>    }//[取得$rowCount,，进了我们就知道了$pageCount这两个指标了。]<br>    //4.12计算共有多少页<br>     $pageCount=ceil($rowCount/$pageSize);<br>    $pageStart=($pageNow-1)</em>$pageSize;</p>
-<pre><code> //4.13发送带有分页的sql结果
- $sql=&quot;select * from emp limit $pageStart,$pageSize&quot;;//[根据$sql语句的limit 后面的两个值（起始值，每页条数），来实现分页。以及求得这两个值。]
-$res2=mysql_query($sql,$conn) or die(&apos;无法获取结果集&apos;.mysql_error());
- echo &apos;&lt;table border=1&gt;&apos;;[    echo &quot;&lt;table border=&apos;1px&apos; cellspacing=&apos;0px&apos; bordercolor=&apos;red&apos; width=&apos;600px&apos;&gt;&quot;;]
-</code></pre><p> “<tr><th>id</th><th>name</th><th>grade</th><th>email</th><th>salary</th><th><a href="#">删除用户</a></th><th><a href="#">修改用户</a></th></tr>“;    while($row=mysql_fetch_assoc($res2)){<br>        echo “<tr><td>{$row[‘id’]}</td><td>{$row[‘name’]}</td><td>{$row[‘grade’]}</td><td>{$row[‘email’]}</td><td>{$row[‘salary’]}</td><td><a href="#">删除用户</a></td><td><a href="#">修改用户</a></td></tr>“;    }<br>     echo ‘‘;<br>     //4.14打印出页码的超链接<br>     for($i=1;$i&lt;=$pageCount;$i++){<br>         echo “<a href="?pageNow=$i">$i</a> “;//[打印出页码的超链接]</p>
-<pre><code> }
- //5.释放资源，关闭连接
- mysql_free_result($res2);
-mysql_close($conn);
-</code></pre><p>?&gt;<br><br><br>这就是最简单的分页实现了。</p>
+		<p></p><h1>递归的基本思想</h1><br>递归就是某个函数直接或间接调用自身的问题求解过程<br>直接递归:函数在执行过程中调用本身。<br>间接递归:函数在执行过程中调用其它函数再经过这些函数调用本身<br>递归经常最为归纳法很分治法的结果自然地出现<p></p>
+<p></p><h1>关于递归函数的总结</h1><br>1.必须有可能最终达到的终止条件，否则程序将陷入无穷循环；<br>2.子问题在规模上比原问题小，或更接近终止条件；<br>3.子问题可通过再次递归调用求解或因满足终止条件而直接求解；<br>4.子问题的解应能组合为原问题的解。<br>if(递归总之条件成立)<br>直接求解;<br>else<br>递归求解;<p></p>
+<p></p><h1>归纳法</h1><br>如果我们知道如何求解规模为n-1的问题，那么我们的任务就化为如何把解法扩展到规模为n的问题<p></p>
+<p></p><h3>选择排序</h3><br>对数组a[1…n]按从小到大顺序排序<br>用归纳法:假设我们已经知道如何对n-1个数排序，则:<br>要对a[1…n]排序<br>(1)求a[1…n]的最小值a[j];<br>(2)a[1]&lt;–&gt;a[j];<br>(3)对a[2…n]排序<br>算法1:<br>  selectionSort(int a[],int n)<br>{<br>sort(a,1,n);//对a[1…n]排序<br>}<br>sort(int a[],int i,int n)<br>{<br>  j = min(a,j,n);<br>  a[i]&lt;—&gt;a[j]<br>  if(i+1&lt;n)<br>   sort(a,i+1,n);<br>}<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -118,7 +111,7 @@ mysql_close($conn);
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/PHP/">PHP</a>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
 </div>
 
 
@@ -128,7 +121,7 @@ mysql_close($conn);
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/03/18/page/" data-title="PHP分页原理 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/05/29/recursion/" data-title="递归 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -141,19 +134,11 @@ mysql_close($conn);
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/03/19/pythonvscode/" title="vscode中python开发环境的配置">
-  <strong>上一篇：</strong><br/>
-  <span>
-  vscode中python开发环境的配置</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/03/18/webmessage/"  title="基于PHP和阿里云的可通过web编辑的短信发送实现">
+<a href="/2018/05/29/ububtu-cmd/"  title="ububtu常用命令">
  <strong>下一篇：</strong><br/> 
- <span>基于PHP和阿里云的可通过web编辑的短信发送实现
+ <span>ububtu常用命令
 </span>
 </a>
 </div>
@@ -170,7 +155,7 @@ mysql_close($conn);
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">递归的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于递归函数的总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">归纳法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.0.1.</span> <span class="toc-text">选择排序</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
