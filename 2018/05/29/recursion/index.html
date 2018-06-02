@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>递归 | zzulixjh</title>
+    <title>分治与递归 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
@@ -13,13 +13,13 @@
     
     <meta name="description" content="递归的基本思想递归就是某个函数直接或间接调用自身的问题求解过程直接递归:函数在执行过程中调用本身。间接递归:函数在执行过程中调用其它函数再经过这些函数调用本身递归经常最为归纳法很分治法的结果自然地出现 关于递归函数的总结1.必须有可能最终达到的终止条件，否则程序将陷入无穷循环；2.子问题在规模上比原问题小，或更接近终止条件；3.子问题可通过再次递归调用求解或因满足终止条件而直接求解；4.子问题的解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="递归">
+<meta property="og:title" content="分治与递归">
 <meta property="og:url" content="http://yoursite.com/2018/05/29/recursion/index.html">
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="递归的基本思想递归就是某个函数直接或间接调用自身的问题求解过程直接递归:函数在执行过程中调用本身。间接递归:函数在执行过程中调用其它函数再经过这些函数调用本身递归经常最为归纳法很分治法的结果自然地出现 关于递归函数的总结1.必须有可能最终达到的终止条件，否则程序将陷入无穷循环；2.子问题在规模上比原问题小，或更接近终止条件；3.子问题可通过再次递归调用求解或因满足终止条件而直接求解；4.子问题的解">
-<meta property="og:updated_time" content="2018-05-30T13:05:12.172Z">
+<meta property="og:updated_time" content="2018-05-31T10:24:32.656Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="递归">
+<meta name="twitter:title" content="分治与递归">
 <meta name="twitter:description" content="递归的基本思想递归就是某个函数直接或间接调用自身的问题求解过程直接递归:函数在执行过程中调用本身。间接递归:函数在执行过程中调用其它函数再经过这些函数调用本身递归经常最为归纳法很分治法的结果自然地出现 关于递归函数的总结1.必须有可能最终达到的终止条件，否则程序将陷入无穷循环；2.子问题在规模上比原问题小，或更接近终止条件；3.子问题可通过再次递归调用求解或因满足终止条件而直接求解；4.子问题的解">
 
     
@@ -48,7 +48,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -64,7 +64,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -80,23 +80,23 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/05/29/recursion/" title="递归" itemprop="url">递归</a>
+      <a href="/2018/05/29/recursion/" title="分治与递归" itemprop="url">分治与递归</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-05-29T14:11:18.000Z" itemprop="datePublished"> 发表于 2018-05-29</time>
+    <time datetime="2018-05-29T14:11:18.000Z" itemprop="datePublished"> Published 2018-05-29</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">递归的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于递归函数的总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">归纳法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.0.1.</span> <span class="toc-text">选择排序</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">递归的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于递归函数的总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">归纳法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.0.1.</span> <span class="toc-text">选择排序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">分治</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.2.</span> <span class="toc-text">分治法的使用条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.3.</span> <span class="toc-text">分治法的基本步骤</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
@@ -104,6 +104,10 @@
 <p></p><h1>关于递归函数的总结</h1><br>1.必须有可能最终达到的终止条件，否则程序将陷入无穷循环；<br>2.子问题在规模上比原问题小，或更接近终止条件；<br>3.子问题可通过再次递归调用求解或因满足终止条件而直接求解；<br>4.子问题的解应能组合为原问题的解。<br>if(递归总之条件成立)<br>直接求解;<br>else<br>递归求解;<p></p>
 <p></p><h1>归纳法</h1><br>如果我们知道如何求解规模为n-1的问题，那么我们的任务就化为如何把解法扩展到规模为n的问题<p></p>
 <p></p><h3>选择排序</h3><br>对数组a[1…n]按从小到大顺序排序<br>用归纳法:假设我们已经知道如何对n-1个数排序，则:<br>要对a[1…n]排序<br>(1)求a[1…n]的最小值a[j];<br>(2)a[1]&lt;–&gt;a[j];<br>(3)对a[2…n]排序<br>算法1:<br>  selectionSort(int a[],int n)<br>{<br>sort(a,1,n);//对a[1…n]排序<br>}<br>sort(int a[],int i,int n)<br>{<br>  j = min(a,j,n);<br>  a[i]&lt;—&gt;a[j]<br>  if(i+1&lt;n)<br>   sort(a,i+1,n);<br>}<p></p>
+<p></p><h1>分治</h1><p></p>
+<p></p><h3>思想</h3><br>分治法的设计思想是，将一个难以直接解决的大问题，分割成一些规模较小的相同问题，以便各个击破，分而治之。<br>将要求解的较大规模的问题分解为k个更小规模的子问题。对这k个子问题分别求解。如果子问题的规模仍然不够小，则再划分为k个子问题，如此递归的进行下去，直到问题规模足够小，很容易求出其解为止。<p></p>
+<p></p><h3>分治法的使用条件</h3><br>分治法所能解决的问题一般具有以下几个特征:<br>1.该问题的规模缩小到一定程度就可以很容易地解决；<br>2.该问题可以分解为若干个规模较小的相同问题，即该问题具有最优子结构性质；<br>3.利用该问题分解出的子问题的解可以合并为该问题的解；<br>4.该问题所分解出的各个子问题都是相互独立的。<p></p>
+<p></p><h3>分治法的基本步骤</h3><br>divide-and-conquer(P)<br>{<br> if(|P|&lt;=n0) adhoc(P);<br>divide P into smaller subinstances P1,P2,…,Pk; //分解问题<br>for(i=1;i&lt;=k;i++)<br>  yi=divide-and-conquer(Pi)//递归的解各子问题<br>return merge(y1,…yk);//将各子问题的解合并为原问题的解<br>}<br>在用分治法设计算法时，最好使子问题的规模大致相同。即将一个问题分成大小相等的k个子问题的处理方法是行之有效的。<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -121,7 +125,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/05/29/recursion/" data-title="递归 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/05/29/recursion/" data-title="分治与递归 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -150,22 +154,22 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">递归的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于递归函数的总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">归纳法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.0.1.</span> <span class="toc-text">选择排序</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">递归的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于递归函数的总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">归纳法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.0.1.</span> <span class="toc-text">选择排序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">分治</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.2.</span> <span class="toc-text">分治法的使用条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.3.</span> <span class="toc-text">分治法的基本步骤</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github 名片</p>
+<p class="asidetitle">Github Card</p>
 <div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -174,7 +178,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
 		  
@@ -220,7 +224,7 @@
   
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -242,11 +246,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -477,7 +481,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
