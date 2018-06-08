@@ -11,17 +11,18 @@
     
 
     
-    <meta name="description" content="有些人在碰到问题时，就想:”我知道，我可以使用正则表达式。”现在，他们有了两个问题。 –Jamie “jwz” Zawinski,1997年8月 正则表达式中常用的字符含义">
+    <meta name="description" content="有些人在碰到问题时，就想:”我知道，我可以使用正则表达式。”现在，他们有了两个问题。 –Jamie “jwz” Zawinski,1997年8月 正则表达式中常用的字符含义反斜杠\的作用:反斜杠后边跟元字符去除特殊功能；（即将特殊字符转义成普通字符）反斜杠后边跟普通字符实现特殊功能；（即预定义字符）引用序号对应的字组所匹配的字符串。 使用re模块进行正则表达式的匹配 使用compile()函数编">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python中的正则表达式">
 <meta property="og:url" content="http://yoursite.com/2018/06/05/regularexpression/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="有些人在碰到问题时，就想:”我知道，我可以使用正则表达式。”现在，他们有了两个问题。 –Jamie “jwz” Zawinski,1997年8月 正则表达式中常用的字符含义">
+<meta property="og:description" content="有些人在碰到问题时，就想:”我知道，我可以使用正则表达式。”现在，他们有了两个问题。 –Jamie “jwz” Zawinski,1997年8月 正则表达式中常用的字符含义反斜杠\的作用:反斜杠后边跟元字符去除特殊功能；（即将特殊字符转义成普通字符）反斜杠后边跟普通字符实现特殊功能；（即预定义字符）引用序号对应的字组所匹配的字符串。 使用re模块进行正则表达式的匹配 使用compile()函数编">
 <meta property="og:image" content="http://yoursite.com/2018/06/05/regularexpression/a.png">
-<meta property="og:updated_time" content="2018-06-07T13:22:09.215Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/05/regularexpression/b.png">
+<meta property="og:updated_time" content="2018-06-08T06:46:51.908Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python中的正则表达式">
-<meta name="twitter:description" content="有些人在碰到问题时，就想:”我知道，我可以使用正则表达式。”现在，他们有了两个问题。 –Jamie “jwz” Zawinski,1997年8月 正则表达式中常用的字符含义">
+<meta name="twitter:description" content="有些人在碰到问题时，就想:”我知道，我可以使用正则表达式。”现在，他们有了两个问题。 –Jamie “jwz” Zawinski,1997年8月 正则表达式中常用的字符含义反斜杠\的作用:反斜杠后边跟元字符去除特殊功能；（即将特殊字符转义成普通字符）反斜杠后边跟普通字符实现特殊功能；（即预定义字符）引用序号对应的字组所匹配的字符串。 使用re模块进行正则表达式的匹配 使用compile()函数编">
 <meta name="twitter:image" content="http://yoursite.com/2018/06/05/regularexpression/a.png">
 
     
@@ -98,12 +99,16 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">正则表达式中常用的字符含义</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">正则表达式中常用的字符含义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">使用re模块进行正则表达式的匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.1.</span> <span class="toc-text">使用compile()函数编译正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.1.1.</span> <span class="toc-text">预编译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.1.2.</span> <span class="toc-text">compile函数</span></a></li></ol></li></ol></li></ol></li></ol>
 		
 		</div>
 		
 		<p> 有些人在碰到问题时，就想:”我知道，我可以使用正则表达式。”现在，他们有了两个问题。<br> </p><p style="float:right">–Jamie “jwz” Zawinski,1997年8月</p><p></p>
-<p></p><h1>正则表达式中常用的字符含义</h1><br><img src="/2018/06/05/regularexpression/a.png"><p></p>
+<p></p><h1>正则表达式中常用的字符含义</h1><br><img src="/2018/06/05/regularexpression/a.png"><br>反斜杠\的作用:<br>反斜杠后边跟元字符去除特殊功能；（即将特殊字符转义成普通字符）<br>反斜杠后边跟普通字符实现特殊功能；（即预定义字符）<br>引用序号对应的字组所匹配的字符串。<p></p>
+<p></p><h1>使用re模块进行正则表达式的匹配</h1><p></p>
+<p></p><h3>使用compile()函数编译正则表达式</h3><p></p>
+<p></p><h4>预编译</h4><br>为了更好的理解compile()函数，我们需要先了解预编译<br>概念:预编译又称为预处理，是做些代码文本的替换工作。<br>处理#开头的指令，比如拷贝#include包含的文件代码，#define宏定义的替换，条件编译等就是为编译做的与准备工作的阶段，主要处理#开始的预编译指令。<br>使用预编译的代码对象比直接使用字符串要快，因为解释器在执行字符串形式的代码前都必须把字符串编译成代码对象。<br>同样的概念也适用于正则表达式–在模式匹配发生之前，正则表达式模式必须编译成正则表达式对象。由于正则表达式在执行过程中将进行多次比较操作，因此强烈建议使用预编译。而且既然正则表达式的编译是必须的，那么使用预编译来提升执行性能无疑是明智之举re.compile能够提供此功能。<p></p>
+<p></p><h4>compile函数</h4><br>Python通过re模块提供对正则表达式的支持。使用re的一般步骤是先使用re.compile()函数，将正则表达式的字符串形式编译为Pattern实例，然后使用Pattern实例处理文本并获得匹配的结果(一个Match实例)，最后使用Match实例获得信息，进行其他的操作。<br>下面的例子就是在一个字符串中获取所有的英文。<br><img src="/2018/06/05/regularexpression/b.png"><p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -163,7 +168,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">正则表达式中常用的字符含义</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">正则表达式中常用的字符含义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">使用re模块进行正则表达式的匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.1.</span> <span class="toc-text">使用compile()函数编译正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.1.1.</span> <span class="toc-text">预编译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">2.0.1.2.</span> <span class="toc-text">compile函数</span></a></li></ol></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -210,7 +215,7 @@
 		  
 		
 		  
-			<li><a href="/categories/life/" title="生活">生活<sup>6</sup></a></li>
+			<li><a href="/categories/life/" title="生活">生活<sup>7</sup></a></li>
 		  
 		
 		  

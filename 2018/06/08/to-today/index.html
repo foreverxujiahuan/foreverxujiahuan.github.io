@@ -4,33 +4,22 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>深入理解css的盒子模型 | zzulixjh</title>
+    <title>写给今天的聚餐 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="本文将从以下几个方面谈谈盒模型。基本概念:标准模型和IE模型CSS如何设置这两种模型JS如何获取盒模型对应的款和高实例题(根据盒模型解释边距重叠)BFC(边距重叠解决方案) 基本概念盒模型的组成大家肯定都懂，由里向外content,padding,border,margin.盒模型是有两种标准的，一个是标准模型，一个是IE模型。从上面两图中不难看出在标准模型中，盒模型的宽高知识内容(content">
-<meta property="og:type" content="article">
-<meta property="og:title" content="深入理解css的盒子模型">
-<meta property="og:url" content="http://yoursite.com/2018/03/02/box/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="写给今天的聚餐">
+<meta property="og:url" content="http://yoursite.com/2018/06/08/to-today/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="本文将从以下几个方面谈谈盒模型。基本概念:标准模型和IE模型CSS如何设置这两种模型JS如何获取盒模型对应的款和高实例题(根据盒模型解释边距重叠)BFC(边距重叠解决方案) 基本概念盒模型的组成大家肯定都懂，由里向外content,padding,border,margin.盒模型是有两种标准的，一个是标准模型，一个是IE模型。从上面两图中不难看出在标准模型中，盒模型的宽高知识内容(content">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/box/a.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/box/b.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/box/c.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/box/d.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/box/e.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/box/f.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/box/g.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/box/h.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/02/box/i.png">
-<meta property="og:updated_time" content="2018-03-02T14:37:32.000Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/08/to-today/a.jpg">
+<meta property="og:updated_time" content="2018-06-08T14:38:21.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解css的盒子模型">
-<meta name="twitter:description" content="本文将从以下几个方面谈谈盒模型。基本概念:标准模型和IE模型CSS如何设置这两种模型JS如何获取盒模型对应的款和高实例题(根据盒模型解释边距重叠)BFC(边距重叠解决方案) 基本概念盒模型的组成大家肯定都懂，由里向外content,padding,border,margin.盒模型是有两种标准的，一个是标准模型，一个是IE模型。从上面两图中不难看出在标准模型中，盒模型的宽高知识内容(content">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/02/box/a.png">
+<meta name="twitter:title" content="写给今天的聚餐">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/08/to-today/a.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -90,14 +79,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/03/02/box/" title="深入理解css的盒子模型" itemprop="url">深入理解css的盒子模型</a>
+      <a href="/2018/06/08/to-today/" title="写给今天的聚餐" itemprop="url">写给今天的聚餐</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-03-02T13:35:10.000Z" itemprop="datePublished"> Published 2018-03-02</time>
+    <time datetime="2018-06-08T14:37:12.000Z" itemprop="datePublished"> Published 2018-06-08</time>
     
   </p>
 </header>
@@ -106,16 +95,11 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">css如何设置两种模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">JS获取宽高</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">边距重叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">边距重叠解决方案(BFC)</span></a></li></ol>
+			
 		
 		</div>
 		
-		<p>本文将从以下几个方面谈谈盒模型。<br><br>基本概念:标准模型和IE模型<br><br>CSS如何设置这两种模型<br><br>JS如何获取盒模型对应的款和高<br><br>实例题(根据盒模型解释边距重叠)<br><br>BFC(边距重叠解决方案)<br></p>
-<p></p><h3>基本概念</h3><br>盒模型的组成大家肯定都懂，由里向外content,padding,border,margin.盒模型是有两种标准的，一个是标准模型，一个是IE模型。<br><img src="/2018/03/02/box/a.png"><br><img src="/2018/03/02/box/b.png"><br>从上面两图中不难看出在标准模型中，盒模型的宽高知识内容(content)的宽高，而在IE模型汇总盒模型的宽高是内容(content)+填充(padding)+边框(border)的总宽高<p></p>
-<p></p><h3>css如何设置两种模型</h3><br>这里用到了CSS3的属性box-sizing<br><img src="/2018/03/02/box/c.png"><p></p>
-<p></p><h3>JS获取宽高</h3><br>通过JS获取盒模型对应的宽和高，有以下几种方法:<br>为了方便书写，一下用dom来表示获取的HTML的节点。<br><br>1.dom.style.width/height<br><br>这种方式只能取到dom元素内联样式所设置的宽高，也就是说如果该节点的样式是在style标签中或外联的css文件中设置的话，通过这种方法是获取不到dom的宽高的。<br><br>2.dom.currentStyle.width/height<br><br>这种方法获取的是在页面渲染完成后的结果，就是说不管是哪种方式设置的样式，都能获取到。但是这种方法只有IE浏览器支持。<br><br>3.window.getComputedStyle(dom).width/height<br><br>这种方式的原理和2是一样的，这个可以兼容更多的浏览器，通用性好一些。<br><br>4.dom.getBoundingClientRect().width/height<br><br>这种方式是根据元素在视窗中的绝对位置来获取宽高的<br><br>5.dom.offsetWidth/offsetHeight<br><br>这个就没什么好说的了，最常用的，也是兼容最好的。<p></p>
-<p></p><h3>边距重叠</h3><br>什么是边距重叠?<br><br>如下图，父元素没有设置margin-top,而子元素设置了margin-top:20px;可以看出，父元素也一起有了边距。<br><img src="/2018/03/02/box/d.png"><br>上图代码<br><img src="/2018/03/02/box/e.png"><p></p>
-<p></p><h3>边距重叠解决方案(BFC)</h3><br>首先要明确BFC是什么意思，其全英文拼写为Block Formatting Context直译为“块级格式化上下文”<br><br><br>BFC的原理<br><br>1.内部的box会在垂直方向，一个接一个的放置<br><br>2.每个元素的margin box的左边，与包含块border box的左边相接触(对于从左往右的格式化，否则相反)<br><br>3.box垂直方向的距离由margin决定，属于同一个bfc的两个相邻的Box的margin会发生重叠<br><br>4.bfc的区域不会与浮动区域的Box重叠<br><br>5.bfc是一个页面上的独立容器，外面的元素不会影响bfc里的元素，反过来，里面的也不会影响外面的<br>6.计算bfc高度的时候，浮动元素也会参与计算<br><br>怎么创建bfc<br><br>1.float属性不为none(脱离文档流)<br><br>2.position为absolute或fixed<br><br>3.display为inline-block,table-cell,table-caption,lfex,inine-flex<br><br>4.overflow不为visible<br><br>5.根元素<br><br>应用场景<br><br>1.自适应两栏布局<br><br>2.清除内部浮动<br><br>3.防止垂直margin重叠<br>看一个垂直margin重叠的例子<br><img src="/2018/03/02/box/f.png"><br>效果图<br><img src="/2018/03/02/box/g.png"><br>用bfc可以解决垂直margin重叠的问题<br><br>关键代码<br><img src="/2018/03/02/box/h.png"><br>效果图<br><img src="/2018/03/02/box/i.png"><p></p>
+		<p><img src="/2018/06/08/to-today/a.jpg"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -123,7 +107,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/front/">前端</a>
+  <a class="article-category-link" href="/categories/life/">生活</a>
 </div>
 
 
@@ -133,7 +117,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/03/02/box/" data-title="深入理解css的盒子模型 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/06/08/to-today/" data-title="写给今天的聚餐 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -146,19 +130,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/03/11/suggest/" title="我认为的一些好的习惯">
-  <strong>上一篇：</strong><br/>
-  <span>
-  我认为的一些好的习惯</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/03/02/shange/"  title="深入理解Bootstrap的栅格布局">
+<a href="/2018/06/08/google/"  title="学会使用谷歌搜索">
  <strong>下一篇：</strong><br/> 
- <span>深入理解Bootstrap的栅格布局
+ <span>学会使用谷歌搜索
 </span>
 </a>
 </div>
@@ -175,7 +151,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">css如何设置两种模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">JS获取宽高</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">边距重叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">边距重叠解决方案(BFC)</span></a></li></ol>
+ 
  
   </div>
 
