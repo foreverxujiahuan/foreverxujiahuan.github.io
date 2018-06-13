@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>写给六月九号的自己 | zzulixjh</title>
+    <title>网络编程基础知识 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="想来时间真是个神奇的东西，它是一个神奇的过滤器，它会慢慢带走你身边那些不重要的人，而那些重要的人，你会发现兜兜转转，最后还是分不开的。我确乎保准自己现在如果能和喜欢的人在一起的话，那我的生活会完全不一样。我会和你一起努力学习，一起进步，到大学毕业了一起去我们喜欢的城市。我不需要忙忙碌碌的生活，只是希望闲下来的时候能和朋友一起去踢场球，偶尔和三五好友一起出去吃个饭，回忆起我们的青春，想起我大学的生活">
+    <meta name="description" content="在用Python进行网络编程之前，我们现需要了解一些基本知识。 网络编程我们先来看看百度百科对于网络编程的定义:网络编程从大的方面说就是对信息的发送到接收，中间传输为物理线路的作用。网络编程最主要的工作就是在发送端把信息通过规定好的协议进行组装包，在接收端按照规定好的协议把包进行解析，从而提取出对应的信息，达到通信的目的。中间最主要的就是数据包的组装，数据包的过滤，数据包的获取，数据包的分析，当然">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写给六月九号的自己">
-<meta property="og:url" content="http://yoursite.com/2018/06/09/myidea/index.html">
+<meta property="og:title" content="网络编程基础知识">
+<meta property="og:url" content="http://yoursite.com/2018/06/11/winsock2/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="想来时间真是个神奇的东西，它是一个神奇的过滤器，它会慢慢带走你身边那些不重要的人，而那些重要的人，你会发现兜兜转转，最后还是分不开的。我确乎保准自己现在如果能和喜欢的人在一起的话，那我的生活会完全不一样。我会和你一起努力学习，一起进步，到大学毕业了一起去我们喜欢的城市。我不需要忙忙碌碌的生活，只是希望闲下来的时候能和朋友一起去踢场球，偶尔和三五好友一起出去吃个饭，回忆起我们的青春，想起我大学的生活">
-<meta property="og:updated_time" content="2018-06-08T22:12:47.616Z">
+<meta property="og:description" content="在用Python进行网络编程之前，我们现需要了解一些基本知识。 网络编程我们先来看看百度百科对于网络编程的定义:网络编程从大的方面说就是对信息的发送到接收，中间传输为物理线路的作用。网络编程最主要的工作就是在发送端把信息通过规定好的协议进行组装包，在接收端按照规定好的协议把包进行解析，从而提取出对应的信息，达到通信的目的。中间最主要的就是数据包的组装，数据包的过滤，数据包的获取，数据包的分析，当然">
+<meta property="og:updated_time" content="2018-06-13T03:14:53.405Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写给六月九号的自己">
-<meta name="twitter:description" content="想来时间真是个神奇的东西，它是一个神奇的过滤器，它会慢慢带走你身边那些不重要的人，而那些重要的人，你会发现兜兜转转，最后还是分不开的。我确乎保准自己现在如果能和喜欢的人在一起的话，那我的生活会完全不一样。我会和你一起努力学习，一起进步，到大学毕业了一起去我们喜欢的城市。我不需要忙忙碌碌的生活，只是希望闲下来的时候能和朋友一起去踢场球，偶尔和三五好友一起出去吃个饭，回忆起我们的青春，想起我大学的生活">
+<meta name="twitter:title" content="网络编程基础知识">
+<meta name="twitter:description" content="在用Python进行网络编程之前，我们现需要了解一些基本知识。 网络编程我们先来看看百度百科对于网络编程的定义:网络编程从大的方面说就是对信息的发送到接收，中间传输为物理线路的作用。网络编程最主要的工作就是在发送端把信息通过规定好的协议进行组装包，在接收端按照规定好的协议把包进行解析，从而提取出对应的信息，达到通信的目的。中间最主要的就是数据包的组装，数据包的过滤，数据包的获取，数据包的分析，当然">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/06/09/myidea/" title="写给六月九号的自己" itemprop="url">写给六月九号的自己</a>
+      <a href="/2018/06/11/winsock2/" title="网络编程基础知识" itemprop="url">网络编程基础知识</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-06-08T21:43:38.000Z" itemprop="datePublished"> Published 2018-06-09</time>
+    <time datetime="2018-06-11T03:13:28.000Z" itemprop="datePublished"> Published 2018-06-11</time>
     
   </p>
 </header>
@@ -96,19 +96,28 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">网络编程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">客户端/服务器架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">硬件、软件客户端\服务器架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">客户端/服务器网络编程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">套接字:通信端点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">套接字的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text">套接字地址:主机-端口对</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.</span> <span class="toc-text">面向连接的套接字与无连接的套接字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.1.</span> <span class="toc-text">面向连接的套接字</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
-		<p>想来时间真是个神奇的东西，它是一个神奇的过滤器，它会慢慢带走你身边那些不重要的人，而那些重要的人，你会发现兜兜转转，最后还是分不开的。<br>我确乎保准自己现在如果能和喜欢的人在一起的话，那我的生活会完全不一样。我会和你一起努力学习，一起进步，到大学毕业了一起去我们喜欢的城市。我不需要忙忙碌碌的生活，只是希望闲下来的时候能和朋友一起去踢场球，偶尔和三五好友一起出去吃个饭，回忆起我们的青春，想起我大学的生活，想起在我青春年少的时候，在神奇的大学生科技创业中心、信息工程16-01、神奇的530实验室以及足球场上遇到的那些可爱的人。<br>想起大学这两年生活以来，虽然说自己的方向一直也没确定，但是一直是在干自己喜欢的事情。大一刚进大学的时候，我的生活几乎只有足球，每个周末，每个周四下午都去球场踢球。到了大一下学期，想着自己的大学不能就这样，也该学点有用的东西了吧。于是我进了大学生科技创业中心，在那边学习了前端，以及后来暑假留校巩固了自己的前端知识与PHP。当然那时候我学习这些还没有想的很远，只是希望自己能在社团中过的比较好。这些我学到的前端与PHP，使得我不论是在实验室还是在社团，都是比较自信的。到了大二下学期，渐渐感觉自己的专业方向不明确，我总不能等死吧，也该朝着一个方向努力前进了。而Python无疑是我目前为止最喜欢的东西，它的神奇之处无须多说。既然找到自己喜欢的东西了，那就该好好努力了。毕竟还有不到一年就该找工作了，希望明年的这个时候，再回想起自己的大学生活，觉得那些发生的事情都刚刚好吧。<br>                    </p><p style="float:right">写于凌晨五点的郑州轻工业大学计算机楼530实验室</p><br><p></p>
-<p style="float:right">许嘉欢</p>  
+		<p>在用Python进行网络编程之前，我们现需要了解一些基本知识。</p>
+<p></p><h1>网络编程</h1><br>我们先来看看百度百科对于网络编程的定义:网络编程从大的方面说就是对信息的发送到接收，中间传输为物理线路的作用。<br>网络编程最主要的工作就是在发送端把信息通过规定好的协议进行组装包，在接收端按照规定好的协议把包进行解析，从而提取出对应的信息，达到通信的目的。中间最主要的就是数据包的组装，数据包的过滤，数据包的获取，数据包的分析，当然最后再做一些处理，代码、开发工具、数据库、服务器架设和网页设计这5部分都需要接触。<p></p>
+<p></p><h1>客户端/服务器架构</h1><br>服务器就是一系列硬件或软件，为一个或多个客户端（服务的用户）提供所需的”服务”。它存在唯一目的就是等待客户端的请求，并响应它们（提供服务），然后等待更多请求。<p></p>
+<p></p><h2>硬件、软件客户端\服务器架构</h2><br>打印机就是一个硬件服务器的例子。另外文件服务器也是硬件服务器的一个例子。这些通常都是拥有庞大通用存储容器的计算机，可以被远程客户端访问。<br>软件服务器也运行在一块硬件之上，但是没有像硬件服务器那样的专用外围设备。软件服务器提供的主服务包括程序执行、数据传输检索、聚合、更新，或其他类型的编程或数据操作。现在常见的软件服务器就是Web服务器。如果个人或公司想要运行自己的Web服务器，那么必须拥有一台或多台计算机，在上面安装希望提供给用户的Web页面和Web应用程序，然后启动Web服务器。一个这样的服务器的工作就是接受客户端请求，并向(Web)客户端(即用户计算机上的浏览器)回送Web页面。<br>数据库服务器是另一种类型的软件服务器。它们接受客户端的存储或检索请求，响应请求，然后我们等待更多的事物。与Web服务器类似，它们也是永远运行的。<p></p>
+<p></p><h2>客户端/服务器网络编程</h2><br>在服务器响应客户端请求之前，必须进行一些初步的设置流程来为之后的工作做准备。首先会创建一个通信端点，它能够使服务器监听请求。<br>这个过程与网络世界一样，一旦一个通信端点已经建立，监听服务器就可以进入无线循环中，等待客户端的连接并响应它们的请求。<p></p>
+<p></p><h1>套接字:通信端点</h1><p></p>
+<p></p><h2>套接字的概念</h2><br>套接字(socket)是计算机网络数据结构,它体现了”通信端点”的概念。在任何类型的通信开始之前，网络应用程序必须创建套接字。可以将它们比作电话插孔，没有它将无法进行通信。<p></p>
+<p></p><h2>套接字地址:主机-端口对</h2><br>如果一个套接字像一个电话插孔–允许通信的一些基础设施，那么主机名和端口号就像区号和电话号码的组合。一个网络地址由主机名和端口号对组成，而这时网络通信所需要的。<br>有效的端口号范围为0~65535(尽管小于1024的端口号预留给了系统)。<br>端口号列表查看网址:<a href="http://www.iana.org/assignments/port-numbers" target="_blank" rel="noopener">http://www.iana.org/assignments/port-numbers</a><p></p>
+<p></p><h2>面向连接的套接字与无连接的套接字</h2><p></p>
+<p></p><h3>面向连接的套接字</h3><br>面向连接的通信提供序列化的、可靠地和不重复的数据交付，而没有记录边界。这基本上意味着每条消息可以拆分成多个片段，并且每一条消息片段都能确保能够达到目的地，然后将它们按顺序组合在一起，最后将完整消息传递给正在等待的应用程序。<br>实现这种连接类型的主要协议是传输控制协议(即TCP协议)。为了创建TCP套接字，必须使用SOCK_STREAM作为套接字类型。TCP套接字的名字SOCK_STREAM基于流套接字的其中一种表示。因为这些套接字的网络版本使用因特网协议（IP）来搜索网络中的主机，所以整个系统通常结合这两种协议9TCP和IP)来进行。<p></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/life/">生活</a>
+  <a class="article-category-link" href="/categories/pc/">计算机</a>
 </div>
 
 
@@ -118,7 +127,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/06/09/myidea/" data-title="写给六月九号的自己 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/06/11/winsock2/" data-title="网络编程基础知识 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -132,18 +141,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2018/06/10/Walle/" title="面向瓦力编程">
+ <a href="/2018/06/12/tcp-ip-http/" title="TCP/IP协议与HTTP协议">
   <strong>上一篇：</strong><br/>
   <span>
-  面向瓦力编程</span>
+  TCP/IP协议与HTTP协议</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2018/06/08/to-today/"  title="写给今天的聚餐">
+<a href="/2018/06/10/Walle/"  title="面向瓦力编程">
  <strong>下一篇：</strong><br/> 
- <span>写给今天的聚餐
+ <span>面向瓦力编程
 </span>
 </a>
 </div>
@@ -160,7 +169,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">网络编程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">客户端/服务器架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">硬件、软件客户端\服务器架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">客户端/服务器网络编程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">套接字:通信端点</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">套接字的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text">套接字地址:主机-端口对</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.</span> <span class="toc-text">面向连接的套接字与无连接的套接字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.1.</span> <span class="toc-text">面向连接的套接字</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
