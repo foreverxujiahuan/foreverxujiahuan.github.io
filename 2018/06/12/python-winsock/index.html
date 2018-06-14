@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Python网络编程 | zzulixjh</title>
+    <title>Python网络编程笔记 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="在了解了Python的基本知识后，我们就要试着将这些概念应用到Python中了.我们将主要用到socket模块，在这个模块中可以找到socket()函数,该函数用于创建套接字对象。套接字也有自己的方法集，这些方法可以实现基于套接字的网络通信。 socket()模块函数">
+    <meta name="description" content="在了解了Python的基本知识后，我们就要试着将这些概念应用到Python中了.我们将主要用到socket模块，在这个模块中可以找到socket()函数,该函数用于创建套接字对象。套接字也有自己的方法集，这些方法可以实现基于套接字的网络通信。 socket()模块函数 基本方法描述在使用socket模块的时候，创建对象一般是使用如下的代码:s = socket.socket()在使用默认值的时候，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python网络编程">
+<meta property="og:title" content="Python网络编程笔记">
 <meta property="og:url" content="http://yoursite.com/2018/06/12/python-winsock/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="在了解了Python的基本知识后，我们就要试着将这些概念应用到Python中了.我们将主要用到socket模块，在这个模块中可以找到socket()函数,该函数用于创建套接字对象。套接字也有自己的方法集，这些方法可以实现基于套接字的网络通信。 socket()模块函数">
-<meta property="og:updated_time" content="2018-06-12T13:50:00.477Z">
+<meta property="og:description" content="在了解了Python的基本知识后，我们就要试着将这些概念应用到Python中了.我们将主要用到socket模块，在这个模块中可以找到socket()函数,该函数用于创建套接字对象。套接字也有自己的方法集，这些方法可以实现基于套接字的网络通信。 socket()模块函数 基本方法描述在使用socket模块的时候，创建对象一般是使用如下的代码:s = socket.socket()在使用默认值的时候，">
+<meta property="og:updated_time" content="2018-06-14T07:57:03.758Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python网络编程">
-<meta name="twitter:description" content="在了解了Python的基本知识后，我们就要试着将这些概念应用到Python中了.我们将主要用到socket模块，在这个模块中可以找到socket()函数,该函数用于创建套接字对象。套接字也有自己的方法集，这些方法可以实现基于套接字的网络通信。 socket()模块函数">
+<meta name="twitter:title" content="Python网络编程笔记">
+<meta name="twitter:description" content="在了解了Python的基本知识后，我们就要试着将这些概念应用到Python中了.我们将主要用到socket模块，在这个模块中可以找到socket()函数,该函数用于创建套接字对象。套接字也有自己的方法集，这些方法可以实现基于套接字的网络通信。 socket()模块函数 基本方法描述在使用socket模块的时候，创建对象一般是使用如下的代码:s = socket.socket()在使用默认值的时候，">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -48,7 +48,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -64,7 +64,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -80,28 +80,30 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/06/12/python-winsock/" title="Python网络编程" itemprop="url">Python网络编程</a>
+      <a href="/2018/06/12/python-winsock/" title="Python网络编程笔记" itemprop="url">Python网络编程笔记</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-06-12T13:32:44.000Z" itemprop="datePublished"> Published 2018-06-12</time>
+    <time datetime="2018-06-12T13:32:44.000Z" itemprop="datePublished"> 发表于 2018-06-12</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">socket()模块函数</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">socket()模块函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">基本方法描述</span></a></li></ol></li></ol>
 		
 		</div>
 		
 		<p>在了解了Python的基本知识后，我们就要试着将这些概念应用到Python中了.我们将主要用到socket模块，在这个模块中可以找到socket()函数,该函数用于创建套接字对象。套接字也有自己的方法集，这些方法可以实现基于套接字的网络通信。</p>
-<h1>socket()模块函数</h1>  
+<p></p><h1>socket()模块函数</h1><p></p>
+<p></p><h2>基本方法描述</h2><br>在使用socket模块的时候，创建对象一般是使用如下的代码:<br>s = socket.socket()<br>在使用默认值的时候，表示创建的是TCP的socket，地址家族表示为socket.AF_INET,socket类型默认值为socket.SOCK_STREAM表示为TCP的，而UDP的为socket.SOCK_DGRAM,表示为数据包。绑定的代码如下:<br>s.bind((IP,port))<br>注意在绑定的时候，参数只有一个表示为元组tuple,其中第一个元素为ip地址或者是hostname,第二个参数为port端口号，也就是开始监听哪个IP地址的哪个端口<br>监听的代码如下:<br>s.listen(5)<br>其中的参数为整数，5表示阻塞五个连接。<br>被动接受请求的代码如下:<br>conn,addres = s.accept()<br>返回的是一个元组，也就是在接受客户端的连接，返回的第一个元素是一个socket对象，可以认为是客户端的socket对象，adress表示为客户端的地址，其实这个也就使用和客户端进行通信的。<br>客户端连接服务器端的代码如下:<br>s.connect((ip,port))<br>参数为服务器的IP地址和服务器监听的端口。<br>发送消息的代码如下:<br>conn.send(‘string is send’)<br>conn.sendall(‘send’)<br>两个都是用来发送消息的，区别就是sendall尽量一次发送，而send的话只要看接受能力，如果超出范围的话，那么会发送两次<br>接受消息的代码如下:<br>conn.recv(1024)<br>主要方法是recv方法表示接收消息，最多接受的字节数为1024，那么对于的字符会在下次接受的过程中进行接受。<p></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -118,7 +120,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/06/12/python-winsock/" data-title="Python网络编程 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/06/12/python-winsock/" data-title="Python网络编程笔记 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -147,22 +149,22 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">socket()模块函数</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">socket()模块函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">基本方法描述</span></a></li></ol></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -171,7 +173,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -217,7 +219,7 @@
   
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -239,11 +241,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -474,7 +476,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
