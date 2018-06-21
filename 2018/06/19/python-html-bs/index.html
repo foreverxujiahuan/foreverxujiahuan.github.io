@@ -4,23 +4,28 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>计算机设计大赛 | zzulixjh</title>
+    <title>用Python尝试复杂HTML解析 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="好久没写博客了，趁着今天刚从新乡比赛回来，想说一下这个比赛。这是我第一次参加这比赛，在比赛的时候我看到了很多优秀的作品，其中给我印象最深的都是我们学校的。一个是智能试卷生成系统，这个系统是真的强；还一个给我印象深刻的是一个基于深度学习的pm2.5环境检测系统，它让我感受到了深度学习的强大，正好深度学习、机器学习也是我想发展的方向，也算是激发我兴趣了吧。关于我自己的比赛:礼拜我到河师大之后我们去抽">
+    <meta name="description" content="BeautifulSoup安装BeautifulSoup对于Linux$sudo apt-get install python-bs4对于windows个人建议是使用Pycharm，打开Pycharm,点击&amp;lt;setting然后选中project interpreter后点击那个加号，从里面搜索Beautiful4就可以了。打开终端，测试一下，没有报错就说明安装成功了。复杂的HTML解析先来看">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机设计大赛">
-<meta property="og:url" content="http://yoursite.com/2018/04/22/april/index.html">
+<meta property="og:title" content="用Python尝试复杂HTML解析">
+<meta property="og:url" content="http://yoursite.com/2018/06/19/python-html-bs/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="好久没写博客了，趁着今天刚从新乡比赛回来，想说一下这个比赛。这是我第一次参加这比赛，在比赛的时候我看到了很多优秀的作品，其中给我印象最深的都是我们学校的。一个是智能试卷生成系统，这个系统是真的强；还一个给我印象深刻的是一个基于深度学习的pm2.5环境检测系统，它让我感受到了深度学习的强大，正好深度学习、机器学习也是我想发展的方向，也算是激发我兴趣了吧。关于我自己的比赛:礼拜我到河师大之后我们去抽">
-<meta property="og:updated_time" content="2018-04-22T12:23:28.000Z">
+<meta property="og:description" content="BeautifulSoup安装BeautifulSoup对于Linux$sudo apt-get install python-bs4对于windows个人建议是使用Pycharm，打开Pycharm,点击&amp;lt;setting然后选中project interpreter后点击那个加号，从里面搜索Beautiful4就可以了。打开终端，测试一下，没有报错就说明安装成功了。复杂的HTML解析先来看">
+<meta property="og:image" content="http://yoursite.com/2018/06/19/python-html-bs/a.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/19/python-html-bs/b.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/19/python-html-bs/c.png">
+<meta property="og:image" content="http://yoursite.com/2018/06/19/python-html-bs/d.png">
+<meta property="og:updated_time" content="2018-06-19T08:14:09.691Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算机设计大赛">
-<meta name="twitter:description" content="好久没写博客了，趁着今天刚从新乡比赛回来，想说一下这个比赛。这是我第一次参加这比赛，在比赛的时候我看到了很多优秀的作品，其中给我印象最深的都是我们学校的。一个是智能试卷生成系统，这个系统是真的强；还一个给我印象深刻的是一个基于深度学习的pm2.5环境检测系统，它让我感受到了深度学习的强大，正好深度学习、机器学习也是我想发展的方向，也算是激发我兴趣了吧。关于我自己的比赛:礼拜我到河师大之后我们去抽">
+<meta name="twitter:title" content="用Python尝试复杂HTML解析">
+<meta name="twitter:description" content="BeautifulSoup安装BeautifulSoup对于Linux$sudo apt-get install python-bs4对于windows个人建议是使用Pycharm，打开Pycharm,点击&amp;lt;setting然后选中project interpreter后点击那个加号，从里面搜索Beautiful4就可以了。打开终端，测试一下，没有报错就说明安装成功了。复杂的HTML解析先来看">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/19/python-html-bs/a.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -80,14 +85,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/04/22/april/" title="计算机设计大赛" itemprop="url">计算机设计大赛</a>
+      <a href="/2018/06/19/python-html-bs/" title="用Python尝试复杂HTML解析" itemprop="url">用Python尝试复杂HTML解析</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-04-22T12:10:21.000Z" itemprop="datePublished"> Published 2018-04-22</time>
+    <time datetime="2018-06-19T03:02:53.000Z" itemprop="datePublished"> Published 2018-06-19</time>
     
   </p>
 </header>
@@ -96,19 +101,19 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">BeautifulSoup</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">安装BeautifulSoup</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">复杂的HTML解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">BeautifulSoup的find()和findAll()</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text">attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.</span> <span class="toc-text">recursive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.4.</span> <span class="toc-text">text</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">导航树</span></a></li></ol>
 		
 		</div>
 		
-		<p> 好久没写博客了，趁着今天刚从新乡比赛回来，想说一下这个比赛。这是我第一次参加这比赛，在比赛的时候我看到了很多优秀的作品，其中给我印象最深的都是我们学校的。一个是智能试卷生成系统，这个系统是真的强；还一个给我印象深刻的是一个基于深度学习的pm2.5环境检测系统，它让我感受到了深度学习的强大，正好深度学习、机器学习也是我想发展的方向，也算是激发我兴趣了吧。<br>关于我自己的比赛:礼拜我到河师大之后我们去抽签，抽明天比赛的顺序，很不幸我抽到了一，不过也有好处，比赛完后我和我的两个队友就没事了，我们在河师大到处逛，还合影留念。虽然最后我们的作品只获得了三等奖，但是对我个人来说这次比赛的过程意义大于结果。确实有一些作品实力还是非常强的，我自己还是得加强学习。<br>我的感想:像这种比赛，我个人认为技巧性还是比较强的，技术是一方面，如何表达也是一方面。如果你的作品能紧扣大赛人工智能的主题，那些评委就会对你的作品有深刻印象。不过感觉最重要的还是我自己在开发这个项目中学习到的技术，这是永远属于我自己的。</p>
-  
+		<h1>BeautifulSoup</h1><br><h2>安装BeautifulSoup</h2><br>对于Linux<br>$sudo apt-get install python-bs4<br>对于windows<br>个人建议是使用Pycharm，打开Pycharm,点击&lt;setting<br><img src="/2018/06/19/python-html-bs/a.png"><br>然后选中project interpreter后点击那个加号，从里面搜索Beautiful4就可以了。<br><img src="/2018/06/19/python-html-bs/b.png"><br>打开终端，测试一下，没有报错就说明安装成功了。<br><img src="/2018/06/19/python-html-bs/c.png"><br><h1>复杂的HTML解析</h1><br>先来看一个例子，从一个网页中获取所有span的class的为green的元素。<br><img src="/2018/06/19/python-html-bs/d.png"><br>运行改程序，我们可以看到该网页中所有的<span>的class为green的值全被获取出来了。这是根据class的名称来获取元素的方法。<br><h1>BeautifulSoup的find()和findAll()</h1><br>这两个函数非常相似，BeautifulSoup文档里两者的定义就是这样:<br>findAll(tag,attributes,recursive,text,limit,keywords)<br>find(tag,attributes,recursive,text,keywords)<br>虽然在绝大多数情况下我们只需要使用前两个参数:tag和attributes。但是我们还是来仔细分析一下这里所有的参数。<br><h2>tag</h2><br>标签参数tag我们可以传一个标签的名称或者多个标签的名称组成Python列表做标签参数。例如，下面的代码将返回一个包含HTML文档中所有标题标签的列表:<br>.findAll({“h1”,”h2”,”h3”,”h4”,”h5”,”h6”})<br><h2>attributes</h2><br>属性参数attributes是用一个Python字典封装一个标签的若干属性和对应的属性值。例如，下面这个函数会返回HTML文档里红色与绿色两种颜色的span标签:<br>.findAll(“span”,{“class”:{“green”,”red”}})<br><h2>recursive</h2><br>递归参数recursive是一个布尔变量。如果recursive设置为True，findAll就会根据你的要求去查找标签参数的所有子标签，以及子标签的子标签。如果recursive设置为False,findAll就只查找文档的一级标签。<br><h2>text</h2><br>文本参数text有点不同，它是用标签的文本内容去匹配，而不是用标签的属性。加入我们想查找前面网页中包含”the prince”内容的标签数量，我们可以把之前的findAll方法换成下面的代码:<br>nameList = bsObj.findAll(text=”the prince”)<br>print(len(nameList))<br>输出结果为”7”<br><h1>导航树</h1>
+</span>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/life/">生活</a>
+  <a class="article-category-link" href="/categories/Python/">Python</a>
 </div>
 
 
@@ -118,7 +123,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/04/22/april/" data-title="计算机设计大赛 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/06/19/python-html-bs/" data-title="用Python尝试复杂HTML解析 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -131,19 +136,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/04/23/python-notes1/" title="python函数式编程">
-  <strong>上一篇：</strong><br/>
-  <span>
-  python函数式编程</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/03/30/de/"  title="宁静致远">
+<a href="/2018/06/18/javascript-niuke/"  title="Javascript牛客刷题笔记">
  <strong>下一篇：</strong><br/> 
- <span>宁静致远
+ <span>Javascript牛客刷题笔记
 </span>
 </a>
 </div>
@@ -160,7 +157,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">BeautifulSoup</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">安装BeautifulSoup</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">复杂的HTML解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">BeautifulSoup的find()和findAll()</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text">attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.</span> <span class="toc-text">recursive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.4.</span> <span class="toc-text">text</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">导航树</span></a></li></ol>
  
   </div>
 
