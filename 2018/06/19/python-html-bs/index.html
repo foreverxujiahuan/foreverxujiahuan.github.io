@@ -11,20 +11,20 @@
     
 
     
-    <meta name="description" content="BeautifulSoup安装BeautifulSoup对于Linux$sudo apt-get install python-bs4对于windows个人建议是使用Pycharm，打开Pycharm,点击&amp;lt;setting然后选中project interpreter后点击那个加号，从里面搜索Beautiful4就可以了。打开终端，测试一下，没有报错就说明安装成功了。复杂的HTML解析先来看">
+    <meta name="description" content="BeautifulSoup 安装BeautifulSoup对于Linux$sudo apt-get install python-bs4对于windows个人建议是使用Pycharm，打开Pycharm,点击&amp;lt;setting然后选中project interpreter后点击那个加号，从里面搜索Beautiful4就可以了。打开终端，测试一下，没有报错就说明安装成功了。 复杂的HTML解析先">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用Python尝试复杂HTML解析">
 <meta property="og:url" content="http://yoursite.com/2018/06/19/python-html-bs/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="BeautifulSoup安装BeautifulSoup对于Linux$sudo apt-get install python-bs4对于windows个人建议是使用Pycharm，打开Pycharm,点击&amp;lt;setting然后选中project interpreter后点击那个加号，从里面搜索Beautiful4就可以了。打开终端，测试一下，没有报错就说明安装成功了。复杂的HTML解析先来看">
+<meta property="og:description" content="BeautifulSoup 安装BeautifulSoup对于Linux$sudo apt-get install python-bs4对于windows个人建议是使用Pycharm，打开Pycharm,点击&amp;lt;setting然后选中project interpreter后点击那个加号，从里面搜索Beautiful4就可以了。打开终端，测试一下，没有报错就说明安装成功了。 复杂的HTML解析先">
 <meta property="og:image" content="http://yoursite.com/2018/06/19/python-html-bs/a.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/19/python-html-bs/b.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/19/python-html-bs/c.png">
 <meta property="og:image" content="http://yoursite.com/2018/06/19/python-html-bs/d.png">
-<meta property="og:updated_time" content="2018-06-19T08:14:09.691Z">
+<meta property="og:updated_time" content="2018-07-13T07:02:17.915Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Python尝试复杂HTML解析">
-<meta name="twitter:description" content="BeautifulSoup安装BeautifulSoup对于Linux$sudo apt-get install python-bs4对于windows个人建议是使用Pycharm，打开Pycharm,点击&amp;lt;setting然后选中project interpreter后点击那个加号，从里面搜索Beautiful4就可以了。打开终端，测试一下，没有报错就说明安装成功了。复杂的HTML解析先来看">
+<meta name="twitter:description" content="BeautifulSoup 安装BeautifulSoup对于Linux$sudo apt-get install python-bs4对于windows个人建议是使用Pycharm，打开Pycharm,点击&amp;lt;setting然后选中project interpreter后点击那个加号，从里面搜索Beautiful4就可以了。打开终端，测试一下，没有报错就说明安装成功了。 复杂的HTML解析先">
 <meta name="twitter:image" content="http://yoursite.com/2018/06/19/python-html-bs/a.png">
 
     
@@ -101,11 +101,18 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">BeautifulSoup</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">安装BeautifulSoup</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">复杂的HTML解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">BeautifulSoup的find()和findAll()</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text">attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.</span> <span class="toc-text">recursive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.4.</span> <span class="toc-text">text</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">导航树</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">BeautifulSoup</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">安装BeautifulSoup</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">复杂的HTML解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">BeautifulSoup的find()和findAll()</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text">attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.</span> <span class="toc-text">recursive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.4.</span> <span class="toc-text">text</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1>BeautifulSoup</h1><br><h2>安装BeautifulSoup</h2><br>对于Linux<br>$sudo apt-get install python-bs4<br>对于windows<br>个人建议是使用Pycharm，打开Pycharm,点击&lt;setting<br><img src="/2018/06/19/python-html-bs/a.png"><br>然后选中project interpreter后点击那个加号，从里面搜索Beautiful4就可以了。<br><img src="/2018/06/19/python-html-bs/b.png"><br>打开终端，测试一下，没有报错就说明安装成功了。<br><img src="/2018/06/19/python-html-bs/c.png"><br><h1>复杂的HTML解析</h1><br>先来看一个例子，从一个网页中获取所有span的class的为green的元素。<br><img src="/2018/06/19/python-html-bs/d.png"><br>运行改程序，我们可以看到该网页中所有的<span>的class为green的值全被获取出来了。这是根据class的名称来获取元素的方法。<br><h1>BeautifulSoup的find()和findAll()</h1><br>这两个函数非常相似，BeautifulSoup文档里两者的定义就是这样:<br>findAll(tag,attributes,recursive,text,limit,keywords)<br>find(tag,attributes,recursive,text,keywords)<br>虽然在绝大多数情况下我们只需要使用前两个参数:tag和attributes。但是我们还是来仔细分析一下这里所有的参数。<br><h2>tag</h2><br>标签参数tag我们可以传一个标签的名称或者多个标签的名称组成Python列表做标签参数。例如，下面的代码将返回一个包含HTML文档中所有标题标签的列表:<br>.findAll({“h1”,”h2”,”h3”,”h4”,”h5”,”h6”})<br><h2>attributes</h2><br>属性参数attributes是用一个Python字典封装一个标签的若干属性和对应的属性值。例如，下面这个函数会返回HTML文档里红色与绿色两种颜色的span标签:<br>.findAll(“span”,{“class”:{“green”,”red”}})<br><h2>recursive</h2><br>递归参数recursive是一个布尔变量。如果recursive设置为True，findAll就会根据你的要求去查找标签参数的所有子标签，以及子标签的子标签。如果recursive设置为False,findAll就只查找文档的一级标签。<br><h2>text</h2><br>文本参数text有点不同，它是用标签的文本内容去匹配，而不是用标签的属性。加入我们想查找前面网页中包含”the prince”内容的标签数量，我们可以把之前的findAll方法换成下面的代码:<br>nameList = bsObj.findAll(text=”the prince”)<br>print(len(nameList))<br>输出结果为”7”<br><h1>导航树</h1>
+		<p></p><h1>BeautifulSoup</h1><p></p>
+<p></p><h2>安装BeautifulSoup</h2><br>对于Linux<br>$sudo apt-get install python-bs4<br>对于windows<br>个人建议是使用Pycharm，打开Pycharm,点击&lt;setting<br><img src="/2018/06/19/python-html-bs/a.png"><br>然后选中project interpreter后点击那个加号，从里面搜索Beautiful4就可以了。<br><img src="/2018/06/19/python-html-bs/b.png"><br>打开终端，测试一下，没有报错就说明安装成功了。<br><img src="/2018/06/19/python-html-bs/c.png"><p></p>
+<p></p><h1>复杂的HTML解析</h1><br>先来看一个例子，从一个网页中获取所有span的class的为green的元素。<br><img src="/2018/06/19/python-html-bs/d.png"><br>运行改程序，我们可以看到该网页中所有的<span>的class为green的值全被获取出来了。这是根据class的名称来获取元素的方法。<p></p>
+<p></p><h1>BeautifulSoup的find()和findAll()</h1><br>这两个函数非常相似，BeautifulSoup文档里两者的定义就是这样:<br>findAll(tag,attributes,recursive,text,limit,keywords)<br>find(tag,attributes,recursive,text,keywords)<br>虽然在绝大多数情况下我们只需要使用前两个参数:tag和attributes。但是我们还是来仔细分析一下这里所有的参数。<p></p>
+<p></p><h2>tag</h2><br>标签参数tag我们可以传一个标签的名称或者多个标签的名称组成Python列表做标签参数。例如，下面的代码将返回一个包含HTML文档中所有标题标签的列表:<br>.findAll({“h1”,”h2”,”h3”,”h4”,”h5”,”h6”})<p></p>
+<p></p><h2>attributes</h2><br>属性参数attributes是用一个Python字典封装一个标签的若干属性和对应的属性值。例如，下面这个函数会返回HTML文档里红色与绿色两种颜色的span标签:<br>.findAll(“span”,{“class”:{“green”,”red”}})<p></p>
+<p></p><h2>recursive</h2><br>递归参数recursive是一个布尔变量。如果recursive设置为True，findAll就会根据你的要求去查找标签参数的所有子标签，以及子标签的子标签。如果recursive设置为False,findAll就只查找文档的一级标签。<p></p>
+<p></p><h2>text</h2><br>文本参数text有点不同，它是用标签的文本内容去匹配，而不是用标签的属性。加入我们想查找前面网页中包含”the prince”内容的标签数量，我们可以把之前的findAll方法换成下面的代码:<br>nameList = bsObj.findAll(text=”the prince”)<br>print(len(nameList))<br>输出结果为”7”<p></p>
 </span>  
 	</div>
 		<footer class="article-footer clearfix">
@@ -165,7 +172,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">BeautifulSoup</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">安装BeautifulSoup</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">复杂的HTML解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">BeautifulSoup的find()和findAll()</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text">attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.</span> <span class="toc-text">recursive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.4.</span> <span class="toc-text">text</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">导航树</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">BeautifulSoup</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">安装BeautifulSoup</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">复杂的HTML解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">BeautifulSoup的find()和findAll()</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text">attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.</span> <span class="toc-text">recursive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.4.</span> <span class="toc-text">text</span></a></li></ol></li></ol>
  
   </div>
 
@@ -200,7 +207,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>17</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>19</sup></a></li>
 		  
 		
 		  
