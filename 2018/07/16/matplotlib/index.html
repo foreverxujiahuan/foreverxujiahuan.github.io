@@ -19,7 +19,7 @@
 <meta property="og:description" content="在开始使用他们绘图之前，我们需要先对matplotlib和numpy进行简单的学习。我以一个coursera上的机器学习的一个房价预测问题为例，看一下如何利用python进行简单的数据可视化。需要注意的是这里的prices.txt文件需要自行去下载。下载地址:https://github.com/carefree0910/MachineLearning/edit/master/_Data/pric">
 <meta property="og:image" content="http://yoursite.com/2018/07/16/matplotlib/a.png">
 <meta property="og:image" content="http://yoursite.com/2018/07/16/matplotlib/b.png">
-<meta property="og:updated_time" content="2018-07-17T13:58:12.413Z">
+<meta property="og:updated_time" content="2018-07-18T06:43:15.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用matplotlib和numpy实现简单的数据可视化">
 <meta name="twitter:description" content="在开始使用他们绘图之前，我们需要先对matplotlib和numpy进行简单的学习。我以一个coursera上的机器学习的一个房价预测问题为例，看一下如何利用python进行简单的数据可视化。需要注意的是这里的prices.txt文件需要自行去下载。下载地址:https://github.com/carefree0910/MachineLearning/edit/master/_Data/pric">
@@ -51,7 +51,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -67,7 +67,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -90,20 +90,20 @@
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-07-16T01:31:02.000Z" itemprop="datePublished"> Published 2018-07-16</time>
+    <time datetime="2018-07-16T01:31:02.000Z" itemprop="datePublished"> 发表于 2018-07-16</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			
 		
 		</div>
 		
-		<p>在开始使用他们绘图之前，我们需要先对matplotlib和numpy进行简单的学习。<br>我以一个coursera上的机器学习的一个房价预测问题为例，看一下如何利用python进行简单的数据可视化。<br><img src="/2018/07/16/matplotlib/a.png"><br>需要注意的是这里的prices.txt文件需要自行去下载。<br>下载地址:<a href="https://github.com/carefree0910/MachineLearning/edit/master/_Data/prices.txt" target="_blank" rel="noopener">https://github.com/carefree0910/MachineLearning/edit/master/_Data/prices.txt</a><br>这代码很简单，我就不赘述了。就是最简单的Numpy和matplotlib的配合画图。<br>我们来看一下划出来的图<br><img src="/2018/07/16/matplotlib/b.png"></p>
+		<p>在开始使用他们绘图之前，我们需要先对matplotlib和numpy进行简单的学习。<br>我以一个coursera上的机器学习的一个房价预测问题为例，看一下如何利用python进行简单的数据可视化。<br><img src="/2018/07/16/matplotlib/a.png"><br>需要注意的是这里的prices.txt文件需要自行去下载。<br>下载地址:<a href="https://github.com/carefree0910/MachineLearning/edit/master/_Data/prices.txt" target="_blank" rel="noopener">https://github.com/carefree0910/MachineLearning/edit/master/_Data/prices.txt</a><br>接下来一句一句的看一下这代码:<br>import numpy as np和 import matplotlib.pyplot as plt就是导入这两个模块，并且给它们重新命名为np和plt<br>x,y = [],[]就是定义了两个存储输入数据(x)和目标数据(y)的数组<br>接下来就是遍历数据集，这里我们用open函数以只读的方式打开了prices.txt文件，然后将里面的数据以”,”为分隔符分开，分别赋值给_x和_y,接下来我们就得把刚刚获取到的_x和_y添加到数组x和y中<br>接着我们将python中自带的list转化为numpy模块中的array，即x,y=np.array(x),np.array(y)<br>这里因为数值比较大，所以我们这里将对x做简单的处理来降低问题的复杂度。在这个例子里，我们将采取常用的将输入数据标准化的做法，即x = (x-x.mean())/x.std()<br>其中x.mean()就是x的平均值的意思，std(x)代表x的标准差。另外这行代码的意思是将数组x中的每个数字进行该条语句的复制操作。这条语句执行完毕之后将会得到一个新的数组x<br>plt.figure()是创建画布的意思<br>另外这里用到了scatter函数，这里的参数x,y分别是横纵坐标，c是颜色，这里的g就是指绿色的意思，s是点的大小的意思，s越大，点越大<br>最后plt.show就是画出图的意思了。<br>最后我们来看一下画出来的图<br><img src="/2018/07/16/matplotlib/b.png"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -158,22 +158,22 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -182,7 +182,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -190,7 +190,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>3</sup></a></li>
+			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>4</sup></a></li>
 		  
 		
 		  
@@ -228,7 +228,7 @@
   
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -250,11 +250,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
 </div>
 
@@ -485,7 +485,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
