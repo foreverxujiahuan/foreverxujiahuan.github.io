@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>关于学习的一些认识 | zzulixjh</title>
+    <title>回溯算法 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="我认为有效的学习就是发现问题与解决问题的过程，而并不是为了考试而且被迫学习一些知识，为了应付考试而学到的知识通常只能用来考试。回顾了一下我的大二上学期的生活，真正让我得到提升的就是那些当初我遇到的令我非常不爽的bug，记得我做那个教室预约系统的时候，遇到了许多问题，有时候一个问题我坐在电脑前连续五六个小时都得不到解决，那时候我觉得要不放弃吧，这实在太让费时间了。但是想想也不行啊，如果放弃了他们动漫">
+    <meta name="description" content="考虑到回溯算法在实际中的应用，感觉对回溯算法做一下总结还是很有必要的。 回溯算法的概念回溯算法实际上是一个类似美居的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就”回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于学习的一些认识">
-<meta property="og:url" content="http://yoursite.com/2018/01/28/关于学习 的一些认识/index.html">
+<meta property="og:title" content="回溯算法">
+<meta property="og:url" content="http://yoursite.com/2018/10/01/huishuo/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="我认为有效的学习就是发现问题与解决问题的过程，而并不是为了考试而且被迫学习一些知识，为了应付考试而学到的知识通常只能用来考试。回顾了一下我的大二上学期的生活，真正让我得到提升的就是那些当初我遇到的令我非常不爽的bug，记得我做那个教室预约系统的时候，遇到了许多问题，有时候一个问题我坐在电脑前连续五六个小时都得不到解决，那时候我觉得要不放弃吧，这实在太让费时间了。但是想想也不行啊，如果放弃了他们动漫">
-<meta property="og:updated_time" content="2018-05-25T13:46:06.887Z">
+<meta property="og:description" content="考虑到回溯算法在实际中的应用，感觉对回溯算法做一下总结还是很有必要的。 回溯算法的概念回溯算法实际上是一个类似美居的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就”回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件">
+<meta property="og:updated_time" content="2018-10-01T11:38:16.332Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于学习的一些认识">
-<meta name="twitter:description" content="我认为有效的学习就是发现问题与解决问题的过程，而并不是为了考试而且被迫学习一些知识，为了应付考试而学到的知识通常只能用来考试。回顾了一下我的大二上学期的生活，真正让我得到提升的就是那些当初我遇到的令我非常不爽的bug，记得我做那个教室预约系统的时候，遇到了许多问题，有时候一个问题我坐在电脑前连续五六个小时都得不到解决，那时候我觉得要不放弃吧，这实在太让费时间了。但是想想也不行啊，如果放弃了他们动漫">
+<meta name="twitter:title" content="回溯算法">
+<meta name="twitter:description" content="考虑到回溯算法在实际中的应用，感觉对回溯算法做一下总结还是很有必要的。 回溯算法的概念回溯算法实际上是一个类似美居的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就”回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/01/28/关于学习 的一些认识/" title="关于学习的一些认识" itemprop="url">关于学习的一些认识</a>
+      <a href="/2018/10/01/huishuo/" title="回溯算法" itemprop="url">回溯算法</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-01-28T12:43:55.000Z" itemprop="datePublished"> 发表于 2018-01-28</time>
+    <time datetime="2018-10-01T11:12:22.000Z" itemprop="datePublished"> 发表于 2018-10-01</time>
     
   </p>
 </header>
@@ -96,11 +96,17 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">回溯算法的概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">解决一个回溯法的问题，需要确定的三个元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">递归函数的参数的选择要遵循的四个原则</span></a></li></ol>
 		
 		</div>
 		
-		<p>我认为有效的学习就是发现问题与解决问题的过程，而并不是为了考试而且被迫学习一些知识，为了应付考试而学到的知识通常只能用来考试。<br>回顾了一下我的大二上学期的生活，真正让我得到提升的就是那些当初我遇到的令我非常不爽的bug，记得我做那个教室预约系统的时候，遇到了许多问题，有时候一个问题我坐在电脑前连续五六个小时都得不到解决，那时候我觉得要不放弃吧，这实在太让费时间了。但是想想也不行啊，如果放弃了他们动漫部的设计，技术部前端的工作不就白做了，所以还是在努力努力吧。记得那天我回到寝室，已经深夜十二点半了，我脑海中突然萌生出一个解决方案，于是赶紧起来，在室友的电脑上模拟了一下过程，感到有希望。于是第二天我起的很早去了实验室，立马用我昨天想到的方法去调试php的运行环境，结果成功了。当时一瞬间我感到身上所有的压力瞬间释放了。<br>虽然现在看起来那个问题已经微不足道，是一个很基础的知识点，但是如果没有当时坚持不屑的坚持，也许我现在连这个简单的问题还解决不了。<br>一直以来我都认为解决问题是一件很麻烦的事情，但是记得有一次，我问张超帅问题，他说有问题是好事。现在想想他说的真是非常对。<br>真正让人获得提高的，不是那些简单的机械性的重复练习，而是那一些令你感到困惑，但是你一直坚持不放弃最终解决掉的问题。<br>所有直到现在，我都认为学习就是一个发现问题与解决问题的过程。</p>
+		<p>考虑到回溯算法在实际中的应用，感觉对回溯算法做一下总结还是很有必要的。</p>
+<p></p><h1>回溯算法的概念</h1><br>回溯算法实际上是一个类似美居的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就”回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为”回溯点”。<p></p>
+<p></p><h1>基本思想</h1><br>回溯算法的基本思想是:从一条路往前走，能进则进，不能进则退回来，换一条路再试。八皇后问题就是回溯算法的典型，第一步按照顺序放一个皇后，然后第二步符合要求放第二个皇后，如果没有位置符合要求，那么就要改变第一个皇后的位置，直到找到符合条件的位置就可以了。回溯在迷宫搜索中使用很常见，就是这条路走不通，然后返回前一个路口，继续下一条路。回溯算法说白了就是穷举法。不过回溯算法使用剪枝函数，剪去一些不可能到达 最终状态（即答案状态）的节点，从而减少状态空间树节点的生成。回溯法是一个既带有系统性又带有跳跃性的的搜索算法。它在包含问题的所有解的解空间树中，按照深度优先的策略，从根结点出发搜索解空间树。算法搜索至解空间树的任一结点时，总是先判断该结点是否肯定不包含问题的解。如果肯定不包含，则跳过对以该结点为根的子树的系统搜索，逐层向其祖先结点回溯。否则，进入该子树，继续按深度优先的策略进行搜索。回溯法在用来求问题的所有解时，要回溯到根，且根结点的所有子树都已被搜索遍才结束。而回溯法在用来求问题的任一解时，只要搜索到问题的一个解就可以结束。这种以深度优先的方式系统地搜索问题的解的算法称为回溯法，它适用于解一些组合数较大的问题。<p></p>
+<p></p><h1>解决一个回溯法的问题，需要确定的三个元素</h1><br>1、选择。对于每个特定的解，肯定是由一步步构建而来的，而每一步怎么构建，肯定都是有限个选择，要怎么选择，这个要知道；同时，在编程时候要定下，优先或合法的每一步选择的顺序，一般是通过多个if或者for循环来排列。2、条件。对于每个特定的解的某一步，他必然要符合某个解要求符合的条件，如果不符合条件，就要回溯，其实回溯也就是递归调用的返回。3、结束。当到达一个特定结束条件时候，就认为这个一步步构建的解是符合要求的解了。把解存下来或者打印出来。对于这一步来说，有时候也可以另外写一个issolution函数来进行判断。注意，当到达第三步后，有时候还需要构建一个数据结构，把符合要求的解存起来，便于当得到所有解后，把解空间输出来。这个数据结构必须是全局的，作为参数之一传递给递归函数。<p></p>
+<p></p><h1>递归函数的参数的选择要遵循的四个原则</h1><br>1、必须要有一个临时变量(可以就直接传递一个字面量或者常量进去)传递不完整的解，因为每一步选择后，暂时还没构成完整的解，这个时候这个选择的不完整解，也要想办法传递给递归函数。也就是，把每次递归的不同情况传递给递归调用的函数。2、可以有一个全局变量，用来存储完整的每个解，一般是个集合容器（也不一定要有这样一个变量，因为每次符合结束条件，不完整解就是完整解了，直接打印即可）。3、最重要的一点，一定要在参数设计中，可以得到结束条件。一个选择是可以传递一个量n，也许是数组的长度，也许是数量，等等。4、要保证递归函数返回后，状态可以恢复到递归前，以此达到真正回溯。<p></p>
+<hr>
+<p>本文来自 littlelufisher 的CSDN 博客 ，全文地址请点击：<a href="https://blog.csdn.net/sinat_27908213/article/details/80599460?utm_source=copy" target="_blank" rel="noopener">https://blog.csdn.net/sinat_27908213/article/details/80599460?utm_source=copy</a> </p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -108,7 +114,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/life/">生活</a>
+  <a class="article-category-link" href="/categories/算法/">算法</a>
 </div>
 
 
@@ -118,7 +124,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/01/28/关于学习 的一些认识/" data-title="关于学习的一些认识 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2018/10/01/huishuo/" data-title="回溯算法 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -131,19 +137,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/01/31/电脑重启后文件无法初始化问题/" title="电脑重启后文件无法初始化问题">
-  <strong>上一篇：</strong><br/>
-  <span>
-  电脑重启后文件无法初始化问题</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/01/26/hello-world/"  title="Hello World">
+<a href="/2018/09/09/meta/"  title="Python中的元类(Metaclass)">
  <strong>下一篇：</strong><br/> 
- <span>Hello World
+ <span>Python中的元类(Metaclass)
 </span>
 </a>
 </div>
@@ -160,7 +158,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">回溯算法的概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">解决一个回溯法的问题，需要确定的三个元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">递归函数的参数的选择要遵循的四个原则</span></a></li></ol>
  
   </div>
 
