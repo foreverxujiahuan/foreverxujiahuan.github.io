@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>python3中类的继承 | zzulixjh</title>
+    <title>Java中的字符串知识整理 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="一、什么是继承1.新类不必从头编写2.新类从现有的类继承，就自动拥有了现有类的所有功能3.新类只需要编写写有类缺少的新功能二、继承的好处1.复用已有代码2.自动拥有了现有类的所有功能3.只需要编写缺少的新功能">
+    <meta name="description" content="java中的String String的一些特性1.String类是final类，意味着String类不能被继承，并且它的成员方法都默认为final方法。2.String类其实是通过char数组来保存字符串的。3.String对象一旦被创建就是固定不变的了，对String对象的任何改变都不影响到原对象，相关的任何change操作都会生成新的对象。 字符串常量池JVM为了提高性能和减少内存的开销，在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python3中类的继承">
-<meta property="og:url" content="http://yoursite.com/2018/04/24/python-notes6/index.html">
+<meta property="og:title" content="Java中的字符串知识整理">
+<meta property="og:url" content="http://yoursite.com/2019/02/08/javastring/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="一、什么是继承1.新类不必从头编写2.新类从现有的类继承，就自动拥有了现有类的所有功能3.新类只需要编写写有类缺少的新功能二、继承的好处1.复用已有代码2.自动拥有了现有类的所有功能3.只需要编写缺少的新功能">
-<meta property="og:updated_time" content="2018-04-25T03:56:42.000Z">
+<meta property="og:description" content="java中的String String的一些特性1.String类是final类，意味着String类不能被继承，并且它的成员方法都默认为final方法。2.String类其实是通过char数组来保存字符串的。3.String对象一旦被创建就是固定不变的了，对String对象的任何改变都不影响到原对象，相关的任何change操作都会生成新的对象。 字符串常量池JVM为了提高性能和减少内存的开销，在">
+<meta property="og:updated_time" content="2019-02-08T16:11:26.915Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python3中类的继承">
-<meta name="twitter:description" content="一、什么是继承1.新类不必从头编写2.新类从现有的类继承，就自动拥有了现有类的所有功能3.新类只需要编写写有类缺少的新功能二、继承的好处1.复用已有代码2.自动拥有了现有类的所有功能3.只需要编写缺少的新功能">
+<meta name="twitter:title" content="Java中的字符串知识整理">
+<meta name="twitter:description" content="java中的String String的一些特性1.String类是final类，意味着String类不能被继承，并且它的成员方法都默认为final方法。2.String类其实是通过char数组来保存字符串的。3.String对象一旦被创建就是固定不变的了，对String对象的任何改变都不影响到原对象，相关的任何change操作都会生成新的对象。 字符串常量池JVM为了提高性能和减少内存的开销，在">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/04/24/python-notes6/" title="python3中类的继承" itemprop="url">python3中类的继承</a>
+      <a href="/2019/02/08/javastring/" title="Java中的字符串知识整理" itemprop="url">Java中的字符串知识整理</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-04-24T11:46:53.000Z" itemprop="datePublished"> 發表於 2018-04-24</time>
+    <time datetime="2019-02-08T11:48:56.000Z" itemprop="datePublished"> 發表於 2019-02-08</time>
     
   </p>
 </header>
@@ -96,11 +96,23 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">java中的String</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">String的一些特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.</span> <span class="toc-text">字符串常量池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.</span> <span class="toc-text">关于String的编辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.4.</span> <span class="toc-text">创建字符串的方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.5.</span> <span class="toc-text">关于equals和==</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.6.</span> <span class="toc-text">String常用的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于StringBuffer和StringBuilder</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">三者之间的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">StringBuffer的增删改查</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>一、什么是继承<br>1.新类不必从头编写<br>2.新类从现有的类继承，就自动拥有了现有类的所有功能<br>3.新类只需要编写写有类缺少的新功能<br>二、继承的好处<br>1.复用已有代码<br>2.自动拥有了现有类的所有功能<br>3.只需要编写缺少的新功能</p>
+		<p></p><h1>java中的String</h1><p></p>
+<p></p><h2>String的一些特性</h2><br>1.String类是final类，意味着String类不能被继承，并且它的成员方法都默认为final方法。<br>2.String类其实是通过char数组来保存字符串的。<br>3.String对象一旦被创建就是固定不变的了，对String对象的任何改变都不影响到原对象，相关的任何change操作都会生成新的对象。<p></p>
+<p></p><h2>字符串常量池</h2><br>JVM为了提高性能和减少内存的开销，在实例化字符串的时候进行了一些优化:使用字符串常量池。每当我们创建字符串常量时，JVM会首先检查字符串常量池，如果该字符串已经存在常量池中，那么就直接返回常量池中的实例引用。如果字符串不存在常量池中，就会实例化该字符串并且将其放到常量池中。又因为String的不可变性，我们可以十分肯定常量池中一定不存在两个相同的字符串。<p></p>
+<p></p><h2>关于String的编辑</h2><br>String使用private final char value[]来实现字符串的存储，也就是说String创建之后就不能修改。然而String对象确实有编辑字符串的功能，比如replace。这些编辑功能是通过创建一个新的对象来实现的，而不是对原有对象进行修改。<p></p>
+<p></p><h2>创建字符串的方式</h2><br>创建字符串的方式归纳起来有两种<br>1.使用引号来创建<br>2.使用new关键字创建字符串<p></p>
+<p></p><h2>关于equals和==</h2><br>(1)对于==，如果作用于基本数据类型的变量（byte,short,char,int,long,float,double,boolean ），则直接比较其存储的”值”是否相等；如果作用于引用类型的变量（String），则比较的是所指向的对象的地址（即是否指向同一个对象）。<p></p>
+<p>(2)equals方法是基类Object中的方法，因此对于所有的继承于Object的类都会有该方法。在Object类中，equals方法是用来比较两个对象的引用是否相等，即是否指向同一个对象。<br>注意的是equals方法不能用于基本数据类型的变量。</p>
+<p></p><h2>String常用的方法</h2><br>对于字符串s来说:<br>获取字符串的长度l<br>int l = s.length()<br>将字符串中的某一个字符替换成其他的并且保存在新的字符串t中<br>String t = s.replace(oldchar,newchar)<br>注意的是这里替换将会替换所有的oldchar，并非第一个字符(串)<br>对字符串s进行截取冰保存在新的字符串t中<br>String t = s.substring(start,end)<br>注意这里的区间是前开后闭<br>获取字符串中指定位置的字符c<br>char c = s.charAt(index)<br>获取字符串中指定字符的位置index<br>int index = s.indexOf(char)<br>这里获取到的也是第一个字符的位置<br>判断字符串s是否包含某个字符（串)<br>s.contains(char)<br>将字符串中的字母全变为大写或小写<br>s.toLowerCase()<br>s.toUpperCase()<br>判断字符串是否为空<br>s.isEmpty()<br>将string以某个字符作为分割符将字符串变为一个String数组<br>s.split(reqex)<br>字符串s和字符串str进行拼接<br>String t = s.concat(str)<br>获取字符串中某个字符最后一次出现的位置<br>s.lastIndexOf(char)<p></p>
+<p></p><h1>关于StringBuffer和StringBuilder</h1><p></p>
+<p></p><h2>三者之间的区别</h2><br>1）可变与不可变：String是不可变字符串对象，StringBuilder和StringBuffer是可变字符串对象（其内部的字符数组长度可变）。<p></p>
+<p>（2）是否多线程安全：String中的对象是不可变的，也就可以理解为常量，显然线程安全。StringBuffer 与 StringBuilder 中的方法和功能完全是等价的，只是StringBuffer 中的方法大都采用了synchronized 关键字进行修饰，因此是线程安全的，而 StringBuilder 没有这个修饰，可以被认为是非线程安全的。</p>
+<p>（3）String、StringBuilder、StringBuffer三者的执行效率：<br>StringBuilder &gt; StringBuffer &gt; String 当然这个是相对的，不一定在所有情况下都是这样。比如String str = “hello”+ “world”的效率就比 StringBuilder st  = new StringBuilder().append(“hello”).append(“world”)要高。因此，这三个类是各有利弊，应当根据不同的情况来进行选择使用：<br>当字符串相加操作或者改动较少的情况下，建议使用 String str=”hello”这种形式；<br>当字符串相加操作较多的情况下，建议使用StringBuilder，如果采用了多线程，则使用StringBuffer。</p>
+<p></p><h2>StringBuffer的增删改查</h2><br>向字符串末尾添加字符<br>s.append(char)<br>向字符串指定位置添加字符<br>s.insert(index,char)<br>将其转为String<br>s.toString()<br>删除指定位置的字符<br>s.deleteCharAt(index)<br>旋转字符串<br>s.reverse()<br>查找指定字符的位置以及查找指定位置的字符的方法和String相同。<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -108,7 +120,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Python/">Python</a>
+  <a class="article-category-link" href="/categories/Java/">Java</a>
 </div>
 
 
@@ -118,7 +130,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/04/24/python-notes6/" data-title="python3中类的继承 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/02/08/javastring/" data-title="Java中的字符串知识整理 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -131,19 +143,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/04/25/ml-notes1/" title="监督学习与无监督学习">
-  <strong>上一篇：</strong><br/>
-  <span>
-  监督学习与无监督学习</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/04/24/python-notes5/"  title="python3中的面向对象基础">
+<a href="/2019/02/08/leetcode2/"  title="leetcode题解(6-10)">
  <strong>下一篇：</strong><br/> 
- <span>python3中的面向对象基础
+ <span>leetcode题解(6-10)
 </span>
 </a>
 </div>
@@ -160,7 +164,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">java中的String</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">String的一些特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.</span> <span class="toc-text">字符串常量池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.</span> <span class="toc-text">关于String的编辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.4.</span> <span class="toc-text">创建字符串的方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.5.</span> <span class="toc-text">关于equals和==</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.6.</span> <span class="toc-text">String常用的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于StringBuffer和StringBuilder</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">三者之间的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">StringBuffer的增删改查</span></a></li></ol></li></ol>
  
   </div>
 
