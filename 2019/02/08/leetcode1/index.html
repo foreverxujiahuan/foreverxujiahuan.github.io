@@ -4,25 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Matlab中的矩阵 | zzulixjh</title>
+    <title>leetcode题解(1-5) | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="因为之前在学python中的numpy，因此学习这一块感觉还是比较轻松的。由于矩阵在机器学习学科中重要的地位，因此这一块很重要。 一维数组的创建方法1：使用[]，我要创建一个包含数字1234的数组a = [1 2 3 4]这里和python中的numpy和list不同，这里不仅能用”,”进行间隔，而且能使用空格进行间隔。方法2:使用冒号”:”比如我要创建一个1-10的整数数列a,只需a = 1:1">
+    <meta name="description" content="1.Two SumGiven an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Matlab中的矩阵">
-<meta property="og:url" content="http://yoursite.com/2018/08/11/matlabarray/index.html">
+<meta property="og:title" content="leetcode题解(1-5)">
+<meta property="og:url" content="http://yoursite.com/2019/02/08/leetcode1/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="因为之前在学python中的numpy，因此学习这一块感觉还是比较轻松的。由于矩阵在机器学习学科中重要的地位，因此这一块很重要。 一维数组的创建方法1：使用[]，我要创建一个包含数字1234的数组a = [1 2 3 4]这里和python中的numpy和list不同，这里不仅能用”,”进行间隔，而且能使用空格进行间隔。方法2:使用冒号”:”比如我要创建一个1-10的整数数列a,只需a = 1:1">
-<meta property="og:image" content="http://yoursite.com/2018/08/11/matlabarray/a.png">
-<meta property="og:updated_time" content="2018-08-11T04:42:34.115Z">
+<meta property="og:description" content="1.Two SumGiven an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use t">
+<meta property="og:updated_time" content="2019-02-08T09:12:33.468Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Matlab中的矩阵">
-<meta name="twitter:description" content="因为之前在学python中的numpy，因此学习这一块感觉还是比较轻松的。由于矩阵在机器学习学科中重要的地位，因此这一块很重要。 一维数组的创建方法1：使用[]，我要创建一个包含数字1234的数组a = [1 2 3 4]这里和python中的numpy和list不同，这里不仅能用”,”进行间隔，而且能使用空格进行间隔。方法2:使用冒号”:”比如我要创建一个1-10的整数数列a,只需a = 1:1">
-<meta name="twitter:image" content="http://yoursite.com/2018/08/11/matlabarray/a.png">
+<meta name="twitter:title" content="leetcode题解(1-5)">
+<meta name="twitter:description" content="1.Two SumGiven an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use t">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -82,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/08/11/matlabarray/" title="Matlab中的矩阵" itemprop="url">Matlab中的矩阵</a>
+      <a href="/2019/02/08/leetcode1/" title="leetcode题解(1-5)" itemprop="url">leetcode题解(1-5)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-08-11T03:32:03.000Z" itemprop="datePublished"> Published 2018-08-11</time>
+    <time datetime="2019-02-08T07:18:17.000Z" itemprop="datePublished"> Published 2019-02-08</time>
     
   </p>
 </header>
@@ -98,22 +96,79 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">一维数组的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">二维数组的创建</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">数据分析与统计中常用的函数</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1.Two Sum</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.Add Two Numbers</span></a></li></ol>
 		
 		</div>
 		
-		<p>因为之前在学python中的numpy，因此学习这一块感觉还是比较轻松的。由于矩阵在机器学习学科中重要的地位，因此这一块很重要。</p>
-<p></p><h1>一维数组的创建</h1><br>方法1：使用[]，我要创建一个包含数字1234的数组<br>a = [1 2 3 4]<br>这里和python中的numpy和list不同，这里不仅能用”,”进行间隔，而且能使用空格进行间隔。<br>方法2:使用冒号”:”<br>比如我要创建一个1-10的整数数列a,只需a = 1:10<br>该方法类似于numpy中的arange方法，但是需要注意的是，这里冒号前后的数字都是闭区间<p></p>
-<p></p><h2>二维数组的创建</h2><br>方法1:使用”[]”<br>使用规则:<br>行与行之间需要用分好”;”间隔，行内元素之间用空格间隔。<br><img src="/2018/08/11/matlabarray/a.png"><br>方法2:函数方法<br>函数ones(生成全1矩阵)、zeros(生成全0矩阵)<br>创建全1的3<em>3数组<br>ones(3)<br>创建全1的3</em>4数组<br>ones(3,4)<br>reshape的使用<br>顾名思义，该函数就是重新改变矩阵的形状<br>比如对一个长度为9的一维数组a，现要将其变为3*3的二维数组b<br>b = reshape(a,3,3)<br>根据坐标来访问数据的时候，需要注意，和大多数编程语言不同，这里的坐标不是从0开始的，因此如果我要访问a的第二行第三个元素，就是a(2,3)<p></p>
-<p></p><h1>数据分析与统计中常用的函数</h1><br>针对一个二维矩阵X:<br>sum(X):返回每一列的元素的和<br>prod(x):返回每一列元素的积<br>mean(x):返回每一列元素的平均值<br>median(x):返回每一列元素的中位数<p></p>
-  
+		<p></p><h1>1.Two Sum</h1><br>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<p></p>
+<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+<p>Example:</p>
+<p>Given nums = [2, 7, 11, 15], target = 9,</p>
+<p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].<br>问题分析:<br>哈希表，先将数组中的值和对应的下表存入hashmap，然后使用哈希表找另外一个缺少的值。<br>Java代码:</p>
+<pre>
+public static int[] twoSum(int[] nums,int target){
+        HashMap<integer,integer> map = new HashMap<>();
+        int l = nums.length;
+        for(int i=0;i<l;i++){ map.put(nums[i],i);="" }="" for(int="" i="0;i<l;i++){" int="" k="target-nums[i];" if(map.containskey(k)&&map.get(k)!="i){" return="" new="" int[]="" {i,map.get(k)};="" throw="" illegalargumentexception("no="" two="" sum="" solution");="" <="" pre="">
+复杂度分析:
+时间复杂度:O(n)
+空间复杂度:O(n)
+<h1>2.Add Two Numbers</h1>
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+Example:
+
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+Explanation: 342 + 465 = 807.
+问题分析:
+这是一道链表题，通过观察例子可以发现输出的链表上的节点值就是原先两个链表对应节点值的相加，如果相加大于10，则需要进位。
+我们首先需要判断l1或者l2是否有空链表，如果有，则可以直接返回答案，如果都不为空，再进行分析。
+先创建一个虚拟首节点head，然后创建一个l3=head,用l3去遍历。
+当l1或者l2中有一个不为空的时候，遍历继续进行，创建一个值carry用于存储当前对于l1和l2的节点的和，而每次像l3中添加的节点的值就是carry%10，然后每次遍历后carry=carry/10，这样可以处理carry>=10的情况。
+Java代码:
+<pre>
+<code>
+public ListNode addTwoNumbers(ListNode l1,ListNode l2){
+        if(l1==null){
+            return l2;
+        }
+        if(l2==null){
+            return l1;
+        }
+        ListNode head = new ListNode(-1);
+        ListNode l3 = head;
+        int carry = 0;
+        while (l1!=null||l2!=null){
+            if(l1!=null){
+                carry = carry+l1.val;
+                l1=l1.next;
+            }
+            if(l2!=null){
+                carry = carry+l2.val;
+                l2 = l2.next;
+            }
+            l3.next = new ListNode(carry%10);
+            carry = carry/10;
+            l3 = l3.next;
+        }
+        if(carry==1){
+            l3.next = new ListNode(1);
+        }
+        return head.next;
+    }
+</code>
+</pre>
+</l;i++){></integer,integer></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Matlab/">Matlab</a>
+  <a class="article-category-link" href="/categories/Leetcode/">Leetcode</a>
 </div>
 
 
@@ -123,7 +178,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/08/11/matlabarray/" data-title="Matlab中的矩阵 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/02/08/leetcode1/" data-title="leetcode题解(1-5) | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -136,19 +191,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/08/11/matlabview/" title="Matlab中的数据可视化">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Matlab中的数据可视化</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/08/11/matlab1/"  title="Matlab基本使用">
+<a href="/2019/02/03/java-jihe/"  title="Java中的常用集合">
  <strong>下一篇：</strong><br/> 
- <span>Matlab基本使用
+ <span>Java中的常用集合
 </span>
 </a>
 </div>
@@ -165,7 +212,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">一维数组的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">二维数组的创建</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">数据分析与统计中常用的函数</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1.Two Sum</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.Add Two Numbers</span></a></li></ol>
  
   </div>
 
