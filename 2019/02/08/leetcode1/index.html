@@ -17,10 +17,17 @@
 <meta property="og:url" content="http://yoursite.com/2019/02/08/leetcode1/index.html">
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="1.Two SumGiven an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use t">
-<meta property="og:updated_time" content="2019-02-08T09:12:33.468Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode1/a.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode1/b.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode1/c.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode1/d.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode1/e.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode1/f.png">
+<meta property="og:updated_time" content="2019-02-08T11:28:50.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode题解(1-5)">
 <meta name="twitter:description" content="1.Two SumGiven an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use t">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/08/leetcode1/a.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -96,7 +103,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1.Two Sum</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.Add Two Numbers</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1.Two Sum</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.Add Two Numbers</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">3.Longest Substring Without Repeating Characters</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">4.Median of Two Sorted Arrays</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">5.Longest Palindromic Substring</span></a></li></ol>
 		
 		</div>
 		
@@ -104,64 +111,29 @@
 <p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
 <p>Example:</p>
 <p>Given nums = [2, 7, 11, 15], target = 9,</p>
-<p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].<br>问题分析:<br>哈希表，先将数组中的值和对应的下表存入hashmap，然后使用哈希表找另外一个缺少的值。<br>Java代码:</p>
-<pre>
-public static int[] twoSum(int[] nums,int target){
-        HashMap<integer,integer> map = new HashMap<>();
-        int l = nums.length;
-        for(int i=0;i<l;i++){ map.put(nums[i],i);="" }="" for(int="" i="0;i<l;i++){" int="" k="target-nums[i];" if(map.containskey(k)&&map.get(k)!="i){" return="" new="" int[]="" {i,map.get(k)};="" throw="" illegalargumentexception("no="" two="" sum="" solution");="" <="" pre="">
-复杂度分析:
-时间复杂度:O(n)
-空间复杂度:O(n)
-<h1>2.Add Two Numbers</h1>
-You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
-
-You may assume the two numbers do not contain any leading zero, except the number 0 itself.
-
-Example:
-
-Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-Output: 7 -> 0 -> 8
-Explanation: 342 + 465 = 807.
-问题分析:
-这是一道链表题，通过观察例子可以发现输出的链表上的节点值就是原先两个链表对应节点值的相加，如果相加大于10，则需要进位。
-我们首先需要判断l1或者l2是否有空链表，如果有，则可以直接返回答案，如果都不为空，再进行分析。
-先创建一个虚拟首节点head，然后创建一个l3=head,用l3去遍历。
-当l1或者l2中有一个不为空的时候，遍历继续进行，创建一个值carry用于存储当前对于l1和l2的节点的和，而每次像l3中添加的节点的值就是carry%10，然后每次遍历后carry=carry/10，这样可以处理carry>=10的情况。
-Java代码:
-<pre>
-<code>
-public ListNode addTwoNumbers(ListNode l1,ListNode l2){
-        if(l1==null){
-            return l2;
-        }
-        if(l2==null){
-            return l1;
-        }
-        ListNode head = new ListNode(-1);
-        ListNode l3 = head;
-        int carry = 0;
-        while (l1!=null||l2!=null){
-            if(l1!=null){
-                carry = carry+l1.val;
-                l1=l1.next;
-            }
-            if(l2!=null){
-                carry = carry+l2.val;
-                l2 = l2.next;
-            }
-            l3.next = new ListNode(carry%10);
-            carry = carry/10;
-            l3 = l3.next;
-        }
-        if(carry==1){
-            l3.next = new ListNode(1);
-        }
-        return head.next;
-    }
-</code>
-</pre>
-</l;i++){></integer,integer></pre>  
+<p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].<br>问题分析:<br>哈希表，先将数组中的值和对应的下表存入hashmap，然后使用哈希表找另外一个缺少的值。<br>Java代码:<br><img src="/2019/02/08/leetcode1/a.png"><br>复杂度分析:<br>时间复杂度:O(n)<br>空间复杂度:O(n)</p>
+<p></p><h1>2.Add Two Numbers</h1><br>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.<p></p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p>Example:</p>
+<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>Output: 7 -&gt; 0 -&gt; 8<br>Explanation: 342 + 465 = 807.<br>问题分析:<br>这是一道链表题，通过观察例子可以发现输出的链表上的节点值就是原先两个链表对应节点值的相加，如果相加大于10，则需要进位。<br>我们首先需要判断l1或者l2是否有空链表，如果有，则可以直接返回答案，如果都不为空，再进行分析。<br>先创建一个虚拟首节点head，然后创建一个l3=head,用l3去遍历。<br>当l1或者l2中有一个不为空的时候，遍历继续进行，创建一个值carry用于存储当前对于l1和l2的节点的和，而每次像l3中添加的节点的值就是carry%10，然后每次遍历后carry=carry/10，这样可以处理carry&gt;=10的情况。<br>Java代码:<br><img src="/2019/02/08/leetcode1/b.png"><br>复杂度分析:<br>时间复杂度:O(n)<br>空间复杂度:O(1)</p>
+<p></p><h1>3.Longest Substring Without Repeating Characters</h1><br>Given a string, find the length of the longest substring without repeating characters.<p></p>
+<p>Example 1:</p>
+<p>Input: “abcabcbb”<br>Output: 3<br>Explanation: The answer is “abc”, with the length of 3.<br>Example 2:</p>
+<p>Input: “bbbbb”<br>Output: 1<br>Explanation: The answer is “b”, with the length of 1.<br>Example 3:</p>
+<p>Input: “pwwkew”<br>Output: 3<br>Explanation: The answer is “wke”, with the length of 3.<br>             Note that the answer must be a substring, “pwke” is a subsequence and not a substring.<br>问题分析:<br>这是一道典型的滑动窗口问题<br>我们可以定义一个子字符串的其实位置start，然后遍历字符串，当前的子字符串是字符串中start到i的部分，如果下一个字符不在子字符串中，则start不变，如果下一个字符串在子字符串中，则start的位置变为start再加上子字符串中该字符的位置再+1。当前子字符串的长度为i-start+1，遍历数组选出最大的i-start+1即可。<br>Java代码:<br><img src="/2019/02/08/leetcode1/c.png"><br>复杂度分析:<br>时间复杂度:O(n)<br>空间复杂度:O(1)</p>
+<p></p><h1>4.Median of Two Sorted Arrays</h1><br>There are two sorted arrays nums1 and nums2 of size m and n respectively.<p></p>
+<p>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p>
+<p>You may assume nums1 and nums2 cannot be both empty.</p>
+<p>Example 1:</p>
+<p>nums1 = [1, 3]<br>nums2 = [2]</p>
+<p>The median is 2.0<br>Example 2:</p>
+<p>nums1 = [1, 2]<br>nums2 = [3, 4]</p>
+<p>The median is (2 + 3)/2 = 2.5<br>问题分析:<br>合并数组，进行排序，然后找出中位数。虽然题目要求我们的时间复杂度是O(log(m+n))，但是leetcode上复杂度稍高的解法也让过了，所以就没深究。<br>Java代码:<br><img src="/2019/02/08/leetcode1/d.png"><br>复杂度分析:<br>时间复杂度:O(n)<br>空间复杂度:O(1)</p>
+<p></p><h1>5.Longest Palindromic Substring</h1><br>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.<p></p>
+<p>Example 1:</p>
+<p>Input: “babad”<br>Output: “bab”<br>Note: “aba” is also a valid answer.<br>Example 2:</p>
+<p>Input: “cbbd”<br>Output: “bb”<br>问题分析:这道题如果用暴力，把所有的可能性都判断一遍是否为回文，时间复杂度将达到O(n3)，过不了。这道题用中心扩展法解是比较合适的。<br>所谓中心扩展法，就是选定一个中心，然后往两边展开，每次都只要比较与中心等距离的两个字符是否为相等即可。需要注意的是，字符串有长度为单数和双数的情况，因此选定中心的时候，中心为一个和两个的情况我们都得考虑。<br>Java代码:<br><img src="/2019/02/08/leetcode1/e.png"><br><img src="/2019/02/08/leetcode1/f.png"><br>复杂度分析:<br>时间复杂度:O(n2)<br>空间复杂度:O(1)</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -212,7 +184,7 @@ public ListNode addTwoNumbers(ListNode l1,ListNode l2){
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1.Two Sum</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.Add Two Numbers</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">1.Two Sum</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">2.Add Two Numbers</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">3.Longest Substring Without Repeating Characters</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">4.Median of Two Sorted Arrays</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">5.Longest Palindromic Substring</span></a></li></ol>
  
   </div>
 

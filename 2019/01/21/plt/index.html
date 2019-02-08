@@ -11,21 +11,21 @@
     
 
     
-    <meta name="description" content="因为这几天准备比赛的原因，因此我把Matplotlib做了一个简单的总结。 导入我们平时所用的matplotlib基本就是matplotlib中的一个模块，即pyplot,我们基本会使用这一行代码完成导入:import matplotlib.pyplot as plt 直线图的绘制直线其实就是两个点的连线，因此只要两个点确定了，就可以确定一条直线。demo:画一条y=x+1的直线确定点(0,1)和">
+    <meta name="description" content="因为这几天准备比赛的原因，我把Matplotlib做了一个简单的总结。 导入我们平时所用的matplotlib基本就是matplotlib中的一个模块，即pyplot,我们基本会使用这一行代码完成导入:import matplotlib.pyplot as plt 直线图的绘制直线其实就是两个点的连线，因此只要两个点确定了，就可以确定一条直线。demo:画一条y=x+1的直线确定点(0,1)和(1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matplotlib绘图总结">
 <meta property="og:url" content="http://yoursite.com/2019/01/21/plt/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="因为这几天准备比赛的原因，因此我把Matplotlib做了一个简单的总结。 导入我们平时所用的matplotlib基本就是matplotlib中的一个模块，即pyplot,我们基本会使用这一行代码完成导入:import matplotlib.pyplot as plt 直线图的绘制直线其实就是两个点的连线，因此只要两个点确定了，就可以确定一条直线。demo:画一条y=x+1的直线确定点(0,1)和">
+<meta property="og:description" content="因为这几天准备比赛的原因，我把Matplotlib做了一个简单的总结。 导入我们平时所用的matplotlib基本就是matplotlib中的一个模块，即pyplot,我们基本会使用这一行代码完成导入:import matplotlib.pyplot as plt 直线图的绘制直线其实就是两个点的连线，因此只要两个点确定了，就可以确定一条直线。demo:画一条y=x+1的直线确定点(0,1)和(1">
 <meta property="og:image" content="http://yoursite.com/2019/01/21/plt/a.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/21/plt/b.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/21/plt/c.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/21/plt/d.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/21/plt/e.png">
-<meta property="og:updated_time" content="2019-01-21T06:11:54.958Z">
+<meta property="og:updated_time" content="2019-02-08T10:57:27.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matplotlib绘图总结">
-<meta name="twitter:description" content="因为这几天准备比赛的原因，因此我把Matplotlib做了一个简单的总结。 导入我们平时所用的matplotlib基本就是matplotlib中的一个模块，即pyplot,我们基本会使用这一行代码完成导入:import matplotlib.pyplot as plt 直线图的绘制直线其实就是两个点的连线，因此只要两个点确定了，就可以确定一条直线。demo:画一条y=x+1的直线确定点(0,1)和">
+<meta name="twitter:description" content="因为这几天准备比赛的原因，我把Matplotlib做了一个简单的总结。 导入我们平时所用的matplotlib基本就是matplotlib中的一个模块，即pyplot,我们基本会使用这一行代码完成导入:import matplotlib.pyplot as plt 直线图的绘制直线其实就是两个点的连线，因此只要两个点确定了，就可以确定一条直线。demo:画一条y=x+1的直线确定点(0,1)和(1">
 <meta name="twitter:image" content="http://yoursite.com/2019/01/21/plt/a.png">
 
     
@@ -106,7 +106,7 @@
 		
 		</div>
 		
-		<p>因为这几天准备比赛的原因，因此我把Matplotlib做了一个简单的总结。</p>
+		<p>因为这几天准备比赛的原因，我把Matplotlib做了一个简单的总结。</p>
 <p></p><h1>导入</h1><br>我们平时所用的matplotlib基本就是matplotlib中的一个模块，即pyplot,我们基本会使用这一行代码完成导入:import matplotlib.pyplot as plt<p></p>
 <p></p><h1>直线图的绘制</h1><br>直线其实就是两个点的连线，因此只要两个点确定了，就可以确定一条直线。<br>demo:<br>画一条y=x+1的直线<br>确定点(0,1)和(1,2)，然后使用plt.plot()命令。<br>import matplotlib.pyplot as plt<br>x = [0,1]<br>y = [1,2]<br>plt.plot(x,y)<br>plt.show()<br><img src="/2019/01/21/plt/a.png"><br>也可以想到折现图的画法，折线图无非就是多了几个点，然后将这几个点一个一个连起来。<br>demo:<br>import matplotlib.pyplot as plt<br>x = [0,1,2]<br>y = [1,2,4]<br>plt.plot(x,y)<br>plt.show()<br><img src="/2019/01/21/plt/b.png"><p></p>
 <p></p><h1>曲线图的画法</h1><br>在二维平面中，要确定一条曲线，就是要确定函数和变量的范围。我们需要借助numpy函数来完成。<br>先来介绍一下arange的用法<br>arange(start,stop,step,dtype),这个函数里一共需要填入四个参数，第一个是起始值，第二个是终止值，第三个是中间间隔的大小，最后一个是数据类型。<br>举个例子，我们来画一条二次函数的曲线图。<br>import matplotlib.pyplot as plt<br>import numpy as np<br>x = np.arange(0,10,0.01)<br>y = x<strong>2<br>plt.plot(x,y)<br>plt.show()<br><img src="/2019/01/21/plt/c.png"><br>若要画其他曲线，只要把y改成其他函数即可。<br>当然也可以用linespace来进行自变量的选取。<br>import matplotlib.pyplot as plt<br>import numpy as np<br>x = np.linspace(1,10)<br>y = x</strong>2<br>plt.plot(x,y)<br>plt.show()<br><img src="/2019/01/21/plt/d.png"><p></p>
