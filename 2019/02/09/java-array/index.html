@@ -4,26 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>深入理解快速排序(python实现) | zzulixjh</title>
+    <title>Java中的数组知识整理 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="快速排序的基本思想快速排序的思想非常简单:对于一个数组S，我们选择一个元素，成为pivot。将数组S中小于等于pivot的元素放在S的左边，大于等于povit的元素放在S的右边。左右两部分分别记为S1和S2，然后我们递归的按上述方式对S1、S2继续进行排序。 快速排序的复杂度直接说结论，快速排序的时间复杂度为O(nlogn) 快速排序的实现快速排序用递归算法更容易编码。如下的脚本为客户定义了一个顶">
+    <meta name="description" content="关于int[]类型数组 一维数组的声明方式以声明一个长度为5，数据类型为Int的数组arr为例方式一:int[] arr = new int[5]方式二:int arr[] = new int[5] 数组的初始化方式一:定义数组arr时就给他赋值int[] arr = {1,2,3,4,5}方式二:给指定位置的元素依次赋值arr[0]=1;arr[1]=2;arr[2]=3;arr[3]=4;ar">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解快速排序(python实现)">
-<meta property="og:url" content="http://yoursite.com/2018/05/19/algorithm-10/index.html">
+<meta property="og:title" content="Java中的数组知识整理">
+<meta property="og:url" content="http://yoursite.com/2019/02/09/java-array/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="快速排序的基本思想快速排序的思想非常简单:对于一个数组S，我们选择一个元素，成为pivot。将数组S中小于等于pivot的元素放在S的左边，大于等于povit的元素放在S的右边。左右两部分分别记为S1和S2，然后我们递归的按上述方式对S1、S2继续进行排序。 快速排序的复杂度直接说结论，快速排序的时间复杂度为O(nlogn) 快速排序的实现快速排序用递归算法更容易编码。如下的脚本为客户定义了一个顶">
-<meta property="og:image" content="http://yoursite.com/2018/05/19/algorithm-10/a.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/19/algorithm-10/c.png">
-<meta property="og:updated_time" content="2018-05-20T10:02:30.000Z">
+<meta property="og:description" content="关于int[]类型数组 一维数组的声明方式以声明一个长度为5，数据类型为Int的数组arr为例方式一:int[] arr = new int[5]方式二:int arr[] = new int[5] 数组的初始化方式一:定义数组arr时就给他赋值int[] arr = {1,2,3,4,5}方式二:给指定位置的元素依次赋值arr[0]=1;arr[1]=2;arr[2]=3;arr[3]=4;ar">
+<meta property="og:image" content="http://yoursite.com/2019/02/09/java-array/a.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/09/java-array/b.png">
+<meta property="og:updated_time" content="2019-02-09T06:16:21.807Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解快速排序(python实现)">
-<meta name="twitter:description" content="快速排序的基本思想快速排序的思想非常简单:对于一个数组S，我们选择一个元素，成为pivot。将数组S中小于等于pivot的元素放在S的左边，大于等于povit的元素放在S的右边。左右两部分分别记为S1和S2，然后我们递归的按上述方式对S1、S2继续进行排序。 快速排序的复杂度直接说结论，快速排序的时间复杂度为O(nlogn) 快速排序的实现快速排序用递归算法更容易编码。如下的脚本为客户定义了一个顶">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/19/algorithm-10/a.png">
+<meta name="twitter:title" content="Java中的数组知识整理">
+<meta name="twitter:description" content="关于int[]类型数组 一维数组的声明方式以声明一个长度为5，数据类型为Int的数组arr为例方式一:int[] arr = new int[5]方式二:int arr[] = new int[5] 数组的初始化方式一:定义数组arr时就给他赋值int[] arr = {1,2,3,4,5}方式二:给指定位置的元素依次赋值arr[0]=1;arr[1]=2;arr[2]=3;arr[3]=4;ar">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/09/java-array/a.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -83,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/05/19/algorithm-10/" title="深入理解快速排序(python实现)" itemprop="url">深入理解快速排序(python实现)</a>
+      <a href="/2019/02/09/java-array/" title="Java中的数组知识整理" itemprop="url">Java中的数组知识整理</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-05-19T02:14:46.000Z" itemprop="datePublished"> Published 2018-05-19</time>
+    <time datetime="2019-02-09T05:05:41.000Z" itemprop="datePublished"> Published 2019-02-09</time>
     
   </p>
 </header>
@@ -99,22 +99,36 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">快速排序的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">快速排序的复杂度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">快速排序的实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">关于快速排序的一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.0.0.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于int[]类型数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">一维数组的声明方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.</span> <span class="toc-text">数组的初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.</span> <span class="toc-text">数组的引用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">Arrays</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">填充数组fill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">数据排序sort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.3.</span> <span class="toc-text">比较数组是否相等</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.4.</span> <span class="toc-text">寻找指定元素值的下标index</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">List</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">创建一个list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text">增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.</span> <span class="toc-text">删</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.4.</span> <span class="toc-text">改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.5.</span> <span class="toc-text">查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.6.</span> <span class="toc-text">LinkedList</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p></p><h1>快速排序的基本思想</h1><br>快速排序的思想非常简单:对于一个数组S，我们选择一个元素，成为pivot。将数组S中小于等于pivot的元素放在S的左边，大于等于povit的元素放在S的右边。左右两部分分别记为S1和S2，然后我们递归的按上述方式对S1、S2继续进行排序。<p></p>
-<p></p><h1>快速排序的复杂度</h1><br>直接说结论，快速排序的时间复杂度为O(nlogn)<p></p>
-<p></p><h1>快速排序的实现</h1><br>快速排序用递归算法更容易编码。如下的脚本为客户定义了一个顶层的quicksort函数；一个递归的quicksort函数，它隐藏了用于子列表终点的额外参数；还有一个partition函数。如下的脚本是在20个随机排序的整数组成的一个列表上执行快速排序。<br><img src="/2018/05/19/algorithm-10/a.png"><br>使用递归算法实现快速排序:<br><img src="/2018/05/19/algorithm-10/c.png"><p></p>
-<p></p><h1>关于快速排序的一些问题</h1><p></p>
-<h5></h5>  
+		<p></p><h1>关于int[]类型数组</h1><p></p>
+<p></p><h2>一维数组的声明方式</h2><br>以声明一个长度为5，数据类型为Int的数组arr为例<br>方式一:int[] arr = new int[5]<br>方式二:int arr[] = new int[5]<p></p>
+<p></p><h2>数组的初始化</h2><br>方式一:定义数组arr时就给他赋值<br>int[] arr = {1,2,3,4,5}<br>方式二:给指定位置的元素依次赋值<br>arr[0]=1;<br>arr[1]=2;<br>arr[2]=3;<br>arr[3]=4;<br>arr[4]=5;<p></p>
+<p></p><h2>数组的引用</h2><br>获取位置为index的数据<br>arr[index]<p></p>
+<p></p><h1>Arrays</h1><p></p>
+<p></p><h2>填充数组fill</h2><br>1.Arrays.fill(arr,n)<br>给arr中所有的值全变为n<br>2.Arrays.fill(arr,start,end，n)<br>将arr中区间为[start,end)的数据填充为n<p></p>
+<p></p><h2>数据排序sort</h2><br>给数组arr进行排序(升序)<br>Arrays.sort(arr)<br>给指定区间[start,end)的数据排序<br>Arrays.sort(arr,start,end)<p></p>
+<p></p><h2>比较数组是否相等</h2><br>Arrays.equals(arr1,arr2)<p></p>
+<p></p><h2>寻找指定元素值的下标index</h2><br>Arrays.binarySearch(arr,value)<br>总结:Arrays主要用于操作已经存在的数组<p></p>
+<p></p><h1>List</h1><br>List接口是Collection接口的子接口，List有一个重要的实现类–ArrayList类，List中的元素是有序排列的而且可重复，所以被称为是序列。<p></p>
+<p>List可以精确的控制每个元素的插入位置，或删除某个位置元素，它的实现类ArrayList底层是由数组实现的。</p>
+<p>List中有增删改查的方法<br>这里以ArrayList为例</p>
+<p></p><h2>创建一个list</h2><br>List<integer> list = new ArrayList&lt;&gt;();<p></p>
+<p></p><h2>增</h2><br>向数组末尾添加元素n<br>list.add(n)<br>向指定位置添加元素<br>list.add(index,n)<p></p>
+<p></p><h2>删</h2><br>移除位置为index的元素<br>list.remove(index)<p></p>
+<p></p><h2>改</h2><br>将位置为index的元素改为n<br>list.set(index,n)<p></p>
+<p></p><h2>查</h2><br>获取位置为index的元素<br>list.get(index)<br>获取元素为value首次出现的位置<br>list.indexOf(value)<br>获取元素为value最后一次出现的位置<br>list.lastindexOf(value)<br>获取数组长度<br>list.size()<p></p>
+<p></p><h2>LinkedList</h2><br>LinkedList是链表类，采用链表结构保存元素。链表结构的优点是便于向集合插入和删除元素。因为在插入或删除元素时，不需要移动任何元素。但若需要随机访问集合中的元素时，LinkedList集合就显得比较慢了。<br>LinkedList的一些方法<br><img src="/2019/02/09/java-array/a.png"><br>LinkedList和ArrayList的区别<br><img src="/2019/02/09/java-array/b.png"><p></p>
+</integer>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
+  <a class="article-category-link" href="/categories/Java/">Java</a>
 </div>
 
 
@@ -124,7 +138,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/05/19/algorithm-10/" data-title="深入理解快速排序(python实现) | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/02/09/java-array/" data-title="Java中的数组知识整理 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -137,19 +151,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/05/19/pdf/" title="使用前端页面浏览pdf文档">
-  <strong>上一篇：</strong><br/>
-  <span>
-  使用前端页面浏览pdf文档</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/05/16/algorithm-9/"  title="线性表">
+<a href="/2019/02/08/javastring/"  title="Java中的字符串知识整理">
  <strong>下一篇：</strong><br/> 
- <span>线性表
+ <span>Java中的字符串知识整理
 </span>
 </a>
 </div>
@@ -166,7 +172,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">快速排序的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">快速排序的复杂度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">快速排序的实现</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">关于快速排序的一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.0.0.1.</span> <span class="toc-text"></span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于int[]类型数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">一维数组的声明方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.</span> <span class="toc-text">数组的初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.</span> <span class="toc-text">数组的引用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">Arrays</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">填充数组fill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">数据排序sort</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.3.</span> <span class="toc-text">比较数组是否相等</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.4.</span> <span class="toc-text">寻找指定元素值的下标index</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">List</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">创建一个list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text">增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.3.</span> <span class="toc-text">删</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.4.</span> <span class="toc-text">改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.5.</span> <span class="toc-text">查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.6.</span> <span class="toc-text">LinkedList</span></a></li></ol></li></ol>
  
   </div>
 
