@@ -11,16 +11,21 @@
     
 
     
-    <meta name="description" content="6.ZigZag Conversion">
+    <meta name="description" content="6.ZigZag ConversionThe string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) P   A">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode题解(6-10)">
 <meta property="og:url" content="http://yoursite.com/2019/02/08/leetcode2/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="6.ZigZag Conversion">
-<meta property="og:updated_time" content="2019-02-08T11:44:19.510Z">
+<meta property="og:description" content="6.ZigZag ConversionThe string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) P   A">
+<meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode2/a.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode2/b.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode2/c.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode2/e.png">
+<meta property="og:updated_time" content="2019-02-09T13:52:40.719Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode题解(6-10)">
-<meta name="twitter:description" content="6.ZigZag Conversion">
+<meta name="twitter:description" content="6.ZigZag ConversionThe string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) P   A">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/08/leetcode2/a.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -96,12 +101,37 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">6.ZigZag Conversion</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">6.ZigZag Conversion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">7.Reverse Integer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">8.String to Integer(atoi)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">9.Palindrome Number</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">10.Regular Expression Matching</span></a></li></ol>
 		
 		</div>
 		
-		<h1>6.ZigZag Conversion</h1>
-
+		<p></p><h1>6.ZigZag Conversion</h1><br>The string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)<p></p>
+<p>P   A   H   N<br>A P L S I I G<br>Y   I   R<br>And then read line by line: “PAHNAPLSIIGYIR”</p>
+<p>Write the code that will take a string and make this conversion given a number of rows:</p>
+<p>string convert(string s, int numRows);<br>Example 1:</p>
+<p>Input: s = “PAYPALISHIRING”, numRows = 3<br>Output: “PAHNAPLSIIGYIR”<br>Example 2:</p>
+<p>Input: s = “PAYPALISHIRING”, numRows = 4<br>Output: “PINALSIGYAHRPI”<br>Explanation:</p>
+<p>P     I    N<br>A   L S  I G<br>Y A   H R<br>P     I<br>问题分析:<br>这个题目就是给出一个字符串和一个行数，然后让他按照Z字型排列<br>我们可以先创建一个字符串数组，里面原先全是空的，长度为行数。然后再遍历该字符串，设置一个step变量，当行数为0时，step为一，当行数为最后一行时，step变为-1，然后每次行数row=row+step，遍历的字符再加到对应的行数字符串中，最后将这些字符串合起来就行了。<br>Java代码:<br><img src="/2019/02/08/leetcode2/a.png"><br>复杂度分析:<br>时间复杂度:O(n)<br>空间复杂度:O(n)</p>
+<p></p><h1>7.Reverse Integer</h1><br>Given a 32-bit signed integer, reverse digits of an integer.<p></p>
+<p>Example 1:</p>
+<p>Input: 123<br>Output: 321<br>Example 2:</p>
+<p>Input: -123<br>Output: -321<br>Example 3:</p>
+<p>Input: 120<br>Output: 21<br>问题分析:<br>简单的数字旋转，但是这里得注意Int整型溢出问题。<br>Java代码：<br><img src="/2019/02/08/leetcode2/b.png"><br>复杂度分析:<br>时间复杂度：O(log(n))<br>空间复杂度:O(1)</p>
+<p></p><h1>8.String to Integer(atoi)</h1><br>略<p></p>
+<p></p><h1>9.Palindrome Number</h1><br>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.<p></p>
+<p>Example 1:</p>
+<p>Input: 121<br>Output: true<br>Example 2:</p>
+<p>Input: -121<br>Output: false<br>Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.<br>Example 3:</p>
+<p>Input: 10<br>Output: false<br>Explanation: Reads 01 from right to left. Therefore it is not a palindrome.<br>问题分析:<br>这个题类似回文字符串，没什么价值，只要将每个数字存入数组，然后将数组和数组转过来是否一样即可。<br>Java代码:<br><img src="/2019/02/08/leetcode2/c.png"><br>复杂度分析:<br>时间复杂度:O(log(n))<br>空间复杂度:O(1)</p>
+<p></p><h1>10.Regular Expression Matching</h1><br>Given an input string (s) and a pattern (p), implement regular expression matching with support for ‘.’ and ‘*’.<p></p>
+<p>‘.’ Matches any single character.<br>‘*’ Matches zero or more of the preceding element.<br>The matching should cover the entire input string (not partial).</p>
+<p>Note:</p>
+<p>s could be empty and contains only lowercase letters a-z.<br>p could be empty and contains only lowercase letters a-z, and characters like . or *.<br>Example 1:</p>
+<p>Input:<br>s = “aa”<br>p = “a”<br>Output: false<br>Explanation: “a” does not match the entire string “aa”.<br>Example 2:</p>
+<p>Input:<br>s = “aa”<br>p = “a<em>“<br>Output: true<br>Explanation: ‘</em>‘ means zero or more of the precedeng element, ‘a’. Therefore, by repeating ‘a’ once, it becomes “aa”.<br>Example 3:</p>
+<p>Input:<br>s = “ab”<br>p = “.<em>“<br>Output: true<br>Explanation: “.</em>“ means “zero or more (*) of any character (.)”.<br>Example 4:</p>
+<p>Input:<br>s = “aab”<br>p = “c<em>a</em>b”<br>Output: true<br>Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore it matches “aab”.<br>Example 5:</p>
+<p>Input:<br>s = “mississippi”<br>p = “mis<em>is</em>p<em>.”<br>Output: false<br>问题分析:<br>正则表达式匹配问题，动态规划<br>先创建一个存储结果的二维数组dp[s.leng+1][p.leng+1]<br>dp[i][j]代表的是从s中取前i个字符和从p中取前j个字符是否能匹配。<br>首先初始化dp，dp[0][0]肯定是true，然后dp的第一行除了第一个外其他都是false，第一列中得考虑’</em>‘的情况，该列中如果该位置是’<em>‘，则和它的前两个值取值相同。<br>然后开始逐个比较，当没有’</em>‘的时候，则d[i+1][j+1]=d[i][j]<br>如果有’<em>‘的时候:<br>第一种情况是</em>前的字符作为0个字符(p星号前的字符和s中当前的字符不同)，那么dp[i][j+1]就和dp[i][j-1]是一样的，即之前的如果是匹配的，加上这两个后还是匹配，之前的如果是不匹配的，加上后仍然不匹配。<br>第二钟情况是*前的字母得作为一个或者多个字符进行匹配（p星号前的字符和当前s中的字符相等），那么d[i+1][j+1]=dp[i][j+1]||dp[i+1][j]||dp[i+1][j-1]<br>Java代码:<br><img src="/2019/02/08/leetcode2/e.png"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -161,7 +191,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">6.ZigZag Conversion</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">6.ZigZag Conversion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">7.Reverse Integer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">8.String to Integer(atoi)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">9.Palindrome Number</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">10.Regular Expression Matching</span></a></li></ol>
  
   </div>
 
@@ -188,7 +218,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Leetcode/" title="Leetcode">Leetcode<sup>2</sup></a></li>
+			<li><a href="/categories/Leetcode/" title="Leetcode">Leetcode<sup>3</sup></a></li>
 		  
 		
 		  
