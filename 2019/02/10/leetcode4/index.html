@@ -18,7 +18,11 @@
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="16.3Sum ClosestGiven an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that ea">
 <meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode4/a.png">
-<meta property="og:updated_time" content="2019-02-10T09:21:06.158Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode4/b.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode4/c.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode4/d.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode4/e.png">
+<meta property="og:updated_time" content="2019-02-10T14:54:16.265Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode题解(16-20)">
 <meta name="twitter:description" content="16.3Sum ClosestGiven an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that ea">
@@ -98,7 +102,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">16.3Sum Closest</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">16.3Sum Closest</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">17.Leeter Combinations of a Phone Number</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">18.4Sum</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">19.Remove Nth Node From End of List</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">20.Valid Parentheses</span></a></li></ol>
 		
 		</div>
 		
@@ -106,6 +110,28 @@
 <p>Example:</p>
 <p>Given array nums = [-1, 2, 1, -4], and target = 1.</p>
 <p>The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).<br>问题分析:<br>这个题和3Sum基本一样，区别就是目标数变成了绝对值最小，而非0<br>Java代码:<br><img src="/2019/02/10/leetcode4/a.png"></p>
+<p></p><h1>17.Leeter Combinations of a Phone Number</h1><br>Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.<p></p>
+<p>A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.<br><img src="/2019/02/10/leetcode4/b.png"><br>Example:</p>
+<p>Input: “23”<br>Output: [“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf”].<br>问题分析:</p>
+<p></p><h1>18.4Sum</h1><br>Given an array nums of n integers and an integer target, are there elements a, b, c, and d in nums such that a + b + c + d = target? Find all unique quadruplets in the array which gives the sum of target.<p></p>
+<p>Note:</p>
+<p>The solution set must not contain duplicate quadruplets.</p>
+<p>Example:</p>
+<p>Given array nums = [1, 0, -1, 0, -2, 2], and target = 0.</p>
+<p>A solution set is:<br>[<br>  [-1,  0, 0, 1],<br>  [-2, -1, 1, 2],<br>  [-2,  0, 0, 2]<br>]<br>问题分析:<br>这个题和3sum一样，无非就是找四个数字，思路和3Sum相同，确定两个数字后寻找另外两个数字。<br>Java代码:<br><img src="/2019/02/10/leetcode4/c.png"></p>
+<p></p><h1>19.Remove Nth Node From End of List</h1><br>Given a linked list, remove the n-th node from the end of list and return its head.<p></p>
+<p>Example:</p>
+<p>Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2.</p>
+<p>After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5.<br>问题分析:<br>常规链表删除节点题<br>Java代码:<br><img src="/2019/02/10/leetcode4/d.png"></p>
+<p></p><h1>20.Valid Parentheses</h1><br>Given a string containing just the characters ‘(‘, ‘)’, ‘{‘, ‘}’, ‘[‘ and ‘]’, determine if the input string is valid.<p></p>
+<p>An input string is valid if:</p>
+<p>Open brackets must be closed by the same type of brackets.<br>Open brackets must be closed in the correct order.<br>Note that an empty string is also considered valid.</p>
+<p>Example 1:</p>
+<p>Input: “()”<br>Output: true<br>Example 2:</p>
+<p>Input: “()[]{}”<br>Output: true<br>Example 3:</p>
+<p>Input: “(]”<br>Output: false<br>Example 4:</p>
+<p>Input: “([)]”<br>Output: false<br>Example 5:</p>
+<p>Input: “{[]}”<br>Output: true<br>问题分析:<br>用stack来做<br>Java代码<br><img src="/2019/02/10/leetcode4/e.png"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -157,7 +183,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">16.3Sum Closest</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">16.3Sum Closest</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">17.Leeter Combinations of a Phone Number</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">18.4Sum</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">19.Remove Nth Node From End of List</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">20.Valid Parentheses</span></a></li></ol>
  
   </div>
 
