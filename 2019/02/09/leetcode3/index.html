@@ -21,7 +21,8 @@
 <meta property="og:image" content="http://yoursite.com/2019/02/09/leetcode3/b.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/09/leetcode3/c.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/09/leetcode3/d.png">
-<meta property="og:updated_time" content="2019-02-09T15:28:18.812Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/09/leetcode3/e.png">
+<meta property="og:updated_time" content="2019-02-10T05:43:48.589Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode题解(11-15)">
 <meta name="twitter:description" content="11. Container With Most WaterGiven n non-negative integers a1, a2, …, an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (">
@@ -101,7 +102,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">11. Container With Most Water</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">12.Integer to Roman</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">13. Roman to Integer</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">11. Container With Most Water</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">12.Integer to Roman</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">13. Roman to Integer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">14.Longest Common Prefix</span></a></li></ol>
 		
 		</div>
 		
@@ -128,6 +129,12 @@
 <p>Input: “IX”<br>Output: 9<br>Example 4:</p>
 <p>Input: “LVIII”<br>Output: 58<br>Explanation: L = 50, V= 5, III = 3.<br>Example 5:</p>
 <p>Input: “MCMXCIV”<br>Output: 1994<br>Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.<br>问题分析:<br>用哈希表，将对应的字符和数值存入哈希表，然后将字符串翻转<br>这题的关键是对于当前的字符，是要加上它的值还是减去它的值，这可以通过翻转后的字符串的当前字符和它的前一个字符进行比较，如果当前字符的值小于它的前一个字符的值，就要减去，否则加上。<br>Java代码:<br><img src="/2019/02/09/leetcode3/d.png"></p>
+<p></p><h1>14.Longest Common Prefix</h1><br>Write a function to find the longest common prefix string amongst an array of strings.<p></p>
+<p>If there is no common prefix, return an empty string “”.</p>
+<p>Example 1:</p>
+<p>Input: [“flower”,”flow”,”flight”]<br>Output: “fl”<br>Example 2:</p>
+<p>Input: [“dog”,”racecar”,”car”]<br>Output: “”<br>Explanation: There is no common prefix among the input strings.<br>Note:</p>
+<p>All given inputs are in lowercase letters a-z.<br>问题分析:<br>这个题让我买寻找最长公共前缀字符串，字符串数组中的字符串按照一个一个字符进行比较即可。<br>Java代码:<br><img src="/2019/02/09/leetcode3/e.png"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -179,7 +186,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">11. Container With Most Water</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">12.Integer to Roman</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">13. Roman to Integer</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">11. Container With Most Water</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">12.Integer to Roman</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">13. Roman to Integer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">14.Longest Common Prefix</span></a></li></ol>
  
   </div>
 

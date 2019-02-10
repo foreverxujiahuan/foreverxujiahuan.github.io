@@ -21,7 +21,8 @@
 <meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode2/b.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode2/c.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode2/e.png">
-<meta property="og:updated_time" content="2019-02-09T13:52:40.719Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/08/leetcode2/leetcode3/f.png">
+<meta property="og:updated_time" content="2019-02-10T06:39:07.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode题解(6-10)">
 <meta name="twitter:description" content="6.ZigZag ConversionThe string “PAYPALISHIRING” is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) P   A">
@@ -101,7 +102,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">6.ZigZag Conversion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">7.Reverse Integer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">8.String to Integer(atoi)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">9.Palindrome Number</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">10.Regular Expression Matching</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">6.ZigZag Conversion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">7.Reverse Integer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">8.String to Integer(atoi)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">9.Palindrome Number</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">10.Regular Expression Matching</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">15.3Sum</span></a></li></ol>
 		
 		</div>
 		
@@ -131,7 +132,13 @@
 <p>Input:<br>s = “aa”<br>p = “a<em>“<br>Output: true<br>Explanation: ‘</em>‘ means zero or more of the precedeng element, ‘a’. Therefore, by repeating ‘a’ once, it becomes “aa”.<br>Example 3:</p>
 <p>Input:<br>s = “ab”<br>p = “.<em>“<br>Output: true<br>Explanation: “.</em>“ means “zero or more (*) of any character (.)”.<br>Example 4:</p>
 <p>Input:<br>s = “aab”<br>p = “c<em>a</em>b”<br>Output: true<br>Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore it matches “aab”.<br>Example 5:</p>
-<p>Input:<br>s = “mississippi”<br>p = “mis<em>is</em>p<em>.”<br>Output: false<br>问题分析:<br>正则表达式匹配问题，动态规划<br>先创建一个存储结果的二维数组dp[s.leng+1][p.leng+1]<br>dp[i][j]代表的是从s中取前i个字符和从p中取前j个字符是否能匹配。<br>首先初始化dp，dp[0][0]肯定是true，然后dp的第一行除了第一个外其他都是false，第一列中得考虑’</em>‘的情况，该列中如果该位置是’<em>‘，则和它的前两个值取值相同。<br>然后开始逐个比较，当没有’</em>‘的时候，则d[i+1][j+1]=d[i][j]<br>如果有’<em>‘的时候:<br>第一种情况是</em>前的字符作为0个字符(p星号前的字符和s中当前的字符不同)，那么dp[i][j+1]就和dp[i][j-1]是一样的，即之前的如果是匹配的，加上这两个后还是匹配，之前的如果是不匹配的，加上后仍然不匹配。<br>第二钟情况是*前的字母得作为一个或者多个字符进行匹配（p星号前的字符和当前s中的字符相等），那么d[i+1][j+1]=dp[i][j+1]||dp[i+1][j]||dp[i+1][j-1]<br>Java代码:<br><img src="/2019/02/08/leetcode2/e.png"></p>
+<p>Input:<br>s = “mississippi”<br>p = “mis<em>is</em>p<em>.”<br>Output: false<br>问题分析:<br>正则表达式匹配问题，动态规划<br>先创建一个存储结果的二维数组dp[s.leng+1][p.leng+1]<br>dp[i][j]代表的是从s中取前i个字符和从p中取前j个字符是否能匹配。<br>首先初始化dp，dp[0][0]肯定是true，然后dp的第一行除了第一个外其他都是false，第一列中得考虑星号的情况，该列中如果该位置是’</em>‘，则和它的前两个值取值相同。<br>然后开始逐个比较，当没有星号的时候，则d[i+1][j+1]=d[i][j]<br>如果有星号的时候:<br>第一种情况是星号前的字符作为0个字符(p星号前的字符和s中当前的字符不同)，那么dp[i][j+1]就和dp[i][j-1]是一样的，即之前的如果是匹配的，加上这两个后还是匹配，之前的如果是不匹配的，加上后仍然不匹配。<br>第二钟情况是星号前的字母得作为一个或者多个字符进行匹配（p星号前的字符和当前s中的字符相等），那么d[i+1][j+1]=dp[i][j+1]||dp[i+1][j]||dp[i+1][j-1]<br>Java代码:<br><img src="/2019/02/08/leetcode2/e.png"></p>
+<p></p><h1>15.3Sum</h1><br>Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.<p></p>
+<p>Note:</p>
+<p>The solution set must not contain duplicate triplets.</p>
+<p>Example:</p>
+<p>Given array nums = [-1, 0, 1, 2, -1, -4],</p>
+<p>A solution set is:<br>[<br>  [-1, 0, 1],<br>  [-1, -1, 2]<br>]<br>问题分析:<br>这道题也得定义两个指针，分别从数组的头上和尾巴上同时开始寻找第三个数。先对数组进行排序，然后遍历数组，对于数组中的每一个数字，我们都得要寻找两个数相加等于这个数的负数，并且这两个数不能是该数字。针对每一个数字，我们都定义两个指针left和right,如果两个位置的和加起来小于要找的数字，那么left+1，如果大于要找的数字，那么right-1。<br>Java代码:<br><img src="/2019/02/08/leetcode2/leetcode3/f.png"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -191,7 +198,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">6.ZigZag Conversion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">7.Reverse Integer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">8.String to Integer(atoi)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">9.Palindrome Number</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">10.Regular Expression Matching</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">6.ZigZag Conversion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">7.Reverse Integer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">8.String to Integer(atoi)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">9.Palindrome Number</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">10.Regular Expression Matching</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">15.3Sum</span></a></li></ol>
  
   </div>
 
