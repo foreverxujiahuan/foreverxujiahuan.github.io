@@ -1,0 +1,537 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Leetcode题解(21-25) | zzulixjh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="zzulixjh">
+    
+
+    
+    <meta name="description" content="21.Merge Two Sorted ListsMerge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example: Input: 1-&amp;gt;2-&amp;gt;4, 1-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode题解(21-25)">
+<meta property="og:url" content="http://yoursite.com/2019/02/10/leetcode5/index.html">
+<meta property="og:site_name" content="zzulixjh">
+<meta property="og:description" content="21.Merge Two Sorted ListsMerge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example: Input: 1-&amp;gt;2-&amp;gt;4, 1-">
+<meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode5/a.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode5/b.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode5/c.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode5/d.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode5/e.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode5/f.png">
+<meta property="og:updated_time" content="2019-02-11T12:04:12.449Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leetcode题解(21-25)">
+<meta name="twitter:description" content="21.Merge Two Sorted ListsMerge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example: Input: 1-&amp;gt;2-&amp;gt;4, 1-">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/10/leetcode5/a.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="zzulixjh" title="zzulixjh"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/02/10/leetcode5/" title="Leetcode题解(21-25)" itemprop="url">Leetcode题解(21-25)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
+		
+  <p class="article-time">
+    <time datetime="2019-02-10T14:59:01.000Z" itemprop="datePublished"> Published 2019-02-10</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">21.Merge Two Sorted Lists</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">22.Generate Parentheses</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">24.Swap Nodes in Pairs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">25.Reverse Nodes in k-Group</span></a></li></ol>
+		
+		</div>
+		
+		<p></p><h1>21.Merge Two Sorted Lists</h1><br>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.<p></p>
+<p>Example:</p>
+<p>Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4<br>问题分析，同时遍历两个链表，那个大就添加那个，当一个链表为空时，停止遍历，向结果中添加剩余的链表节点。<br>Java代码:<br><img src="/2019/02/10/leetcode5/a.png"></p>
+<p></p><h1>22.Generate Parentheses</h1><br>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.<p></p>
+<p>For example, given n = 3, a solution set is:</p>
+<p>[<br>  “((()))”,<br>  “(()())”,<br>  “(())()”,<br>  “()(())”,<br>  “()()()”<br>]<br>思路分析:<br>使用递归和回溯算法,深度优先搜索。<br><img src="/2019/02/10/leetcode5/b.png"><br>定义一个help函数，该函数的参数有cur(当前的字符串)，res，当前的结果集合，n(括号的总对数)，left(左括号数量)，right(右括号数量)<br>如果右括号的数量等于等于了总的对的数量，说明照完了，就向结果中添加签过，如果左括号的数量小于n，那么久添加左括号，如果左括号的数量大于了right，那么久添加右括号，不断递归。<br>Java代码:<br><img src="/2019/02/10/leetcode5/c.png"><br>23.Merge k Sorted Lists<br>Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.</p>
+<p>Example:</p>
+<p>Input:<br>[<br>  1-&gt;4-&gt;5,<br>  1-&gt;3-&gt;4,<br>  2-&gt;6<br>]<br>Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6<br>问题分析:<br>常规链表题，可以先获取链表的总元素个数l，然后进行遍历，每次都找出当前的最小值，找到后对应的当前链表向前走一步，走完l步，就完成了。<br>Java代码:<br><img src="/2019/02/10/leetcode5/d.png"></p>
+<p></p><h1>24.Swap Nodes in Pairs</h1><br>Given a linked list, swap every two adjacent nodes and return its head.<p></p>
+<p>You may not modify the values in the list’s nodes, only nodes itself may be changed.</p>
+<p>Example:</p>
+<p>Given 1-&gt;2-&gt;3-&gt;4, you should return the list as 2-&gt;1-&gt;4-&gt;3.<br>问题分析:<br>常规链表题<br>Java代码:<br><img src="/2019/02/10/leetcode5/e.png"></p>
+<p></p><h1>25.Reverse Nodes in k-Group</h1><br>Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.<p></p>
+<p>k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.</p>
+<p>Example:</p>
+<p>Given this linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5</p>
+<p>For k = 2, you should return: 2-&gt;1-&gt;4-&gt;3-&gt;5</p>
+<p>For k = 3, you should return: 3-&gt;2-&gt;1-&gt;4-&gt;5</p>
+<p>Note:</p>
+<p>Only constant extra memory is allowed.<br>You may not alter the values in the list’s nodes, only nodes itself may be changed.<br>问题分析:<br>这个题和上一题差不多，区别就是上一题是交换两个，这里是交换k个，这里只需将k个Node先存储起来，然后依次添加即可。<br>Java代码:<br><img src="/2019/02/10/leetcode5/f.png"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Leetcode/">Leetcode</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2019/02/10/leetcode5/" data-title="Leetcode题解(21-25) | zzulixjh" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2019/02/10/leetcode4/"  title="Leetcode题解(16-20)">
+ <strong>下一篇：</strong><br/> 
+ <span>Leetcode题解(16-20)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">21.Merge Two Sorted Lists</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">22.Generate Parentheses</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">24.Swap Nodes in Pairs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">25.Reverse Nodes in k-Group</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Java/" title="Java">Java<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Leetcode/" title="Leetcode">Leetcode<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Matlab/" title="Matlab">Matlab<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/PHP/" title="PHP">PHP<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>23</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/front/" title="前端">前端<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/爬虫/" title="爬虫">爬虫<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/life/" title="生活">生活<sup>12</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>16</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/pc/" title="计算机">计算机<sup>14</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://leetcode.com/zzulixjh/" target="_blank" title="我的leetcode">我的leetcode</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://blog.csdn.net/sinat_41547532" target="_blank" title="我的csdn">我的csdn</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/foreverxujiahuan" target="_blank" title="我的github">我的github</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.nowcoder.com/profile/5533836" target="_blank" title="我的牛客">我的牛客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m xujiahuan in zzuli. <br/>
+			This is my blog</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5638142666" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/foreverxujiahuan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="zzulixjh">zzulixjh</a>
+		
+		
+		</p>
+		<span id="busuanzi_container_site_pv">
+			本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
