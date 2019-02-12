@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode5/d.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode5/e.png">
 <meta property="og:image" content="http://yoursite.com/2019/02/10/leetcode5/f.png">
-<meta property="og:updated_time" content="2019-02-11T12:04:12.449Z">
+<meta property="og:updated_time" content="2019-02-12T04:16:37.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Leetcode题解(21-25)">
 <meta name="twitter:description" content="21.Merge Two Sorted ListsMerge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example: Input: 1-&amp;gt;2-&amp;gt;4, 1-">
@@ -103,7 +103,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">21.Merge Two Sorted Lists</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">22.Generate Parentheses</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">24.Swap Nodes in Pairs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">25.Reverse Nodes in k-Group</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">21.Merge Two Sorted Lists</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">22.Generate Parentheses</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">23.Merge k Sorted Lists</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">24.Swap Nodes in Pairs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">25.Reverse Nodes in k-Group</span></a></li></ol>
 		
 		</div>
 		
@@ -112,7 +112,8 @@
 <p>Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4<br>问题分析，同时遍历两个链表，那个大就添加那个，当一个链表为空时，停止遍历，向结果中添加剩余的链表节点。<br>Java代码:<br><img src="/2019/02/10/leetcode5/a.png"></p>
 <p></p><h1>22.Generate Parentheses</h1><br>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.<p></p>
 <p>For example, given n = 3, a solution set is:</p>
-<p>[<br>  “((()))”,<br>  “(()())”,<br>  “(())()”,<br>  “()(())”,<br>  “()()()”<br>]<br>思路分析:<br>使用递归和回溯算法,深度优先搜索。<br><img src="/2019/02/10/leetcode5/b.png"><br>定义一个help函数，该函数的参数有cur(当前的字符串)，res，当前的结果集合，n(括号的总对数)，left(左括号数量)，right(右括号数量)<br>如果右括号的数量等于等于了总的对的数量，说明照完了，就向结果中添加签过，如果左括号的数量小于n，那么久添加左括号，如果左括号的数量大于了right，那么久添加右括号，不断递归。<br>Java代码:<br><img src="/2019/02/10/leetcode5/c.png"><br>23.Merge k Sorted Lists<br>Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.</p>
+<p>[<br>  “((()))”,<br>  “(()())”,<br>  “(())()”,<br>  “()(())”,<br>  “()()()”<br>]<br>思路分析:<br>使用递归和回溯算法,深度优先搜索。<br><img src="/2019/02/10/leetcode5/b.png"><br>定义一个help函数，该函数的参数有cur(当前的字符串)，res，当前的结果集合，n(括号的总对数)，left(左括号数量)，right(右括号数量)<br>如果右括号的数量等于等于了总的对的数量，说明照完了，就向结果中添加签过，如果左括号的数量小于n，那么久添加左括号，如果左括号的数量大于了right，那么久添加右括号，不断递归。<br>Java代码:<br><img src="/2019/02/10/leetcode5/c.png"></p>
+<p></p><h1>23.Merge k Sorted Lists</h1><br>Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.<p></p>
 <p>Example:</p>
 <p>Input:<br>[<br>  1-&gt;4-&gt;5,<br>  1-&gt;3-&gt;4,<br>  2-&gt;6<br>]<br>Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6<br>问题分析:<br>常规链表题，可以先获取链表的总元素个数l，然后进行遍历，每次都找出当前的最小值，找到后对应的当前链表向前走一步，走完l步，就完成了。<br>Java代码:<br><img src="/2019/02/10/leetcode5/d.png"></p>
 <p></p><h1>24.Swap Nodes in Pairs</h1><br>Given a linked list, swap every two adjacent nodes and return its head.<p></p>
@@ -157,6 +158,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2019/02/11/java-error/" title="Java中的违例知识总结">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Java中的违例知识总结</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2019/02/10/leetcode4/"  title="Leetcode题解(16-20)">
@@ -178,7 +187,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">21.Merge Two Sorted Lists</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">22.Generate Parentheses</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">24.Swap Nodes in Pairs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">25.Reverse Nodes in k-Group</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">21.Merge Two Sorted Lists</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">22.Generate Parentheses</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">23.Merge k Sorted Lists</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">24.Swap Nodes in Pairs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">25.Reverse Nodes in k-Group</span></a></li></ol>
  
   </div>
 
@@ -201,11 +210,11 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/Java/" title="Java">Java<sup>3</sup></a></li>
+			<li><a href="/categories/Java/" title="Java">Java<sup>4</sup></a></li>
 		  
 		
 		  
-			<li><a href="/categories/Leetcode/" title="Leetcode">Leetcode<sup>5</sup></a></li>
+			<li><a href="/categories/Leetcode/" title="Leetcode">Leetcode<sup>6</sup></a></li>
 		  
 		
 		  
