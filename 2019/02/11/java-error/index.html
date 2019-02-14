@@ -11,16 +11,20 @@
     
 
     
-    <meta name="description" content="什么是违例违例这个词表达的是一种”例外”的情况,亦即正常情况之外的一种”异常”">
+    <meta name="description" content="什么是违例违例这个词表达的是一种”例外”的情况,亦即正常情况之外的一种”异常” 违例自变量和Java的其他任何对象一样，需要用new在内存堆里创建违例，并需调用一个构建器。在所有标准违例中，存在着两个构建器:第一个是默认构建器，第二个则需要使用一个字串自变量，使我们能在违例里置入相关信息,例如:throw new NullPointerExeption(“t=null”)违例的抛出可以终止方法或作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java中的违例知识总结">
 <meta property="og:url" content="http://yoursite.com/2019/02/11/java-error/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="什么是违例违例这个词表达的是一种”例外”的情况,亦即正常情况之外的一种”异常”">
-<meta property="og:updated_time" content="2019-02-11T12:40:20.637Z">
+<meta property="og:description" content="什么是违例违例这个词表达的是一种”例外”的情况,亦即正常情况之外的一种”异常” 违例自变量和Java的其他任何对象一样，需要用new在内存堆里创建违例，并需调用一个构建器。在所有标准违例中，存在着两个构建器:第一个是默认构建器，第二个则需要使用一个字串自变量，使我们能在违例里置入相关信息,例如:throw new NullPointerExeption(“t=null”)违例的抛出可以终止方法或作">
+<meta property="og:image" content="http://yoursite.com/2019/02/11/java-error/a.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/11/java-error/b.png">
+<meta property="og:image" content="http://yoursite.com/2019/02/11/java-error/c.png">
+<meta property="og:updated_time" content="2019-02-14T10:55:34.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中的违例知识总结">
-<meta name="twitter:description" content="什么是违例违例这个词表达的是一种”例外”的情况,亦即正常情况之外的一种”异常”">
+<meta name="twitter:description" content="什么是违例违例这个词表达的是一种”例外”的情况,亦即正常情况之外的一种”异常” 违例自变量和Java的其他任何对象一样，需要用new在内存堆里创建违例，并需调用一个构建器。在所有标准违例中，存在着两个构建器:第一个是默认构建器，第二个则需要使用一个字串自变量，使我们能在违例里置入相关信息,例如:throw new NullPointerExeption(“t=null”)违例的抛出可以终止方法或作">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/11/java-error/a.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -96,11 +100,15 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">什么是违例</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">什么是违例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">违例自变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">违例准则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">违例控制器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
 		<p></p><h1>什么是违例</h1><br>违例这个词表达的是一种”例外”的情况,亦即正常情况之外的一种”异常”<p></p>
+<p></p><h1>违例自变量</h1><br>和Java的其他任何对象一样，需要用new在内存堆里创建违例，并需调用一个构建器。在所有标准违例中，存在着两个构建器:第一个是默认构建器，第二个则需要使用一个字串自变量，使我们能在违例里置入相关信息,例如:<br>throw new NullPointerExeption(“t=null”)<br>违例的抛出可以终止方法或作用域的继续。<p></p>
+<p></p><h1>违例准则</h1><br>用违例做下面这些事情:<br>1.解决问题并再次调用造成违例的方法。<br>2.平息事态的发展，并在不重写尝试方法的前提下继续。<br>3.计算另一些结果，而不是希望方法产生的结果。<br>4.在当前环境中尽可能解决问题，以及将相同的违例重新”掷”出一个更高级的环境。<br>5.在当前环境中尽可能解决问题，以及将不同的违例重写”掷”出一个更高级的环境。<br>6.终止程序执行。<br>7.简化编码。若违例方案使事情变得更加复杂，那就会令人非常烦恼，不如不用<br>8.使自己的库和程序变得更加安全。这既是一种”短期投资”(便于调试)，也是一种”长期投资”(改善应用程序的健壮性)<p></p>
+<p></p><h1>违例控制器</h1><br>生成的违例必须在某个地方终止。这个”地方”便是违例控制器或者违例控制模块。而且针对想捕获的每种违例类型，都必须有一个相应的违例控制器。违例控制器紧接在try块后面，且用catch(捕获)关键字标记。<br><img src="/2019/02/11/java-error/a.png"><br>控制器必须紧接在try块后面。若”掷”出一个违例，违例控制机就会搜寻自变量与违例类型相符的第一个控制器。随后，它会进入那个catch从句，并认为违例已得到控制。<br>Demo:<br><img src="/2019/02/11/java-error/b.png"><br><img src="/2019/02/11/java-error/c.png"><br>可以看到在getMessage()方法可以获得违例中的违例信息，toSring()可以获取抛出的所有违例信息<p></p>
+<p></p><h1>总结</h1><br>通过先进的错误纠正与恢复机制，我们可以有效地增强代码的健壮度。对我们编写的每个程序来说，错误恢复都属于一个基本的考虑目标。它在Java中先得尤为重要，因为该语言的一个目标就是创建不同的程序组件，以便其他用户(客户程序员)使用。为构建一套健壮的系统，每个组建都必须非常健壮。<br>在Java里，违例控制的母的是使用尽可能精简的代码创建大型、可靠的应用程序，同时派出程序里那些不能控制的错误。<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -160,7 +168,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">什么是违例</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">什么是违例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">违例自变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">违例准则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">违例控制器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
@@ -183,7 +191,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/Java/" title="Java">Java<sup>4</sup></a></li>
+			<li><a href="/categories/Java/" title="Java">Java<sup>5</sup></a></li>
 		  
 		
 		  
