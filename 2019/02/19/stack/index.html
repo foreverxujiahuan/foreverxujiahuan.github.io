@@ -4,22 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>zzulixjh</title>
+    <title>栈与队列知识总结整理 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="用hexo搭建的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zzulixjh">
-<meta property="og:url" content="http://yoursite.com/page/11/index.html">
+    <meta name="description" content="栈(Stack)栈是一种受限的线性表，其限制是仅允许在表的一端进行插入和删除操作，不允许在其他任何位置进行插入、查找、删除等操作。表中进行插入、删除操作的一端称为栈顶(top),栈顶保存的元素称为栈顶元素。相对的，表的另一端称为栈底。特性:后进先出stack的操作:1.getSize()返回堆栈的大小2.isEmpty()判断栈是否为空3.push(e)元素e入栈4.pop()栈顶元素出栈5.pe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈与队列知识总结整理">
+<meta property="og:url" content="http://yoursite.com/2019/02/19/stack/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="用hexo搭建的个人博客">
+<meta property="og:description" content="栈(Stack)栈是一种受限的线性表，其限制是仅允许在表的一端进行插入和删除操作，不允许在其他任何位置进行插入、查找、删除等操作。表中进行插入、删除操作的一端称为栈顶(top),栈顶保存的元素称为栈顶元素。相对的，表的另一端称为栈底。特性:后进先出stack的操作:1.getSize()返回堆栈的大小2.isEmpty()判断栈是否为空3.push(e)元素e入栈4.pop()栈顶元素出栈5.pe">
+<meta property="og:updated_time" content="2019-02-19T11:24:53.083Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zzulixjh">
-<meta name="twitter:description" content="用hexo搭建的个人博客">
+<meta name="twitter:title" content="栈与队列知识总结整理">
+<meta name="twitter:description" content="栈(Stack)栈是一种受限的线性表，其限制是仅允许在表的一端进行插入和删除操作，不允许在其他任何位置进行插入、查找、删除等操作。表中进行插入、删除操作的一端称为栈顶(top),栈顶保存的元素称为栈顶元素。相对的，表的另一端称为栈底。特性:后进先出stack的操作:1.getSize()返回堆栈的大小2.isEmpty()判断栈是否为空3.push(e)元素e入栈4.pop()栈顶元素出栈5.pe">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -73,144 +74,83 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2018/05/26/python-notes12/" title="python中的接口、实现和多态" itemprop="url">
-  
-    <h1 itemprop="name">python中的接口、实现和多态</h1>
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
     
-     
-           <p itemprop="description" >开发接口接口就是简练而且信息丰富的、使得你只需要看一下其公开的、外在的”表面”，就能掌握资源的行为。
-用python编写接口要创建接口，使用其文档来列出每一个方法头，并且用一条单个的pass或return语句来结束每一个方法。pass语句用于不返回任何值的修改器方法，而且每个访问</p>
-        
+      <a href="/2019/02/19/stack/" title="栈与队列知识总结整理" itemprop="url">栈与队列知识总结整理</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
+		
+  <p class="article-time">
+    <time datetime="2019-02-19T10:56:16.000Z" itemprop="datePublished"> Published 2019-02-19</time>
     
-    <time datetime="2018-05-26T14:55:53.000Z" itemprop="datePublished">2018-05-26</time>
-  </a>
-</section>
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">栈(Stack)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">队列(queue)</span></a></li></ol>
+		
+		</div>
+		
+		<p></p><h1>栈(Stack)</h1><br>栈是一种受限的线性表，其限制是仅允许在表的一端进行插入和删除操作，不允许在其他任何位置进行插入、查找、删除等操作。表中进行插入、删除操作的一端称为栈顶(top),栈顶保存的元素称为栈顶元素。相对的，表的另一端称为栈底。<br>特性:后进先出<br>stack的操作:<br>1.getSize()<br>返回堆栈的大小<br>2.isEmpty()<br>判断栈是否为空<br>3.push(e)<br>元素e入栈<br>4.pop()<br>栈顶元素出栈<br>5.peek()<br>获取栈顶元素，但不出栈<p></p>
+<p></p><h1>队列(queue)</h1><br>队列也是一种收限制的线性表，其限制是仅允许在表的一端进行插入，在表的另一端进行删除。在队列中把插入数据元素的一端称为队尾，删除数据元素的一端称为队首。<br>特性:先进先出<br>Java中的Queue接口(以Integer为例)<br>创建<br>Queue<integer> queue = new LinkedList&lt;&gt;();<br>入队<br>queue.offer(e)<br>出队<br>queue.poll()<br>获取队首元素<br>queue.peek()<p></p>
+</integer>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
 
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2018/05/23/python-notes11/" title="Pycharm的基本使用" itemprop="url">
-  
-    <h1 itemprop="name">Pycharm的基本使用</h1>
-    
-     
-           <p itemprop="description" >Pycharm基本使用
-Pycharm的基本使用Project:当前项目名&amp;gt;Project Interpreter&amp;gt;add Local
-在Pycharm下创建Python文件、Python模块File&amp;gt;New&amp;gt;Python FileFile&amp;gt;New&amp;</p>
-        
-    
-    <time datetime="2018-05-23T12:43:55.000Z" itemprop="datePublished">2018-05-23</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2018/05/19/pdf/" title="使用前端页面浏览pdf文档" itemprop="url">
-  
-    <h1 itemprop="name">使用前端页面浏览pdf文档</h1>
-    
-     
-           <p itemprop="description" >需求实现pdf文档的web端在线阅读功能
-解决方案我一共找到两个解决方案
-方案一:使用pdf.js先从网上下载pdf.js文件，下载完后在编辑器中打开我们需要将这个文件夹放到tomact的webapps文件夹下，启动tomact后即可在浏览器中正常访问。优点:使用js写的，性能应</p>
-        
-    
-    <time datetime="2018-05-19T13:41:31.000Z" itemprop="datePublished">2018-05-19</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2018/05/19/algorithm-10/" title="深入理解快速排序(python实现)" itemprop="url">
-  
-    <h1 itemprop="name">深入理解快速排序(python实现)</h1>
-    
-     
-           <p itemprop="description" >快速排序的基本思想快速排序的思想非常简单:对于一个数组S，我们选择一个元素，成为pivot。将数组S中小于等于pivot的元素放在S的左边，大于等于povit的元素放在S的右边。左右两部分分别记为S1和S2，然后我们递归的按上述方式对S1、S2继续进行排序。
-快速排序的复杂度直接</p>
-        
-    
-    <time datetime="2018-05-19T02:14:46.000Z" itemprop="datePublished">2018-05-19</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2018/05/16/algorithm-9/" title="线性表" itemprop="url">
-  
-    <h1 itemprop="name">线性表</h1>
-    
-     
-           <p itemprop="description" >线性表的定义零个或多个数据元素的有限序列
-栈与队列
-栈
-栈的定义栈(stack)是限定尽在表尾进行插入和删除的线性表我们把允许插入和删除的一端成为栈顶，另一端称为栈底，不含任何数据元素的栈成为空栈。栈又称为后进先出(Last In First Out)的线性表，简称LIFO结构。</p>
-        
-    
-    <time datetime="2018-05-16T05:51:37.000Z" itemprop="datePublished">2018-05-16</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2018/05/15/algorithm-8/" title="算法的时间复杂度与空间复杂度" itemprop="url">
-  
-    <h1 itemprop="name">算法的时间复杂度与空间复杂度</h1>
-    
-     
-           <p itemprop="description" >算法时间复杂度的定义在进行算法分析时，语句总的执行次数T(n)是关于问题规模n的函数，进而分析T(n)随n的变化情况并确定T(n)的数量级。算法的时间复杂度，也就是算法的时间量度，记作:T(n) = O(f(n)).它表示随问题规模n的增大，算法执行时间的增长率和f(n)的增长率</p>
-        
-    
-    <time datetime="2018-05-15T12:14:54.000Z" itemprop="datePublished">2018-05-15</time>
-  </a>
-</section>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix unexpand">
-    <a class="extend prev" rel="prev" href="/page/10/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/12/">Next<span></span></a>
-  </nav>
 
 </div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2019/02/19/stack/" data-title="栈与队列知识总结整理 | zzulixjh" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2019/02/19/tree-travel/"  title="二叉树的遍历知识总结">
+ <strong>下一篇：</strong><br/> 
+ <span>二叉树的遍历知识总结
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">栈(Stack)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">队列(queue)</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
@@ -409,12 +349,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -487,4 +504,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
