@@ -4,32 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>js基础(培训) | zzulixjh</title>
+    <title>Java中的访问指示符 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="一、基础语法1.JS中用关键字var来定义变量，使用等号来为变量赋值:例如:var x,lengthx = 5length = 62.js中的注释我们使用双斜杠来注释，例如//注释的内容3.元素的获取与输出下面的javascript语句向id=”demo”HTML元素输出文本”你好Dolly”document.getElementById(“demo”).innerHTML = “你好 Dolly">
+    <meta name="description" content="Java访问指示符针对类内每个成员的每个定义，Java访问指示符public,protected以及private都置于它们的最前面–无论它们是一个数据成员还是一个方法。每个访问指示符都只控制着那个特定定义的访问。 “友好的”如果不指定访问指示符，就称为”友好”访问。就意味着当前包内的其他所有类都能访问”友好的”成员，但对于包外所有类来说，这些成员是无法访问的。因此我们也说友好元素拥有”包访问”权">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js基础(培训)">
-<meta property="og:url" content="http://yoursite.com/2018/05/04/jslearn/index.html">
+<meta property="og:title" content="Java中的访问指示符">
+<meta property="og:url" content="http://yoursite.com/2019/02/20/access/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="一、基础语法1.JS中用关键字var来定义变量，使用等号来为变量赋值:例如:var x,lengthx = 5length = 62.js中的注释我们使用双斜杠来注释，例如//注释的内容3.元素的获取与输出下面的javascript语句向id=”demo”HTML元素输出文本”你好Dolly”document.getElementById(“demo”).innerHTML = “你好 Dolly">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/jslearn/a.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/jslearn/b.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/jslearn/c.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/jslearn/d.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/jslearn/e.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/jslearn/f.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/jslearn/g.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/04/jslearn/h.png">
-<meta property="og:updated_time" content="2018-05-04T13:26:38.000Z">
+<meta property="og:description" content="Java访问指示符针对类内每个成员的每个定义，Java访问指示符public,protected以及private都置于它们的最前面–无论它们是一个数据成员还是一个方法。每个访问指示符都只控制着那个特定定义的访问。 “友好的”如果不指定访问指示符，就称为”友好”访问。就意味着当前包内的其他所有类都能访问”友好的”成员，但对于包外所有类来说，这些成员是无法访问的。因此我们也说友好元素拥有”包访问”权">
+<meta property="og:updated_time" content="2019-02-20T10:53:18.766Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js基础(培训)">
-<meta name="twitter:description" content="一、基础语法1.JS中用关键字var来定义变量，使用等号来为变量赋值:例如:var x,lengthx = 5length = 62.js中的注释我们使用双斜杠来注释，例如//注释的内容3.元素的获取与输出下面的javascript语句向id=”demo”HTML元素输出文本”你好Dolly”document.getElementById(“demo”).innerHTML = “你好 Dolly">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/04/jslearn/a.png">
+<meta name="twitter:title" content="Java中的访问指示符">
+<meta name="twitter:description" content="Java访问指示符针对类内每个成员的每个定义，Java访问指示符public,protected以及private都置于它们的最前面–无论它们是一个数据成员还是一个方法。每个访问指示符都只控制着那个特定定义的访问。 “友好的”如果不指定访问指示符，就称为”友好”访问。就意味着当前包内的其他所有类都能访问”友好的”成员，但对于包外所有类来说，这些成员是无法访问的。因此我们也说友好元素拥有”包访问”权">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -89,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/05/04/jslearn/" title="js基础(培训)" itemprop="url">js基础(培训)</a>
+      <a href="/2019/02/20/access/" title="Java中的访问指示符" itemprop="url">Java中的访问指示符</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-05-04T12:51:02.000Z" itemprop="datePublished"> 发表于 2018-05-04</time>
+    <time datetime="2019-02-20T09:55:51.000Z" itemprop="datePublished"> 发表于 2019-02-20</time>
     
   </p>
 </header>
@@ -105,11 +96,15 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Java访问指示符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">“友好的”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">public:接口访问</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">private</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">protected</span></a></li></ol>
 		
 		</div>
 		
-		<p>一、基础语法<br>1.JS中用关键字var来定义变量，使用等号来为变量赋值:<br>例如:var x,length<br>x = 5<br>length = 6<br>2.js中的注释<br>我们使用双斜杠来注释，例如<br>//注释的内容<br>3.元素的获取与输出<br>下面的javascript语句向id=”demo”HTML元素输出文本”你好Dolly”<br>document.getElementById(“demo”).innerHTML = “你好 Dolly”;<br>4.弹窗<br>JS使用alert(“输出内容”)来进行弹窗<br>二、JS对象<br>定义Javascript对象可以跨越多行，空格跟换行不是必须的:<br>比如我们定义一个人的对象<br>var person = {<br>    firstName:”John”,<br>    lastName:”Doe”,<br>    age:50,<br>    eyeColor:”blue”<br>};<br>我们可以通过两种方式访问对象属性<br>person.lastName;<br>person[“lastName”];<br>三、JS事件<br>我们可以定义一个方法(事件)来给其他文本进行调用<br>demo:<br>我们定义一个函数<br>function changetext(id)<br>{<br>    id.innerHTML=”Ooops!”;<br>}<br>如果一个h1标签的文本里有 onclick=”changetext(this)”的话，点击后就会出现Ooops!字样。<br>我们接下来用js来制作一个注册的字符串判断功能<br>下图是我之前做的一个注册页面<br><img src="/2018/05/04/jslearn/a.png"><br>我们的任务是要用js来实现限制用户的输入内容，比如用户名必须得是3位英文的用户名，密码必须是4到8位的密码等等。<br>我们来看看如何用js来实现这些功能。<br><img src="/2018/05/04/jslearn/b.png"><br>这是我截取的部分html代码，其中给他们加上了onBlur和oninput(当用户离开输入字段时对其进行验证和当用户向input中输入时执行)，然后这些代码都放在一个form中，这个form有一个onsubmit = “check Form()”函数，用来判断是否能提交数据.<br><img src="/2018/05/04/jslearn/c.png"><br>接下来我们来看js代码<br><img src="/2018/05/04/jslearn/d.png"><br>这是判断是否能提交数据的函数，只有当这些值全为true时，才能return true,即提交。<br>这是验证用户名的函数<br><img src="/2018/05/04/jslearn/e.png"><br>验证密码的函数<br><img src="/2018/05/04/jslearn/f.png"><br>验证手机号的函数<br><img src="/2018/05/04/jslearn/g.png"><br>验证email的函数<br><img src="/2018/05/04/jslearn/h.png"><br>备注:1.这里需要用到正则表达式的知识<br>     2.大家可以想想怎么写一个确认密码的input,再加上js判断功能</p>
+		<p></p><h1>Java访问指示符</h1><br>针对类内每个成员的每个定义，Java访问指示符public,protected以及private都置于它们的最前面–无论它们是一个数据成员还是一个方法。每个访问指示符都只控制着那个特定定义的访问。<p></p>
+<p></p><h1>“友好的”</h1><br>如果不指定访问指示符，就称为”友好”访问。就意味着当前包内的其他所有类都能访问”友好的”成员，但对于包外所有类来说，这些成员是无法访问的。因此我们也说友好元素拥有”包访问”权限。<p></p>
+<p></p><h1>public:接口访问</h1><br>使用public关键字时，它意味着紧随在public后面的成员声明使用于所有人，特别是适用于使用库的客户程序员。<p></p>
+<p></p><h1>private</h1><br>private关键字意味着除非那个特定的类，而且从那个类的方法里，否则没有人能访问那个成员。同一个包内的其他成员不能访问private成员，这使其显得似乎将类与我们自己都隔离起来。private允许我们自由地改变那个成员，同时不用关心它是否回影响同一个包内的另一个类。<p></p>
+<p></p><h1>protected</h1><br>protected关键字为我们引入了一种名为”继承”的概念，它以现有的类为基础，并在其中加入新的成员，同时不会对现有的类产生影响，我们将这种类称为”基础类”对于从一个现有类的继承，我们说自己的新类”扩展”了那个现有的类。<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -117,7 +112,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/front/">前端</a>
+  <a class="article-category-link" href="/categories/Java/">Java</a>
 </div>
 
 
@@ -127,7 +122,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/05/04/jslearn/" data-title="js基础(培训) | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/02/20/access/" data-title="Java中的访问指示符 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -140,19 +135,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/05/05/algorithm-4/" title="最短路径--Dijkstra算法">
-  <strong>上一篇：</strong><br/>
-  <span>
-  最短路径--Dijkstra算法</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/05/04/algorithm-3/"  title="最短路径--Floyd-Warshall算法">
+<a href="/2019/02/19/stack/"  title="栈与队列知识总结整理">
  <strong>下一篇：</strong><br/> 
- <span>最短路径--Floyd-Warshall算法
+ <span>栈与队列知识总结整理
 </span>
 </a>
 </div>
@@ -169,7 +156,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">Java访问指示符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">“友好的”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">public:接口访问</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">private</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">protected</span></a></li></ol>
  
   </div>
 
