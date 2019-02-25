@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>数据结构牛客刷题笔记 | zzulixjh</title>
+    <title>抽象类 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="数组刷题笔记关联数组不是线性表C语言中的字符串用指向该串首个字符串的指针表示。用’\0’来标识字符串的终止。char arrays[]=’China’相当于char arrays[]{‘C’,’h’,’i’,’n’,’a’,’\0’}两个从小到大排好序的数组，长度分别为N和M，将这两个数组合并成一个有序数组的最小比较次数是Min(N,M),最坏情况是M+N-1栈常用于函数调用线性表若采用链式存储表">
+    <meta name="description" content="抽象(abstract)的使用当父类的某些方法不确定时，可以用abstract关键字来修饰该方法，用abstract来修饰该类。父类是子类所共同拥有的属性和方法的抽取，这些属性和方法中，有的已经是明确时限了的，有的还无法确定，那么我们就可以将其定义成抽象，在以后的子类中进行重用，进行具体化。抽象类是为了把相同的但不确定的东西提取出来，为了以后的重用。定义成抽象类的目的，就是为了在子类中实现抽象类。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构牛客刷题笔记">
-<meta property="og:url" content="http://yoursite.com/2018/07/16/shujujiegou/index.html">
+<meta property="og:title" content="抽象类">
+<meta property="og:url" content="http://yoursite.com/2019/02/25/abstract/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="数组刷题笔记关联数组不是线性表C语言中的字符串用指向该串首个字符串的指针表示。用’\0’来标识字符串的终止。char arrays[]=’China’相当于char arrays[]{‘C’,’h’,’i’,’n’,’a’,’\0’}两个从小到大排好序的数组，长度分别为N和M，将这两个数组合并成一个有序数组的最小比较次数是Min(N,M),最坏情况是M+N-1栈常用于函数调用线性表若采用链式存储表">
-<meta property="og:updated_time" content="2018-07-19T14:20:03.950Z">
+<meta property="og:description" content="抽象(abstract)的使用当父类的某些方法不确定时，可以用abstract关键字来修饰该方法，用abstract来修饰该类。父类是子类所共同拥有的属性和方法的抽取，这些属性和方法中，有的已经是明确时限了的，有的还无法确定，那么我们就可以将其定义成抽象，在以后的子类中进行重用，进行具体化。抽象类是为了把相同的但不确定的东西提取出来，为了以后的重用。定义成抽象类的目的，就是为了在子类中实现抽象类。">
+<meta property="og:updated_time" content="2019-02-25T09:00:09.313Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据结构牛客刷题笔记">
-<meta name="twitter:description" content="数组刷题笔记关联数组不是线性表C语言中的字符串用指向该串首个字符串的指针表示。用’\0’来标识字符串的终止。char arrays[]=’China’相当于char arrays[]{‘C’,’h’,’i’,’n’,’a’,’\0’}两个从小到大排好序的数组，长度分别为N和M，将这两个数组合并成一个有序数组的最小比较次数是Min(N,M),最坏情况是M+N-1栈常用于函数调用线性表若采用链式存储表">
+<meta name="twitter:title" content="抽象类">
+<meta name="twitter:description" content="抽象(abstract)的使用当父类的某些方法不确定时，可以用abstract关键字来修饰该方法，用abstract来修饰该类。父类是子类所共同拥有的属性和方法的抽取，这些属性和方法中，有的已经是明确时限了的，有的还无法确定，那么我们就可以将其定义成抽象，在以后的子类中进行重用，进行具体化。抽象类是为了把相同的但不确定的东西提取出来，为了以后的重用。定义成抽象类的目的，就是为了在子类中实现抽象类。">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/07/16/shujujiegou/" title="数据结构牛客刷题笔记" itemprop="url">数据结构牛客刷题笔记</a>
+      <a href="/2019/02/25/abstract/" title="抽象类" itemprop="url">抽象类</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-07-16T11:33:08.000Z" itemprop="datePublished"> 發表於 2018-07-16</time>
+    <time datetime="2019-02-25T08:52:02.000Z" itemprop="datePublished"> 發表於 2019-02-25</time>
     
   </p>
 </header>
@@ -96,19 +96,21 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">数组刷题笔记</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">抽象(abstract)的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">一些注意点1.用abstract修饰的类，即抽象类，用abstract修饰的方法，即抽象方法。2.抽象方法不能有方法主体。3.抽象类不能实例化。因为抽象类中方法未具体化，这是一种不完整的类，所以直接实例化也就没有意义了。4.抽象类中不一定要包含abstract方法。5.一旦类中包含了abstract方法，那类必须声明为abstract类。
+</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p></p><h1>数组刷题笔记</h1><br>关联数组不是线性表<br>C语言中的字符串用指向该串首个字符串的指针表示。用’\0’来标识字符串的终止。char arrays[]=’China’相当于char arrays[]{‘C’,’h’,’i’,’n’,’a’,’\0’}<br>两个从小到大排好序的数组，长度分别为N和M，将这两个数组合并成一个有序数组的最小比较次数是Min(N,M),最坏情况是M+N-1<br>栈常用于函数调用<br>线性表若采用链式存储表示时所有节点之间的存储单元地址可连续可不连续。<br>二维数组是每个元素都为顺序表的顺序表<br>数组相比于链表，存储空间小<br>顺序存储结构的存储一定是连续的，链式存储结构的存储空间不一定是连续的；链式存储结构既可以针对线性结构也可以针对非线性结构。<br>计算元素A[5,8]的存储地址就等于计算在A[5,8]之前保存的所有变量的地址偏移量。包括第8列之前所有列的元素以及第八列第五行前的所有元素。链表和嘻哈表能够支持随机的插入和删除操作、并具有较好的性能。<p></p>
-  
+		<p></p><h1>抽象(abstract)的使用</h1><br>当父类的某些方法不确定时，可以用abstract关键字来修饰该方法，用abstract来修饰该类。<br>父类是子类所共同拥有的属性和方法的抽取，这些属性和方法中，有的已经是明确时限了的，有的还无法确定，那么我们就可以将其定义成抽象，在以后的子类中进行重用，进行具体化。<br>抽象类是为了把相同的但不确定的东西提取出来，为了以后的重用。定义成抽象类的目的，就是为了在子类中实现抽象类。<p></p>
+<p></p><h2>一些注意点<br>1.用abstract修饰的类，即抽象类，用abstract修饰的方法，即抽象方法。<br>2.抽象方法不能有方法主体。<br>3.抽象类不能实例化。因为抽象类中方法未具体化，这是一种不完整的类，所以直接实例化也就没有意义了。<br>4.抽象类中不一定要包含abstract方法。<br>5.一旦类中包含了abstract方法，那类必须声明为abstract类。<p></p>
+</h2>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
+  <a class="article-category-link" href="/categories/Java/">Java</a>
 </div>
 
 
@@ -118,7 +120,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/07/16/shujujiegou/" data-title="数据结构牛客刷题笔记 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/02/25/abstract/" data-title="抽象类 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -131,19 +133,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/07/16/suanfa/" title="算法牛客刷题笔记">
-  <strong>上一篇：</strong><br/>
-  <span>
-  算法牛客刷题笔记</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/07/16/numpy/"  title="numpy学习总结">
+<a href="/2019/02/22/hecheng/"  title="Java中类的合成与继承">
  <strong>下一篇：</strong><br/> 
- <span>numpy学习总结
+ <span>Java中类的合成与继承
 </span>
 </a>
 </div>
@@ -160,7 +154,8 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">数组刷题笔记</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">抽象(abstract)的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">一些注意点1.用abstract修饰的类，即抽象类，用abstract修饰的方法，即抽象方法。2.抽象方法不能有方法主体。3.抽象类不能实例化。因为抽象类中方法未具体化，这是一种不完整的类，所以直接实例化也就没有意义了。4.抽象类中不一定要包含abstract方法。5.一旦类中包含了abstract方法，那类必须声明为abstract类。
+</span></a></li></ol></li></ol>
  
   </div>
 
