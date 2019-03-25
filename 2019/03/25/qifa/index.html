@@ -4,31 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>最短路径--Bellman-Ford 解决负权边 | zzulixjh</title>
+    <title>启发式算法简介 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="Dijkstra算法虽然好，但是它不能解决带有负权边(边的权值为负数）的图。本节我要来介绍一个无论是思想上还是代码上都堪称完美的最短路算法:Bellman-Ford。Bellman-Ford算法非常简单，核心代码只有4行，并且可以完美地解决带有负权边的图，先来看看它长啥样: 上面的代码中，外循环一共循环了n-1次(n为顶点的个数)，内循环循环了m次(m为边的个数)，即枚举每一条边。dis数组的作">
+    <meta name="description" content="启发式算法（heuristic algorithm)是相对于最优化算法提出的。一个问题的最优算法求得该问题每个实例的最优解。启发式算法可以这样定义：一个基于直观或经验构造的算法，在可接受的花费（指计算时间和空间）下给出待解决组合优化问题每一个实例的一个可行解，该可行解与最优解的偏离程度一般不能被预计。现阶段，启发式算法以仿自然体算法为主，主要有蚁群算法、模拟退火法、神经网络等。计算机科学的两大基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最短路径--Bellman-Ford 解决负权边">
-<meta property="og:url" content="http://yoursite.com/2018/05/06/algorithm-5/index.html">
+<meta property="og:title" content="启发式算法简介">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/qifa/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="Dijkstra算法虽然好，但是它不能解决带有负权边(边的权值为负数）的图。本节我要来介绍一个无论是思想上还是代码上都堪称完美的最短路算法:Bellman-Ford。Bellman-Ford算法非常简单，核心代码只有4行，并且可以完美地解决带有负权边的图，先来看看它长啥样: 上面的代码中，外循环一共循环了n-1次(n为顶点的个数)，内循环循环了m次(m为边的个数)，即枚举每一条边。dis数组的作">
-<meta property="og:image" content="http://yoursite.com/2018/05/06/algorithm-5/a.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/06/algorithm-5/b.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/06/algorithm-5/c.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/06/algorithm-5/d.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/06/algorithm-5/e.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/06/algorithm-5/f.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/06/algorithm-5/g.png">
-<meta property="og:updated_time" content="2018-05-06T10:44:20.000Z">
+<meta property="og:description" content="启发式算法（heuristic algorithm)是相对于最优化算法提出的。一个问题的最优算法求得该问题每个实例的最优解。启发式算法可以这样定义：一个基于直观或经验构造的算法，在可接受的花费（指计算时间和空间）下给出待解决组合优化问题每一个实例的一个可行解，该可行解与最优解的偏离程度一般不能被预计。现阶段，启发式算法以仿自然体算法为主，主要有蚁群算法、模拟退火法、神经网络等。计算机科学的两大基础">
+<meta property="og:updated_time" content="2019-03-25T09:02:20.995Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最短路径--Bellman-Ford 解决负权边">
-<meta name="twitter:description" content="Dijkstra算法虽然好，但是它不能解决带有负权边(边的权值为负数）的图。本节我要来介绍一个无论是思想上还是代码上都堪称完美的最短路算法:Bellman-Ford。Bellman-Ford算法非常简单，核心代码只有4行，并且可以完美地解决带有负权边的图，先来看看它长啥样: 上面的代码中，外循环一共循环了n-1次(n为顶点的个数)，内循环循环了m次(m为边的个数)，即枚举每一条边。dis数组的作">
-<meta name="twitter:image" content="http://yoursite.com/2018/05/06/algorithm-5/a.png">
+<meta name="twitter:title" content="启发式算法简介">
+<meta name="twitter:description" content="启发式算法（heuristic algorithm)是相对于最优化算法提出的。一个问题的最优算法求得该问题每个实例的最优解。启发式算法可以这样定义：一个基于直观或经验构造的算法，在可接受的花费（指计算时间和空间）下给出待解决组合优化问题每一个实例的一个可行解，该可行解与最优解的偏离程度一般不能被预计。现阶段，启发式算法以仿自然体算法为主，主要有蚁群算法、模拟退火法、神经网络等。计算机科学的两大基础">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -88,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/05/06/algorithm-5/" title="最短路径--Bellman-Ford 解决负权边" itemprop="url">最短路径--Bellman-Ford 解决负权边</a>
+      <a href="/2019/03/25/qifa/" title="启发式算法简介" itemprop="url">启发式算法简介</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-05-06T08:38:21.000Z" itemprop="datePublished"> Published 2018-05-06</time>
+    <time datetime="2019-03-25T09:01:17.000Z" itemprop="datePublished"> Published 2019-03-25</time>
     
   </p>
 </header>
@@ -108,8 +100,7 @@
 		
 		</div>
 		
-		<p> Dijkstra算法虽然好，但是它不能解决带有负权边(边的权值为负数）的图。本节我要来介绍一个无论是思想上还是代码上都堪称完美的最短路算法:Bellman-Ford。Bellman-Ford算法非常简单，核心代码只有4行，并且可以完美地解决带有负权边的图，先来看看它长啥样:<br><img src="/2018/05/06/algorithm-5/a.png"><br> 上面的代码中，外循环一共循环了n-1次(n为顶点的个数)，内循环循环了m次(m为边的个数)，即枚举每一条边。dis数组的作用与Dijkstra算法一样，是用来记录源点到其余各个顶点的最短路径。u\v和w三个数组是用来记录边的信息。例如第i条边存储在u[i]、v[i]、和w[i]中，表示从顶点u[i]到顶点v[i]这条边(u[i]-&gt;v[i])权值为w[i]。<br>if(dis[v[i]]&gt;dis[u[i]]+w[i])<br> dis[v[i]] = dis[u[i]] + w[i];<br>上面这两行代码的意思是:看看能否通过u[i]-&gt;v<a href="权值为w[i]">i</a>这条边，使得1号顶点到v[i]号顶点的距离变短。即1号顶点到u[i]号顶点的距离(dis[u[i]])加上u[i]-&gt;v[i]这条边（权值为w[i]）的值是否会比原先1号顶点到v[i]号顶点的距离(dis[v[i]])要小。这一点其实是与DIJKSTRAD “松弛”操作是一样的。现在我们要把所有的边都松弛一遍，代码如下。<br><img src="/2018/05/06/algorithm-5/b.png"><br>下面举个例子，求下图中1号顶点到其余所有顶点的最短路径。<br><img src="/2018/05/06/algorithm-5/c.png"><br><img src="/2018/05/06/algorithm-5/d.png"><br><img src="/2018/05/06/algorithm-5/e.png"><br>第一轮在对所有边进行松弛之后，得到的是从1号顶点”只能经过一条边”到达其余各个顶点的最短路径长度。第2轮在对所有的边 进行松弛之后，得到的是从1号顶点”最多经过两条边”到达其余各个顶点的最短路径长度。如果进行k轮的话，得到的就是1号顶点”最多经过k条边”到达其余各顶点的最短路径长度，那么需要进行多少轮呢?答案是n-1轮。因为在一个含有n个顶点的图中，任意两点之间的最短路径最多包含n-1边。<br><img src="/2018/05/06/algorithm-5/f.png"><br>我们可以看到第4轮之后dis数组没有发生任何变化，所有说是最多进行n-1轮松弛。<br>整个Bellman-Ford算法用一句话概括就是:对所有的边进行n-1次”松弛”操作。核心代码只有4行，如下。<br><img src="/2018/05/06/algorithm-5/g.png"><br>完整代码</p>
-<p>#include<stdio.h><br>int main()<br>{<br>    int dis[10],i,k,n,m,u[10],v[10],w[10];<br>    int inf=99999999;<br>    //读入n和m分别表示n个顶点和m条边<br>    scanf(“%d%d”,&amp;n,&amp;m);<br>    //读入边<br>    for(i=1;i&lt;=m;i++)<br>    {<br>        scanf(“%d%d%d”,&amp;u[i],&amp;v[i],&amp;w[i]);<br>    }<br>    for(i=1;i&lt;=n;i++)<br>    {<br>        dis[i]=inf;<br>    }<br>    dis[1]=0;<br>    //Bellman-Ford算法核心语句<br>    for(k=1;k&lt;=n-1;k++)<br>    {<br>        for(i=1;i&lt;=m;i++)<br>        {<br>           if(dis[v[i]] &gt; dis[u[i]] + w[i] )<br>           {<br>               dis[v[i]] = dis[u[i]] + w[i];<br>           }<br>        }<br>    }<br>    //输出最终的结果<br>    for(i=1;i&lt;=n;i++)<br>    {<br>        printf(“%d “,dis[i]);<br>    }<br>    return 0;<br>}<br>我们还可以对这个算法进行优化，来减少它的复杂度。</stdio.h></p>
+		<p>启发式算法（heuristic algorithm)是相对于最优化算法提出的。一个问题的最优算法求得该问题每个实例的最优解。启发式算法可以这样定义：一个基于直观或经验构造的算法，在可接受的花费（指计算时间和空间）下给出待解决组合优化问题每一个实例的一个可行解，该可行解与最优解的偏离程度一般不能被预计。现阶段，启发式算法以仿自然体算法为主，主要有蚁群算法、模拟退火法、神经网络等。<br>计算机科学的两大基础目标，就是发现可证明其执行效率良好且可得最佳解或次佳解的算法。而启发式算法则试图一次提供一或全部目标。 例如它常能发现很不错的解，但也没办法证明它不会得到较坏的解；它通常可在合理时间解出答案，但也没办法知道它是否每次都可以这样的速度求解。<br>有时候人们会发现在某些特殊情况下，启发式算法会得到很坏的答案或效率极差，然而造成那些特殊情况的数据组合，也许永远不会在现实世界出现。因此现实世界中启发式算法常用来解决问题。启发式算法处理许多实际问题时通常可以在合理时间内得到不错的答案。<br>有一类的通用启发式策略称为元启发式算法（metaheuristic），通常使用乱数搜寻技巧。他们可以应用在非常广泛的问题上，但不能保证效率。<br>近年来随着智能计算领域的发展，出现了一类被称为超启发式算法（Hyper-Heuristic Algorithm）的新算法类型。最近几年，智能计算领域的著名国际会议（GECCO 2009, CEC 2010，PPSN 2010）分别举办了专门针对超启发式算法的workshop或session。从GECCO 2011开始，超启发式算法的相关研究正式成为该会议的一个领域（self* search-new frontier track）。国际智能计算领域的两大著名期刊Journal of Heuristics和Evolutionary Computation也在2010年和2012年分别安排了专刊，着重介绍与超启发式算法有关的研究进展。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -127,7 +118,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/05/06/algorithm-5/" data-title="最短路径--Bellman-Ford 解决负权边 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/03/25/qifa/" data-title="启发式算法简介 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -140,19 +131,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/05/06/algorithm-6/" title="最短路径算法对比分析">
-  <strong>上一篇：</strong><br/>
-  <span>
-  最短路径算法对比分析</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/05/05/algorithm-4/"  title="最短路径--Dijkstra算法">
+<a href="/2019/03/14/tomyself-314/"  title="写给2019年的自己">
  <strong>下一篇：</strong><br/> 
- <span>最短路径--Dijkstra算法
+ <span>写给2019年的自己
 </span>
 </a>
 </div>
