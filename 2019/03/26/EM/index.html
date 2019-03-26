@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>回溯算法 | zzulixjh</title>
+    <title>EM算法解释 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="考虑到回溯算法在实际中的应用，感觉对回溯算法做一下总结还是很有必要的。 回溯算法的概念回溯算法实际上是一个类似美居的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就”回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件">
+    <meta name="description" content="理论：简版：猜（E-step）,反思（M-step）,重复；啰嗦版：你知道一些东西（观察的到的数据）， 你不知道一些东西（观察不到的），你很好奇，想知道点那些不了解的东西。怎么办呢，你就根据一些假设（parameter）先猜（E-step），把那些不知道的东西都猜出来，假装你全都知道了; 然后有了这些猜出来的数据，你反思一下，更新一下你的假设（parameter）, 让你观察到的数据更加可能(Ma">
 <meta property="og:type" content="article">
-<meta property="og:title" content="回溯算法">
-<meta property="og:url" content="http://yoursite.com/2018/10/01/huishuo/index.html">
+<meta property="og:title" content="EM算法解释">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/EM/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="考虑到回溯算法在实际中的应用，感觉对回溯算法做一下总结还是很有必要的。 回溯算法的概念回溯算法实际上是一个类似美居的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就”回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件">
-<meta property="og:updated_time" content="2018-10-02T03:34:51.842Z">
+<meta property="og:description" content="理论：简版：猜（E-step）,反思（M-step）,重复；啰嗦版：你知道一些东西（观察的到的数据）， 你不知道一些东西（观察不到的），你很好奇，想知道点那些不了解的东西。怎么办呢，你就根据一些假设（parameter）先猜（E-step），把那些不知道的东西都猜出来，假装你全都知道了; 然后有了这些猜出来的数据，你反思一下，更新一下你的假设（parameter）, 让你观察到的数据更加可能(Ma">
+<meta property="og:updated_time" content="2019-03-26T04:05:38.648Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="回溯算法">
-<meta name="twitter:description" content="考虑到回溯算法在实际中的应用，感觉对回溯算法做一下总结还是很有必要的。 回溯算法的概念回溯算法实际上是一个类似美居的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就”回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件">
+<meta name="twitter:title" content="EM算法解释">
+<meta name="twitter:description" content="理论：简版：猜（E-step）,反思（M-step）,重复；啰嗦版：你知道一些东西（观察的到的数据）， 你不知道一些东西（观察不到的），你很好奇，想知道点那些不了解的东西。怎么办呢，你就根据一些假设（parameter）先猜（E-step），把那些不知道的东西都猜出来，假装你全都知道了; 然后有了这些猜出来的数据，你反思一下，更新一下你的假设（parameter）, 让你观察到的数据更加可能(Ma">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/10/01/huishuo/" title="回溯算法" itemprop="url">回溯算法</a>
+      <a href="/2019/03/26/EM/" title="EM算法解释" itemprop="url">EM算法解释</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-10-01T11:12:22.000Z" itemprop="datePublished"> Published 2018-10-01</time>
+    <time datetime="2019-03-26T04:04:54.000Z" itemprop="datePublished"> Published 2019-03-26</time>
     
   </p>
 </header>
@@ -96,15 +96,12 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">回溯算法的概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">解决一个回溯法的问题，需要确定的三个元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">递归函数的参数的选择要遵循的四个原则</span></a></li></ol>
+			
 		
 		</div>
 		
-		<p>考虑到回溯算法在实际中的应用，感觉对回溯算法做一下总结还是很有必要的。</p>
-<p></p><h1>回溯算法的概念</h1><br>回溯算法实际上是一个类似美居的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就”回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为”回溯点”。<p></p>
-<p></p><h1>基本思想</h1><br>回溯算法的基本思想是:从一条路往前走，能进则进，不能进则退回来，换一条路再试。八皇后问题就是回溯算法的典型，第一步按照顺序放一个皇后，然后第二步符合要求放第二个皇后，如果没有位置符合要求，那么就要改变第一个皇后的位置，直到找到符合条件的位置就可以了。回溯在迷宫搜索中使用很常见，就是这条路走不通，然后返回前一个路口，继续下一条路。回溯算法说白了就是穷举法。不过回溯算法使用剪枝函数，剪去一些不可能到达 最终状态（即答案状态）的节点，从而减少状态空间树节点的生成。回溯法是一个既带有系统性又带有跳跃性的的搜索算法。它在包含问题的所有解的解空间树中，按照深度优先的策略，从根结点出发搜索解空间树。算法搜索至解空间树的任一结点时，总是先判断该结点是否肯定不包含问题的解。如果肯定不包含，则跳过对以该结点为根的子树的系统搜索，逐层向其祖先结点回溯。否则，进入该子树，继续按深度优先的策略进行搜索。回溯法在用来求问题的所有解时，要回溯到根，且根结点的所有子树都已被搜索遍才结束。而回溯法在用来求问题的任一解时，只要搜索到问题的一个解就可以结束。这种以深度优先的方式系统地搜索问题的解的算法称为回溯法，它适用于解一些组合数较大的问题。<p></p>
-<p></p><h1>解决一个回溯法的问题，需要确定的三个元素</h1><br>1、选择。对于每个特定的解，肯定是由一步步构建而来的，而每一步怎么构建，肯定都是有限个选择，要怎么选择，这个要知道；同时，在编程时候要定下，优先或合法的每一步选择的顺序，一般是通过多个if或者for循环来排列。2、条件。对于每个特定的解的某一步，他必然要符合某个解要求符合的条件，如果不符合条件，就要回溯，其实回溯也就是递归调用的返回。3、结束。当到达一个特定结束条件时候，就认为这个一步步构建的解是符合要求的解了。把解存下来或者打印出来。对于这一步来说，有时候也可以另外写一个issolution函数来进行判断。注意，当到达第三步后，有时候还需要构建一个数据结构，把符合要求的解存起来，便于当得到所有解后，把解空间输出来。这个数据结构必须是全局的，作为参数之一传递给递归函数。<p></p>
-<p></p><h1>递归函数的参数的选择要遵循的四个原则</h1><br>1、必须要有一个临时变量(可以就直接传递一个字面量或者常量进去)传递不完整的解，因为每一步选择后，暂时还没构成完整的解，这个时候这个选择的不完整解，也要想办法传递给递归函数。也就是，把每次递归的不同情况传递给递归调用的函数。2、可以有一个全局变量，用来存储完整的每个解，一般是个集合容器（也不一定要有这样一个变量，因为每次符合结束条件，不完整解就是完整解了，直接打印即可）。3、最重要的一点，一定要在参数设计中，可以得到结束条件。一个选择是可以传递一个量n，也许是数组的长度，也许是数量，等等。4、要保证递归函数返回后，状态可以恢复到递归前，以此达到真正回溯。<p></p>
+		<p>理论：简版：猜（E-step）,反思（M-step）,重复；啰嗦版：你知道一些东西（观察的到的数据）， 你不知道一些东西（观察不到的），你很好奇，想知道点那些不了解的东西。怎么办呢，你就根据一些假设（parameter）先猜（E-step），把那些不知道的东西都猜出来，假装你全都知道了; 然后有了这些猜出来的数据，你反思一下，更新一下你的假设（parameter）, 让你观察到的数据更加可能(Maximize likelihood; M-stemp); 然后再猜，在反思，最后，你就得到了一个可以解释整个数据的假设了。1. 注意，你猜的时候，要尽可能的猜遍所有情况，然后求期望（Expected）；就是你不能仅仅猜一个个例，而是要猜出来整个宇宙；2. 为什么要猜，因为反思的时候，知道全部的东西比较好。（就是P(X,Z)要比P(X)好优化一些。Z是hidden states）3. 最后你得到什么了？你得到了一个可以解释数据的假设，可能有好多假设都能解释数据，可能别的假设更好。不过没关系，有总比没有强，知足吧。</p>
+<p>作者：史兴<br>链接：<a href="https://www.zhihu.com/question/27976634/answer/39132183" target="_blank" rel="noopener">https://www.zhihu.com/question/27976634/answer/39132183</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -112,7 +109,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
+  <a class="article-category-link" href="/categories/Machile-Learning/">Machile Learning</a>
 </div>
 
 
@@ -122,7 +119,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/10/01/huishuo/" data-title="回溯算法 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/03/26/EM/" data-title="EM算法解释 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -135,19 +132,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/01/21/plt/" title="Matplotlib绘图总结">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Matplotlib绘图总结</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/09/09/meta/"  title="Python中的元类(Metaclass)">
+<a href="/2019/03/25/qifa/"  title="启发式算法简介">
  <strong>下一篇：</strong><br/> 
- <span>Python中的元类(Metaclass)
+ <span>启发式算法简介
 </span>
 </a>
 </div>
@@ -164,7 +153,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">回溯算法的概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">解决一个回溯法的问题，需要确定的三个元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">递归函数的参数的选择要遵循的四个原则</span></a></li></ol>
+ 
  
   </div>
 
