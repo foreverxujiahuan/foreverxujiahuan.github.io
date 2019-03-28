@@ -1,0 +1,517 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>统计学习方法总结 | zzulixjh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="zzulixjh">
+    
+
+    
+    <meta name="description" content="最近这段时间我二刷了李航老师的统计学习方法，说是说二刷，但是我的心里还是很虚的，对于书中的许多知识，自己还是不能有很好的理解。 读后感这本书主要讲的是监督学习中的分类与标注问题。第一章笼统的介绍了统计机器学习，最后一张对这本书做了一个总结。中间讲述了十个算法，每个算法讲了一章。首先我觉得，如果你不是数学专业或者机器学习专业的研究生，想要完全读懂这本书，读一遍肯定是不够的，这本书里有大量的数学公式推">
+<meta property="og:type" content="article">
+<meta property="og:title" content="统计学习方法总结">
+<meta property="og:url" content="http://yoursite.com/2019/03/28/mlzongjie/index.html">
+<meta property="og:site_name" content="zzulixjh">
+<meta property="og:description" content="最近这段时间我二刷了李航老师的统计学习方法，说是说二刷，但是我的心里还是很虚的，对于书中的许多知识，自己还是不能有很好的理解。 读后感这本书主要讲的是监督学习中的分类与标注问题。第一章笼统的介绍了统计机器学习，最后一张对这本书做了一个总结。中间讲述了十个算法，每个算法讲了一章。首先我觉得，如果你不是数学专业或者机器学习专业的研究生，想要完全读懂这本书，读一遍肯定是不够的，这本书里有大量的数学公式推">
+<meta property="og:updated_time" content="2019-03-28T09:15:29.688Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="统计学习方法总结">
+<meta name="twitter:description" content="最近这段时间我二刷了李航老师的统计学习方法，说是说二刷，但是我的心里还是很虚的，对于书中的许多知识，自己还是不能有很好的理解。 读后感这本书主要讲的是监督学习中的分类与标注问题。第一章笼统的介绍了统计机器学习，最后一张对这本书做了一个总结。中间讲述了十个算法，每个算法讲了一章。首先我觉得，如果你不是数学专业或者机器学习专业的研究生，想要完全读懂这本书，读一遍肯定是不够的，这本书里有大量的数学公式推">
+
+    
+    <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="zzulixjh" title="zzulixjh"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/03/28/mlzongjie/" title="统计学习方法总结" itemprop="url">统计学习方法总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
+		
+  <p class="article-time">
+    <time datetime="2019-03-28T08:24:40.000Z" itemprop="datePublished"> Published 2019-03-28</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">读后感</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">统计学习方法总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">关于分类与标注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">关于模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.3.</span> <span class="toc-text">关于学习策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.4.</span> <span class="toc-text">关于学习算法</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p>最近这段时间我二刷了李航老师的统计学习方法，说是说二刷，但是我的心里还是很虚的，对于书中的许多知识，自己还是不能有很好的理解。</p>
+<p></p><h1>读后感</h1><br>这本书主要讲的是监督学习中的分类与标注问题。第一章笼统的介绍了统计机器学习，最后一张对这本书做了一个总结。中间讲述了十个算法，每个算法讲了一章。首先我觉得，如果你不是数学专业或者机器学习专业的研究生，想要完全读懂这本书，读一遍肯定是不够的，这本书里有大量的数学公式推导，这些对于我来说，学起来非常吃力。好在基本每一个数学公式的推导后面，都会有一个较为简单的例子，帮助你理解前面的数学公式推导。我觉得花一定的时间去好好看看这些例子是很有必要的，否则很容易被那些数学公式搞晕，比如我就经常会出现看到后来连自己现在在做什么都忘了(毕竟数学能力有限)。<br>如果实在读不下去了，感觉这一章真心读不懂，建议可以先去网上找些相关的视频，看完后再来读这一章。比如这本书第九章开始，EM算法、隐马尔可夫、条件随机场，看到这里的时候我就完全懵逼了，这玩意太难了。这时候可以先去网上找一些视频看看，对这些知识有一个大致的了解，之后再去读这一章。<p></p>
+<p></p><h1>统计学习方法总结</h1><br>这本书一共讲述了十个统计学习方法。感知机、KNN、朴素贝叶斯、决策树、Adaboost、SVM、逻辑回归与最大熵模型、EM算法、隐马尔可夫、条件随机场。<p></p>
+<p></p><h2>关于分类与标注</h2><br>分类问题是从实例的特征向量到标记的预测问题，标注问题是从观测序列到标记序列(或状态序列)的预测问题.<br>分类方法有感知机、KNN、朴素贝叶斯、决策树、逻辑斯底回归与最大熵模型、SVM、提升方法等。<br>标注方法有隐马尔可夫模型和条件随机场，其中条件随机场的标注准确率更高。<p></p>
+<p></p><h2>关于模型</h2><br>分类问题与标注问题的预测模型都可以认为是表示从输入空间到输出空间的映射。他们可以写成条件概率分布或决策函数形式。<br>应用EM算法可以学习朴素贝叶斯模型以及隐马尔可夫模型.<br>决策树是定义在一般的特征空间上的，可以含有连续变量或离散变量.感知机、支持向量机、KNN的特征空间是欧式空间.提升方法的模型是弱分类器的线性组合，弱分类器的特征空间就是提升方法模型的特征空间.<br>感知机模型是线性模型，而逻辑斯蒂回归与最大熵模型、条件随机场是对数线性模型.KNN、决策树、SVM、提升方法用的是非线性模型.<p></p>
+<p></p><h2>关于学习策略</h2><br>概率模型的学习可以形式化为极大似然估计或贝叶斯的极大后验概率估计。<br>决策树学习的策略是正则化的极大似然估计，损失函数是对数似然损失，正则化项是决策树的复杂度。<br>逻辑斯蒂回归与最大熵模型、条件随机场的学习策略既可以看成是极大似然估计，又可以看成是极小化逻辑斯蒂损失<br>朴素贝叶斯模型、隐马尔可夫模型的非监督学习也是极大似然估计或极大后验概率估计，但这时模型含有隐变量。<p></p>
+<p></p><h2>关于学习算法</h2><br>统计学习的问题有了具体的形式以后，就变成了最优化问题<br>朴素贝叶斯法与隐马尔可夫模型的监督学习，最优解即极大似然估计值，可以由概率计算公式直接计算。<br>感知机、逻辑斯底回归与最大熵模型、条件随机场的学习利用梯度下降法、拟牛顿法等.<br>支持向量机学习可以解凸二次规划的对偶问题.<br>决策树学习是基于启发式算法的典型例子.<br>提升方法利用学习的模型是加法模型、损失函数是指数函数的特点，启发式地从前面向后逐步学习模型，以达到逼近优化函数的目的。<br>EM算法是一种迭代的求解含隐变量概率模型参数的方法.<p></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2019/03/28/mlzongjie/" data-title="统计学习方法总结 | zzulixjh" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2019/03/26/EM/"  title="EM算法解释">
+ <strong>下一篇：</strong><br/> 
+ <span>EM算法解释
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">读后感</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">统计学习方法总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">关于分类与标注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.2.</span> <span class="toc-text">关于模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.3.</span> <span class="toc-text">关于学习策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.4.</span> <span class="toc-text">关于学习算法</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Java/" title="Java">Java<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Leetcode/" title="Leetcode">Leetcode<sup>12</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Matlab/" title="Matlab">Matlab<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/PHP/" title="PHP">PHP<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>23</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/front/" title="前端">前端<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/爬虫/" title="爬虫">爬虫<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/life/" title="生活">生活<sup>13</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>22</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/pc/" title="计算机">计算机<sup>14</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://leetcode.com/zzulixjh/" target="_blank" title="我的leetcode">我的leetcode</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://blog.csdn.net/sinat_41547532" target="_blank" title="我的csdn">我的csdn</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/foreverxujiahuan" target="_blank" title="我的github">我的github</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.nowcoder.com/profile/5533836" target="_blank" title="我的牛客">我的牛客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m xujiahuan in zzuli. <br/>
+			This is my blog</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5638142666" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/foreverxujiahuan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
+		
+		<a href="/about" target="_blank" title="zzulixjh">zzulixjh</a>
+		
+		
+		</p>
+		<span id="busuanzi_container_site_pv">
+			本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
