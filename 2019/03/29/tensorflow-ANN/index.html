@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Java中六个保存数据的地方 | zzulixjh</title>
+    <title>使用TensorFlow实现神经网络 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="寄存器最快的保存区域。位于处理器内部，数量十分有限，寄存器是根据需要由编译器分配。 堆栈驻留于常规RAM(随机访问存储器)区域，但可通过它的”堆栈指针”获得处理的直接支持。堆栈指针若向下移，会创建新的内存。创建程序时，Java编译器必须准确地知道堆栈内保存的所有数据的”长度”以及”存在时间”。句柄要保存在堆栈里，但Java对象并不放到其中。 堆存在于RAM区域，保存了JAVA对象。编译器不必知道要">
+    <meta name="description" content="使用神经网络解决分类问题主要的四个步骤1.提取问题中实体的特征向量作为神经网络的输入。2.定义神经网络的结构，并定义如何从神经网络的输入得到输出。3.通过训练数据来调整神经网络中参数的取值。4.使用训练好的神经网络来预测未知的数据。 前向传播算法神经元是构成一个神经网络的最小单元。一个最简单的神经元结构的输出就是所有输入的加权和，而不同输入的权重就是神经元的参数。神经网络的优化过程就是优化神经元中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java中六个保存数据的地方">
-<meta property="og:url" content="http://yoursite.com/2019/02/14/javad/index.html">
+<meta property="og:title" content="使用TensorFlow实现神经网络">
+<meta property="og:url" content="http://yoursite.com/2019/03/29/tensorflow-ANN/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="寄存器最快的保存区域。位于处理器内部，数量十分有限，寄存器是根据需要由编译器分配。 堆栈驻留于常规RAM(随机访问存储器)区域，但可通过它的”堆栈指针”获得处理的直接支持。堆栈指针若向下移，会创建新的内存。创建程序时，Java编译器必须准确地知道堆栈内保存的所有数据的”长度”以及”存在时间”。句柄要保存在堆栈里，但Java对象并不放到其中。 堆存在于RAM区域，保存了JAVA对象。编译器不必知道要">
-<meta property="og:updated_time" content="2019-02-14T12:27:36.166Z">
+<meta property="og:description" content="使用神经网络解决分类问题主要的四个步骤1.提取问题中实体的特征向量作为神经网络的输入。2.定义神经网络的结构，并定义如何从神经网络的输入得到输出。3.通过训练数据来调整神经网络中参数的取值。4.使用训练好的神经网络来预测未知的数据。 前向传播算法神经元是构成一个神经网络的最小单元。一个最简单的神经元结构的输出就是所有输入的加权和，而不同输入的权重就是神经元的参数。神经网络的优化过程就是优化神经元中">
+<meta property="og:updated_time" content="2019-03-29T11:29:41.281Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java中六个保存数据的地方">
-<meta name="twitter:description" content="寄存器最快的保存区域。位于处理器内部，数量十分有限，寄存器是根据需要由编译器分配。 堆栈驻留于常规RAM(随机访问存储器)区域，但可通过它的”堆栈指针”获得处理的直接支持。堆栈指针若向下移，会创建新的内存。创建程序时，Java编译器必须准确地知道堆栈内保存的所有数据的”长度”以及”存在时间”。句柄要保存在堆栈里，但Java对象并不放到其中。 堆存在于RAM区域，保存了JAVA对象。编译器不必知道要">
+<meta name="twitter:title" content="使用TensorFlow实现神经网络">
+<meta name="twitter:description" content="使用神经网络解决分类问题主要的四个步骤1.提取问题中实体的特征向量作为神经网络的输入。2.定义神经网络的结构，并定义如何从神经网络的输入得到输出。3.通过训练数据来调整神经网络中参数的取值。4.使用训练好的神经网络来预测未知的数据。 前向传播算法神经元是构成一个神经网络的最小单元。一个最简单的神经元结构的输出就是所有输入的加权和，而不同输入的权重就是神经元的参数。神经网络的优化过程就是优化神经元中">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/02/14/javad/" title="Java中六个保存数据的地方" itemprop="url">Java中六个保存数据的地方</a>
+      <a href="/2019/03/29/tensorflow-ANN/" title="使用TensorFlow实现神经网络" itemprop="url">使用TensorFlow实现神经网络</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2019-02-14T12:26:21.000Z" itemprop="datePublished"> Published 2019-02-14</time>
+    <time datetime="2019-03-29T10:27:47.000Z" itemprop="datePublished"> Published 2019-03-29</time>
     
   </p>
 </header>
@@ -96,20 +96,24 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">堆栈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">堆</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">静态存储</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">常数存储</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">非RAM存储</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">使用神经网络解决分类问题主要的四个步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">前向传播算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">神经网络参数与TensorFlow变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">通过TensorFlow训练神经网络模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">TensorFlow入门总结</span></a></li></ol>
 		
 		</div>
 		
-		<p></p><h1>寄存器</h1><br>最快的保存区域。位于处理器内部，数量十分有限，寄存器是根据需要由编译器分配。<p></p>
-<p></p><h1>堆栈</h1><br>驻留于常规RAM(随机访问存储器)区域，但可通过它的”堆栈指针”获得处理的直接支持。堆栈指针若向下移，会创建新的内存。创建程序时，Java编译器必须准确地知道堆栈内保存的所有数据的”长度”以及”存在时间”。句柄要保存在堆栈里，但Java对象并不放到其中。<p></p>
-<p></p><h1>堆</h1><br>存在于RAM区域，保存了JAVA对象。<br>编译器不必知道要从堆里分配多少存储空间，也不必知道存储的数据要在堆里停留多长时间。存于RAM。<p></p>
-<p></p><h1>静态存储</h1><br>这里的静态是指位于固定的位置。程序运行期间，静态存储的数据将随时等候调用。可用static关键字指出一个对象的特定元素是静态的。存于RAM。<p></p>
-<p></p><h1>常数存储</h1><br>常数值通常直接置于程序代码内部。这样做是安全的，因为他们永远不会改变。可用考虑他们置于(ROM)中。<p></p>
-<p></p><h1>非RAM存储</h1><br>若数据完全独立于一个程序之外，则程序不运行时仍可存在，并在程序的控制范围之外。<p></p>
+		<p></p><h1>使用神经网络解决分类问题主要的四个步骤</h1><br>1.提取问题中实体的特征向量作为神经网络的输入。<br>2.定义神经网络的结构，并定义如何从神经网络的输入得到输出。<br>3.通过训练数据来调整神经网络中参数的取值。<br>4.使用训练好的神经网络来预测未知的数据。<p></p>
+<p></p><h1>前向传播算法</h1><br>神经元是构成一个神经网络的最小单元。<br>一个最简单的神经元结构的输出就是所有输入的加权和，而不同输入的权重就是神经元的参数。<br>神经网络的优化过程就是优化神经元中参数取值的过程。<br>计算神经网络的前向传播结果需要三部分信息。第一部分是神经网络的输入，这个输入就是从实体中提取的特征向量。第二个部分为神经网络的连接结构，神经网络的结构给出不同神经元之间输入输出的连接关系。最后一个部分是每个神经元中的参数。<p></p>
+<p></p><h1>神经网络参数与TensorFlow变量</h1><br>在TensorFlow中，变量(tf.Variable)的作用就是保存和更新神经网络中的参数。和其他编程语言类似，TensorFlow中的变量也需要指定初始值。<br>声明一个2*3的矩阵变量的方法:<br>weights = tf.Variable(tf.random_normal([2,3],stddev=2))<p></p>
+<p></p><h1>通过TensorFlow训练神经网络模型</h1><br>在使用神经网络解决实际的分类或者回归问题时，需要更好的设置参数值。<br>设置神经网络参数的过程就是神经网络的训练过程。<br>只有经过有效训练的神经网络模型才可以真正地解决分类或者回归问题。<br>使用监督学习的方式设置神经网络参数需要有一个标注好的训练数据集。<br>监督学习最重要的思想就是，在已知答案的标注数据集上，模型给出的预测结果要尽量接近真实的答案。<br>在神经网络优化算法中，最常用的方法是反向传播算法<br>训练神经网络分为以下三个步骤:<br>1.定义神经网络的结构和前向传播的输出结果。<br>2.定义损失函数以及选择反向传播优化的算法。<br>3.生成会话(tf.Session)并且在训练数据上反复运行反向传播优化算法。<p></p>
+<p></p><h1>TensorFlow入门总结</h1><br>TensorFlow里有最基本的三个概念:计算图、张量和会话。计算图是TensorFlow的计算模型，所有TensorFlow的程序都会通过计算图的形式表示。<br>张量是TensorFlow的数据模型，TensorFlow中所有运算的输入、输出都是张量。张量本身不存储任何数据，它只是对运算结果的引用。<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/TensorFlow/">TensorFlow</a>
+</div>
 
 
 </div>
@@ -118,7 +122,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2019/02/14/javad/" data-title="Java中六个保存数据的地方 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/03/29/tensorflow-ANN/" data-title="使用TensorFlow实现神经网络 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -131,19 +135,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/02/18/sort/" title="六大排序算法总结(Java描述)">
-  <strong>上一篇：</strong><br/>
-  <span>
-  六大排序算法总结(Java描述)</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/02/14/java-oop/"  title="Java中对象知识整理总结">
+<a href="/2019/03/28/tensorflow-1/"  title="TensorFlow中的一些模型">
  <strong>下一篇：</strong><br/> 
- <span>Java中对象知识整理总结
+ <span>TensorFlow中的一些模型
 </span>
 </a>
 </div>
@@ -160,7 +156,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">寄存器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">堆栈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">堆</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">静态存储</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">常数存储</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">非RAM存储</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">使用神经网络解决分类问题主要的四个步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">前向传播算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">神经网络参数与TensorFlow变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">通过TensorFlow训练神经网络模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">TensorFlow入门总结</span></a></li></ol>
  
   </div>
 
