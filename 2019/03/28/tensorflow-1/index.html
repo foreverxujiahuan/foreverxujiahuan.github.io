@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Java中对象知识整理总结 | zzulixjh</title>
+    <title>TensorFlow中的一些模型 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="句柄和对象Java中任何东西都可以看做对象。操纵的标识符实际是指向一个对象的”句柄”(Handle)。可以将这一情形想象成用遥控板(句柄)操纵电视机(对象)。只要握住这个遥控板，就相当于掌握了与电视机连接的通道。但一旦需要”换频道”或者”关小声音”，我们实际操纵的是遥控板(句柄)，再由遥控板自己操纵电视机(对象)String s;这里创建的只是一个句柄，并不是对象，若此时向s发送消息，就会报错。因">
+    <meta name="description" content="计算模型————计算图TensorFlow中有两个重要的概念，Tensor是张量，表面了它的数据结构，Flow是”流”，表明了它的计算模型。TensorFlow是一个通过计算图的形式来表示计算的编程系统。TensorFlow中的每一个计算都是计算图上的一个节点。而节点之间的边描述了计算之间的依赖关系。如果一个依赖的输入依赖于另一个运算的输出，那么这两个运算有依赖关系。 数据模型————张量在Ten">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java中对象知识整理总结">
-<meta property="og:url" content="http://yoursite.com/2019/02/14/java-oop/index.html">
+<meta property="og:title" content="TensorFlow中的一些模型">
+<meta property="og:url" content="http://yoursite.com/2019/03/28/tensorflow-1/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="句柄和对象Java中任何东西都可以看做对象。操纵的标识符实际是指向一个对象的”句柄”(Handle)。可以将这一情形想象成用遥控板(句柄)操纵电视机(对象)。只要握住这个遥控板，就相当于掌握了与电视机连接的通道。但一旦需要”换频道”或者”关小声音”，我们实际操纵的是遥控板(句柄)，再由遥控板自己操纵电视机(对象)String s;这里创建的只是一个句柄，并不是对象，若此时向s发送消息，就会报错。因">
-<meta property="og:updated_time" content="2019-02-14T12:39:10.710Z">
+<meta property="og:description" content="计算模型————计算图TensorFlow中有两个重要的概念，Tensor是张量，表面了它的数据结构，Flow是”流”，表明了它的计算模型。TensorFlow是一个通过计算图的形式来表示计算的编程系统。TensorFlow中的每一个计算都是计算图上的一个节点。而节点之间的边描述了计算之间的依赖关系。如果一个依赖的输入依赖于另一个运算的输出，那么这两个运算有依赖关系。 数据模型————张量在Ten">
+<meta property="og:updated_time" content="2019-03-29T09:37:22.768Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java中对象知识整理总结">
-<meta name="twitter:description" content="句柄和对象Java中任何东西都可以看做对象。操纵的标识符实际是指向一个对象的”句柄”(Handle)。可以将这一情形想象成用遥控板(句柄)操纵电视机(对象)。只要握住这个遥控板，就相当于掌握了与电视机连接的通道。但一旦需要”换频道”或者”关小声音”，我们实际操纵的是遥控板(句柄)，再由遥控板自己操纵电视机(对象)String s;这里创建的只是一个句柄，并不是对象，若此时向s发送消息，就会报错。因">
+<meta name="twitter:title" content="TensorFlow中的一些模型">
+<meta name="twitter:description" content="计算模型————计算图TensorFlow中有两个重要的概念，Tensor是张量，表面了它的数据结构，Flow是”流”，表明了它的计算模型。TensorFlow是一个通过计算图的形式来表示计算的编程系统。TensorFlow中的每一个计算都是计算图上的一个节点。而节点之间的边描述了计算之间的依赖关系。如果一个依赖的输入依赖于另一个运算的输出，那么这两个运算有依赖关系。 数据模型————张量在Ten">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/02/14/java-oop/" title="Java中对象知识整理总结" itemprop="url">Java中对象知识整理总结</a>
+      <a href="/2019/03/28/tensorflow-1/" title="TensorFlow中的一些模型" itemprop="url">TensorFlow中的一些模型</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2019-02-14T11:13:18.000Z" itemprop="datePublished"> 发表于 2019-02-14</time>
+    <time datetime="2019-03-28T12:58:29.000Z" itemprop="datePublished"> 发表于 2019-03-28</time>
     
   </p>
 </header>
@@ -96,12 +96,14 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">句柄和对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">方法、自变量和返回值</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">计算模型————计算图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">数据模型————张量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">张量的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">TensorFlow运行模型————会话</span></a></li></ol>
 		
 		</div>
 		
-		<p></p><h1>句柄和对象</h1><br>Java中任何东西都可以看做对象。<br>操纵的标识符实际是指向一个对象的”句柄”(Handle)。可以将这一情形想象成用遥控板(句柄)操纵电视机(对象)。只要握住这个遥控板，就相当于掌握了与电视机连接的通道。但一旦需要”换频道”或者”关小声音”，我们实际操纵的是遥控板(句柄)，再由遥控板自己操纵电视机(对象)<br>String s;<br>这里创建的只是一个句柄，并不是对象，若此时向s发送消息，就会报错。<br>因此安全的做法是:创建一个句柄时，无论如何都进行初始化<p></p>
-<p></p><h1>方法、自变量和返回值</h1><br>方法的基本组成部分包括名字、自变量、返回类型以及主体，其基本形式为:<br>返回类型 方法名(自变量列表){方法主体}<br>Java的方法只能作为类的一部分创建。只能针对某个对象调用一个方法，而且那个对象必须能够执行那个方法调用。<p></p>
+		<p></p><h1>计算模型————计算图</h1><br>TensorFlow中有两个重要的概念，Tensor是张量，表面了它的数据结构，Flow是”流”，表明了它的计算模型。TensorFlow是一个通过计算图的形式来表示计算的编程系统。TensorFlow中的每一个计算都是计算图上的一个节点。而节点之间的边描述了计算之间的依赖关系。<br>如果一个依赖的输入依赖于另一个运算的输出，那么这两个运算有依赖关系。<p></p>
+<p></p><h1>数据模型————张量</h1><br>在TensorFlow中，所有的数据都通过张量的形式来表示。从功能角度上看，张量可以被简单理解为多维数组。<br>零阶张量表示标量(scalar)，也就是一个数；第一阶张量表示为向量，也就是一个一维数组；第n阶向量可以理解为一个n维数组。<br>但是在张量中并没有真正保存数字，它保存的是如何得到这些数字的计算过程。<br>一个张量主要保存了三个属性:名字(name)、纬度(shape)和类型(type)。<br>张量的第一个属性名字是张量的唯一标识符，同样也给了这个张量是如何计算出来的。<br>第二个属性是张量的唯独(shape)。这个属性描述了一个张量的唯独信息。比如shape=(2,)说明了张量result是一个一维数组，这个数组的长度为2<br>第三个属性type，每个张量会有一个唯一的类型。<p></p>
+<p></p><h1>张量的使用</h1><br>第一类用途是对中间计算结果的引用。当一个计算包含有很多中间结果时，使用张量可以大大提高代码的可读性。<br>使用张量的第二类情况是当计算图构造完成之后，张量可以用来获得计算结果，也就是得到真实的数字。<p></p>
+<p></p><h1>TensorFlow运行模型————会话</h1><br>会话拥有并管理TensorFlow程序运行时的所有资源。<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -109,7 +111,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Java/">Java</a>
+  <a class="article-category-link" href="/categories/TensorFlow/">TensorFlow</a>
 </div>
 
 
@@ -119,7 +121,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2019/02/14/java-oop/" data-title="Java中对象知识整理总结 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/03/28/tensorflow-1/" data-title="TensorFlow中的一些模型 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -132,19 +134,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/02/14/javad/" title="Java中六个保存数据的地方">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Java中六个保存数据的地方</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/02/13/leetcode8/"  title="Leetcode题解(36-40)">
+<a href="/2019/03/28/mlzongjie/"  title="统计学习方法总结">
  <strong>下一篇：</strong><br/> 
- <span>Leetcode题解(36-40)
+ <span>统计学习方法总结
 </span>
 </a>
 </div>
@@ -161,7 +155,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">句柄和对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">方法、自变量和返回值</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">计算模型————计算图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">数据模型————张量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">张量的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">TensorFlow运行模型————会话</span></a></li></ol>
  
   </div>
 
