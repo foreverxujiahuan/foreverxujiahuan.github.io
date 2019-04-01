@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>百面机器学习（1） | zzulixjh</title>
+    <title>百面机器学习(特征工程篇) | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="为什么要对数值类型的特征做归一化将所有的特征都统一到一个大致相同的数值区间内。 常用的数值归一化方法1.线性归一化2.零均值归一化 为什么要做归一化容易更快的通过梯度下降找到最优解 使用的模型线性回归、逻辑回归、支持向量机、神经网络 不适用模型决策树">
+    <meta name="description" content="为什么要对数值类型的特征做归一化将所有的特征都统一到一个大致相同的数值区间内。 常用的数值归一化方法1.线性归一化2.零均值归一化 为什么要做归一化容易更快的通过梯度下降找到最优解 使用的模型线性回归、逻辑回归、支持向量机、神经网络 不适用模型决策树 类别型特征概念类别型特征主要是指一些只在有限选项内取值的特征。类别型特征原始输入通常是字符串形式。对于逻辑回归，SVM等模型来说，类别型特征必须经过">
 <meta property="og:type" content="article">
-<meta property="og:title" content="百面机器学习（1）">
+<meta property="og:title" content="百面机器学习(特征工程篇)">
 <meta property="og:url" content="http://yoursite.com/2019/03/29/ml-1/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="为什么要对数值类型的特征做归一化将所有的特征都统一到一个大致相同的数值区间内。 常用的数值归一化方法1.线性归一化2.零均值归一化 为什么要做归一化容易更快的通过梯度下降找到最优解 使用的模型线性回归、逻辑回归、支持向量机、神经网络 不适用模型决策树">
-<meta property="og:updated_time" content="2019-03-30T13:22:58.890Z">
+<meta property="og:description" content="为什么要对数值类型的特征做归一化将所有的特征都统一到一个大致相同的数值区间内。 常用的数值归一化方法1.线性归一化2.零均值归一化 为什么要做归一化容易更快的通过梯度下降找到最优解 使用的模型线性回归、逻辑回归、支持向量机、神经网络 不适用模型决策树 类别型特征概念类别型特征主要是指一些只在有限选项内取值的特征。类别型特征原始输入通常是字符串形式。对于逻辑回归，SVM等模型来说，类别型特征必须经过">
+<meta property="og:updated_time" content="2019-04-01T10:03:03.770Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="百面机器学习（1）">
-<meta name="twitter:description" content="为什么要对数值类型的特征做归一化将所有的特征都统一到一个大致相同的数值区间内。 常用的数值归一化方法1.线性归一化2.零均值归一化 为什么要做归一化容易更快的通过梯度下降找到最优解 使用的模型线性回归、逻辑回归、支持向量机、神经网络 不适用模型决策树">
+<meta name="twitter:title" content="百面机器学习(特征工程篇)">
+<meta name="twitter:description" content="为什么要对数值类型的特征做归一化将所有的特征都统一到一个大致相同的数值区间内。 常用的数值归一化方法1.线性归一化2.零均值归一化 为什么要做归一化容易更快的通过梯度下降找到最优解 使用的模型线性回归、逻辑回归、支持向量机、神经网络 不适用模型决策树 类别型特征概念类别型特征主要是指一些只在有限选项内取值的特征。类别型特征原始输入通常是字符串形式。对于逻辑回归，SVM等模型来说，类别型特征必须经过">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -48,7 +48,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -64,7 +64,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -80,23 +80,23 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/03/29/ml-1/" title="百面机器学习（1）" itemprop="url">百面机器学习（1）</a>
+      <a href="/2019/03/29/ml-1/" title="百面机器学习(特征工程篇)" itemprop="url">百面机器学习(特征工程篇)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2019-03-29T13:11:25.000Z" itemprop="datePublished"> Published 2019-03-29</time>
+    <time datetime="2019-03-29T13:11:25.000Z" itemprop="datePublished"> 发表于 2019-03-29</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">为什么要对数值类型的特征做归一化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">常用的数值归一化方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">为什么要做归一化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">使用的模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">不适用模型</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">为什么要对数值类型的特征做归一化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">常用的数值归一化方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">为什么要做归一化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">使用的模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">不适用模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">类别型特征概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">处理类别型特征的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.1.</span> <span class="toc-text">序号编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.2.</span> <span class="toc-text">独热编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.3.</span> <span class="toc-text">二进制编码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">8.</span> <span class="toc-text">关于高维组合特征的处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">9.</span> <span class="toc-text">关于寻找组合特征的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">10.</span> <span class="toc-text">怎样有效地找到组合特征</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">11.</span> <span class="toc-text">关于文本表示模型的优缺点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">12.</span> <span class="toc-text">关于Word2Vec</span></a></li></ol>
 		
 		</div>
 		
@@ -105,6 +105,16 @@
 <p></p><h1>为什么要做归一化</h1><br>容易更快的通过梯度下降找到最优解<p></p>
 <p></p><h1>使用的模型</h1><br>线性回归、逻辑回归、支持向量机、神经网络<p></p>
 <p></p><h1>不适用模型</h1><br>决策树<p></p>
+<p></p><h1>类别型特征概念</h1><br>类别型特征主要是指一些只在有限选项内取值的特征。类别型特征原始输入通常是字符串形式。对于逻辑回归，SVM等模型来说，类别型特征必须经过处理转换成数值型特征才能正确工作。<p></p>
+<p></p><h1>处理类别型特征的方法</h1><p></p>
+<p></p><h2>序号编码</h2><br>序号编码通常用于处理类别间具有大小关系的数据<p></p>
+<p></p><h2>独热编码</h2><br>独热编码通常用于处理类别间不具有大小关系的特征。<br>对于类别取值较多的情况，要注意:<br>1.使用稀疏向量来节省空间<br>2.配合特征选择来降低唯独<p></p>
+<p></p><h2>二进制编码</h2><br>先使用序号编码给每个类别赋予一个类别ID，然后将类别ID对应的二进制编码作为结果。<p></p>
+<p></p><h1>关于高维组合特征的处理</h1><br>目的:提高复杂关系的拟合能力<br>做法:把一阶离散特征两两组合，构成高阶组合特征<br>方法:降维<p></p>
+<p></p><h1>关于寻找组合特征的目的</h1><br>如果简单地两两组合，依然容易存在参数过多，过拟合等问题，而且并不是所有的特征组合都是有意义的。<p></p>
+<p></p><h1>怎样有效地找到组合特征</h1><br>有一种基于决策树的特征组合寻找方法。<br>每一种从根节点到叶节点的路径都可以看成一种特征组合的方式。<br>该方法的思想是每次都在之前构建的决策树的残差上构建下一棵决策树。<p></p>
+<p></p><h1>关于文本表示模型的优缺点</h1><br>词袋模型就是将一篇文章看成一个袋子，并且忽略里面的词出现的顺序。<br>TF-IDF是一个用来计算权重的公式，它由两部分组成，TF部分和IDF部分，其中TF(t,d)是单词t在文档d中出现的频率，IDF是逆文档频率，用来衡量单词t对表达语义所起的重要性<br>其中IDF是一个惩罚项，直观的解释是如果一个词在很多的文章中都出现，那么说明它可能是一个很普通的词汇。公式是<br>IDF(t,d)=文章总数/包含单词t的文章总数+1<br>N-gram模型就是将连续出现的n个词组成的词组作为一个单独的特征放到向量表示中去。<br>主题模型用于从文本中发现有代表性的主题，并且能够计算出每篇文章的主题分布。<p></p>
+<p></p><h1>关于Word2Vec</h1><br>Word2Vec实际是一种浅层的神经网络，它有两种网络结构，分别是CBOW和Skip-gram。<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -122,7 +132,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2019/03/29/ml-1/" data-title="百面机器学习（1） | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/03/29/ml-1/" data-title="百面机器学习(特征工程篇) | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -136,10 +146,10 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2019/03/30/ml-2/" title="百面机器学习(2)">
+ <a href="/2019/03/31/lanqiao-tourist/" title="周总结">
   <strong>上一篇：</strong><br/>
   <span>
-  百面机器学习(2)</span>
+  周总结</span>
 </a>
 </div>
 
@@ -159,22 +169,22 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">为什么要对数值类型的特征做归一化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">常用的数值归一化方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">为什么要做归一化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">使用的模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">不适用模型</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">为什么要对数值类型的特征做归一化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">常用的数值归一化方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">为什么要做归一化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">使用的模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">不适用模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">类别型特征概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">处理类别型特征的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.1.</span> <span class="toc-text">序号编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.2.</span> <span class="toc-text">独热编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.3.</span> <span class="toc-text">二进制编码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">8.</span> <span class="toc-text">关于高维组合特征的处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">9.</span> <span class="toc-text">关于寻找组合特征的目的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">10.</span> <span class="toc-text">怎样有效地找到组合特征</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">11.</span> <span class="toc-text">关于文本表示模型的优缺点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">12.</span> <span class="toc-text">关于Word2Vec</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -183,7 +193,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -199,7 +209,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>9</sup></a></li>
+			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>8</sup></a></li>
 		  
 		
 		  
@@ -247,7 +257,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -507,7 +517,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
