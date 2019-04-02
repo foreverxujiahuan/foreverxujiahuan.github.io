@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/04/01/tensorflow-DNN/index.html">
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="关于深度学习和神经网络深度学习的精确定义:一类通过多层非线性变换对高复杂性数据建模算法的合集可以认为深度学习就是深层神经网络的代名词。 关于线性模型在线性模型中，模型的输出为输入的加权和。一个线性模型中通过输入得到输出的函数被称之为一个线性变换。线性模型最大的特点是任意线性模型的组合任然还是线性模型。只通过线性变换，任意层的全连接神经网络和单层神经网络模型的表达能力没有任何区别，而且它们都是线性模">
-<meta property="og:updated_time" content="2019-04-01T13:00:16.435Z">
+<meta property="og:updated_time" content="2019-04-02T05:35:22.669Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tensorflow实现深层神经网络">
 <meta name="twitter:description" content="关于深度学习和神经网络深度学习的精确定义:一类通过多层非线性变换对高复杂性数据建模算法的合集可以认为深度学习就是深层神经网络的代名词。 关于线性模型在线性模型中，模型的输出为输入的加权和。一个线性模型中通过输入得到输出的函数被称之为一个线性变换。线性模型最大的特点是任意线性模型的组合任然还是线性模型。只通过线性变换，任意层的全连接神经网络和单层神经网络模型的表达能力没有任何区别，而且它们都是线性模">
@@ -96,12 +96,13 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于深度学习和神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于线性模型</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于深度学习和神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于线性模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">关于激活函数</span></a></li></ol>
 		
 		</div>
 		
 		<p></p><h1>关于深度学习和神经网络</h1><br>深度学习的精确定义:<br>一类通过多层非线性变换对高复杂性数据建模算法的合集<br>可以认为深度学习就是深层神经网络的代名词。<p></p>
-<p></p><h1>关于线性模型</h1><br>在线性模型中，模型的输出为输入的加权和。<br>一个线性模型中通过输入得到输出的函数被称之为一个线性变换。<br>线性模型最大的特点是任意线性模型的组合任然还是线性模型。<br>只通过线性变换，任意层的全连接神经网络和单层神经网络模型的表达能力没有任何区别，而且它们都是线性模型。<br>线性模型可以解决线性可分的问题。<br>深度学习可以解决一些更复杂的问题(无法通过直线划分的)<p></p>
+<p></p><h1>关于线性模型</h1><br>在线性模型中，模型的输出为输入的加权和。<br>一个线性模型中通过输入得到输出的函数被称之为一个线性变换。<br>线性模型最大的特点是任意线性模型的组合任然还是线性模型。<br>只通过线性变换，任意层的全连接神经网络和单层神经网络模型的表达能力没有任何区别，而且它们都是线性模型。<br>线性模型可以解决线性可分的问题。<br>深度学习可以解决一些更复杂的问题(无法通过直线划分的)<br>这里推荐一个Tensorflow的模拟网站<br><a href="http://playground.tensorflow.org" target="_blank" rel="noopener">http://playground.tensorflow.org</a><br>这里可以很好的模拟神经网络的训练以及输出，可以帮助你更好的理解神经网络。<p></p>
+<p></p><h1>关于激活函数</h1><br>将每一个神经元的输出通过一个非线性函数，那么整个神经网络的模型也就不在是线性的了。这非线性函数就是激活函数。<br>常用的激活函数有:<br>ReLU函数:<br>f(x) = max(x,0)<br>sigmoid函数:<br>f(x) = 1/1+e^(-x)<br>tanh函数:<br>f(x) = (1-e^(-2x))/(1+e^(-2x))<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -134,9 +135,9 @@
  
 
 <div class="next">
-<a href="/2019/03/31/lanqiao-tourist/"  title="周总结">
+<a href="/2019/03/29/ml-1/"  title="百面机器学习(特征工程篇)">
  <strong>下一篇：</strong><br/> 
- <span>周总结
+ <span>百面机器学习(特征工程篇)
 </span>
 </a>
 </div>
@@ -153,7 +154,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于深度学习和神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于线性模型</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于深度学习和神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于线性模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">关于激活函数</span></a></li></ol>
  
   </div>
 
@@ -220,7 +221,7 @@
 		  
 		
 		  
-			<li><a href="/categories/life/" title="生活">生活<sup>14</sup></a></li>
+			<li><a href="/categories/life/" title="生活">生活<sup>13</sup></a></li>
 		  
 		
 		  
