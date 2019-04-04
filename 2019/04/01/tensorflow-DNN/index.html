@@ -17,10 +17,13 @@
 <meta property="og:url" content="http://yoursite.com/2019/04/01/tensorflow-DNN/index.html">
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="关于深度学习和神经网络深度学习的精确定义:一类通过多层非线性变换对高复杂性数据建模算法的合集可以认为深度学习就是深层神经网络的代名词。 关于线性模型在线性模型中，模型的输出为输入的加权和。一个线性模型中通过输入得到输出的函数被称之为一个线性变换。线性模型最大的特点是任意线性模型的组合任然还是线性模型。只通过线性变换，任意层的全连接神经网络和单层神经网络模型的表达能力没有任何区别，而且它们都是线性模">
-<meta property="og:updated_time" content="2019-04-02T05:35:22.669Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/01/tensorflow-DNN/a.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/01/tensorflow-DNN/b.png">
+<meta property="og:updated_time" content="2019-04-04T07:18:27.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tensorflow实现深层神经网络">
 <meta name="twitter:description" content="关于深度学习和神经网络深度学习的精确定义:一类通过多层非线性变换对高复杂性数据建模算法的合集可以认为深度学习就是深层神经网络的代名词。 关于线性模型在线性模型中，模型的输出为输入的加权和。一个线性模型中通过输入得到输出的函数被称之为一个线性变换。线性模型最大的特点是任意线性模型的组合任然还是线性模型。只通过线性变换，任意层的全连接神经网络和单层神经网络模型的表达能力没有任何区别，而且它们都是线性模">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/01/tensorflow-DNN/a.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -48,7 +51,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -87,22 +90,30 @@
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2019-04-01T11:19:21.000Z" itemprop="datePublished"> 发表于 2019-04-01</time>
+    <time datetime="2019-04-01T11:19:21.000Z" itemprop="datePublished"> 發表於 2019-04-01</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于深度学习和神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于线性模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">关于激活函数</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于深度学习和神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于线性模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">关于激活函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">使用多层网络解决异或运算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">关于经典损失函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">关于BP神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">关于神经网络的优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.1.</span> <span class="toc-text">关于学习率的设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.2.</span> <span class="toc-text">关于过拟合问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.3.</span> <span class="toc-text">关于滑动平均模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
 		<p></p><h1>关于深度学习和神经网络</h1><br>深度学习的精确定义:<br>一类通过多层非线性变换对高复杂性数据建模算法的合集<br>可以认为深度学习就是深层神经网络的代名词。<p></p>
 <p></p><h1>关于线性模型</h1><br>在线性模型中，模型的输出为输入的加权和。<br>一个线性模型中通过输入得到输出的函数被称之为一个线性变换。<br>线性模型最大的特点是任意线性模型的组合任然还是线性模型。<br>只通过线性变换，任意层的全连接神经网络和单层神经网络模型的表达能力没有任何区别，而且它们都是线性模型。<br>线性模型可以解决线性可分的问题。<br>深度学习可以解决一些更复杂的问题(无法通过直线划分的)<br>这里推荐一个Tensorflow的模拟网站<br><a href="http://playground.tensorflow.org" target="_blank" rel="noopener">http://playground.tensorflow.org</a><br>这里可以很好的模拟神经网络的训练以及输出，可以帮助你更好的理解神经网络。<p></p>
 <p></p><h1>关于激活函数</h1><br>将每一个神经元的输出通过一个非线性函数，那么整个神经网络的模型也就不在是线性的了。这非线性函数就是激活函数。<br>常用的激活函数有:<br>ReLU函数:<br>f(x) = max(x,0)<br>sigmoid函数:<br>f(x) = 1/1+e^(-x)<br>tanh函数:<br>f(x) = (1-e^(-2x))/(1+e^(-2x))<p></p>
+<p></p><h1>使用多层网络解决异或运算</h1><br>感知机可以简单的理解为单层神经网络。<br>感知机是无法模拟异或运算的。<br>当加入隐藏层之后，异或问题就可以得到很好地解决。<br>深层神经网络实际上有组合特征提取的功能。<p></p>
+<p></p><h1>关于经典损失函数</h1><br>通过神经网络解决多分类问题最常用的方法是设置n个输出节点，其中n为类别的个数。<br>交叉熵是一个判断两个概率分布之间的距离的方法，它是分类中使用比较广的一种损失函数。<br>交叉熵刻画的是两个概率分布之间的距离。<br>Softmax回归是一个将神经网络前向传播得到的结果变为概率分布的方法。<br>交叉熵函数不是对称的，它刻画的是通过概率分布q来表达概率分布p的困难程度。<p></p>
+<p></p><h1>关于BP神经网络</h1><br>梯度下降算法主要用于优化单个参数的取值，而反向传播算法给出了一个高效的方式在所有参数上使用梯度下降算法，从而使神经网络模型在训练数据上的损失函数尽可能小。<br>梯度下降法是最常用的的神经网络优化方法。<br>梯度下降算法并不能保证被优化的函数达到全局最优解。<br>梯度下降可能只能得到局部最优解而不是全局最优解。<br>在训练神经网络时，参数的初始值会很大程度影响到最后的结果。<br>只有当损失函数为凸函数时，梯度下降算法才能保证达到全局最优解。<br>梯度下降算法的另一个问题就是计算时间太长。<br>为了加速训练过程，可以使用随机梯度下降的算法。<br>为了综合梯度下降算法和随机梯度下降算法的优缺点，在实际应用中一般采用这两个算法的折中：每次计算一小部分训练数据的损失函数。这一小部分数据被称之为一个batch。<p></p>
+<p></p><h1>关于神经网络的优化</h1><p></p>
+<p></p><h2>关于学习率的设置</h2><br>设置学习率可以控制参数更新的速度。<br>学习率既不能过大也不能过小。为了解决学习率的问题，TensorFlow提供了一种更加灵活的学习率设置方法:指数衰减法。<p></p>
+<p></p><h2>关于过拟合问题</h2><br>过拟合就是该模型对训练数据可以很好的匹配，但是对未知的数据却不能有很好的预测。<br>为了避免过拟合问题，一个非常常用的方法是正则化。正则化的思想就是在损失函数中加入刻画模型复杂程度的指标。<p></p>
+<p></p><h2>关于滑动平均模型</h2><br>滑动模型是一个可以使模型在测试数据上更健壮的方法。<br>在TensorFlow中，tf.train.ExponetialMovingAverage可以来实现滑动平均模型。<br>初始化模型时，需要提供一个衰减率，用于控制模型更新的速度。<br>一个滑动平均的样例<br><img src="/2019/04/01/tensorflow-DNN/a.png"><br><img src="/2019/04/01/tensorflow-DNN/b.png"><p></p>
+<p></p><h1>总结</h1><br>神经网络设计的两个总体原则:非线性与多层结构。<br>深度学习基本上就是深层神经网络的代名词。<br>神经网络是一个优化问题，而损失函数就刻画了神经网络需要优化的目标。<br>优化神经网络最常用的是梯度下降算法和反向传播算法。<br>使用滑动平均模型可以让最后得到的模型在未知数据上更加健壮。<br>神经网络设计的过程:<br>1.模型结构的设计。<br>2.损失函数的设计。<br>3.神经网络的优化。<br>4.神经网络进一步调优。<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -133,6 +144,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2019/04/03/cross-entropy/" title="交叉熵">
+  <strong>上一篇：</strong><br/>
+  <span>
+  交叉熵</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2019/03/29/ml-1/"  title="百面机器学习(特征工程篇)">
@@ -149,17 +168,17 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于深度学习和神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于线性模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">关于激活函数</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于深度学习和神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于线性模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">关于激活函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">使用多层网络解决异或运算</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">关于经典损失函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">关于BP神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">关于神经网络的优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.1.</span> <span class="toc-text">关于学习率的设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.2.</span> <span class="toc-text">关于过拟合问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.3.</span> <span class="toc-text">关于滑动平均模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
@@ -173,7 +192,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 		  
@@ -189,7 +208,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>8</sup></a></li>
+			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>9</sup></a></li>
 		  
 		
 		  
@@ -237,7 +256,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">友情鏈接</p>
     <ul>
         
           <li>
@@ -497,7 +516,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
