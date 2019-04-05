@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Python中的类型与运算符 | zzulixjh</title>
+    <title>TensorFlow(图像识别与卷积神经网络) | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="集群类型列表(list)要创建列表，可以使用[]直接表示法，列表中每个元素用逗号(,)分隔开，如Numbers[1,2,3]如果想从其他可迭代的对象中创建列表，像是字符串、集合或元组等，可以使用list()集合(set)集合的内容无须，元素不重复。要创建集合，可以使用{}包括元素，元素间使用逗号(,)分隔开。向集合中添加元素，使用add()方法；删除元素使用remove()方法字典(dict)字典">
+    <meta name="description" content="用hexo搭建的个人博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python中的类型与运算符">
-<meta property="og:url" content="http://yoursite.com/2018/02/06/Python中的类型与运算符/index.html">
+<meta property="og:title" content="TensorFlow(图像识别与卷积神经网络)">
+<meta property="og:url" content="http://yoursite.com/2019/04/05/tensorflow-CNN/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="集群类型列表(list)要创建列表，可以使用[]直接表示法，列表中每个元素用逗号(,)分隔开，如Numbers[1,2,3]如果想从其他可迭代的对象中创建列表，像是字符串、集合或元组等，可以使用list()集合(set)集合的内容无须，元素不重复。要创建集合，可以使用{}包括元素，元素间使用逗号(,)分隔开。向集合中添加元素，使用add()方法；删除元素使用remove()方法字典(dict)字典">
-<meta property="og:updated_time" content="2018-05-25T13:47:12.231Z">
+<meta property="og:description" content="用hexo搭建的个人博客">
+<meta property="og:updated_time" content="2019-04-05T10:00:04.837Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python中的类型与运算符">
-<meta name="twitter:description" content="集群类型列表(list)要创建列表，可以使用[]直接表示法，列表中每个元素用逗号(,)分隔开，如Numbers[1,2,3]如果想从其他可迭代的对象中创建列表，像是字符串、集合或元组等，可以使用list()集合(set)集合的内容无须，元素不重复。要创建集合，可以使用{}包括元素，元素间使用逗号(,)分隔开。向集合中添加元素，使用add()方法；删除元素使用remove()方法字典(dict)字典">
+<meta name="twitter:title" content="TensorFlow(图像识别与卷积神经网络)">
+<meta name="twitter:description" content="用hexo搭建的个人博客">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/02/06/Python中的类型与运算符/" title="Python中的类型与运算符" itemprop="url">Python中的类型与运算符</a>
+      <a href="/2019/04/05/tensorflow-CNN/" title="TensorFlow(图像识别与卷积神经网络)" itemprop="url">TensorFlow(图像识别与卷积神经网络)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-02-06T12:43:55.000Z" itemprop="datePublished"> Published 2018-02-06</time>
+    <time datetime="2019-04-05T09:59:04.000Z" itemprop="datePublished"> Published 2019-04-05</time>
     
   </p>
 </header>
@@ -100,16 +100,10 @@
 		
 		</div>
 		
-		<p>集群类型<br>列表(list)<br>要创建列表，可以使用[]直接表示法，列表中每个元素用逗号(,)分隔开，如<br>Numbers[1,2,3]<br>如果想从其他可迭代的对象中创建列表，像是字符串、集合或元组等，可以使用list()<br>集合(set)<br>集合的内容无须，元素不重复。<br>要创建集合，可以使用{}包括元素，元素间使用逗号(,)分隔开。<br>向集合中添加元素，使用add()方法；删除元素使用remove()方法<br>字典(dict)<br>字典用来存储两两对应的键与值，即为dict类型。<br>字典中的键不重复，每个键会用来对应相应的值。<br>元组(tuple)<br>元祖和列表类似，但是元祖创建完之后就不能动了<br>创建元组只需在某个值后面加上一个逗号(,)<br>在某个变量上指定星号（<em>），其他变量被分配了单一的值之后，剩余的元素就会以列表值赋给了星号的变量。<br>变量与运算符<br>如果要求Python有个暂时的位置来存储一些值，那么这个暂存的位置在程序语言中就被成为变量(Variable)<br>Id()为每个对象对应的“身份证号”,且唯一不变<br>用is或者is not可以确认两个变量是否引用同一对象<br>运算符<br>可以使用**来进行指数运算<br>在除法运算上，有/和//两个运算符，前者若有小数部分会保留，后者的运算符只能保留整数部分。<br>使用+运算符可以串接字符串，使用</em>可以重复字符串。<br>在索引切片运算中，可以是[start:end],也就是指定起始索引(包括)与结尾索引(不包括)</p>
-  
+		  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Python/">Python</a>
-</div>
 
 
 </div>
@@ -118,7 +112,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/02/06/Python中的类型与运算符/" data-title="Python中的类型与运算符 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/04/05/tensorflow-CNN/" data-title="TensorFlow(图像识别与卷积神经网络) | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -131,19 +125,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/02/06/phpstudy域名配置问题/" title="phpstudy域名配置问题">
-  <strong>上一篇：</strong><br/>
-  <span>
-  phpstudy域名配置问题</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/02/06/机器学习基本术语/"  title="机器学习基本术语">
+<a href="/2019/04/04/model/"  title="百面机器学习(模型评估篇)">
  <strong>下一篇：</strong><br/> 
- <span>机器学习基本术语
+ <span>百面机器学习(模型评估篇)
 </span>
 </a>
 </div>
