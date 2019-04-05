@@ -11,16 +11,16 @@
     
 
     
-    <meta name="description" content="用hexo搭建的个人博客">
+    <meta name="description" content="关于准确率准确率是指分类正确的样本占总样本个数的比例。当不同类别的样本比例非常不均衡时，占比大的类别往往成为影响准确率的最主要的因素。为了解决这个问题，可以使用更为有效的平均准确率（每个类别下的样本准确率的算术平均）作为模型评估的指标。 关于精确率和召回率的均衡精确率是指分类正确的正样本个数占分类器判定为正样本的样本个数的比例。召回率是指分类正确的正样本个数占真正的正样本个数的比例。P-R曲线的横">
 <meta property="og:type" content="article">
 <meta property="og:title" content="百面机器学习(模型评估篇)">
 <meta property="og:url" content="http://yoursite.com/2019/04/04/model/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="用hexo搭建的个人博客">
-<meta property="og:updated_time" content="2019-04-04T09:01:46.167Z">
+<meta property="og:description" content="关于准确率准确率是指分类正确的样本占总样本个数的比例。当不同类别的样本比例非常不均衡时，占比大的类别往往成为影响准确率的最主要的因素。为了解决这个问题，可以使用更为有效的平均准确率（每个类别下的样本准确率的算术平均）作为模型评估的指标。 关于精确率和召回率的均衡精确率是指分类正确的正样本个数占分类器判定为正样本的样本个数的比例。召回率是指分类正确的正样本个数占真正的正样本个数的比例。P-R曲线的横">
+<meta property="og:updated_time" content="2019-04-05T03:30:00.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="百面机器学习(模型评估篇)">
-<meta name="twitter:description" content="用hexo搭建的个人博客">
+<meta name="twitter:description" content="关于准确率准确率是指分类正确的样本占总样本个数的比例。当不同类别的样本比例非常不均衡时，占比大的类别往往成为影响准确率的最主要的因素。为了解决这个问题，可以使用更为有效的平均准确率（每个类别下的样本准确率的算术平均）作为模型评估的指标。 关于精确率和召回率的均衡精确率是指分类正确的正样本个数占分类器判定为正样本的样本个数的比例。召回率是指分类正确的正样本个数占真正的正样本个数的比例。P-R曲线的横">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -96,11 +96,14 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于准确率</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于精确率和召回率的均衡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">造成RMSE指标居高不下的原因</span></a></li></ol>
 		
 		</div>
 		
-		  
+		<p></p><h1>关于准确率</h1><br>准确率是指分类正确的样本占总样本个数的比例。<br>当不同类别的样本比例非常不均衡时，占比大的类别往往成为影响准确率的最主要的因素。为了解决这个问题，可以使用更为有效的平均准确率（每个类别下的样本准确率的算术平均）作为模型评估的指标。<p></p>
+<p></p><h1>关于精确率和召回率的均衡</h1><br>精确率是指分类正确的正样本个数占分类器判定为正样本的样本个数的比例。<br>召回率是指分类正确的正样本个数占真正的正样本个数的比例。<br>P-R曲线的横轴是召回率，纵轴是精确率。<br>P-R曲线上的一个点代表着，在某一阈值下，模型将大于该阈值的结果判定为正样本，小于该阈值的结果判定为负样本，此时返回结果对应的召回率和精确率。<br>只用某个点对应的精确率和召回率是不能全面地衡量模型的性能，只有通过P-R曲线的整体表现，才能够对模型进行更全面的评估。<br>F1 score是精确率和召回率的调和平均值<br>F1 = 2<em>precision</em>recall/precision+recall<p></p>
+<p></p><h1>造成RMSE指标居高不下的原因</h1><br>如果一个模型可以对大部分数据都有很好的预测，但是RMSE指标仍然很高的原因可能是因为有个别偏离程度非常大的离群点，即使离群点数量非常少，也会让RMSE指标变得很差。<br>针对这个问题的解决方案：<br>1.如果我们认定这些离群点是噪声点，那么我们就需要在数据处理的阶段把这些噪声点过滤掉。<br>2.如果不认为这些离群点是噪声点的话，就需要进一步提高模型的预测能力，将离群点产生的机制建模进去。<br>3.可以找一个更合适的指标来评估该模型。<p></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -151,7 +154,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于准确率</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于精确率和召回率的均衡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">造成RMSE指标居高不下的原因</span></a></li></ol>
  
   </div>
 
