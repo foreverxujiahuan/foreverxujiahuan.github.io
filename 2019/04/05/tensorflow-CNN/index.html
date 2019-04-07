@@ -11,16 +11,16 @@
     
 
     
-    <meta name="description" content="用hexo搭建的个人博客">
+    <meta name="description" content="全连接神经网络包含全连接层的神经网络称之为全连接神经网络。 卷积神经网络卷积神经网络也是通过一层一层的节点组织起来的。和全连接神经网络一样，卷积神经网络中的每一个节点都是一个神经元。在全连接神经网络中，每相邻两层之间的节点都有边相连，于是一般会将每一层全连接层中的节点组织成一列，这样方便显示连接结构。而对于卷积神经网络，相邻两层之间只有部分节点相连，为了展示每一层神经元的维度，一般会将每一层卷积层">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TensorFlow(图像识别与卷积神经网络)">
 <meta property="og:url" content="http://yoursite.com/2019/04/05/tensorflow-CNN/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="用hexo搭建的个人博客">
-<meta property="og:updated_time" content="2019-04-05T10:00:04.837Z">
+<meta property="og:description" content="全连接神经网络包含全连接层的神经网络称之为全连接神经网络。 卷积神经网络卷积神经网络也是通过一层一层的节点组织起来的。和全连接神经网络一样，卷积神经网络中的每一个节点都是一个神经元。在全连接神经网络中，每相邻两层之间的节点都有边相连，于是一般会将每一层全连接层中的节点组织成一列，这样方便显示连接结构。而对于卷积神经网络，相邻两层之间只有部分节点相连，为了展示每一层神经元的维度，一般会将每一层卷积层">
+<meta property="og:updated_time" content="2019-04-07T05:40:58.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow(图像识别与卷积神经网络)">
-<meta name="twitter:description" content="用hexo搭建的个人博客">
+<meta name="twitter:description" content="全连接神经网络包含全连接层的神经网络称之为全连接神经网络。 卷积神经网络卷积神经网络也是通过一层一层的节点组织起来的。和全连接神经网络一样，卷积神经网络中的每一个节点都是一个神经元。在全连接神经网络中，每相邻两层之间的节点都有边相连，于是一般会将每一层全连接层中的节点组织成一列，这样方便显示连接结构。而对于卷积神经网络，相邻两层之间只有部分节点相连，为了展示每一层神经元的维度，一般会将每一层卷积层">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -48,7 +48,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -64,7 +64,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -87,23 +87,33 @@
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2019-04-05T09:59:04.000Z" itemprop="datePublished"> Published 2019-04-05</time>
+    <time datetime="2019-04-05T09:59:04.000Z" itemprop="datePublished"> 发表于 2019-04-05</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">全连接神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">卷积神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">全连接神经网络为什么不能很好的处理图像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">卷积神经网络的组成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">关于卷积层</span></a></li></ol>
 		
 		</div>
 		
-		  
+		<p></p><h1>全连接神经网络</h1><br>包含全连接层的神经网络称之为全连接神经网络。<p></p>
+<p></p><h1>卷积神经网络</h1><br>卷积神经网络也是通过一层一层的节点组织起来的。和全连接神经网络一样，卷积神经网络中的每一个节点都是一个神经元。<br>在全连接神经网络中，每相邻两层之间的节点都有边相连，于是一般会将每一层全连接层中的节点组织成一列，这样方便显示连接结构。而对于卷积神经网络，相邻两层之间只有部分节点相连，为了展示每一层神经元的维度，一般会将每一层卷积层的节点组织成一个三维矩阵。<br>以图像分类为例，卷积神经网络的输入层就是图像的原始像素，而输出层中的每一个节点代表了不同类别的可信度。<br>在TensorFlow中训练一个卷积神经网络的流程和训练一个全连接神经网络没有任何区别。<br>卷积神经网络和全连接神经网络的唯一区别就在于神经网络中相邻两层的连接方式。<p></p>
+<p></p><h1>全连接神经网络为什么不能很好的处理图像</h1><br>使用全连接神经网络处理图像的最大问题在于全连接层的参数太多。参数增多除了导致计算速度减慢，还很容易导致过拟合问题。<br>卷积神经网络可以有效地减少神经网络中参数个数。<p></p>
+<p></p><h1>卷积神经网络的组成</h1><br>1.输入层<br>输入层是整个神经网络的输入，在处理图像的卷积神经网络中，它一般代表了一张图片的像素矩阵。<br>2.卷积层<br>和传统全连接层不同，卷积层中每一个节点的输入只是上一层神经网络的一小块，这个小块常用的大小有3<em>3,5</em>5。卷积层试图将神经网络中的每一小块进行更加深入地分析从而得到抽象程度更高的特征。<br>3.池化层<br>池化层神经网络不会改变三维矩阵的深度，但是它可以缩小矩阵的大小。<br>4.全连接层<br>在经过多轮卷积层和池化层的处理之后，在卷积神经网络的最后一般会是由1到2个全连接层来给出最后的分类结果。<br>5.Softmax层<br>Softmax层主要用于分类问题。通过Softmax层，可以得到当前样例属于不同种类的概率分布情况。<p></p>
+<p></p><h1>关于卷积层</h1><br>过滤器可以将当前层神经网络上的一个子节点矩阵转化为下一层神经网络上的一个单位节点矩阵。单位节点矩阵指的是一个长和宽都为1，但深度不限的节点矩阵。常用的过滤器尺寸有3<em>3或5</em>5。过滤器中另一个需要人工指定的设置是处理得到的单位节点矩阵的深度，这个设置成为过滤器的深度。<br>过滤器的尺寸指的是一个过滤器输入节点矩阵的大小，而深度指的是输出单位节点矩阵的深度。<br>卷积层结构的前向传播过程就是通过将一个过滤器从神经网络当前层的左上角移动到右下角，并且在移动中计算每一个对应的单位矩阵得到的。<br>在卷积神经网络中，每一个卷积层使用的过滤器中的参数都是一样的。<br>从直观上理解，共享过滤器的参数可以使得图像上的内容不受位置的影响。<br>共享每一个卷积层中过滤器中的参数可以巨幅减少神经网络上的参数。<br>卷积层的参数个数和图片的大小无关，它只和过滤器的尺寸、深度以及当前层节点矩阵的深度有关。<p></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/TensorFlow/">TensorFlow</a>
+</div>
 
 
 </div>
@@ -141,22 +151,22 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">全连接神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">卷积神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">全连接神经网络为什么不能很好的处理图像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">卷积神经网络的组成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">关于卷积层</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -165,7 +175,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -197,7 +207,7 @@
 		  
 		
 		  
-			<li><a href="/categories/TensorFlow/" title="TensorFlow">TensorFlow<sup>3</sup></a></li>
+			<li><a href="/categories/TensorFlow/" title="TensorFlow">TensorFlow<sup>4</sup></a></li>
 		  
 		
 		  
@@ -229,7 +239,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -489,7 +499,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
