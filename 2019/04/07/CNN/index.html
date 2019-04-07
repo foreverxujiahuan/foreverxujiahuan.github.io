@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>栈与队列知识总结整理 | zzulixjh</title>
+    <title>百面机器学习(前向神经网络篇) | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="栈(Stack)栈是一种受限的线性表，其限制是仅允许在表的一端进行插入和删除操作，不允许在其他任何位置进行插入、查找、删除等操作。表中进行插入、删除操作的一端称为栈顶(top),栈顶保存的元素称为栈顶元素。相对的，表的另一端称为栈底。特性:后进先出stack的操作:1.getSize()返回堆栈的大小2.isEmpty()判断栈是否为空3.push(e)元素e入栈4.pop()栈顶元素出栈5.pe">
+    <meta name="description" content="因为刚刚看了《TensorFlow实战Google深度学习框架》第六章中关于卷积神经网络的知识，对于其中的大部分知识还是不能很好的理解，因此我打算通过《百面机器学习》中关于神经网络的部分来加强我对于它的理解。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="栈与队列知识总结整理">
-<meta property="og:url" content="http://yoursite.com/2019/02/19/stack/index.html">
+<meta property="og:title" content="百面机器学习(前向神经网络篇)">
+<meta property="og:url" content="http://yoursite.com/2019/04/07/CNN/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="栈(Stack)栈是一种受限的线性表，其限制是仅允许在表的一端进行插入和删除操作，不允许在其他任何位置进行插入、查找、删除等操作。表中进行插入、删除操作的一端称为栈顶(top),栈顶保存的元素称为栈顶元素。相对的，表的另一端称为栈底。特性:后进先出stack的操作:1.getSize()返回堆栈的大小2.isEmpty()判断栈是否为空3.push(e)元素e入栈4.pop()栈顶元素出栈5.pe">
-<meta property="og:updated_time" content="2019-02-19T11:33:40.933Z">
+<meta property="og:description" content="因为刚刚看了《TensorFlow实战Google深度学习框架》第六章中关于卷积神经网络的知识，对于其中的大部分知识还是不能很好的理解，因此我打算通过《百面机器学习》中关于神经网络的部分来加强我对于它的理解。">
+<meta property="og:updated_time" content="2019-04-07T07:58:56.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="栈与队列知识总结整理">
-<meta name="twitter:description" content="栈(Stack)栈是一种受限的线性表，其限制是仅允许在表的一端进行插入和删除操作，不允许在其他任何位置进行插入、查找、删除等操作。表中进行插入、删除操作的一端称为栈顶(top),栈顶保存的元素称为栈顶元素。相对的，表的另一端称为栈底。特性:后进先出stack的操作:1.getSize()返回堆栈的大小2.isEmpty()判断栈是否为空3.push(e)元素e入栈4.pop()栈顶元素出栈5.pe">
+<meta name="twitter:title" content="百面机器学习(前向神经网络篇)">
+<meta name="twitter:description" content="因为刚刚看了《TensorFlow实战Google深度学习框架》第六章中关于卷积神经网络的知识，对于其中的大部分知识还是不能很好的理解，因此我打算通过《百面机器学习》中关于神经网络的部分来加强我对于它的理解。">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/02/19/stack/" title="栈与队列知识总结整理" itemprop="url">栈与队列知识总结整理</a>
+      <a href="/2019/04/07/CNN/" title="百面机器学习(前向神经网络篇)" itemprop="url">百面机器学习(前向神经网络篇)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2019-02-19T10:56:16.000Z" itemprop="datePublished"> Published 2019-02-19</time>
+    <time datetime="2019-04-07T07:56:02.000Z" itemprop="datePublished"> Published 2019-04-07</time>
     
   </p>
 </header>
@@ -96,20 +96,19 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">栈(Stack)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">队列(queue)</span></a></li></ol>
+			
 		
 		</div>
 		
-		<p></p><h1>栈(Stack)</h1><br>栈是一种受限的线性表，其限制是仅允许在表的一端进行插入和删除操作，不允许在其他任何位置进行插入、查找、删除等操作。表中进行插入、删除操作的一端称为栈顶(top),栈顶保存的元素称为栈顶元素。相对的，表的另一端称为栈底。<br>特性:后进先出<br>stack的操作:<br>1.getSize()<br>返回堆栈的大小<br>2.isEmpty()<br>判断栈是否为空<br>3.push(e)<br>元素e入栈<br>4.pop()<br>栈顶元素出栈<br>5.peek()<br>获取栈顶元素，但不出栈<p></p>
-<p></p><h1>队列(queue)</h1><br>队列也是一种收限制的线性表，其限制是仅允许在表的一端进行插入，在表的另一端进行删除。在队列中把插入数据元素的一端称为队尾，删除数据元素的一端称为队首。<br>特性:先进先出<br>Java中的Queue接口(以Integer为例)<br>创建<br>Queue<integer> queue = new LinkedList&lt;&gt;();<br>入队<br>queue.offer(e)<br>出队<br>queue.poll()<br>获取队首元素<br>queue.peek()<p></p>
-</integer>  
+		<p>因为刚刚看了《TensorFlow实战Google深度学习框架》第六章中关于卷积神经网络的知识，对于其中的大部分知识还是不能很好的理解，因此我打算通过《百面机器学习》中关于神经网络的部分来加强我对于它的理解。</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
+  <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
 </div>
 
 
@@ -119,7 +118,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2019/02/19/stack/" data-title="栈与队列知识总结整理 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/04/07/CNN/" data-title="百面机器学习(前向神经网络篇) | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -132,19 +131,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/02/20/access/" title="Java中的访问指示符">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Java中的访问指示符</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/02/19/tree-travel/"  title="二叉树的遍历知识总结">
+<a href="/2019/04/05/tensorflow-CNN/"  title="TensorFlow(图像识别与卷积神经网络)">
  <strong>下一篇：</strong><br/> 
- <span>二叉树的遍历知识总结
+ <span>TensorFlow(图像识别与卷积神经网络)
 </span>
 </a>
 </div>
@@ -161,7 +152,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">栈(Stack)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">队列(queue)</span></a></li></ol>
+ 
  
   </div>
 
