@@ -17,10 +17,13 @@
 <meta property="og:url" content="http://yoursite.com/2019/04/08/classical-algorithm/index.html">
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="关于支持向量机SVM有三宝:间隔、对偶、核技巧SVM分类:1.hard-margin SVM2.soft-margin SVM3.kernel SVM基本模型:定义在特征空间上的间隔最大的线性分类器与感知机的区别:间隔最大化学习策略:间隔最大化支持向量机的学习算法是求解凸二次规划的最优化算法 硬间隔SVM硬间隔SVM就是要找到一个超平面，将所有正负实例分开，然后使得超平面与理它最近的实例的距离尽量">
-<meta property="og:updated_time" content="2019-04-10T07:48:05.045Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/08/classical-algorithm/b.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/08/classical-algorithm/c.png">
+<meta property="og:updated_time" content="2019-04-14T05:51:47.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="支持向量机总结">
 <meta name="twitter:description" content="关于支持向量机SVM有三宝:间隔、对偶、核技巧SVM分类:1.hard-margin SVM2.soft-margin SVM3.kernel SVM基本模型:定义在特征空间上的间隔最大的线性分类器与感知机的区别:间隔最大化学习策略:间隔最大化支持向量机的学习算法是求解凸二次规划的最优化算法 硬间隔SVM硬间隔SVM就是要找到一个超平面，将所有正负实例分开，然后使得超平面与理它最近的实例的距离尽量">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/08/classical-algorithm/b.png">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -96,13 +99,22 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于支持向量机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">硬间隔SVM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">关于对偶函数</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于支持向量机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">硬间隔SVM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">关于对偶函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">关于硬间隔支持向量机的一些结论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">关于硬间隔的支持向量和间隔边界</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">软间隔支持向量机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">关于软间隔的支持向量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">8.</span> <span class="toc-text">非线性支持向量机与核函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">8.1.</span> <span class="toc-text">非线性分类问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">9.</span> <span class="toc-text">核技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">10.</span> <span class="toc-text">常用的核函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">11.</span> <span class="toc-text">总结与感想</span></a></li></ol>
 		
 		</div>
 		
 		<p></p><h1>关于支持向量机</h1><br>SVM有三宝:间隔、对偶、核技巧<br>SVM分类:<br>1.hard-margin SVM<br>2.soft-margin SVM<br>3.kernel SVM<br>基本模型:定义在特征空间上的间隔最大的线性分类器<br>与感知机的区别:间隔最大化<br>学习策略:间隔最大化<br>支持向量机的学习算法是求解凸二次规划的最优化算法<p></p>
 <p></p><h1>硬间隔SVM</h1><br>硬间隔SVM就是要找到一个超平面，将所有正负实例分开，然后使得超平面与理它最近的实例的距离尽量大。<br>在线性可分情况下，训练数据集的样本点中与分离超平面距离最近的样本点的实例称为支持向量。<br>学习的目标是在特征空间中找到一个分离超平面，能将实例分到不同的类。<br>支持向量上的分离超平面成为间隔边界。<br>在决定分离超平面时只有支持向量机起作用，其他实例并不起作用。<p></p>
 <p></p><h1>关于对偶函数</h1><br>为了求解线性可分支持向量机的最优化问题，将它作为最优化问题，应用拉格朗日对偶性，然后通过求解对偶问题来得到原始问题的最优解。<br>用对偶的优点:<br>1.对偶问题往往更容易求解<br>2.自然引入核函数，进而推广到非线性分类问题。<p></p>
+<p></p><h1>关于硬间隔支持向量机的一些结论</h1><br><img src="/2019/04/08/classical-algorithm/b.png"><p></p>
+<p></p><h1>关于硬间隔的支持向量和间隔边界</h1><br>在线性可分的情况下，训练数据集的样本点中与分离超平面距离最近的样本点的实例称为支持向量。<br>间隔边界为支持向量上的超平面，超平面直接的距离称为间隔距离。<p></p>
+<p></p><h1>软间隔支持向量机</h1><br>这种支持向量机针对的情况是训练数据中有一些特异点，将这些特异点去除后，剩下大部分的样本点组成的集合是线性可分的。<br>线性不可分意味着某些样本点不能满足函数间隔大于等于1的约束条件，为了解决这个问题，可以对每个样本点引进一个松弛变量，使函数间隔加上松弛变量大于等于1.同时，对于每个松弛变量，再支付一个代价。<br>软间隔SVM的原始问题和对偶问题为:<br><img src="/2019/04/08/classical-algorithm/c.png"><p></p>
+<p></p><h1>关于软间隔的支持向量</h1><br>软间隔的支持向量或者在间隔边界上，或者在边界与分离超平面之间，或者在分离平面误分一侧。<p></p>
+<p></p><h1>非线性支持向量机与核函数</h1><p></p>
+<p></p><h2>非线性分类问题</h2><br>如果能用一个曲面能将支持向量机中的正负实例点分开，那么就称这个问题为非线性可分问题。<br>求解非线性变换问题的方法是进行一个非线性变换，将非线性问题变换为线性问题，通过解变换后 的线性问题的方法求解原来的非线性问题。<br>用线性分类方法求解非线性分类方法分为两步:<br>1.首先使用一个变换将原空间的数据映射到新空间。<br>2.然后在新空间里用线性分类学习方法从训练数据中学习分类模型。<br>映射函数是将输入空间映射到特征空间的一个函数。<p></p>
+<p></p><h1>核技巧</h1><br>在核函数给定的条件下，可以利用解线性分类问题的方法求解非线性分类问题的支持向量机。学习是隐式地在特征空间进行的，不需要显式地定义特征空间和映射函数。这样的技巧称为核技巧，它是巧妙地利用线性分类学习方法与核函数解决非线性问题的技术。<p></p>
+<p></p><h1>常用的核函数</h1><br>1.多项式核函数<br>2.高斯核函数<br>3.字符串核函数<p></p>
+<p></p><h1>总结与感想</h1><br>支持向量机想要学好的话太难了，对数学要求太高，量力而行吧~<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -154,7 +166,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于支持向量机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">硬间隔SVM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">关于对偶函数</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于支持向量机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">硬间隔SVM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">关于对偶函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">关于硬间隔支持向量机的一些结论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">关于硬间隔的支持向量和间隔边界</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">软间隔支持向量机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">关于软间隔的支持向量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">8.</span> <span class="toc-text">非线性支持向量机与核函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">8.1.</span> <span class="toc-text">非线性分类问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">9.</span> <span class="toc-text">核技巧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">10.</span> <span class="toc-text">常用的核函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">11.</span> <span class="toc-text">总结与感想</span></a></li></ol>
  
   </div>
 
