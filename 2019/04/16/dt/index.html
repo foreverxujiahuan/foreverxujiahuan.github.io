@@ -11,16 +11,16 @@
     
 
     
-    <meta name="description" content="用hexo搭建的个人博客">
+    <meta name="description" content="决策树的组成决策树由节点和有向边组成。节点有两种类型:内部节点和叶节点。内部节点表示属性，叶节点表示类。 决策树的工作流程用决策树分类，从根节点开始，对实例的某一特征进行测试，根据测试结果，将实例分配到子节点；这时，每一个子节点对应着该特征的一个取值。如此递归地对实例进行测试分配，最后将实例分到叶节点的类中。决策树工作流程可以看作是if-then规则的一个集合。 决策树学习决策树学习的目标是根据给">
 <meta property="og:type" content="article">
 <meta property="og:title" content="决策树">
 <meta property="og:url" content="http://yoursite.com/2019/04/16/dt/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="用hexo搭建的个人博客">
-<meta property="og:updated_time" content="2019-04-16T03:42:16.058Z">
+<meta property="og:description" content="决策树的组成决策树由节点和有向边组成。节点有两种类型:内部节点和叶节点。内部节点表示属性，叶节点表示类。 决策树的工作流程用决策树分类，从根节点开始，对实例的某一特征进行测试，根据测试结果，将实例分配到子节点；这时，每一个子节点对应着该特征的一个取值。如此递归地对实例进行测试分配，最后将实例分到叶节点的类中。决策树工作流程可以看作是if-then规则的一个集合。 决策树学习决策树学习的目标是根据给">
+<meta property="og:updated_time" content="2019-04-16T06:15:09.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="决策树">
-<meta name="twitter:description" content="用hexo搭建的个人博客">
+<meta name="twitter:description" content="决策树的组成决策树由节点和有向边组成。节点有两种类型:内部节点和叶节点。内部节点表示属性，叶节点表示类。 决策树的工作流程用决策树分类，从根节点开始，对实例的某一特征进行测试，根据测试结果，将实例分配到子节点；这时，每一个子节点对应着该特征的一个取值。如此递归地对实例进行测试分配，最后将实例分到叶节点的类中。决策树工作流程可以看作是if-then规则的一个集合。 决策树学习决策树学习的目标是根据给">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -96,11 +96,21 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">决策树的组成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">决策树的工作流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">决策树学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">决策树常用的算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">决策树中重要的几个数学概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.1.</span> <span class="toc-text">熵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.2.</span> <span class="toc-text">信息增益</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.</span> <span class="toc-text">信息增益比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.4.</span> <span class="toc-text">基尼指数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">三种经典决策树模型</span></a></li></ol>
 		
 		</div>
 		
-		  
+		<p></p><h1>决策树的组成</h1><br>决策树由节点和有向边组成。节点有两种类型:内部节点和叶节点。内部节点表示属性，叶节点表示类。<p></p>
+<p></p><h1>决策树的工作流程</h1><br>用决策树分类，从根节点开始，对实例的某一特征进行测试，根据测试结果，将实例分配到子节点；这时，每一个子节点对应着该特征的一个取值。如此递归地对实例进行测试分配，最后将实例分到叶节点的类中。决策树工作流程可以看作是if-then规则的一个集合。<p></p>
+<p></p><h1>决策树学习</h1><br>决策树学习的目标是根据给定的训练数据集构建一个决策树模型，使它能够对实例进行正确分类。<br>决策树学习的本质是从训练数据中归纳出一组分类规则。<br>我们需要的是一个与训练数据矛盾较小的决策树，同时具有较好的泛化能力。<br>决策树学习的算法通常是一个递归地选择最优特征，并根据该特征对训练数据进行分割，使得对各个子数据集有一个最好的分类过程。<br>决策树学习算法包括特征选择、决策树的生成与决策树的剪枝过程。<p></p>
+<p></p><h1>决策树常用的算法</h1><br>决策树常用的算法有ID3、C4.5、CART，它们选择特征的依据分别是”选取信息增益最大的”、”选取信息增益比最大的”、”选区基尼指数最大的”。<p></p>
+<p></p><h1>决策树中重要的几个数学概念</h1><p></p>
+<p></p><h2>熵</h2><br>在信息论与概率统计中，熵是表示随机变量不确定性的度量。若有一个随机变量X，它的概率分布为P(X=xi) = pi,i=1,2,3,…,n<br>则熵的定义为负的所有的概率乘上它们的对数值的和。其中，对数函数的底数通常会选择2.<br>熵只依赖于X的分布。<br>熵越大表示事件的不确定性越大。<br>条件熵表示在随机变量X的条件下随机变量Y的不确定性。<br>当熵和条件熵中的概率由数据估计得到时，所对应的熵与条件熵分别为经验熵和经验条件熵。<p></p>
+<p></p><h2>信息增益</h2><br>信息增益表示得自特征X的信息而使得类Y的信息的不确定性减少的程度。<br>不同的信息往往具有不同的信息增益。信息增益大的特征具有更强的分类能力。<br>根据信息增益准则的特征选择方法是:对训练数据集D，计算其每个特征的信息增益，并比较它们的大小，选择信息增益最大的特征。<p></p>
+<p></p><h2>信息增益比</h2><br>特征A对训练数据集D的信息增益比定义为其信息增益与训练数据集D关于特征A的值的熵之比。<p></p>
+<p></p><h2>基尼指数</h2><br>基尼指数等于1减去该特征所有概率的平方的和。基尼指数表示集合D的不确定性，基尼指数越大，样本集合的不确定性也就越大。<p></p>
+<p></p><h1>三种经典决策树模型</h1><br>首先，ID3是采用信息增益作为评价标准。信息增益反映的是给定条件以后不确定性减少的程度，特征取值越多就意味着确定性更高，也就是条件熵越小，信息增益越大。但是这种方法有着明显的缺陷，比如引入特征DNA，每个人的DNA都不同，如果按照ID3进行划分，该特征一定是最优的，但是它的泛化能力是非常弱的。而C4.5就是对ID3的一个优化，通过引入信息增益比一定程度上对取值比较多的特征进行惩罚，避免ID3出现过拟合的特性，提升决策树的泛化能力。<br>其次，从样本类型的角度，ID3只能处理离散型变量，而C4.5和CART都可以处理连续型变量。<br>从应用角度，ID3和C4.5只能用于分类任务，而CART既可以用于分类任务，也可以用于回归任务。<br>另外，ID3对样本特征缺失值比较敏感，而C4.5和CART可以对缺失值进行不同方式的处理；ID3和C4.5可以在每个节点上产生出多杈分枝，且每个特征在层级之间不会复用，而CART每个节点只会产生两个分支，因此最后会形成一颗二叉树，且每个特征可以被重复使用。IDE和C4.5利用剪枝来权衡树的准确性与泛化能力，而CART直接利用全部数据发现所有可能的树的结构进行对比。<p></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -151,7 +161,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">决策树的组成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">决策树的工作流程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">决策树学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">决策树常用的算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">决策树中重要的几个数学概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.1.</span> <span class="toc-text">熵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.2.</span> <span class="toc-text">信息增益</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.3.</span> <span class="toc-text">信息增益比</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.4.</span> <span class="toc-text">基尼指数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">三种经典决策树模型</span></a></li></ol>
  
   </div>
 
