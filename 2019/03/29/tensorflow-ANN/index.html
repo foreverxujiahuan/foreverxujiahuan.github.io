@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="使用神经网络解决分类问题主要的四个步骤1.提取问题中实体的特征向量作为神经网络的输入。2.定义神经网络的结构，并定义如何从神经网络的输入得到输出。3.通过训练数据来调整神经网络中参数的取值。4.使用训练好的神经网络来预测未知的数据。 前向传播算法神经元是构成一个神经网络的最小单元。一个最简单的神经元结构的输出就是所有输入的加权和，而不同输入的权重就是神经元的参数。神经网络的优化过程就是优化神经元中">
 <meta property="og:image" content="http://yoursite.com/2019/03/29/tensorflow-ANN/b.png">
-<meta property="og:updated_time" content="2019-04-03T04:35:49.044Z">
+<meta property="og:updated_time" content="2019-04-16T03:48:24.328Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用TensorFlow实现神经网络">
 <meta name="twitter:description" content="使用神经网络解决分类问题主要的四个步骤1.提取问题中实体的特征向量作为神经网络的输入。2.定义神经网络的结构，并定义如何从神经网络的输入得到输出。3.通过训练数据来调整神经网络中参数的取值。4.使用训练好的神经网络来预测未知的数据。 前向传播算法神经元是构成一个神经网络的最小单元。一个最简单的神经元结构的输出就是所有输入的加权和，而不同输入的权重就是神经元的参数。神经网络的优化过程就是优化神经元中">
@@ -50,7 +50,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -66,7 +66,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -89,14 +89,14 @@
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2019-03-29T10:27:47.000Z" itemprop="datePublished"> 发表于 2019-03-29</time>
+    <time datetime="2019-03-29T10:27:47.000Z" itemprop="datePublished"> Published 2019-03-29</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">使用神经网络解决分类问题主要的四个步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">前向传播算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">神经网络参数与TensorFlow变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">通过TensorFlow训练神经网络模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">TensorFlow入门总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">一个完整的神经网络样例程序</span></a></li></ol>
 		
@@ -115,7 +115,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/TensorFlow/">TensorFlow</a>
+  <a class="article-category-link" href="/categories/Deep-Learning-TensorFlow/">Deep Learning&TensorFlow</a>
 </div>
 
 
@@ -162,22 +162,22 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">使用神经网络解决分类问题主要的四个步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">前向传播算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">神经网络参数与TensorFlow变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">通过TensorFlow训练神经网络模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">TensorFlow入门总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">一个完整的神经网络样例程序</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github 名片</p>
+<p class="asidetitle">Github Card</p>
 <div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -186,8 +186,12 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
+		
+		  
+			<li><a href="/categories/Deep-Learning-TensorFlow/" title="Deep Learning&amp;TensorFlow">Deep Learning&amp;TensorFlow<sup>4</sup></a></li>
+		  
 		
 		  
 			<li><a href="/categories/Java/" title="Java">Java<sup>8</sup></a></li>
@@ -202,7 +206,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>13</sup></a></li>
+			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>14</sup></a></li>
 		  
 		
 		  
@@ -215,10 +219,6 @@
 		
 		  
 			<li><a href="/categories/Python/" title="Python">Python<sup>23</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/TensorFlow/" title="TensorFlow">TensorFlow<sup>4</sup></a></li>
 		  
 		
 		  
@@ -250,7 +250,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -510,7 +510,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/04/14/LR/index.html">
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="分类和回归任务的区别回归:将输入变量输入到一个模型中，该模型输出的值是连续的，称为回归模型。例如预测结果是一个数，但是这个数的可能性有无数种可能。分类:将输入变量输入到一个模型中，该模型输出的值是离散的，称为分类模型。例如预测结果是一个数，但是这个数的结果是有限种可能。 逻辑回归逻辑回归就是用回归的办法来坐分类。假如我们现在要用逻辑回归来坐一个二分类问题，判断一个人是否得了恶性肿瘤。按照多元线性回">
-<meta property="og:updated_time" content="2019-04-14T11:06:33.803Z">
+<meta property="og:updated_time" content="2019-04-16T03:20:11.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逻辑斯蒂回归">
 <meta name="twitter:description" content="分类和回归任务的区别回归:将输入变量输入到一个模型中，该模型输出的值是连续的，称为回归模型。例如预测结果是一个数，但是这个数的可能性有无数种可能。分类:将输入变量输入到一个模型中，该模型输出的值是离散的，称为分类模型。例如预测结果是一个数，但是这个数的结果是有限种可能。 逻辑回归逻辑回归就是用回归的办法来坐分类。假如我们现在要用逻辑回归来坐一个二分类问题，判断一个人是否得了恶性肿瘤。按照多元线性回">
@@ -48,7 +48,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -64,7 +64,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -87,21 +87,23 @@
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2019-04-14T08:16:50.000Z" itemprop="datePublished"> 发表于 2019-04-14</time>
+    <time datetime="2019-04-14T08:16:50.000Z" itemprop="datePublished"> Published 2019-04-14</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
+			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">分类和回归任务的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">逻辑回归</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">分类和回归任务的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">逻辑回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">逻辑回归与线性回归相似的地方</span></a></li></ol>
 		
 		</div>
 		
 		<p></p><h1>分类和回归任务的区别</h1><br>回归:将输入变量输入到一个模型中，该模型输出的值是连续的，称为回归模型。例如预测结果是一个数，但是这个数的可能性有无数种可能。<br>分类:将输入变量输入到一个模型中，该模型输出的值是离散的，称为分类模型。例如预测结果是一个数，但是这个数的结果是有限种可能。<p></p>
 <p></p><h1>逻辑回归</h1><br>逻辑回归就是用回归的办法来坐分类。<br>假如我们现在要用逻辑回归来坐一个二分类问题，判断一个人是否得了恶性肿瘤。<br>按照多元线性回归的思路，我们可以先对这个认为进行线性回归，学习出这个事情结果的规律，比如根据人的饮食，作息，工作和生存环境等条件预测一个人有没有得恶心肿瘤，可以先通过回归任务来预测人体内肿瘤的大小，取一个平均值作为阈值，假如平均值为y，肿瘤大小超过y为恶性肿瘤，无肿瘤或者大小小于y的，为非恶性。这样通过线性回归设定阈值的办法，就可以完成一个简单的二分类任务。<br>但是如果出现一些异常值的话，这个办法就行不通了，因为训练出来的模型会过拟合，所以我们需要来做两件事情<br>1.找到一个办法解决掉回归的函数严重受离群值影响的办法。<br>2.选定一个阈值。<br>我们可以用sigmod函数将原来的线性函数进行一个变换<br>sigmod函数预测的结果为0到1之间的小数，然后我们需要选定一个阈值。阈值的作用就是当输出大于阈值时，结论是0或1，然后当输出小于阈值时，结论再是0或1。阈值的设定往往是根据实际情况来判断的。<p></p>
+<p></p><h1>定义</h1><br>逻辑回归可以看作是对于”y=1|x”这一事件的对数几率的线性回归。<p></p>
+<p></p><h1>逻辑回归与线性回归相似的地方</h1><br>二者都是用了极大似然估计来对训练样本进行建模。另外，二者在求解超参数的过程中，都可以使用梯度下降的方法。<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -156,22 +158,22 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
+  <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">分类和回归任务的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">逻辑回归</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">分类和回归任务的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">逻辑回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">逻辑回归与线性回归相似的地方</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github 名片</p>
+<p class="asidetitle">Github Card</p>
 <div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -180,8 +182,12 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分类</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
+		
+		  
+			<li><a href="/categories/Deep-Learning-TensorFlow/" title="Deep Learning&amp;TensorFlow">Deep Learning&amp;TensorFlow<sup>4</sup></a></li>
+		  
 		
 		  
 			<li><a href="/categories/Java/" title="Java">Java<sup>8</sup></a></li>
@@ -196,7 +202,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>13</sup></a></li>
+			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>14</sup></a></li>
 		  
 		
 		  
@@ -209,10 +215,6 @@
 		
 		  
 			<li><a href="/categories/Python/" title="Python">Python<sup>23</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/TensorFlow/" title="TensorFlow">TensorFlow<sup>4</sup></a></li>
 		  
 		
 		  
@@ -244,7 +246,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -504,7 +506,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
