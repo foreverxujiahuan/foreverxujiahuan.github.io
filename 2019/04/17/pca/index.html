@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/04/17/pca/index.html">
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="主成分分析是最常用的一种降维方法。 关于降维降维的目的:减少需要分析的指标同时，尽量减少原指标包含信息的损失。以达到对所收集数据进行全面分析的目的。降维就是一种对高维度特征数据预处理方法。降维是将高维度的数据保留下最重要的一些特征，去除噪声和不重要的特征，从而实现提升数据处理速度的目的。在实际应用中，降维在一定的信息损失范围内，可以为我们节省大量的时间和成本。降维也称为应用非常广泛的数据预处理方法">
-<meta property="og:updated_time" content="2019-04-19T11:37:44.815Z">
+<meta property="og:updated_time" content="2019-04-20T04:47:16.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PCA(主成分分析法)">
 <meta name="twitter:description" content="主成分分析是最常用的一种降维方法。 关于降维降维的目的:减少需要分析的指标同时，尽量减少原指标包含信息的损失。以达到对所收集数据进行全面分析的目的。降维就是一种对高维度特征数据预处理方法。降维是将高维度的数据保留下最重要的一些特征，去除噪声和不重要的特征，从而实现提升数据处理速度的目的。在实际应用中，降维在一定的信息损失范围内，可以为我们节省大量的时间和成本。降维也称为应用非常广泛的数据预处理方法">
@@ -96,7 +96,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于降维</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">PCA概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">PCA中的一些数学基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">PCA的求解方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">降维问题的目标优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">进一步讨论</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于降维</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">PCA概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">PCA中的一些数学基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">PCA的求解方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">降维问题的目标优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">进一步讨论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">关于PCA最小平方误差理论</span></a></li></ol>
 		
 		</div>
 		
@@ -107,6 +107,7 @@
 <p></p><h1>PCA的求解方法</h1><br>1.对样本数据进行中心化处理<br>2.求样本协方差矩阵<br>3.对协方差矩阵进行特征值分解，将特征值从大到小排列<br>4.取特征值前d大对应的特征向量，将n维样本映射到d维<p></p>
 <p></p><h1>降维问题的目标优化</h1><br>将一组N维向量降维K维(K大于0，小于N)，其目标是选择K个单位(模为1)正交基，使得原数据变换到这组基上后，各字段两两间协方差为0，而字段的方差则尽可能大(在正交的约束下，取最大的K个方差)。而x投影后的方差就是协方差矩阵的特征值，我们要找到最大的方差也就是协方差矩阵的最大特征值，最佳投影方向就是最大特征值所对应的特征向量。<p></p>
 <p></p><h1>进一步讨论</h1><br>PCA本质上是将方差最大的方向最为主要特征，并且在各个正交方向上将数据”离相关”，也就是让它们在不同正交方向上没有相关性。<p></p>
+<p></p><h1>关于PCA最小平方误差理论</h1><br>数学中的回归问题也是求解一个线性函数使得对应直线能够更好地拟合样本点集合。如果从这个角度定义PCA的目标，那么问题就会转化为一个回归问题。<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -158,7 +159,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于降维</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">PCA概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">PCA中的一些数学基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">PCA的求解方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">降维问题的目标优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">进一步讨论</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">关于降维</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">PCA概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">PCA中的一些数学基础</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">PCA的求解方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">降维问题的目标优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">进一步讨论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">关于PCA最小平方误差理论</span></a></li></ol>
  
   </div>
 
