@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>算法牛客刷题笔记 | zzulixjh</title>
+    <title>非监督学习 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="用hexo搭建的个人博客">
+    <meta name="description" content="如何区分有监督学习和无监督学习是否有监督，就看输入是否有标签。输入数据有标签，则为有监督学习，没标签则为无监督学习。非监督学习的两大类学习方法数据聚类和特征变量关联是非监督学习的两大类学习方法。其中，聚类算法往往是通过多次迭代来找到数据的最优分割，而特征变量关联则是利用各种相关性分析来找到变量之间的关系。K均值聚类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法牛客刷题笔记">
-<meta property="og:url" content="http://yoursite.com/2018/07/16/suanfa/index.html">
+<meta property="og:title" content="非监督学习">
+<meta property="og:url" content="http://yoursite.com/2019/04/20/unsupervised/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="用hexo搭建的个人博客">
-<meta property="og:updated_time" content="2018-07-16T11:34:17.788Z">
+<meta property="og:description" content="如何区分有监督学习和无监督学习是否有监督，就看输入是否有标签。输入数据有标签，则为有监督学习，没标签则为无监督学习。非监督学习的两大类学习方法数据聚类和特征变量关联是非监督学习的两大类学习方法。其中，聚类算法往往是通过多次迭代来找到数据的最优分割，而特征变量关联则是利用各种相关性分析来找到变量之间的关系。K均值聚类">
+<meta property="og:updated_time" content="2019-04-20T09:26:41.277Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法牛客刷题笔记">
-<meta name="twitter:description" content="用hexo搭建的个人博客">
+<meta name="twitter:title" content="非监督学习">
+<meta name="twitter:description" content="如何区分有监督学习和无监督学习是否有监督，就看输入是否有标签。输入数据有标签，则为有监督学习，没标签则为无监督学习。非监督学习的两大类学习方法数据聚类和特征变量关联是非监督学习的两大类学习方法。其中，聚类算法往往是通过多次迭代来找到数据的最优分割，而特征变量关联则是利用各种相关性分析来找到变量之间的关系。K均值聚类">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -80,14 +80,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/07/16/suanfa/" title="算法牛客刷题笔记" itemprop="url">算法牛客刷题笔记</a>
+      <a href="/2019/04/20/unsupervised/" title="非监督学习" itemprop="url">非监督学习</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-07-16T11:33:17.000Z" itemprop="datePublished"> 發表於 2018-07-16</time>
+    <time datetime="2019-04-20T09:08:19.000Z" itemprop="datePublished"> 發表於 2019-04-20</time>
     
   </p>
 </header>
@@ -96,18 +96,19 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">如何区分有监督学习和无监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">非监督学习的两大类学习方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">K均值聚类</span></a></li></ol>
 		
 		</div>
 		
-		  
+		<h1>如何区分有监督学习和无监督学习</h1><br>是否有监督，就看输入是否有标签。输入数据有标签，则为有监督学习，没标签则为无监督学习。<br><h1>非监督学习的两大类学习方法</h1><br>数据聚类和特征变量关联是非监督学习的两大类学习方法。其中，聚类算法往往是通过多次迭代来找到数据的最优分割，而特征变量关联则是利用各种相关性分析来找到变量之间的关系。<br><h1>K均值聚类</h1>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/算法/">算法</a>
+  <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
 </div>
 
 
@@ -117,7 +118,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/07/16/suanfa/" data-title="算法牛客刷题笔记 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/04/20/unsupervised/" data-title="非监督学习 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -130,19 +131,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/07/18/myfirstml/" title="我的第一个机器学习样例">
-  <strong>上一篇：</strong><br/>
-  <span>
-  我的第一个机器学习样例</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/07/16/shujujiegou/"  title="数据结构牛客刷题笔记">
+<a href="/2019/04/20/LDA/"  title="LDA(线性判别分析)">
  <strong>下一篇：</strong><br/> 
- <span>数据结构牛客刷题笔记
+ <span>LDA(线性判别分析)
 </span>
 </a>
 </div>
@@ -159,7 +152,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">如何区分有监督学习和无监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">非监督学习的两大类学习方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">K均值聚类</span></a></li></ol>
  
   </div>
 
