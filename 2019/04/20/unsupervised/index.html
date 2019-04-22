@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>非监督学习 | zzulixjh</title>
+    <title>K-means(K均值聚类) | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="如何区分有监督学习和无监督学习是否有监督，就看输入是否有标签。输入数据有标签，则为有监督学习，没标签则为无监督学习。 非监督学习的两大类学习方法数据聚类和特征变量关联是非监督学习的两大类学习方法。其中，聚类算法往往是通过多次迭代来找到数据的最优分割，而特征变量关联则是利用各种相关性分析来找到变量之间的关系。 K均值聚类K-means算法是将样本聚类成k个簇">
+    <meta name="description" content="如何区分有监督学习和无监督学习是否有监督，就看输入是否有标签。输入数据有标签，则为有监督学习，没标签则为无监督学习。 非监督学习的两大类学习方法数据聚类和特征变量关联是非监督学习的两大类学习方法。其中，聚类算法往往是通过多次迭代来找到数据的最优分割，而特征变量关联则是利用各种相关性分析来找到变量之间的关系。 K均值聚类K-means算法是将样本聚类成k个簇，并给出每个数据对应的簇中心点。K均值算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="非监督学习">
+<meta property="og:title" content="K-means(K均值聚类)">
 <meta property="og:url" content="http://yoursite.com/2019/04/20/unsupervised/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="如何区分有监督学习和无监督学习是否有监督，就看输入是否有标签。输入数据有标签，则为有监督学习，没标签则为无监督学习。 非监督学习的两大类学习方法数据聚类和特征变量关联是非监督学习的两大类学习方法。其中，聚类算法往往是通过多次迭代来找到数据的最优分割，而特征变量关联则是利用各种相关性分析来找到变量之间的关系。 K均值聚类K-means算法是将样本聚类成k个簇">
-<meta property="og:updated_time" content="2019-04-20T12:39:36.463Z">
+<meta property="og:description" content="如何区分有监督学习和无监督学习是否有监督，就看输入是否有标签。输入数据有标签，则为有监督学习，没标签则为无监督学习。 非监督学习的两大类学习方法数据聚类和特征变量关联是非监督学习的两大类学习方法。其中，聚类算法往往是通过多次迭代来找到数据的最优分割，而特征变量关联则是利用各种相关性分析来找到变量之间的关系。 K均值聚类K-means算法是将样本聚类成k个簇，并给出每个数据对应的簇中心点。K均值算法">
+<meta property="og:updated_time" content="2019-04-21T11:39:48.426Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="非监督学习">
-<meta name="twitter:description" content="如何区分有监督学习和无监督学习是否有监督，就看输入是否有标签。输入数据有标签，则为有监督学习，没标签则为无监督学习。 非监督学习的两大类学习方法数据聚类和特征变量关联是非监督学习的两大类学习方法。其中，聚类算法往往是通过多次迭代来找到数据的最优分割，而特征变量关联则是利用各种相关性分析来找到变量之间的关系。 K均值聚类K-means算法是将样本聚类成k个簇">
+<meta name="twitter:title" content="K-means(K均值聚类)">
+<meta name="twitter:description" content="如何区分有监督学习和无监督学习是否有监督，就看输入是否有标签。输入数据有标签，则为有监督学习，没标签则为无监督学习。 非监督学习的两大类学习方法数据聚类和特征变量关联是非监督学习的两大类学习方法。其中，聚类算法往往是通过多次迭代来找到数据的最优分割，而特征变量关联则是利用各种相关性分析来找到变量之间的关系。 K均值聚类K-means算法是将样本聚类成k个簇，并给出每个数据对应的簇中心点。K均值算法">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -48,7 +48,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -80,29 +80,31 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/04/20/unsupervised/" title="非监督学习" itemprop="url">非监督学习</a>
+      <a href="/2019/04/20/unsupervised/" title="K-means(K均值聚类)" itemprop="url">K-means(K均值聚类)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2019-04-20T09:08:19.000Z" itemprop="datePublished"> 發表於 2019-04-20</time>
+    <time datetime="2019-04-20T09:08:19.000Z" itemprop="datePublished"> 发表于 2019-04-20</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">如何区分有监督学习和无监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">非监督学习的两大类学习方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">K均值聚类</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">如何区分有监督学习和无监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">非监督学习的两大类学习方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">K均值聚类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">K均值聚类的优缺点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">K均值算法的调优</span></a></li></ol>
 		
 		</div>
 		
 		<p></p><h1>如何区分有监督学习和无监督学习</h1><br>是否有监督，就看输入是否有标签。输入数据有标签，则为有监督学习，没标签则为无监督学习。<p></p>
 <p></p><h1>非监督学习的两大类学习方法</h1><br>数据聚类和特征变量关联是非监督学习的两大类学习方法。其中，聚类算法往往是通过多次迭代来找到数据的最优分割，而特征变量关联则是利用各种相关性分析来找到变量之间的关系。<p></p>
-<p></p><h1>K均值聚类</h1><br>K-means算法是将样本聚类成k个簇<p></p>
+<p></p><h1>K均值聚类</h1><br>K-means算法是将样本聚类成k个簇，并给出每个数据对应的簇中心点。<br>K均值算法的步骤:<br>1.数据预处理，如归一化、离群点处理等。<br>2.随机选取K个簇中心，记为μ1，μ2,…,μk<br>3.定义代价函数J，即最小化该簇中的点到簇中心的距离<br>4.令t=0,1,2,…为迭代步数，重复下面的过程直到代价函数J收敛<br>a.对于每一个样本，将其分配到距离最近的簇<br>b.对于每一个类簇，重新计算该类簇的中心<br>K均值算法在迭代时，假设当前J没有达到最小值，那么首先固定簇中心μk，调整每个样例xi所属的类别ci来让J函数减少;然后固定ci，调整簇中心μk使J减小。这两个过程交替循环，J单调递减:当J递减到最小值时，μk和ci也同时收敛<p></p>
+<p></p><h1>K均值聚类的优缺点</h1><br>缺点:<br>1.受初值和离群点的影响每次的结果不稳定<br>2.结果通常不是全局最优解而是局部最优解<br>3.无法很好的解决数据簇分布差别比较大的情况(比如一类是另一类数量的100倍的情况)<br>4.不太使用于离散分类<br>优点:<br>1.对于大数据集，K均值聚类算法相对是可伸缩和高效的，它的计算复杂度是O(NKt)接近于线性，其中N是数据对象的数目，K是聚类的簇数，t是迭代的轮数<p></p>
+<p></p><h1>K均值算法的调优</h1><br>1.数据归一化和离群点处理<br>2.合理选择K值，K值的选择一般基于经验和多次实验结果<br>3.采用核函数<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -120,7 +122,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2019/04/20/unsupervised/" data-title="非监督学习 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/04/20/unsupervised/" data-title="K-means(K均值聚类) | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -133,6 +135,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2019/04/21/clustering/" title="聚类">
+  <strong>上一篇：</strong><br/>
+  <span>
+  聚类</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2019/04/20/LDA/"  title="LDA(线性判别分析)">
@@ -149,17 +159,17 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">如何区分有监督学习和无监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">非监督学习的两大类学习方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">K均值聚类</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">如何区分有监督学习和无监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">非监督学习的两大类学习方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">K均值聚类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">K均值聚类的优缺点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">K均值算法的调优</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
@@ -173,7 +183,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分類</p>
+	<p class="asidetitle">分类</p>
 		<ul>
 		
 		  
@@ -193,7 +203,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>17</sup></a></li>
+			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>19</sup></a></li>
 		  
 		
 		  
@@ -237,7 +247,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -497,7 +507,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
