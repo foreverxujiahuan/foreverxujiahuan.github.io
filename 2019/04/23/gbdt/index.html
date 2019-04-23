@@ -17,7 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2019/04/23/gbdt/index.html">
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="GBDT是Boosting算法中非常流行的模型。GBDT非常好的体现了”从错误中学习”的理念，基于决策树预测的残差进行迭代学习。 GBDT的原理GBDT是Boosting中的一大类算法，其基本思想是根据当前模型损失函数的负梯度信息来训练新加入的弱分类器，然后将训练好的弱分类器以累加的形式结合到现有的模型中。GBDT中使用的决策树通常为CART。我对于GBDT的理解就是有很多的决策树，利用Boost">
-<meta property="og:updated_time" content="2019-04-23T08:21:25.712Z">
+<meta property="og:updated_time" content="2019-04-23T08:34:45.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="梯度提升决策树(GBDT)">
 <meta name="twitter:description" content="GBDT是Boosting算法中非常流行的模型。GBDT非常好的体现了”从错误中学习”的理念，基于决策树预测的残差进行迭代学习。 GBDT的原理GBDT是Boosting中的一大类算法，其基本思想是根据当前模型损失函数的负梯度信息来训练新加入的弱分类器，然后将训练好的弱分类器以累加的形式结合到现有的模型中。GBDT中使用的决策树通常为CART。我对于GBDT的理解就是有很多的决策树，利用Boost">
@@ -48,7 +48,7 @@
 				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -64,7 +64,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -87,21 +87,22 @@
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2019-04-23T07:52:59.000Z" itemprop="datePublished"> Published 2019-04-23</time>
+    <time datetime="2019-04-23T07:52:59.000Z" itemprop="datePublished"> 發表於 2019-04-23</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">GBDT的原理</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">GBDT的原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">GBDT的优点和局限性</span></a></li></ol>
 		
 		</div>
 		
 		<p>GBDT是Boosting算法中非常流行的模型。GBDT非常好的体现了”从错误中学习”的理念，基于决策树预测的残差进行迭代学习。</p>
 <p></p><h1>GBDT的原理</h1><br>GBDT是Boosting中的一大类算法，其基本思想是根据当前模型损失函数的负梯度信息来训练新加入的弱分类器，然后将训练好的弱分类器以累加的形式结合到现有的模型中。<br>GBDT中使用的决策树通常为CART。<br>我对于GBDT的理解就是有很多的决策树，利用Boosting方法串在一起，每一棵决策树的输入是上一棵决策树的输出的结果与真实值的残差。<br>GBDT是利用残差进行训练的，在预测的过程中，我们也需要把所有的预测值加起来，得到最终的预测结果。<p></p>
+<p></p><h1>GBDT的优点和局限性</h1><br>优点:<br>1.在预测阶段的计算快速，树与树之间可以并行化计算<br>2.在分布稠密的数据集上，泛化能力和表达能力都很好。<br>3.采用决策树作为弱分类器使得GBDT模型具有较好的解释性和鲁棒性，能够自动发现特征间的高阶关系，并且也不需要对数据进行特殊的预处理。<br>局限性:<br>1.GBDT在高维稀疏的数据集上，表现不如SVM或者神经网络<br>2.GBDT在处理文本分类特征问题上，相对其他模型的优势不如在处理数值特征时明显。<br>3.训练过程需要串行训练，只能在决策树内部采用一些局部并行的手段提高训练速度。<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -148,22 +149,22 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目錄</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">GBDT的原理</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">GBDT的原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">GBDT的优点和局限性</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
 <div class="github-card">
-<p class="asidetitle">Github Card</p>
+<p class="asidetitle">Github 名片</p>
 <div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
 </div>
@@ -172,7 +173,7 @@
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 		  
@@ -236,7 +237,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情鏈接</p>
     <ul>
         
           <li>
@@ -496,7 +497,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
