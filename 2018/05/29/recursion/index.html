@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
-<html >
-<head>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
     <title>分治与递归 | zzulixjh</title>
@@ -17,6 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/05/29/recursion/index.html">
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="递归的基本思想递归就是某个函数直接或间接调用自身的问题求解过程直接递归:函数在执行过程中调用本身。间接递归:函数在执行过程中调用其它函数再经过这些函数调用本身递归经常最为归纳法很分治法的结果自然地出现 关于递归函数的总结1.必须有可能最终达到的终止条件，否则程序将陷入无穷循环；2.子问题在规模上比原问题小，或更接近终止条件；3.子问题可通过再次递归调用求解或因满足终止条件而直接求解；4.子问题的解">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-05-31T10:24:32.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分治与递归">
@@ -34,7 +35,7 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -96,7 +97,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">递归的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于递归函数的总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">归纳法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.0.1.</span> <span class="toc-text">选择排序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">分治</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.2.</span> <span class="toc-text">分治法的使用条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.3.</span> <span class="toc-text">分治法的基本步骤</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">递归的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">关于递归函数的总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">归纳法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">3.0.1.</span> <span class="toc-text">选择排序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">分治</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">4.0.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">4.0.2.</span> <span class="toc-text">分治法的使用条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">4.0.3.</span> <span class="toc-text">分治法的基本步骤</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
@@ -167,7 +168,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">递归的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">关于递归函数的总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">归纳法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.0.1.</span> <span class="toc-text">选择排序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">分治</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.2.</span> <span class="toc-text">分治法的使用条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.0.3.</span> <span class="toc-text">分治法的基本步骤</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">递归的基本思想</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">关于递归函数的总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">归纳法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">3.0.1.</span> <span class="toc-text">选择排序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">分治</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">4.0.1.</span> <span class="toc-text">思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">4.0.2.</span> <span class="toc-text">分治法的使用条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">4.0.3.</span> <span class="toc-text">分治法的基本步骤</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -234,7 +235,7 @@
 		  
 		
 		  
-			<li><a href="/categories/life/" title="生活">生活<sup>14</sup></a></li>
+			<li><a href="/categories/life/" title="生活">生活<sup>15</sup></a></li>
 		  
 		
 		  

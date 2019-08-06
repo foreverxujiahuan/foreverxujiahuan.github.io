@@ -1,7 +1,7 @@
 
  <!DOCTYPE HTML>
-<html >
-<head>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
     <title>Python中的对象引用、可变性和垃圾回收 | zzulixjh</title>
@@ -17,6 +17,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/08/19/pybox/index.html">
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="针对名著&amp;lt;&amp;lt;流畅的Python&amp;gt;&amp;gt;中关于对象引用、可变性和垃圾回收，我做以下总结。 变量不是盒子先来看一个例子现在b是什么?在此之前，让我回答这个问题，我肯定会认为b还是[1,2,3]，但是事实上，b已经被改变了，此程序输出的是[1,2,3,4]这是因为在Python中，变量并不是一个盒子，变量a和b引用同一个列表，而不是那个列表的副本。为了理解Python中的赋值语句，应">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2018/08/19/pybox/a.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/19/pybox/b.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/19/pybox/c.png">
@@ -39,7 +40,7 @@
     
     <link rel="stylesheet" href="/css/style.css">
 </head>
-
+</html>
   <body>
     <header>
       
@@ -101,7 +102,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">变量不是盒子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">标识、相等性和别名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">del和垃圾回收</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">弱引用</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">变量不是盒子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">标识、相等性和别名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">del和垃圾回收</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">弱引用</span></a></li></ol>
 		
 		</div>
 		
@@ -169,7 +170,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">变量不是盒子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">标识、相等性和别名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">del和垃圾回收</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">弱引用</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">变量不是盒子</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">标识、相等性和别名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">del和垃圾回收</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">弱引用</span></a></li></ol>
  
   </div>
 
@@ -236,7 +237,7 @@
 		  
 		
 		  
-			<li><a href="/categories/life/" title="生活">生活<sup>14</sup></a></li>
+			<li><a href="/categories/life/" title="生活">生活<sup>15</sup></a></li>
 		  
 		
 		  
