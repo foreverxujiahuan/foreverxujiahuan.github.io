@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="Levene’s Test检验是用于检验两组及两组以上独立样本的方差是否相等。且要求样本为随机样本且相互独立。与之前的检验不同，它检验的是方差齐性 Python实现12345import scipy.stats as statsarray1 = np.array([1,2,3,4])array2 = np.array([4,5,6,7,9])p = stats.levene(array1,arra">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-13T05:42:12.958Z">
+<meta property="og:updated_time" content="2019-08-13T05:59:51.510Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="levene检验">
 <meta name="twitter:description" content="Levene’s Test检验是用于检验两组及两组以上独立样本的方差是否相等。且要求样本为随机样本且相互独立。与之前的检验不同，它检验的是方差齐性 Python实现12345import scipy.stats as statsarray1 = np.array([1,2,3,4])array2 = np.array([4,5,6,7,9])p = stats.levene(array1,arra">
@@ -103,7 +103,7 @@
 		
 		<p>Levene’s Test检验是用于检验两组及两组以上独立样本的方差是否相等。且要求样本为随机样本且相互独立。<br>与之前的检验不同，它检验的是方差齐性</p>
 <p></p><h1>Python实现</h1><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> stats</span><br><span class="line">array1 = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">array2 = np.array([<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">9</span>])</span><br><span class="line">p = stats.levene(array1,array2)</span><br><span class="line">print(p)</span><br></pre></td></tr></table></figure><p></p>
-<p>输出为</p>
+<p>输出为LeveneResult(statistic=0.40143369175627225, pvalue=0.5464859541069662)</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -134,6 +134,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2019/08/13/feature1/" title="feature1">
+  <strong>上一篇：</strong><br/>
+  <span>
+  feature1</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2019/08/13/mannwhitney/"  title="Mann-Whitney U检验">
@@ -230,7 +238,7 @@
 		  
 		
 		  
-			<li><a href="/categories/统计学/" title="统计学">统计学<sup>5</sup></a></li>
+			<li><a href="/categories/统计学/" title="统计学">统计学<sup>6</sup></a></li>
 		  
 		
 		  
