@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="相关系数相关系数反映的是x与y之间变化趋势的方向以及程度，其值范围为-1到+1，0表示两个变量不相关，正值表示正相关，负值表示负相关，值的绝对值越大，表示相关性越强。举个例子，我现在在做一个项目，要计算人的一些指标对是否会患有脑卒中的影响。比如年龄这个指标，如果计算出来年龄这个指标的r值是正的，那么说明年龄大的人更加容易患有脑卒中。相关系数计算的方式有皮尔森相关性系数、斯皮尔曼相关性系数、肯德尔相">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-13T08:32:21.100Z">
+<meta property="og:updated_time" content="2019-08-13T08:59:35.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="统计学三大相关系数(pearson、spearman、kendall)">
 <meta name="twitter:description" content="相关系数相关系数反映的是x与y之间变化趋势的方向以及程度，其值范围为-1到+1，0表示两个变量不相关，正值表示正相关，负值表示负相关，值的绝对值越大，表示相关性越强。举个例子，我现在在做一个项目，要计算人的一些指标对是否会患有脑卒中的影响。比如年龄这个指标，如果计算出来年龄这个指标的r值是正的，那么说明年龄大的人更加容易患有脑卒中。相关系数计算的方式有皮尔森相关性系数、斯皮尔曼相关性系数、肯德尔相">
@@ -97,7 +97,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">相关系数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">皮尔森相关性系数(person)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">2.1.</span> <span class="toc-text">皮尔逊相关系数的Python实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">斯皮尔曼相关性系数(spearman)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">3.1.</span> <span class="toc-text">斯皮尔曼相关系数的python实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">肯德尔相关系数(kendall)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">4.1.</span> <span class="toc-text">肯德尔相关系数的python实现</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">相关系数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">皮尔森相关性系数(person)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">2.1.</span> <span class="toc-text">皮尔逊相关系数的Python实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">斯皮尔曼相关性系数(spearman)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">3.1.</span> <span class="toc-text">斯皮尔曼相关系数的python实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">肯德尔相关系数(kendall)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">4.1.</span> <span class="toc-text">肯德尔相关系数的python实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
@@ -111,6 +111,7 @@
 <p></p><h1>肯德尔相关系数(kendall)</h1><br>肯德尔相关性系数，又称肯德尔秩相关系数，它也是一种秩相关系数，不过它所计算的对象是分类变量，分类变量又可以分为<br>有序的,比如性别(男，女）、血型(A、B、O、AB)<br>有序的，比如肥胖等级(重度肥胖、中度肥胖、轻度肥胖、不肥胖)。<p></p>
 <p></p><h2>肯德尔相关系数的python实现</h2><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> kendalltau</span><br><span class="line">y = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">x = [<span class="number">5</span>,<span class="number">7</span>,<span class="number">10</span>,<span class="number">9</span>,<span class="number">12</span>]</span><br><span class="line">r,p = kendalltau(x,y)</span><br><span class="line">print(r)</span><br><span class="line">print(p)</span><br></pre></td></tr></table></figure><p></p>
 <p>输出为:<br>0.7999999999999999<br>0.08333333333333333<br>这里x是饮食量大小，y是肥胖等级，越大表示越肥胖。</p>
+<p></p><h1>总结</h1><br>计算pearson相关系数，连续性变量才可采用;计算Spearman秩相关系数，适合于定序变量或不满足正太分布假设的等间隔数据；计算Kendall秩相关系数，适合于定序变量或不满足正太分布假设的等间隔数据。<br>Pearson相关复选项积差<p></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -143,9 +144,9 @@
  
 
 <div class="next">
-<a href="/2019/08/13/feature1/"  title="feature1">
+<a href="/2019/08/13/feature1/"  title="特征理解">
  <strong>下一篇：</strong><br/> 
- <span>feature1
+ <span>特征理解
 </span>
 </a>
 </div>
@@ -162,7 +163,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">相关系数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">皮尔森相关性系数(person)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">2.1.</span> <span class="toc-text">皮尔逊相关系数的Python实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">斯皮尔曼相关性系数(spearman)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">3.1.</span> <span class="toc-text">斯皮尔曼相关系数的python实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">肯德尔相关系数(kendall)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">4.1.</span> <span class="toc-text">肯德尔相关系数的python实现</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">相关系数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">皮尔森相关性系数(person)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">2.1.</span> <span class="toc-text">皮尔逊相关系数的Python实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">斯皮尔曼相关性系数(spearman)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">3.1.</span> <span class="toc-text">斯皮尔曼相关系数的python实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">肯德尔相关系数(kendall)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">4.1.</span> <span class="toc-text">肯德尔相关系数的python实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
@@ -201,7 +202,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>24</sup></a></li>
+			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>25</sup></a></li>
 		  
 		
 		  
