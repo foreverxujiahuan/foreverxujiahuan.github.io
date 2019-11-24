@@ -4,29 +4,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>学会使用谷歌搜索 | zzulixjh</title>
+    <title>词嵌入模型工具——Word2Vec | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="国内大多数人目前都习惯于使用百度搜索，但是百度它里面搜出来的一些文章其实都是经过筛选的，说白了大多都是垃圾文章。尤其对于学习计算机技术的人来说，视野收到了很大的限制。因此我们很有必要学会使用谷歌搜索引擎，去看看那些国外的大神是如何思考的。 学会使用chrome浏览器既然是使用谷歌搜索引擎，那么我们最好就使用谷歌浏览器这个浏览器下载起来非常方便，我就不赘述了。如果下载不到就使用qq电脑管家的软件管理">
+    <meta name="description" content="Word2Vec是实现CBOW和Skip-gram语言模型的工具。在机器学习中，如何使用向量表示词？Word2Vec解决的就是这一个问题。词向量是用来表示词的向量，通常也被认为是词的特征向量。word2Vec是一种工具，它主要包含两个模型:跳字模型(skip-gram)和连续词袋模型(CBOW)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="学会使用谷歌搜索">
-<meta property="og:url" content="http://yoursite.com/2018/06/08/google/index.html">
+<meta property="og:title" content="词嵌入模型工具——Word2Vec">
+<meta property="og:url" content="http://yoursite.com/2019/08/30/word2vec/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="国内大多数人目前都习惯于使用百度搜索，但是百度它里面搜出来的一些文章其实都是经过筛选的，说白了大多都是垃圾文章。尤其对于学习计算机技术的人来说，视野收到了很大的限制。因此我们很有必要学会使用谷歌搜索引擎，去看看那些国外的大神是如何思考的。 学会使用chrome浏览器既然是使用谷歌搜索引擎，那么我们最好就使用谷歌浏览器这个浏览器下载起来非常方便，我就不赘述了。如果下载不到就使用qq电脑管家的软件管理">
+<meta property="og:description" content="Word2Vec是实现CBOW和Skip-gram语言模型的工具。在机器学习中，如何使用向量表示词？Word2Vec解决的就是这一个问题。词向量是用来表示词的向量，通常也被认为是词的特征向量。word2Vec是一种工具，它主要包含两个模型:跳字模型(skip-gram)和连续词袋模型(CBOW)">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/06/08/google/a.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/08/google/b.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/08/google/c.png">
-<meta property="og:image" content="http://yoursite.com/2018/06/08/google/d.png">
-<meta property="og:updated_time" content="2018-06-08T04:42:10.214Z">
+<meta property="og:updated_time" content="2019-08-30T07:06:21.522Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学会使用谷歌搜索">
-<meta name="twitter:description" content="国内大多数人目前都习惯于使用百度搜索，但是百度它里面搜出来的一些文章其实都是经过筛选的，说白了大多都是垃圾文章。尤其对于学习计算机技术的人来说，视野收到了很大的限制。因此我们很有必要学会使用谷歌搜索引擎，去看看那些国外的大神是如何思考的。 学会使用chrome浏览器既然是使用谷歌搜索引擎，那么我们最好就使用谷歌浏览器这个浏览器下载起来非常方便，我就不赘述了。如果下载不到就使用qq电脑管家的软件管理">
-<meta name="twitter:image" content="http://yoursite.com/2018/06/08/google/a.png">
+<meta name="twitter:title" content="词嵌入模型工具——Word2Vec">
+<meta name="twitter:description" content="Word2Vec是实现CBOW和Skip-gram语言模型的工具。在机器学习中，如何使用向量表示词？Word2Vec解决的就是这一个问题。词向量是用来表示词的向量，通常也被认为是词的特征向量。word2Vec是一种工具，它主要包含两个模型:跳字模型(skip-gram)和连续词袋模型(CBOW)">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -86,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2018/06/08/google/" title="学会使用谷歌搜索" itemprop="url">学会使用谷歌搜索</a>
+      <a href="/2019/08/30/word2vec/" title="词嵌入模型工具——Word2Vec" itemprop="url">词嵌入模型工具——Word2Vec</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2018-06-08T04:03:10.000Z" itemprop="datePublished"> Published 2018-06-08</time>
+    <time datetime="2019-08-30T06:46:32.000Z" itemprop="datePublished"> Published 2019-08-30</time>
     
   </p>
 </header>
@@ -102,15 +97,11 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">学会使用chrome浏览器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">完成”翻墙”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">使用google</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">美化我们的chrome</span></a></li></ol>
+			
 		
 		</div>
 		
-		<p>国内大多数人目前都习惯于使用百度搜索，但是百度它里面搜出来的一些文章其实都是经过筛选的，说白了大多都是垃圾文章。尤其对于学习计算机技术的人来说，视野收到了很大的限制。因此我们很有必要学会使用谷歌搜索引擎，去看看那些国外的大神是如何思考的。</p>
-<p></p><h1>学会使用chrome浏览器</h1><br>既然是使用谷歌搜索引擎，那么我们最好就使用谷歌浏览器<br><img src="/2018/06/08/google/a.png"><br>这个浏览器下载起来非常方便，我就不赘述了。如果下载不到就使用qq电脑管家的软件管理，去那里下载就可以了。<p></p>
-<p></p><h1>完成”翻墙”</h1><br>因为我们要使用外国的网，所以我们需要翻墙。现在翻墙软件去网上搜一般搜不到，都被下架了。我这里分享个我用的翻墙软件。<br>链接：<a href="https://pan.baidu.com/s/14hATpx9t0HuNf8LVrsw0TQ" target="_blank" rel="noopener">https://pan.baidu.com/s/14hATpx9t0HuNf8LVrsw0TQ</a> 密码：xtem<p></p>
-<p></p><h1>使用google</h1><br>在我们完成了翻墙后，我们需要对我们的浏览器进行设置。<br><img src="/2018/06/08/google/b.png"><br>我们点击右上角那三个点，然后点击设置<br><img src="/2018/06/08/google/c.png"><br>我们将启动时的网页设置成<a href="https://www.google.com.hk/" target="_blank" rel="noopener">https://www.google.com.hk/</a><p></p>
-<p></p><h1>美化我们的chrome</h1><br>另外我们可以根据我们自己的喜好对chrome浏览器的外观进行设置<br>还是像刚刚那样打开设置，点击外观中的主题背景<br><img src="/2018/06/08/google/d.png"><br>在里面就可以选择自己喜欢的主题背景了.<p></p>
+		<p>Word2Vec是实现CBOW和Skip-gram语言模型的工具。<br>在机器学习中，如何使用向量表示词？Word2Vec解决的就是这一个问题。<br>词向量是用来表示词的向量，通常也被认为是词的特征向量。<br>word2Vec是一种工具，它主要包含两个模型:跳字模型(skip-gram)和连续词袋模型(CBOW)</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -118,7 +109,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/pc/">计算机</a>
+  <a class="article-category-link" href="/categories/NLP/">NLP</a>
 </div>
 
 
@@ -128,7 +119,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/06/08/google/" data-title="学会使用谷歌搜索 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/08/30/word2vec/" data-title="词嵌入模型工具——Word2Vec | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -141,19 +132,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2018/06/09/myidea/" title="写给六月九号的自己">
-  <strong>上一篇：</strong><br/>
-  <span>
-  写给六月九号的自己</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2018/06/07/uninstall-edge/"  title="windows10卸载edge的方法">
+<a href="/2019/08/30/dasan/"  title="大三总结">
  <strong>下一篇：</strong><br/> 
- <span>windows10卸载edge的方法
+ <span>大三总结
 </span>
 </a>
 </div>
@@ -170,7 +153,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">学会使用chrome浏览器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">完成”翻墙”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">使用google</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">美化我们的chrome</span></a></li></ol>
+ 
  
   </div>
 
