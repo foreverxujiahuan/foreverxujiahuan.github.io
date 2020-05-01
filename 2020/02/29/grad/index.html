@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="zzulixjh">
 <meta property="og:description" content="梯度提到梯度，就必须从导数、偏导数和方向导数讲起,弄清楚这些概念，才能正确理解为什么在优化问题中使用梯度下降法来优化目标函数， 并熟练掌握梯度下降法。梯度的提出只为回答一个问题:函数在变量空间的某一点处，沿着哪一个方向有最大的变化率?这里注意三点:1)梯度是一个向量2)梯度的方向是最大方向导数的方向3)梯度的值是最大方向导数的值。梯度即函数在某一点最大的方向导数，函数延梯度方向函数有最大的变化率">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-02-29T11:43:58.293Z">
+<meta property="og:updated_time" content="2020-05-01T10:27:47.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="梯度与梯度下降">
 <meta name="twitter:description" content="梯度提到梯度，就必须从导数、偏导数和方向导数讲起,弄清楚这些概念，才能正确理解为什么在优化问题中使用梯度下降法来优化目标函数， 并熟练掌握梯度下降法。梯度的提出只为回答一个问题:函数在变量空间的某一点处，沿着哪一个方向有最大的变化率?这里注意三点:1)梯度是一个向量2)梯度的方向是最大方向导数的方向3)梯度的值是最大方向导数的值。梯度即函数在某一点最大的方向导数，函数延梯度方向函数有最大的变化率">
@@ -97,17 +97,13 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">梯度提到梯度，就必须从导数、偏导数和方向导数讲起,弄清楚这些概念，才能正确理解为什么在优化问题中使用梯度下降法来优化目标函数， 并熟练掌握梯度下降法。梯度的提出只为回答一个问题:函数在变量空间的某一点处，沿着哪一个方向有最大的变化率?这里注意三点:1)梯度是一个向量2)梯度的方向是最大方向导数的方向3)梯度的值是最大方向导数的值。梯度即函数在某一点最大的方向导数，函数延梯度方向函数有最大的变化率
-梯度下降法既然在变量空间的某一点处，函数沿梯度方向具有最大的变化率，那么在优化目标函数的时候，自然是沿着负梯度方向去减小函数值，以此达到我们的优化目标
-</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">提到梯度，就必须从导数、偏导数和方向导数讲起,弄清楚这些概念，才能正确理解为什么在优化问题中使用梯度下降法来优化目标函数， 并熟练掌握梯度下降法。梯度的提出只为回答一个问题:函数在变量空间的某一点处，沿着哪一个方向有最大的变化率?这里注意三点:1)梯度是一个向量2)梯度的方向是最大方向导数的方向3)梯度的值是最大方向导数的值。梯度即函数在某一点最大的方向导数，函数延梯度方向函数有最大的变化率
-梯度下降法既然在变量空间的某一点处，函数沿梯度方向具有最大的变化率，那么在优化目标函数的时候，自然是沿着负梯度方向去减小函数值，以此达到我们的优化目标
-</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">梯度下降法</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">梯度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">梯度下降法</span></a></li></ol>
 		
 		</div>
 		
-		<p></p><h1>梯度<h1><br>提到梯度，就必须从导数、偏导数和方向导数讲起,弄清楚这些概念，才能正确理解为什么在优化问题中使用梯度下降法来优化目标函数， 并熟练掌握梯度下降法。<br>梯度的提出只为回答一个问题:<br>函数在变量空间的某一点处，沿着哪一个方向有最大的变化率?<br>这里注意三点:<br>1)梯度是一个向量<br>2)梯度的方向是最大方向导数的方向<br>3)梯度的值是最大方向导数的值。<br>梯度即函数在某一点最大的方向导数，函数延梯度方向函数有最大的变化率<p></p>
+		<p></p><h1>梯度</h1><br>提到梯度，就必须从导数、偏导数和方向导数讲起,弄清楚这些概念，才能正确理解为什么在优化问题中使用梯度下降法来优化目标函数， 并熟练掌握梯度下降法。<br>梯度的提出只为回答一个问题:<br>函数在变量空间的某一点处，沿着哪一个方向有最大的变化率?<br>这里注意三点:<br>1)梯度是一个向量<br>2)梯度的方向是最大方向导数的方向<br>3)梯度的值是最大方向导数的值。<br>梯度即函数在某一点最大的方向导数，函数延梯度方向函数有最大的变化率<p></p>
 <p></p><h1>梯度下降法</h1><br>既然在变量空间的某一点处，函数沿梯度方向具有最大的变化率，那么在优化目标函数的时候，自然是沿着负梯度方向去减小函数值，以此达到我们的优化目标<p></p>
-</h1></h1>  
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -158,11 +154,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">梯度提到梯度，就必须从导数、偏导数和方向导数讲起,弄清楚这些概念，才能正确理解为什么在优化问题中使用梯度下降法来优化目标函数， 并熟练掌握梯度下降法。梯度的提出只为回答一个问题:函数在变量空间的某一点处，沿着哪一个方向有最大的变化率?这里注意三点:1)梯度是一个向量2)梯度的方向是最大方向导数的方向3)梯度的值是最大方向导数的值。梯度即函数在某一点最大的方向导数，函数延梯度方向函数有最大的变化率
-梯度下降法既然在变量空间的某一点处，函数沿梯度方向具有最大的变化率，那么在优化目标函数的时候，自然是沿着负梯度方向去减小函数值，以此达到我们的优化目标
-</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">提到梯度，就必须从导数、偏导数和方向导数讲起,弄清楚这些概念，才能正确理解为什么在优化问题中使用梯度下降法来优化目标函数， 并熟练掌握梯度下降法。梯度的提出只为回答一个问题:函数在变量空间的某一点处，沿着哪一个方向有最大的变化率?这里注意三点:1)梯度是一个向量2)梯度的方向是最大方向导数的方向3)梯度的值是最大方向导数的值。梯度即函数在某一点最大的方向导数，函数延梯度方向函数有最大的变化率
-梯度下降法既然在变量空间的某一点处，函数沿梯度方向具有最大的变化率，那么在优化目标函数的时候，自然是沿着负梯度方向去减小函数值，以此达到我们的优化目标
-</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">梯度下降法</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">梯度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">梯度下降法</span></a></li></ol>
  
   </div>
 
@@ -226,8 +218,6 @@
 		
 		  
 			<li><a href="/categories/front/" title="前端">前端<sup>10</sup></a></li>
-		  
-		
 		  
 		
 		  
