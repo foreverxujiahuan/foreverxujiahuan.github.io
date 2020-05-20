@@ -4,26 +4,24 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
   
-    <title>使用TensorFlow实现神经网络 | zzulixjh</title>
+    <title>杂谈 | zzulixjh</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="zzulixjh">
     
 
     
-    <meta name="description" content="使用神经网络解决分类问题主要的四个步骤1.提取问题中实体的特征向量作为神经网络的输入。2.定义神经网络的结构，并定义如何从神经网络的输入得到输出。3.通过训练数据来调整神经网络中参数的取值。4.使用训练好的神经网络来预测未知的数据。 前向传播算法神经元是构成一个神经网络的最小单元。一个最简单的神经元结构的输出就是所有输入的加权和，而不同输入的权重就是神经元的参数。神经网络的优化过程就是优化神经元中">
+    <meta name="description" content="主要是最近乱七八糟的发生了很多事情，有包括找工作的、学校开学的、自己今后的打算等等。现在已经是深夜了，主要想说一下自己今后的一个发展方向。按照自己最初的想法，自己是想往NLP算法工程师这一条路上走下去的，但是最近也在看一些招聘，大多都要研究生了，岗位的要求也越来越高。其实也不是说觉得自己从事不了这个岗位，只是越来越觉得自己纯搞算法前途不大。如果自己是名校研究生，可能会励志让自己成为算法领域的专家，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用TensorFlow实现神经网络">
-<meta property="og:url" content="http://yoursite.com/2019/03/29/tensorflow-ANN/index.html">
+<meta property="og:title" content="杂谈">
+<meta property="og:url" content="http://yoursite.com/2020/05/21/my-521/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="使用神经网络解决分类问题主要的四个步骤1.提取问题中实体的特征向量作为神经网络的输入。2.定义神经网络的结构，并定义如何从神经网络的输入得到输出。3.通过训练数据来调整神经网络中参数的取值。4.使用训练好的神经网络来预测未知的数据。 前向传播算法神经元是构成一个神经网络的最小单元。一个最简单的神经元结构的输出就是所有输入的加权和，而不同输入的权重就是神经元的参数。神经网络的优化过程就是优化神经元中">
+<meta property="og:description" content="主要是最近乱七八糟的发生了很多事情，有包括找工作的、学校开学的、自己今后的打算等等。现在已经是深夜了，主要想说一下自己今后的一个发展方向。按照自己最初的想法，自己是想往NLP算法工程师这一条路上走下去的，但是最近也在看一些招聘，大多都要研究生了，岗位的要求也越来越高。其实也不是说觉得自己从事不了这个岗位，只是越来越觉得自己纯搞算法前途不大。如果自己是名校研究生，可能会励志让自己成为算法领域的专家，">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/03/29/tensorflow-ANN/b.png">
-<meta property="og:updated_time" content="2019-04-16T03:48:24.328Z">
+<meta property="og:updated_time" content="2020-05-20T17:41:54.163Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用TensorFlow实现神经网络">
-<meta name="twitter:description" content="使用神经网络解决分类问题主要的四个步骤1.提取问题中实体的特征向量作为神经网络的输入。2.定义神经网络的结构，并定义如何从神经网络的输入得到输出。3.通过训练数据来调整神经网络中参数的取值。4.使用训练好的神经网络来预测未知的数据。 前向传播算法神经元是构成一个神经网络的最小单元。一个最简单的神经元结构的输出就是所有输入的加权和，而不同输入的权重就是神经元的参数。神经网络的优化过程就是优化神经元中">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/29/tensorflow-ANN/b.png">
+<meta name="twitter:title" content="杂谈">
+<meta name="twitter:description" content="主要是最近乱七八糟的发生了很多事情，有包括找工作的、学校开学的、自己今后的打算等等。现在已经是深夜了，主要想说一下自己今后的一个发展方向。按照自己最初的想法，自己是想往NLP算法工程师这一条路上走下去的，但是最近也在看一些招聘，大多都要研究生了，岗位的要求也越来越高。其实也不是说觉得自己从事不了这个岗位，只是越来越觉得自己纯搞算法前途不大。如果自己是名校研究生，可能会励志让自己成为算法领域的专家，">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -83,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/03/29/tensorflow-ANN/" title="使用TensorFlow实现神经网络" itemprop="url">使用TensorFlow实现神经网络</a>
+      <a href="/2020/05/21/my-521/" title="杂谈" itemprop="url">杂谈</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
 		
   <p class="article-time">
-    <time datetime="2019-03-29T10:27:47.000Z" itemprop="datePublished"> Published 2019-03-29</time>
+    <time datetime="2020-05-20T17:19:49.000Z" itemprop="datePublished"> Published 2020-05-21</time>
     
   </p>
 </header>
@@ -99,16 +97,11 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">使用神经网络解决分类问题主要的四个步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">前向传播算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">神经网络参数与TensorFlow变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">通过TensorFlow训练神经网络模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">5.</span> <span class="toc-text">TensorFlow入门总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">6.</span> <span class="toc-text">一个完整的神经网络样例程序</span></a></li></ol>
+			
 		
 		</div>
 		
-		<p></p><h1>使用神经网络解决分类问题主要的四个步骤</h1><br>1.提取问题中实体的特征向量作为神经网络的输入。<br>2.定义神经网络的结构，并定义如何从神经网络的输入得到输出。<br>3.通过训练数据来调整神经网络中参数的取值。<br>4.使用训练好的神经网络来预测未知的数据。<p></p>
-<p></p><h1>前向传播算法</h1><br>神经元是构成一个神经网络的最小单元。<br>一个最简单的神经元结构的输出就是所有输入的加权和，而不同输入的权重就是神经元的参数。<br>神经网络的优化过程就是优化神经元中参数取值的过程。<br>计算神经网络的前向传播结果需要三部分信息。第一部分是神经网络的输入，这个输入就是从实体中提取的特征向量。第二个部分为神经网络的连接结构，神经网络的结构给出不同神经元之间输入输出的连接关系。最后一个部分是每个神经元中的参数。<p></p>
-<p></p><h1>神经网络参数与TensorFlow变量</h1><br>在TensorFlow中，变量(tf.Variable)的作用就是保存和更新神经网络中的参数。和其他编程语言类似，TensorFlow中的变量也需要指定初始值。<br>声明一个2*3的矩阵变量的方法:<br>weights = tf.Variable(tf.random_normal([2,3],stddev=2))<p></p>
-<p></p><h1>通过TensorFlow训练神经网络模型</h1><br>在使用神经网络解决实际的分类或者回归问题时，需要更好的设置参数值。<br>设置神经网络参数的过程就是神经网络的训练过程。<br>只有经过有效训练的神经网络模型才可以真正地解决分类或者回归问题。<br>使用监督学习的方式设置神经网络参数需要有一个标注好的训练数据集。<br>监督学习最重要的思想就是，在已知答案的标注数据集上，模型给出的预测结果要尽量接近真实的答案。<br>在神经网络优化算法中，最常用的方法是反向传播算法<br>训练神经网络分为以下三个步骤:<br>1.定义神经网络的结构和前向传播的输出结果。<br>2.定义损失函数以及选择反向传播优化的算法。<br>3.生成会话(tf.Session)并且在训练数据上反复运行反向传播优化算法。<p></p>
-<p></p><h1>TensorFlow入门总结</h1><br>TensorFlow里有最基本的三个概念:计算图、张量和会话。计算图是TensorFlow的计算模型，所有TensorFlow的程序都会通过计算图的形式表示。<br>张量是TensorFlow的数据模型，TensorFlow中所有运算的输入、输出都是张量。张量本身不存储任何数据，它只是对运算结果的引用。<p></p>
-<p></p><h1>一个完整的神经网络样例程序</h1><br><img src="/2019/03/29/tensorflow-ANN/b.png"><br>下面对这段代码进行逐行解释<br>前两行代码是导入包，第一行是导入tensorflow，第二行是导入numpy中的一个随机数生成工具，用来模拟数据集。<br>第三行是定义训练数据batch的大小<br>第四行和第五行是定义了神经网络的参数<br>第六行和第七行定义了两个占位符<br>第8行和第9行定义了前向传播的过程<br>然后第10行定义了一个激活函数，对输出y进行一个处理<br>第11行和第12行定义了反向传播算法<br>13行到16行是创建数据的<br>17行开始是参数的优化过程（训练）<p></p>
+		<p>主要是最近乱七八糟的发生了很多事情，有包括找工作的、学校开学的、自己今后的打算等等。<br>现在已经是深夜了，主要想说一下自己今后的一个发展方向。<br>按照自己最初的想法，自己是想往NLP算法工程师这一条路上走下去的，但是最近也在看一些招聘，大多都要研究生了，岗位的要求也越来越高。其实也不是说觉得自己从事不了这个岗位，只是越来越觉得自己纯搞算法前途不大。如果自己是名校研究生，可能会励志让自己成为算法领域的专家，但是二本出身的我，并不觉得自己有这方面的天赋，之前工作的单位，组里基本都是名校毕业的，而且都是研究生。对，就是自己怂了。<br>想了一下自己现在的拥有的技术，主要是:<br>一：传统的机器学习算法：<br>这可能是我底子最厚的技术了吧，毕竟接触的时间还是比较长的。对于传统的机器学习算法如LR、SVM、决策树等还算是比较了解吧，除了训练这一块没有能较好的理解之外，其他差不多都能理解了。<br>二：深度学习算法:<br>其实自己接触深度学习算是比较晚的，就连自己接触了NLP之后，自己对于深度学习还是很不清楚的。但是现在对于传统的RNN、LSTM、CNN、GRU、MLP这些算法，还算是比较清楚的吧。除了反向传播自己实在理解不了之外，其他基本都能手推了。<br>三:Python<br>这个没什么好说的，Python从大二开始接触到现在了，还算是比较熟的，迄今为止的工作用的也都是Python<br>四:数据结构ACM中一些常用的算法<br>因为自己大三的时候刷笔试题的原因，还是掌握了一些ACM中常用的算法和数据结构的。虽然说自己现在好久不刷了，但是毕竟底子还在。<br>五：Java基础<br>我对于java的了解仅仅停留在基础语法上，纯粹是在笔试题和竞赛中接触的，并没有对他有更进一步的了解<br>结合我自己现有的一些技术栈和自己本科学历、非名校的实际情况，推荐系统可能是自己比较适合的一条路吧。一是因为它对学历没有那么高的要求，二是自己现有的技术也是它需要的技术栈。<br>重新安排了一下自己接下来的一些计划，打算这两天把毕设的事情弄完后，去两个礼拜接触一下推荐系统和Hadoop这两个东西，先看看自己的感受吧，要是觉得不错，这基本就是我今后的一个发展发现了。<br>之前老是怕自己学的东西没用，其实现在回想过来，即使你工作没有用到这个东西，但是因为技术是相同的，你掌握了这个技术再去学另一个技术，是会比你啥都不会再去学快很多的。<br>所以不管怎么样，放手去做吧。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -116,7 +109,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Deep-Learning-TensorFlow/">Deep Learning&TensorFlow</a>
+  <a class="article-category-link" href="/categories/life/">生活</a>
 </div>
 
 
@@ -126,7 +119,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2019/03/29/tensorflow-ANN/" data-title="使用TensorFlow实现神经网络 | zzulixjh" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2020/05/21/my-521/" data-title="杂谈 | zzulixjh" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -139,19 +132,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/03/29/ml-1/" title="百面机器学习(特征工程篇)">
-  <strong>上一篇：</strong><br/>
-  <span>
-  百面机器学习(特征工程篇)</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/03/28/tensorflow-1/"  title="TensorFlow中的一些模型">
+<a href="/2020/02/29/grad/"  title="梯度与梯度下降">
  <strong>下一篇：</strong><br/> 
- <span>TensorFlow中的一些模型
+ <span>梯度与梯度下降
 </span>
 </a>
 </div>
@@ -168,7 +153,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">1.</span> <span class="toc-text">使用神经网络解决分类问题主要的四个步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">2.</span> <span class="toc-text">前向传播算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text">神经网络参数与TensorFlow变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">4.</span> <span class="toc-text">通过TensorFlow训练神经网络模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">5.</span> <span class="toc-text">TensorFlow入门总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#null"><span class="toc-number">6.</span> <span class="toc-text">一个完整的神经网络样例程序</span></a></li></ol>
+ 
  
   </div>
 
