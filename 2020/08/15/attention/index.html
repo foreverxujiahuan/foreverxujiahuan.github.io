@@ -11,17 +11,19 @@
     
 
     
-    <meta name="description" content="用hexo搭建的个人博客">
+    <meta name="description" content="Attention机制的本质Attention(注意力)机制如果浅层的理解的话，跟他的名字非常匹配。他的核心逻辑就是从关注全部到关注重点。在NLP中,就是将模型的关注点集中到一些关键的词语上。从而达到减少参数和提升模型性能的效果。 Attention的3大优点 参数少 速度快 效果好  参数少是因为和传统的NLP模型(如CNN、RNN)相比，它没有传统神经网络的那种结构，因此参数量相对来说要小很多">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Attention机制">
 <meta property="og:url" content="http://yoursite.com/2020/08/15/attention/index.html">
 <meta property="og:site_name" content="zzulixjh">
-<meta property="og:description" content="用hexo搭建的个人博客">
+<meta property="og:description" content="Attention机制的本质Attention(注意力)机制如果浅层的理解的话，跟他的名字非常匹配。他的核心逻辑就是从关注全部到关注重点。在NLP中,就是将模型的关注点集中到一些关键的词语上。从而达到减少参数和提升模型性能的效果。 Attention的3大优点 参数少 速度快 效果好  参数少是因为和传统的NLP模型(如CNN、RNN)相比，它没有传统神经网络的那种结构，因此参数量相对来说要小很多">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-08-15T01:23:12.423Z">
+<meta property="og:image" content="http://yoursite.com/2020/08/15/attention/a.jpg">
+<meta property="og:updated_time" content="2020-08-15T02:08:28.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Attention机制">
-<meta name="twitter:description" content="用hexo搭建的个人博客">
+<meta name="twitter:description" content="Attention机制的本质Attention(注意力)机制如果浅层的理解的话，跟他的名字非常匹配。他的核心逻辑就是从关注全部到关注重点。在NLP中,就是将模型的关注点集中到一些关键的词语上。从而达到减少参数和提升模型性能的效果。 Attention的3大优点 参数少 速度快 效果好  参数少是因为和传统的NLP模型(如CNN、RNN)相比，它没有传统神经网络的那种结构，因此参数量相对来说要小很多">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/15/attention/a.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
@@ -97,11 +99,21 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention机制的本质"><span class="toc-number">1.</span> <span class="toc-text">Attention机制的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention的3大优点"><span class="toc-number">2.</span> <span class="toc-text">Attention的3大优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention原理"><span class="toc-number">3.</span> <span class="toc-text">Attention原理</span></a></li></ol>
 		
 		</div>
 		
-		  
+		<h2 id="Attention机制的本质"><a href="#Attention机制的本质" class="headerlink" title="Attention机制的本质"></a>Attention机制的本质</h2><p>Attention(注意力)机制如果浅层的理解的话，跟他的名字非常匹配。他的核心逻辑就是从关注全部到关注重点。<br>在NLP中,就是将模型的关注点集中到一些关键的词语上。从而达到减少参数和提升模型性能的效果。</p>
+<h2 id="Attention的3大优点"><a href="#Attention的3大优点" class="headerlink" title="Attention的3大优点"></a>Attention的3大优点</h2><ol>
+<li>参数少</li>
+<li>速度快</li>
+<li>效果好</li>
+</ol>
+<p>参数少是因为和传统的NLP模型(如CNN、RNN)相比，它没有传统神经网络的那种结构，因此参数量相对来说要小很多。因此对算力的要求也就更小。</p>
+<p>速度快是因为Attention解决了RNN不能并行计算的问题。它不再像传统的RNN那样，每一步计算依赖于上一步的计算结果，因此可以和CNN一样并行处理。</p>
+<p>效果好是因为相比于传统的RNN网络，它能更加好的记住一些长距离的信息。因为Attention是挑重点，就算文本比较长，也能从中间抓住重点，不丢失重要的信息。</p>
+<h2 id="Attention原理"><a href="#Attention原理" class="headerlink" title="Attention原理"></a>Attention原理</h2><p>用一张图来概括Attention<br><img src="/2020/08/15/attention/a.jpg"><br>简单来说，首先输入的Query会和Key做一个运算，F(Q,K),将它的结果记为s，</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -152,7 +164,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention机制的本质"><span class="toc-number">1.</span> <span class="toc-text">Attention机制的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention的3大优点"><span class="toc-number">2.</span> <span class="toc-text">Attention的3大优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention原理"><span class="toc-number">3.</span> <span class="toc-text">Attention原理</span></a></li></ol>
  
   </div>
 
