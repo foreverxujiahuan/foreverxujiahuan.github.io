@@ -20,7 +20,9 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2020/08/15/attention/a.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/08/15/attention/b.png">
-<meta property="og:updated_time" content="2020-08-15T10:32:09.177Z">
+<meta property="og:image" content="http://yoursite.com/2020/08/15/attention/c.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/15/attention/d.png">
+<meta property="og:updated_time" content="2020-08-18T12:04:56.787Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Attention机制">
 <meta name="twitter:description" content="Attention机制的本质Attention(注意力)机制如果浅层的理解的话，跟他的名字非常匹配。他的核心逻辑就是从关注全部到关注重点。在NLP中,就是将模型的关注点集中到一些关键的词语上。从而达到减少参数和提升模型性能的效果。 Attention的3大优点 参数少 速度快 效果好  参数少是因为和传统的NLP模型(如CNN、RNN)相比，它没有传统神经网络的那种结构，因此参数量相对来说要小很多">
@@ -100,7 +102,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention机制的本质"><span class="toc-number">1.</span> <span class="toc-text">Attention机制的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention的3大优点"><span class="toc-number">2.</span> <span class="toc-text">Attention的3大优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention原理"><span class="toc-number">3.</span> <span class="toc-text">Attention原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention机制的本质"><span class="toc-number">1.</span> <span class="toc-text">Attention机制的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention的3大优点"><span class="toc-number">2.</span> <span class="toc-text">Attention的3大优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention原理"><span class="toc-number">3.</span> <span class="toc-text">Attention原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention具体计算过程"><span class="toc-number">4.</span> <span class="toc-text">Attention具体计算过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
@@ -114,6 +116,8 @@
 <p>速度快是因为Attention解决了RNN不能并行计算的问题。它不再像传统的RNN那样，每一步计算依赖于上一步的计算结果，因此可以和CNN一样并行处理。</p>
 <p>效果好是因为相比于传统的RNN网络，它能更加好的记住一些长距离的信息。因为Attention是挑重点，就算文本比较长，也能从中间抓住重点，不丢失重要的信息。</p>
 <h2 id="Attention原理"><a href="#Attention原理" class="headerlink" title="Attention原理"></a>Attention原理</h2><p>用一张图来概括Attention<br><img src="/2020/08/15/attention/a.jpg"><br>简单来说，首先输入的Query中的每个字都会和Key做一个运算，F(Q,K),将它的结果记为s,最后再将这些所有的s进行一个softmax归一化，归一化的结果将作为这个值(s)的权重，最后再输出权重*Value的值作为最终的attention值。<br><img src="/2020/08/15/attention/b.png"><br>简单来说，它的计算分为三步:<br>1.query和key进行相似度计算，得到权值<br>2.将权值进行归一化，得到直接可用的权重<br>3.将权重和value进行加权求和</p>
+<h2 id="Attention具体计算过程"><a href="#Attention具体计算过程" class="headerlink" title="Attention具体计算过程"></a>Attention具体计算过程</h2><p>第一步:将输入的单词转换为向量。这一步没什么好说的，和几乎所有深度学习方法一样，用向量来表示词(或者字)</p>
+<p>第二步:根据嵌入向量得到q、k、v三个向量。这一步也不难理解，如图所示，现有Think和Machines两个词的向量表示，然后根据WQ、WK和WV的三个权重矩阵，通过矩阵乘法运算就可以计算出q、k和v三个向量。<br><img src="/2020/08/15/attention/c.png"><br>第三步:为每一个向量计算一个score。这一步的目的是计算这个词的重要程度，计算方式为q*k<br>第四步:为了梯度的稳定，Transformer使用了score归一化，即除以一个根号下的dk，其中dk是维度的意思。<br>第五步:使用softmax对之前的计算结果进行归一化。得到每个单词的权重分数。<br>第六步:使用softmax点乘value的值v，得到加权的每个输入向量的评分v。<br>第七步:字后将所有的向量进行一个求和，得到最终的输出结果z。<br>Attention计算公式为:<br><img src="/2020/08/15/attention/d.png"><br>经过attention之后，模型输出了一个新的词向量。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>简单来说，Attention就是一种对重新计算向量的方法，输入一段文本的embedding，经过Attention之后输出另一个embedding，两个embedding的形状完全相同，但是值已经发生了变化，模型加大了其中一些重要的值的权重。</p>
   
 	</div>
@@ -145,6 +149,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2020/08/18/transformer/" title="Transformer">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Transformer</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2020/02/29/grad/"  title="梯度与梯度下降">
@@ -166,7 +178,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention机制的本质"><span class="toc-number">1.</span> <span class="toc-text">Attention机制的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention的3大优点"><span class="toc-number">2.</span> <span class="toc-text">Attention的3大优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention原理"><span class="toc-number">3.</span> <span class="toc-text">Attention原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention机制的本质"><span class="toc-number">1.</span> <span class="toc-text">Attention机制的本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention的3大优点"><span class="toc-number">2.</span> <span class="toc-text">Attention的3大优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention原理"><span class="toc-number">3.</span> <span class="toc-text">Attention原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attention具体计算过程"><span class="toc-number">4.</span> <span class="toc-text">Attention具体计算过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
@@ -213,7 +225,7 @@
 		  
 		
 		  
-			<li><a href="/categories/NLP/" title="NLP">NLP<sup>3</sup></a></li>
+			<li><a href="/categories/NLP/" title="NLP">NLP<sup>4</sup></a></li>
 		  
 		
 		  
