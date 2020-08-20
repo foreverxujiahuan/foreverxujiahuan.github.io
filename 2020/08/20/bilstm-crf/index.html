@@ -1,0 +1,574 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <title>Bi-LSTM+CRF原理 | zzulixjh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="zzulixjh">
+    
+
+    
+    <meta name="description" content="前言BiLSTM+CRF由两部分组成，即双向LSTM和CRF。其中我认为CRF部分理解起来难度大于双向LSTM。因为BiLSTM+CRF通常是用在命名实体识别中的，因此在学习Bi-LSTM+CRF之前，需要先了解什么是命名实体识别(NER)。 命名实体识别命名实体识别是一个NLP中的基础任务，它需要识别出一句话中的实体。例如输入一句话”小明来自杭州”,我们希望模型输出的tags为[‘B-Perso">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bi-LSTM+CRF原理">
+<meta property="og:url" content="http://yoursite.com/2020/08/20/bilstm-crf/index.html">
+<meta property="og:site_name" content="zzulixjh">
+<meta property="og:description" content="前言BiLSTM+CRF由两部分组成，即双向LSTM和CRF。其中我认为CRF部分理解起来难度大于双向LSTM。因为BiLSTM+CRF通常是用在命名实体识别中的，因此在学习Bi-LSTM+CRF之前，需要先了解什么是命名实体识别(NER)。 命名实体识别命名实体识别是一个NLP中的基础任务，它需要识别出一句话中的实体。例如输入一句话”小明来自杭州”,我们希望模型输出的tags为[‘B-Perso">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/a.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/b.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/c.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/d.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/e.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/f.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/g.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/h.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/i.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/j.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/k.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/aa.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/bb.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/k.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/cc.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/dd.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/ee.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/ff.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/gg.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/ee.png">
+<meta property="og:updated_time" content="2020-08-20T08:14:37.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bi-LSTM+CRF原理">
+<meta name="twitter:description" content="前言BiLSTM+CRF由两部分组成，即双向LSTM和CRF。其中我认为CRF部分理解起来难度大于双向LSTM。因为BiLSTM+CRF通常是用在命名实体识别中的，因此在学习Bi-LSTM+CRF之前，需要先了解什么是命名实体识别(NER)。 命名实体识别命名实体识别是一个NLP中的基础任务，它需要识别出一句话中的实体。例如输入一句话”小明来自杭州”,我们希望模型输出的tags为[‘B-Perso">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/20/bilstm-crf/a.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="zzulixjh" title="zzulixjh"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2020/08/20/bilstm-crf/" title="Bi-LSTM+CRF原理" itemprop="url">Bi-LSTM+CRF原理</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
+		
+  <p class="article-time">
+    <time datetime="2020-08-20T05:43:26.000Z" itemprop="datePublished"> Published 2020-08-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命名实体识别"><span class="toc-number">2.</span> <span class="toc-text">命名实体识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BILSTM"><span class="toc-number">3.</span> <span class="toc-text">BILSTM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BiLSTM-CRF模型"><span class="toc-number">4.</span> <span class="toc-text">BiLSTM-CRF模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果没有CRF层会什么样"><span class="toc-number">5.</span> <span class="toc-text">如果没有CRF层会什么样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF层可以学到句子的约束条件"><span class="toc-number">6.</span> <span class="toc-text">CRF层可以学到句子的约束条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF层"><span class="toc-number">7.</span> <span class="toc-text">CRF层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转移分数"><span class="toc-number">8.</span> <span class="toc-text">转移分数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF损失函数"><span class="toc-number">9.</span> <span class="toc-text">CRF损失函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">10.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>BiLSTM+CRF由两部分组成，即双向LSTM和CRF。其中我认为CRF部分理解起来难度大于双向LSTM。<br>因为BiLSTM+CRF通常是用在命名实体识别中的，因此在学习Bi-LSTM+CRF之前，需要先了解什么是命名实体识别(NER)。</p>
+<h2 id="命名实体识别"><a href="#命名实体识别" class="headerlink" title="命名实体识别"></a>命名实体识别</h2><p>命名实体识别是一个NLP中的基础任务，它需要识别出一句话中的实体。<br>例如输入一句话”小明来自杭州”,我们希望模型输出的tags为[‘B-Person’,’I-Person’,’O’,’O’,’B-Location’,’I-Location’]<br>其中，各个标签的意思分别为<br>B-Person:人名开头的部分<br>I-Person:人名中间的部分<br>B-Organization:组织机构名开头的部分<br>I-Organization:组织机构名中间的部分<br>B-Location:地名开头的部分<br>I-Location:地名中间的部分<br>O:非实体</p>
+<h2 id="BILSTM"><a href="#BILSTM" class="headerlink" title="BILSTM"></a>BILSTM</h2><p>BILSTM就是双向LSTM的意思，那么为什么要用双向而不是单向呢?<br>因为单向的LSTM只能获取当前字左边的信息，并不能获取当前字后面的信息。而双向LSTM则可以解决这个问题，它有两个LSTM组成，一个从前向后，一个从后向前，最后再将两个LSTM学到的信息进行拼接。从而达到获取更多信息的功能。</p>
+<h2 id="BiLSTM-CRF模型"><a href="#BiLSTM-CRF模型" class="headerlink" title="BiLSTM-CRF模型"></a>BiLSTM-CRF模型</h2><p>首先，句中的每个单词是一条包含词嵌入和字嵌入的词向量，词嵌入通常是事先训练好的，字嵌入则是随机初始化的。所有的嵌入都会随着训练的迭代过程被调整。<br>其次，BiLSTM-CRF的输入是词嵌入向量，输出是每个单词对应的预测标签。<br><img src="/2020/08/20/bilstm-crf/a.png"><br>尽管不需要了解BiLSTM的实现细节，但为了更好的理解CRF层，我们还是需要知道一下BiLSTM的输出到底是什么意思。<br><img src="/2020/08/20/bilstm-crf/b.png"><br>如上图所示，BiLSTM层的输出表示该单词对应各个类别的分数。如W0,BILSTM节点的输出是1.5(B-Person),0.9(I-Person),0.1(B-Organization),0.08(I-Organization)和0.05(O)。这些分数将会是CRF层的输入。<br>所有的经BiLSTM层输出的分数将作为CRF层的输入，类别序列中分数最高的类别就是我们预测的最终结果。类别序列中分数最高的类别就是我们预测的最终结果。</p>
+<h2 id="如果没有CRF层会什么样"><a href="#如果没有CRF层会什么样" class="headerlink" title="如果没有CRF层会什么样"></a>如果没有CRF层会什么样</h2><p>其实没有CRF层，我们也可以照样训练一个基于BiLSTM的命名实体识别模型，如下图所示。<br><img src="/2020/08/20/bilstm-crf/c.png"><br>因为BiLSTM模型的结果是单词对应各类别的分数，我们可以选择分数最高的类别作为预测结果。尽管在这个例子中，我们得到了正确的结果，但是实际情况并不是这样子。来看下面的例子。<br><img src="/2020/08/20/bilstm-crf/d.png"><br>显然这个结果并不准确，模型将一个实体的开头预测为了I开头的而不是B开头的，这显然是错误的。因此CRF的作用就是对之前BiLSTM输出的结果进行一个纠正。</p>
+<h2 id="CRF层可以学到句子的约束条件"><a href="#CRF层可以学到句子的约束条件" class="headerlink" title="CRF层可以学到句子的约束条件"></a>CRF层可以学到句子的约束条件</h2><p>CRF层可以加入一些约束来保证最终预测结果是有效的。这些约束可以在训练时被CRF层自动学习得到。<br>可能的约束条件有:</p>
+<ul>
+<li>句子的开头应该是”B-“或”O”，而不是”I”</li>
+<li>“B-label1 I-label2 I-label3…”,在该模式中，类别1,2,3应该是同一种类别，比如”B-Person I-Person I-Person”是正确的，而”B-Person I-Organization”则是错误的。</li>
+<li>“O I-label”是错误的，因为命名实体的开头应该是”B-“而不是”I-“。<br>有了这一些约束的话，错误的预测序列将会大大减少。<h2 id="CRF层"><a href="#CRF层" class="headerlink" title="CRF层"></a>CRF层</h2>CRF层中的损失函数包括两种类型的分数，而理解这两类分数的计算是理解CRF的关键。<br>第一个分数是发射分数(状态分数)。这些状态分数来自BiLSTM层的输出。如下图所示，w0被预测为B-Person分数是1.5<br><img src="/2020/08/20/bilstm-crf/e.png"><br>为了方便起见,我们给每个类别一个索引，如下表所示<br><img src="/2020/08/20/bilstm-crf/f.png"><br>使用Xiyj代表状态分数，其中i是单词的位置索引，yj是类别的索引，根据上表:<br><img src="/2020/08/20/bilstm-crf/g.png"><br>它表示单词w1被预测为B-Organization的分数是0.1。<h2 id="转移分数"><a href="#转移分数" class="headerlink" title="转移分数"></a>转移分数</h2>我们用tyiyj来表示转移分数。例如，tB-Person,I-Person=0.9表示从类别B-Person-&gt;I-Person的分数是0.9。因此，我们有一个所有类别间的转移分数的矩阵。<br>为了使转移分数矩阵更具有鲁棒性，我们加上START和END两类标签。START代表一个句子的开始（不是句子的第一个单词）,END代表一个句子的结束。<br>下表是加上START和END标签的转移分数矩阵。<br><img src="/2020/08/20/bilstm-crf/h.png"><br>如上表所示,转移矩阵已经学习到了一些有用的约束条件:</li>
+<li>句子的第一个单词应该是”B-“或”O”,而不是”I”。(从”START”到”I-Person”或”I-Organization”的分数很低)</li>
+<li>“B-label1 I-label2 I-label3…”，在该模式中，类别1，2，3应该是同一种实体类别。比如”B-Person I-Person”是正确的，而”B-Person I-Organization”则是错误的。(“B-Organization”-&gt;”I-Person”的分数很低)</li>
+<li>“O I-label”是错误的，命名实体的开头应该是”B-“而不是”I-“<br>那么要怎么样得到这个转移矩阵呢?<br>实际上，转移矩阵是BiLSTM-CRF模型的一个参数。在训练模型之前，你可以随机初始化转移矩阵的分数。这些分数随着训练的迭代过程被更新，换句话说，CRF层可以自己学到这些约束条件。<h2 id="CRF损失函数"><a href="#CRF损失函数" class="headerlink" title="CRF损失函数"></a>CRF损失函数</h2>CRF损失函数由两部分组成，真实路径的分数和所有路径的总分数。真实路径的分数应该是所有分数中最高的。<br>例如，我们的数据集中有如下集中类别:<br><img src="/2020/08/20/bilstm-crf/i.png"><br>那么一个包含5个单词的句子，可能的类别如下:</li>
+<li>START B-Person B-Person B-Person B-Person B-Person END</li>
+<li>START B-Person I-Person B-Person B-Person B-PersonEND</li>
+<li>……</li>
+<li><ol>
+<li>START B-Person I-Person O B-Organization O END</li>
+</ol>
+</li>
+<li>N. O O O O O O O<br>每种可能的路径的分数为Pi,总共有N条路径，则路径的总分是:<br><img src="/2020/08/20/bilstm-crf/j.png"><br>其中e是常数。<br>如果第十条路径是真实路径，也就是说第十条是正确的预测结果，那么第十条路径的分数应该是所有可能路径里得分最高的。<br>根据如下损失函数，在训练过程中，BiLSTM-CRF模型的参数值将随着训练过程的迭代不断更新，使得真实路径所占的比值越来越大。<br><img src="/2020/08/20/bilstm-crf/k.png"><br>那么现在的问题是:<br>1.怎么定义路径的分数？<br>2.怎么计算所有路径的总分？<br>3.当计算所有路径总分时，是否需要列举出所有可能的路径(答案是不需要)<br>先来看真实路径的分数,eSi,是非常容易的。<br>我们先集中注意力来计算Si<br>以”START B-Person I-Person O B-Organization O END”这一条真实路径来说,句子有5个单词，w1,w2,w3,w4,w5<br>加上START和END在句子的开始位置和结束位置，记为,w0,w6<br>那么Si = EmissionScore + TransitionScore<br><img src="/2020/08/20/bilstm-crf/aa.png"><br>这些分数来自BiLSTM层的输出，至于x0,START和x6,END,则设为0。<br><img src="/2020/08/20/bilstm-crf/bb.png"><br>这些分数来自于CRF层，将这两类分数加和即可得到Si和路径分数eSi。<br>接着再来看所有路径的总分<br>如何计算所有路径的总分呢?<br>Step1<br>首先我们的定义的损失函数为<br><img src="/2020/08/20/bilstm-crf/k.png"><br>现在我们把它变成对数损失函数<br><img src="/2020/08/20/bilstm-crf/cc.png"><br>由于我们的训练目标通常是最小化损失函数，所以我们加上负号:<br><img src="/2020/08/20/bilstm-crf/dd.png"><br>前面我们已经很清楚如何计算真实路径得分，现在我们需要找到一个方法去计算<br><img src="/2020/08/20/bilstm-crf/ee.png"><br>Step2<br>回忆一下状态分数和转移分数<br>为了简化问题，我们假定我们的句子只有3个单词组成:<br>X = [w0,w1,w2]<br>另外，我们只有两个类别:<br>LabelSet = {l1,l2}<br>状态分数如下:<br><img src="/2020/08/20/bilstm-crf/ff.png"><br>转移矩阵如下:<br><img src="/2020/08/20/bilstm-crf/gg.png"><br>Step3<br>记住，我们的目标是:<br><img src="/2020/08/20/bilstm-crf/ee.png"><br>整个过程是一个分数的积聚过程。<br>它的实现思想有点像动态规划。<br>首先，w0所有路径的总分先被计算出来，然后，我们计算w0-&gt;w1的所有路径的得分，最后计算w0-&gt;w1-&gt;w2的所有路径的得分，也就是我们需要的结果。<br>具体过程就不写了，太过于复杂。总之我们只需要知道，在实际计算的过程中，有一种复杂度更低的方法去获取到所有路径的分数总和。<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>BiLSTM-CRF是一种很优秀的命名实体识别算法，其中CRF层的理解较为困难。在现有的命名实体识别算法中，传统的深度学习方法通常都会选择在最后增加一个CRF层，往往可以取得更好的效果。而在用BERT做命名实体识别的时候，通常又不会选择增加CRF，据说这是有人做过研究的，加上CRF并不能提升BERT的NER效果。</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/NLP/">NLP</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2020/08/20/bilstm-crf/" data-title="Bi-LSTM+CRF原理 | zzulixjh" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2020/08/20/BERT/" title="BERT">
+  <strong>上一篇：</strong><br/>
+  <span>
+  BERT</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2020/08/18/transformer/"  title="Transformer">
+ <strong>下一篇：</strong><br/> 
+ <span>Transformer
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命名实体识别"><span class="toc-number">2.</span> <span class="toc-text">命名实体识别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BILSTM"><span class="toc-number">3.</span> <span class="toc-text">BILSTM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BiLSTM-CRF模型"><span class="toc-number">4.</span> <span class="toc-text">BiLSTM-CRF模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果没有CRF层会什么样"><span class="toc-number">5.</span> <span class="toc-text">如果没有CRF层会什么样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF层可以学到句子的约束条件"><span class="toc-number">6.</span> <span class="toc-text">CRF层可以学到句子的约束条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF层"><span class="toc-number">7.</span> <span class="toc-text">CRF层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转移分数"><span class="toc-number">8.</span> <span class="toc-text">转移分数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF损失函数"><span class="toc-number">9.</span> <span class="toc-text">CRF损失函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">10.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Deep-Learning-TensorFlow/" title="Deep Learning&amp;TensorFlow">Deep Learning&amp;TensorFlow<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java/" title="Java">Java<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Leetcode/" title="Leetcode">Leetcode<sup>14</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>27</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Matlab/" title="Matlab">Matlab<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/NLP/" title="NLP">NLP<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/PHP/" title="PHP">PHP<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>23</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/front/" title="前端">前端<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/爬虫/" title="爬虫">爬虫<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/life/" title="生活">生活<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>22</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/统计学/" title="统计学">统计学<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/pc/" title="计算机">计算机<sup>15</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://leetcode.com/zzulixjh/" target="_blank" title="我的leetcode">我的leetcode</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://blog.csdn.net/sinat_41547532" target="_blank" title="我的csdn">我的csdn</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/foreverxujiahuan" target="_blank" title="我的github">我的github</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.nowcoder.com/profile/5533836" target="_blank" title="我的牛客">我的牛客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m xujiahuan in zzuli. <br/>
+			This is my blog</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5638142666" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/foreverxujiahuan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="zzulixjh">zzulixjh</a>
+		
+		
+		</p>
+		<span id="busuanzi_container_site_pv">
+			本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
