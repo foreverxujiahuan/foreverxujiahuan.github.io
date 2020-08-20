@@ -38,7 +38,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/ff.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/gg.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/20/bilstm-crf/ee.png">
-<meta property="og:updated_time" content="2020-08-20T08:14:37.999Z">
+<meta property="og:updated_time" content="2020-08-20T09:45:17.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bi-LSTM+CRF原理">
 <meta name="twitter:description" content="前言BiLSTM+CRF由两部分组成，即双向LSTM和CRF。其中我认为CRF部分理解起来难度大于双向LSTM。因为BiLSTM+CRF通常是用在命名实体识别中的，因此在学习Bi-LSTM+CRF之前，需要先了解什么是命名实体识别(NER)。 命名实体识别命名实体识别是一个NLP中的基础任务，它需要识别出一句话中的实体。例如输入一句话”小明来自杭州”,我们希望模型输出的tags为[‘B-Perso">
@@ -131,10 +131,19 @@
 <ul>
 <li>句子的开头应该是”B-“或”O”，而不是”I”</li>
 <li>“B-label1 I-label2 I-label3…”,在该模式中，类别1,2,3应该是同一种类别，比如”B-Person I-Person I-Person”是正确的，而”B-Person I-Organization”则是错误的。</li>
-<li>“O I-label”是错误的，因为命名实体的开头应该是”B-“而不是”I-“。<br>有了这一些约束的话，错误的预测序列将会大大减少。<h2 id="CRF层"><a href="#CRF层" class="headerlink" title="CRF层"></a>CRF层</h2>CRF层中的损失函数包括两种类型的分数，而理解这两类分数的计算是理解CRF的关键。<br>第一个分数是发射分数(状态分数)。这些状态分数来自BiLSTM层的输出。如下图所示，w0被预测为B-Person分数是1.5<br><img src="/2020/08/20/bilstm-crf/e.png"><br>为了方便起见,我们给每个类别一个索引，如下表所示<br><img src="/2020/08/20/bilstm-crf/f.png"><br>使用Xiyj代表状态分数，其中i是单词的位置索引，yj是类别的索引，根据上表:<br><img src="/2020/08/20/bilstm-crf/g.png"><br>它表示单词w1被预测为B-Organization的分数是0.1。<h2 id="转移分数"><a href="#转移分数" class="headerlink" title="转移分数"></a>转移分数</h2>我们用tyiyj来表示转移分数。例如，tB-Person,I-Person=0.9表示从类别B-Person-&gt;I-Person的分数是0.9。因此，我们有一个所有类别间的转移分数的矩阵。<br>为了使转移分数矩阵更具有鲁棒性，我们加上START和END两类标签。START代表一个句子的开始（不是句子的第一个单词）,END代表一个句子的结束。<br>下表是加上START和END标签的转移分数矩阵。<br><img src="/2020/08/20/bilstm-crf/h.png"><br>如上表所示,转移矩阵已经学习到了一些有用的约束条件:</li>
+<li>“O I-label”是错误的，因为命名实体的开头应该是”B-“而不是”I-“。</li>
+</ul>
+<p>有了这一些约束的话，错误的预测序列将会大大减少。</p>
+<h2 id="CRF层"><a href="#CRF层" class="headerlink" title="CRF层"></a>CRF层</h2><p>CRF层中的损失函数包括两种类型的分数，而理解这两类分数的计算是理解CRF的关键。<br>第一个分数是发射分数(状态分数)。这些状态分数来自BiLSTM层的输出。如下图所示，w0被预测为B-Person分数是1.5<br><img src="/2020/08/20/bilstm-crf/e.png"><br>为了方便起见,我们给每个类别一个索引，如下表所示<br><img src="/2020/08/20/bilstm-crf/f.png"><br>使用Xiyj代表状态分数，其中i是单词的位置索引，yj是类别的索引，根据上表:<br><img src="/2020/08/20/bilstm-crf/g.png"><br>它表示单词w1被预测为B-Organization的分数是0.1。</p>
+<h2 id="转移分数"><a href="#转移分数" class="headerlink" title="转移分数"></a>转移分数</h2><p>我们用tyiyj来表示转移分数。例如，tB-Person,I-Person=0.9表示从类别B-Person-&gt;I-Person的分数是0.9。因此，我们有一个所有类别间的转移分数的矩阵。<br>为了使转移分数矩阵更具有鲁棒性，我们加上START和END两类标签。START代表一个句子的开始（不是句子的第一个单词）,END代表一个句子的结束。<br>下表是加上START和END标签的转移分数矩阵。<br><img src="/2020/08/20/bilstm-crf/h.png"><br>如上表所示,转移矩阵已经学习到了一些有用的约束条件:</p>
+<ul>
 <li>句子的第一个单词应该是”B-“或”O”,而不是”I”。(从”START”到”I-Person”或”I-Organization”的分数很低)</li>
 <li>“B-label1 I-label2 I-label3…”，在该模式中，类别1，2，3应该是同一种实体类别。比如”B-Person I-Person”是正确的，而”B-Person I-Organization”则是错误的。(“B-Organization”-&gt;”I-Person”的分数很低)</li>
-<li>“O I-label”是错误的，命名实体的开头应该是”B-“而不是”I-“<br>那么要怎么样得到这个转移矩阵呢?<br>实际上，转移矩阵是BiLSTM-CRF模型的一个参数。在训练模型之前，你可以随机初始化转移矩阵的分数。这些分数随着训练的迭代过程被更新，换句话说，CRF层可以自己学到这些约束条件。<h2 id="CRF损失函数"><a href="#CRF损失函数" class="headerlink" title="CRF损失函数"></a>CRF损失函数</h2>CRF损失函数由两部分组成，真实路径的分数和所有路径的总分数。真实路径的分数应该是所有分数中最高的。<br>例如，我们的数据集中有如下集中类别:<br><img src="/2020/08/20/bilstm-crf/i.png"><br>那么一个包含5个单词的句子，可能的类别如下:</li>
+<li>“O I-label”是错误的，命名实体的开头应该是”B-“而不是”I-“</li>
+</ul>
+<p>那么要怎么样得到这个转移矩阵呢?<br>实际上，转移矩阵是BiLSTM-CRF模型的一个参数。在训练模型之前，你可以随机初始化转移矩阵的分数。这些分数随着训练的迭代过程被更新，换句话说，CRF层可以自己学到这些约束条件。</p>
+<h2 id="CRF损失函数"><a href="#CRF损失函数" class="headerlink" title="CRF损失函数"></a>CRF损失函数</h2><p>CRF损失函数由两部分组成，真实路径的分数和所有路径的总分数。真实路径的分数应该是所有分数中最高的。<br>例如，我们的数据集中有如下集中类别:<br><img src="/2020/08/20/bilstm-crf/i.png"><br>那么一个包含5个单词的句子，可能的类别如下:</p>
+<ul>
 <li>START B-Person B-Person B-Person B-Person B-Person END</li>
 <li>START B-Person I-Person B-Person B-Person B-PersonEND</li>
 <li>……</li>
@@ -142,8 +151,10 @@
 <li>START B-Person I-Person O B-Organization O END</li>
 </ol>
 </li>
-<li>N. O O O O O O O<br>每种可能的路径的分数为Pi,总共有N条路径，则路径的总分是:<br><img src="/2020/08/20/bilstm-crf/j.png"><br>其中e是常数。<br>如果第十条路径是真实路径，也就是说第十条是正确的预测结果，那么第十条路径的分数应该是所有可能路径里得分最高的。<br>根据如下损失函数，在训练过程中，BiLSTM-CRF模型的参数值将随着训练过程的迭代不断更新，使得真实路径所占的比值越来越大。<br><img src="/2020/08/20/bilstm-crf/k.png"><br>那么现在的问题是:<br>1.怎么定义路径的分数？<br>2.怎么计算所有路径的总分？<br>3.当计算所有路径总分时，是否需要列举出所有可能的路径(答案是不需要)<br>先来看真实路径的分数,eSi,是非常容易的。<br>我们先集中注意力来计算Si<br>以”START B-Person I-Person O B-Organization O END”这一条真实路径来说,句子有5个单词，w1,w2,w3,w4,w5<br>加上START和END在句子的开始位置和结束位置，记为,w0,w6<br>那么Si = EmissionScore + TransitionScore<br><img src="/2020/08/20/bilstm-crf/aa.png"><br>这些分数来自BiLSTM层的输出，至于x0,START和x6,END,则设为0。<br><img src="/2020/08/20/bilstm-crf/bb.png"><br>这些分数来自于CRF层，将这两类分数加和即可得到Si和路径分数eSi。<br>接着再来看所有路径的总分<br>如何计算所有路径的总分呢?<br>Step1<br>首先我们的定义的损失函数为<br><img src="/2020/08/20/bilstm-crf/k.png"><br>现在我们把它变成对数损失函数<br><img src="/2020/08/20/bilstm-crf/cc.png"><br>由于我们的训练目标通常是最小化损失函数，所以我们加上负号:<br><img src="/2020/08/20/bilstm-crf/dd.png"><br>前面我们已经很清楚如何计算真实路径得分，现在我们需要找到一个方法去计算<br><img src="/2020/08/20/bilstm-crf/ee.png"><br>Step2<br>回忆一下状态分数和转移分数<br>为了简化问题，我们假定我们的句子只有3个单词组成:<br>X = [w0,w1,w2]<br>另外，我们只有两个类别:<br>LabelSet = {l1,l2}<br>状态分数如下:<br><img src="/2020/08/20/bilstm-crf/ff.png"><br>转移矩阵如下:<br><img src="/2020/08/20/bilstm-crf/gg.png"><br>Step3<br>记住，我们的目标是:<br><img src="/2020/08/20/bilstm-crf/ee.png"><br>整个过程是一个分数的积聚过程。<br>它的实现思想有点像动态规划。<br>首先，w0所有路径的总分先被计算出来，然后，我们计算w0-&gt;w1的所有路径的得分，最后计算w0-&gt;w1-&gt;w2的所有路径的得分，也就是我们需要的结果。<br>具体过程就不写了，太过于复杂。总之我们只需要知道，在实际计算的过程中，有一种复杂度更低的方法去获取到所有路径的分数总和。<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>BiLSTM-CRF是一种很优秀的命名实体识别算法，其中CRF层的理解较为困难。在现有的命名实体识别算法中，传统的深度学习方法通常都会选择在最后增加一个CRF层，往往可以取得更好的效果。而在用BERT做命名实体识别的时候，通常又不会选择增加CRF，据说这是有人做过研究的，加上CRF并不能提升BERT的NER效果。</li>
+<li>N. O O O O O O O</li>
 </ul>
+<p>每种可能的路径的分数为Pi,总共有N条路径，则路径的总分是:<br><img src="/2020/08/20/bilstm-crf/j.png"><br>其中e是常数。<br>如果第十条路径是真实路径，也就是说第十条是正确的预测结果，那么第十条路径的分数应该是所有可能路径里得分最高的。<br>根据如下损失函数，在训练过程中，BiLSTM-CRF模型的参数值将随着训练过程的迭代不断更新，使得真实路径所占的比值越来越大。<br><img src="/2020/08/20/bilstm-crf/k.png"><br>那么现在的问题是:<br>1.怎么定义路径的分数？<br>2.怎么计算所有路径的总分？<br>3.当计算所有路径总分时，是否需要列举出所有可能的路径(答案是不需要)<br>先来看真实路径的分数,eSi,是非常容易的。<br>我们先集中注意力来计算Si<br>以”START B-Person I-Person O B-Organization O END”这一条真实路径来说,句子有5个单词，w1,w2,w3,w4,w5<br>加上START和END在句子的开始位置和结束位置，记为,w0,w6<br>那么Si = EmissionScore + TransitionScore<br><img src="/2020/08/20/bilstm-crf/aa.png"><br>这些分数来自BiLSTM层的输出，至于x0,START和x6,END,则设为0。<br><img src="/2020/08/20/bilstm-crf/bb.png"><br>这些分数来自于CRF层，将这两类分数加和即可得到Si和路径分数eSi。<br>接着再来看所有路径的总分<br>如何计算所有路径的总分呢?<br>Step1<br>首先我们的定义的损失函数为<br><img src="/2020/08/20/bilstm-crf/k.png"><br>现在我们把它变成对数损失函数<br><img src="/2020/08/20/bilstm-crf/cc.png"><br>由于我们的训练目标通常是最小化损失函数，所以我们加上负号:<br><img src="/2020/08/20/bilstm-crf/dd.png"><br>前面我们已经很清楚如何计算真实路径得分，现在我们需要找到一个方法去计算<br><img src="/2020/08/20/bilstm-crf/ee.png"><br>Step2<br>回忆一下状态分数和转移分数<br>为了简化问题，我们假定我们的句子只有3个单词组成:<br>X = [w0,w1,w2]<br>另外，我们只有两个类别:<br>LabelSet = {l1,l2}<br>状态分数如下:<br><img src="/2020/08/20/bilstm-crf/ff.png"><br>转移矩阵如下:<br><img src="/2020/08/20/bilstm-crf/gg.png"><br>Step3<br>记住，我们的目标是:<br><img src="/2020/08/20/bilstm-crf/ee.png"><br>整个过程是一个分数的积聚过程。<br>它的实现思想有点像动态规划。<br>首先，w0所有路径的总分先被计算出来，然后，我们计算w0-&gt;w1的所有路径的得分，最后计算w0-&gt;w1-&gt;w2的所有路径的得分，也就是我们需要的结果。<br>具体过程就不写了，太过于复杂。总之我们只需要知道，在实际计算的过程中，有一种复杂度更低的方法去获取到所有路径的分数总和。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>BiLSTM-CRF是一种很优秀的命名实体识别算法，其中CRF层的理解较为困难。在现有的命名实体识别算法中，传统的深度学习方法通常都会选择在最后增加一个CRF层，往往可以取得更好的效果。而在用BERT做命名实体识别的时候，通常又不会选择增加CRF，据说这是有人做过研究的，加上CRF并不能提升BERT的NER效果。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
