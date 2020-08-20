@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/08/20/BERT/b.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/20/BERT/c.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/20/BERT/d.png">
-<meta property="og:updated_time" content="2020-08-20T09:32:35.047Z">
+<meta property="og:updated_time" content="2020-08-20T09:35:47.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BERT">
 <meta name="twitter:description" content="前言BERT模型的全称是Bidirectional Encoder Representation from Transformers,即双向Transformer的Encoder。想要了解Bert的话就必须得先学习Transformer，而想要学好Transformer的话，又必须要先学好Attention机制。因为decoder是不能获取要预测的信息的，因此模型的主要创新点都在pre-train">
@@ -102,7 +102,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型结构"><span class="toc-number">2.</span> <span class="toc-text">模型结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Embedding"><span class="toc-number">3.</span> <span class="toc-text">Embedding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pre-training-Task-1-Masked-LM"><span class="toc-number">4.</span> <span class="toc-text">Pre-training Task 1#:Masked LM</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型结构"><span class="toc-number">2.</span> <span class="toc-text">模型结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Embedding"><span class="toc-number">3.</span> <span class="toc-text">Embedding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pre-training-Task-1-Masked-LM"><span class="toc-number">4.</span> <span class="toc-text">Pre-training Task 1#:Masked LM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fine-tunning"><span class="toc-number">5.</span> <span class="toc-text">Fine-tunning</span></a></li></ol>
 		
 		</div>
 		
@@ -112,7 +112,7 @@
 <ul>
 <li>Token Embeddings是词向量，第一个单词是CLS标志，可以用于之后的分类任务</li>
 <li>Segment Embedding是用来区别两种句子，因为预训练不光做LM还要做以两个句子为输入的分类任务</li>
-<li>Position Embeddings和之前文章中的Transformer不一样，不是三角函数而是学习出来的。<h2 id="Pre-training-Task-1-Masked-LM"><a href="#Pre-training-Task-1-Masked-LM" class="headerlink" title="Pre-training Task 1#:Masked LM"></a>Pre-training Task 1#:Masked LM</h2>第一步预训练的目标就是做语言模型。<br>在训练过程中作者随机mask 15%的token,而不是像CBOW一样把每个词都预测一边。最终的损失函数只计算被mask掉的那个token。<br>Mask如何做也是有技巧的，如果一直用标记[MASK]代替(在实际预测时是碰不到这个标记的)会影响模型，所以随机mask的时候10%的单词会被替代成其他单词，10%的单词不替换，剩下80%才被替换为[MASK]。要注意的是Maske LM预训练阶段模型是不知道真正被mask的是哪个词，所以模型每个词都要关注。<br>因为序列长度太大(512)会影响训练速度，所以90%的steps都用seq_len=128训练，余下的10%步数训练512长度的输入。<br>Pre-training Task2#:Next Sentence Prediction<br>因为涉及到QA和NLI之类的任务，增加了第二个预训练任务，目的是让模型理解两个句子之间的联系。训练的输入是句子A和B，B有一般的几率是A的下一句，输入着两个句子，模型预测B是不是A的下一句。预训练的时候可以达到97-98%的准确度。<br>Fine-tunning<br>分类:对于sequence-level的分类任务，BERT直接取第一个[CLS]token的final hidden state C，加上一层权重W后softmax预测label proba:<br><img src="/2020/08/20/BERT/c.png"><br>其他预测任务需要进行一些调整，如图:<br><img src="/2020/08/20/BERT/d.png"></li>
+<li>Position Embeddings和之前文章中的Transformer不一样，不是三角函数而是学习出来的。<h2 id="Pre-training-Task-1-Masked-LM"><a href="#Pre-training-Task-1-Masked-LM" class="headerlink" title="Pre-training Task 1#:Masked LM"></a>Pre-training Task 1#:Masked LM</h2>第一步预训练的目标就是做语言模型。<br>在训练过程中作者随机mask 15%的token,而不是像CBOW一样把每个词都预测一边。最终的损失函数只计算被mask掉的那个token。<br>Mask如何做也是有技巧的，如果一直用标记[MASK]代替(在实际预测时是碰不到这个标记的)会影响模型，所以随机mask的时候10%的单词会被替代成其他单词，10%的单词不替换，剩下80%才被替换为[MASK]。要注意的是Maske LM预训练阶段模型是不知道真正被mask的是哪个词，所以模型每个词都要关注。<br>因为序列长度太大(512)会影响训练速度，所以90%的steps都用seq_len=128训练，余下的10%步数训练512长度的输入。<br>Pre-training Task2#:Next Sentence Prediction<br>因为涉及到QA和NLI之类的任务，增加了第二个预训练任务，目的是让模型理解两个句子之间的联系。训练的输入是句子A和B，B有一般的几率是A的下一句，输入着两个句子，模型预测B是不是A的下一句。预训练的时候可以达到97-98%的准确度。<h2 id="Fine-tunning"><a href="#Fine-tunning" class="headerlink" title="Fine-tunning"></a>Fine-tunning</h2>分类:对于sequence-level的分类任务，BERT直接取第一个[CLS]token的final hidden state C，加上一层权重W后softmax预测label proba:<br><img src="/2020/08/20/BERT/c.png"><br>其他预测任务需要进行一些调整，如图:<br><img src="/2020/08/20/BERT/d.png"></li>
 </ul>
   
 	</div>
@@ -165,7 +165,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型结构"><span class="toc-number">2.</span> <span class="toc-text">模型结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Embedding"><span class="toc-number">3.</span> <span class="toc-text">Embedding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pre-training-Task-1-Masked-LM"><span class="toc-number">4.</span> <span class="toc-text">Pre-training Task 1#:Masked LM</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型结构"><span class="toc-number">2.</span> <span class="toc-text">模型结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Embedding"><span class="toc-number">3.</span> <span class="toc-text">Embedding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pre-training-Task-1-Masked-LM"><span class="toc-number">4.</span> <span class="toc-text">Pre-training Task 1#:Masked LM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fine-tunning"><span class="toc-number">5.</span> <span class="toc-text">Fine-tunning</span></a></li></ol>
  
   </div>
 
