@@ -1,0 +1,542 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <title>条件随机场 | zzulixjh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="zzulixjh">
+    
+
+    
+    <meta name="description" content="什么是条件随机场假如你有许多小明同学在一天内不同时间段的照片，从小明提裤子起床到脱裤子睡觉各个时间段都有。现在的任务是对这些照片进行分类。比如有的照片是吃饭，那就给它打上吃饭的标签；有的照片是跑步时候拍的，那就打上跑步的标签；有的照片是开会时拍的，那就打上开会的标签。问题来了，你准备这么干？一个简单直观的办法就是，不管这些照片之间的时间顺序，想办法训练出一个多元分类器，直接根据每个照片的特征来进行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="条件随机场">
+<meta property="og:url" content="http://yoursite.com/2020/08/21/CRF/index.html">
+<meta property="og:site_name" content="zzulixjh">
+<meta property="og:description" content="什么是条件随机场假如你有许多小明同学在一天内不同时间段的照片，从小明提裤子起床到脱裤子睡觉各个时间段都有。现在的任务是对这些照片进行分类。比如有的照片是吃饭，那就给它打上吃饭的标签；有的照片是跑步时候拍的，那就打上跑步的标签；有的照片是开会时拍的，那就打上开会的标签。问题来了，你准备这么干？一个简单直观的办法就是，不管这些照片之间的时间顺序，想办法训练出一个多元分类器，直接根据每个照片的特征来进行">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2020/08/21/CRF/a.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/21/CRF/b.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/21/CRF/c.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/21/CRF/d.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/21/CRF/a.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/21/CRF/e.png">
+<meta property="og:updated_time" content="2020-08-21T03:49:37.007Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="条件随机场">
+<meta name="twitter:description" content="什么是条件随机场假如你有许多小明同学在一天内不同时间段的照片，从小明提裤子起床到脱裤子睡觉各个时间段都有。现在的任务是对这些照片进行分类。比如有的照片是吃饭，那就给它打上吃饭的标签；有的照片是跑步时候拍的，那就打上跑步的标签；有的照片是开会时拍的，那就打上开会的标签。问题来了，你准备这么干？一个简单直观的办法就是，不管这些照片之间的时间顺序，想办法训练出一个多元分类器，直接根据每个照片的特征来进行">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/21/CRF/a.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="zzulixjh" title="zzulixjh"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2020/08/21/CRF/" title="条件随机场" itemprop="url">条件随机场</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
+		
+  <p class="article-time">
+    <time datetime="2020-08-21T02:34:26.000Z" itemprop="datePublished"> Published 2020-08-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是条件随机场"><span class="toc-number">1.</span> <span class="toc-text">什么是条件随机场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从特征函数到概率"><span class="toc-number">2.</span> <span class="toc-text">从特征函数到概率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF与逻辑回归的比较"><span class="toc-number">3.</span> <span class="toc-text">CRF与逻辑回归的比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF与HMM的比较"><span class="toc-number">4.</span> <span class="toc-text">CRF与HMM的比较</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="什么是条件随机场"><a href="#什么是条件随机场" class="headerlink" title="什么是条件随机场"></a>什么是条件随机场</h2><p>假如你有许多小明同学在一天内不同时间段的照片，从小明提裤子起床到脱裤子睡觉各个时间段都有。现在的任务是对这些照片进行分类。比如有的照片是吃饭，那就给它打上吃饭的标签；有的照片是跑步时候拍的，那就打上跑步的标签；有的照片是开会时拍的，那就打上开会的标签。问题来了，你准备这么干？<br>一个简单直观的办法就是，不管这些照片之间的时间顺序，想办法训练出一个多元分类器，直接根据每个照片的特征来进行分类。<br>虽然说这样是一个可行的办法，但是我们忽略了这些照片之间的时间顺序这一重要信息，我们的分类器会有缺陷的。举个例子，假如有一张小明闭着嘴的照片，怎么分类？显然难以直接判断，需要参考闭嘴之前的照片，如果之前的照片显示小明在吃饭，那么这张照片就应该是它在咽下食物的照片；如果之前的照片显示小明在唱歌，那么这个照片很有可能就是小明唱歌瞬间的抓拍，可以给它打上唱歌的标签。<br>所以，为了让我们的分类器能够有更好的表现，在为一张照片分类时，我们必须将它相邻的照片的标签信息考虑进来。这就是条件随机场(CRF)大显身手的地方！<br>从例子说起———词性标注问题<br>什么是词性标注问题？<br>非常简单，就是给一个句子中的每个单词注明词性，标出这个词是名词还是动词或者介词之类的。<br>以上面的话为例，有5个单词，我们将：(名词，动词，名词，介词，名词)作为一个标注序列，称为l，可选的标注序列有很多种，比如l还可以是这样：（名词，动词，动词，介词，名词），我们要在这么多的可选标注序列中，挑选出一个最靠谱的作为我们对这句话的标注。 怎么判断一个标注序列靠谱不靠谱呢？ 就我们上面展示的两个标注序列来说，第二个显然不如第一个靠谱，因为它把第二、第三个单词都标注成了动词，动词后面接动词，这在一个句子中通常是说不通的。 假如我们给每一个标注序列打分，打分越高代表这个标注序列越靠谱，我们至少可以说，凡是标注中出现了动词后面还是动词的标注序列，要给它负分！！ 上面所说的动词后面还是动词就是一个特征函数，我们可以定义一个特征函数集合，用这个特征函数集合来为一个标注序列打分，并据此选出最靠谱的标注序列。也就是说，每一个特征函数都可以用来为一个标注序列评分，把集合中所有特征函数对同一个标注序列的评分综合起来，就是这个标注序列最终的评分值。<br>定义CRF中的损失函数<br>现在，我们正式定义一下什么是CRF中的特征函数，所谓特征函数，就是这样的函数，它接收四个参数:</p>
+<ul>
+<li>句子s(就是我们要标注的词性的句子)</li>
+<li>i,用来表示句子s中的第i个单词</li>
+<li>l_i,表示要评分的标注序列给第i个单词标注的词性</li>
+<li>l_i-1，表示要评分的标注序列给第i-1个单词标注的词性</li>
+</ul>
+<p>它的输出值是0或者1，0表示要评分的标注序列不符合这个特征，1表示要评分的标注序列符合这个特征。</p>
+<h2 id="从特征函数到概率"><a href="#从特征函数到概率" class="headerlink" title="从特征函数到概率"></a>从特征函数到概率</h2><p>定义好一组特征函数后，我们要给每个特征函数f_j赋予一个权重λ_j。现在，只要有一个句子s，有一个标注序列l，我们就可以利用前面定义的特征函数集来对l评分。<br><img src="/2020/08/21/CRF/a.png"><br>对这个分数进行指数化和标准化，我们就可以得到标注序列的概率值p(l|s)<br><img src="/2020/08/21/CRF/b.png"></p>
+<p>这样的话一个条件随机场就建立起来了，让我们总结一下:<br>为了建立一个条件随机场，我们首先要定义一个特征函数集，每个特征函数都以整个句子s，当前位置i，位置i和i-1的标签为输入。然后为每一个特征函数赋予一个权重，然后针对每一个序列标注I，对所有的特征函数加权求和，必要的话，可以把求和的值转换为一个概率值。</p>
+<h2 id="CRF与逻辑回归的比较"><a href="#CRF与逻辑回归的比较" class="headerlink" title="CRF与逻辑回归的比较"></a>CRF与逻辑回归的比较</h2><p>事实上,条件随机场是逻辑回归的序列化版本。逻辑回归是用于分类的对数线性模型，条件随机场是用于序列化标注的对数线性模型。</p>
+<h2 id="CRF与HMM的比较"><a href="#CRF与HMM的比较" class="headerlink" title="CRF与HMM的比较"></a>CRF与HMM的比较</h2><p>对于词性标注问题，HMM模型也可以解决。HMM的思路是用生成办法，就是说，在已知要标注的句子s的情况下，去判断生成标注序列l的概率，如下所示:<br><img src="/2020/08/21/CRF/c.png"><br>这里的p(l_i|l_i-1)是转移概率。p(w_i|l_i)表示发射概率。<br>那么，HMM和CRF怎么比较呢？<br>答案是，CRF比HMM要强大得多，它可以解决所有HMM能够解决的问题，并且还可以解决许多HMM解决不了的问题。事实上，我们可以对上面的HMM模型取对数，就变成下面这样:<br><img src="/2020/08/21/CRF/d.png"><br>我们把这个式子与CRF的式子进行比较:<br><img src="/2020/08/21/CRF/a.png"><br>不难发现，如果我们把第一个HMM式子中的log形式的概率看作是第二个CRF式子中的特征函数的权重的话，我们会发现，CRF和HMM具有相同的形式。<br>换句话说，我们可以构造一个CRF，使它与HMM的对数形式相同。<br>用一句话来说明HMM和CRF的关系就是这样:<br>每一个HMM模型都等价于某个CRF<br>但是，CRF要比HMM更加强大，原因主要有两点:<br>1.CRF可以定义数量更多，种类更丰富的特征函数。<br>2.CRF可以使用任意的权重将对数HMM模型看作CRF，特征函数的权重由于是log形式的概率，所以都是小于等于0的而且概率还要满足想应的限制，如<br><img src="/2020/08/21/CRF/e.png"><br>但在CRF中，每个特征函数的权重可以是任意值，没有这些限制。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2020/08/21/CRF/" data-title="条件随机场 | zzulixjh" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2020/08/20/seq2seq/"  title="Seq2seq">
+ <strong>下一篇：</strong><br/> 
+ <span>Seq2seq
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是条件随机场"><span class="toc-number">1.</span> <span class="toc-text">什么是条件随机场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从特征函数到概率"><span class="toc-number">2.</span> <span class="toc-text">从特征函数到概率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF与逻辑回归的比较"><span class="toc-number">3.</span> <span class="toc-text">CRF与逻辑回归的比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF与HMM的比较"><span class="toc-number">4.</span> <span class="toc-text">CRF与HMM的比较</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Deep-Learning-TensorFlow/" title="Deep Learning&amp;TensorFlow">Deep Learning&amp;TensorFlow<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java/" title="Java">Java<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Leetcode/" title="Leetcode">Leetcode<sup>14</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>28</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Matlab/" title="Matlab">Matlab<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/NLP/" title="NLP">NLP<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/PHP/" title="PHP">PHP<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>23</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/front/" title="前端">前端<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/爬虫/" title="爬虫">爬虫<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/life/" title="生活">生活<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>22</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/统计学/" title="统计学">统计学<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/pc/" title="计算机">计算机<sup>15</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://leetcode.com/zzulixjh/" target="_blank" title="我的leetcode">我的leetcode</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://blog.csdn.net/sinat_41547532" target="_blank" title="我的csdn">我的csdn</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/foreverxujiahuan" target="_blank" title="我的github">我的github</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.nowcoder.com/profile/5533836" target="_blank" title="我的牛客">我的牛客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m xujiahuan in zzuli. <br/>
+			This is my blog</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5638142666" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/foreverxujiahuan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="zzulixjh">zzulixjh</a>
+		
+		
+		</p>
+		<span id="busuanzi_container_site_pv">
+			本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
