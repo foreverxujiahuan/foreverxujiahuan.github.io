@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/08/21/CRF/d.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/21/CRF/a.png">
 <meta property="og:image" content="http://yoursite.com/2020/08/21/CRF/e.png">
-<meta property="og:updated_time" content="2020-08-21T03:49:37.007Z">
+<meta property="og:updated_time" content="2020-08-21T03:54:13.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="条件随机场">
 <meta name="twitter:description" content="什么是条件随机场假如你有许多小明同学在一天内不同时间段的照片，从小明提裤子起床到脱裤子睡觉各个时间段都有。现在的任务是对这些照片进行分类。比如有的照片是吃饭，那就给它打上吃饭的标签；有的照片是跑步时候拍的，那就打上跑步的标签；有的照片是开会时拍的，那就打上开会的标签。问题来了，你准备这么干？一个简单直观的办法就是，不管这些照片之间的时间顺序，想办法训练出一个多元分类器，直接根据每个照片的特征来进行">
@@ -104,11 +104,13 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是条件随机场"><span class="toc-number">1.</span> <span class="toc-text">什么是条件随机场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从特征函数到概率"><span class="toc-number">2.</span> <span class="toc-text">从特征函数到概率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF与逻辑回归的比较"><span class="toc-number">3.</span> <span class="toc-text">CRF与逻辑回归的比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF与HMM的比较"><span class="toc-number">4.</span> <span class="toc-text">CRF与HMM的比较</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是条件随机场"><span class="toc-number">1.</span> <span class="toc-text">什么是条件随机场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从例子说起———词性标注问题"><span class="toc-number">2.</span> <span class="toc-text">从例子说起———词性标注问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义CRF中的损失函数"><span class="toc-number">3.</span> <span class="toc-text">定义CRF中的损失函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从特征函数到概率"><span class="toc-number">4.</span> <span class="toc-text">从特征函数到概率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF与逻辑回归的比较"><span class="toc-number">5.</span> <span class="toc-text">CRF与逻辑回归的比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF与HMM的比较"><span class="toc-number">6.</span> <span class="toc-text">CRF与HMM的比较</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="什么是条件随机场"><a href="#什么是条件随机场" class="headerlink" title="什么是条件随机场"></a>什么是条件随机场</h2><p>假如你有许多小明同学在一天内不同时间段的照片，从小明提裤子起床到脱裤子睡觉各个时间段都有。现在的任务是对这些照片进行分类。比如有的照片是吃饭，那就给它打上吃饭的标签；有的照片是跑步时候拍的，那就打上跑步的标签；有的照片是开会时拍的，那就打上开会的标签。问题来了，你准备这么干？<br>一个简单直观的办法就是，不管这些照片之间的时间顺序，想办法训练出一个多元分类器，直接根据每个照片的特征来进行分类。<br>虽然说这样是一个可行的办法，但是我们忽略了这些照片之间的时间顺序这一重要信息，我们的分类器会有缺陷的。举个例子，假如有一张小明闭着嘴的照片，怎么分类？显然难以直接判断，需要参考闭嘴之前的照片，如果之前的照片显示小明在吃饭，那么这张照片就应该是它在咽下食物的照片；如果之前的照片显示小明在唱歌，那么这个照片很有可能就是小明唱歌瞬间的抓拍，可以给它打上唱歌的标签。<br>所以，为了让我们的分类器能够有更好的表现，在为一张照片分类时，我们必须将它相邻的照片的标签信息考虑进来。这就是条件随机场(CRF)大显身手的地方！<br>从例子说起———词性标注问题<br>什么是词性标注问题？<br>非常简单，就是给一个句子中的每个单词注明词性，标出这个词是名词还是动词或者介词之类的。<br>以上面的话为例，有5个单词，我们将：(名词，动词，名词，介词，名词)作为一个标注序列，称为l，可选的标注序列有很多种，比如l还可以是这样：（名词，动词，动词，介词，名词），我们要在这么多的可选标注序列中，挑选出一个最靠谱的作为我们对这句话的标注。 怎么判断一个标注序列靠谱不靠谱呢？ 就我们上面展示的两个标注序列来说，第二个显然不如第一个靠谱，因为它把第二、第三个单词都标注成了动词，动词后面接动词，这在一个句子中通常是说不通的。 假如我们给每一个标注序列打分，打分越高代表这个标注序列越靠谱，我们至少可以说，凡是标注中出现了动词后面还是动词的标注序列，要给它负分！！ 上面所说的动词后面还是动词就是一个特征函数，我们可以定义一个特征函数集合，用这个特征函数集合来为一个标注序列打分，并据此选出最靠谱的标注序列。也就是说，每一个特征函数都可以用来为一个标注序列评分，把集合中所有特征函数对同一个标注序列的评分综合起来，就是这个标注序列最终的评分值。<br>定义CRF中的损失函数<br>现在，我们正式定义一下什么是CRF中的特征函数，所谓特征函数，就是这样的函数，它接收四个参数:</p>
+		<h2 id="什么是条件随机场"><a href="#什么是条件随机场" class="headerlink" title="什么是条件随机场"></a>什么是条件随机场</h2><p>假如你有许多小明同学在一天内不同时间段的照片，从小明提裤子起床到脱裤子睡觉各个时间段都有。现在的任务是对这些照片进行分类。比如有的照片是吃饭，那就给它打上吃饭的标签；有的照片是跑步时候拍的，那就打上跑步的标签；有的照片是开会时拍的，那就打上开会的标签。问题来了，你准备这么干？<br>一个简单直观的办法就是，不管这些照片之间的时间顺序，想办法训练出一个多元分类器，直接根据每个照片的特征来进行分类。<br>虽然说这样是一个可行的办法，但是我们忽略了这些照片之间的时间顺序这一重要信息，我们的分类器会有缺陷的。举个例子，假如有一张小明闭着嘴的照片，怎么分类？显然难以直接判断，需要参考闭嘴之前的照片，如果之前的照片显示小明在吃饭，那么这张照片就应该是它在咽下食物的照片；如果之前的照片显示小明在唱歌，那么这个照片很有可能就是小明唱歌瞬间的抓拍，可以给它打上唱歌的标签。<br>所以，为了让我们的分类器能够有更好的表现，在为一张照片分类时，我们必须将它相邻的照片的标签信息考虑进来。这就是条件随机场(CRF)大显身手的地方！</p>
+<h2 id="从例子说起———词性标注问题"><a href="#从例子说起———词性标注问题" class="headerlink" title="从例子说起———词性标注问题"></a>从例子说起———词性标注问题</h2><p>什么是词性标注问题？<br>非常简单，就是给一个句子中的每个单词注明词性，标出这个词是名词还是动词或者介词之类的。<br>以上面的话为例，有5个单词，我们将：(名词，动词，名词，介词，名词)作为一个标注序列，称为l，可选的标注序列有很多种，比如l还可以是这样：（名词，动词，动词，介词，名词），我们要在这么多的可选标注序列中，挑选出一个最靠谱的作为我们对这句话的标注。 怎么判断一个标注序列靠谱不靠谱呢？ 就我们上面展示的两个标注序列来说，第二个显然不如第一个靠谱，因为它把第二、第三个单词都标注成了动词，动词后面接动词，这在一个句子中通常是说不通的。 假如我们给每一个标注序列打分，打分越高代表这个标注序列越靠谱，我们至少可以说，凡是标注中出现了动词后面还是动词的标注序列，要给它负分！！ 上面所说的动词后面还是动词就是一个特征函数，我们可以定义一个特征函数集合，用这个特征函数集合来为一个标注序列打分，并据此选出最靠谱的标注序列。也就是说，每一个特征函数都可以用来为一个标注序列评分，把集合中所有特征函数对同一个标注序列的评分综合起来，就是这个标注序列最终的评分值。</p>
+<h2 id="定义CRF中的损失函数"><a href="#定义CRF中的损失函数" class="headerlink" title="定义CRF中的损失函数"></a>定义CRF中的损失函数</h2><p>现在，我们正式定义一下什么是CRF中的特征函数，所谓特征函数，就是这样的函数，它接收四个参数:</p>
 <ul>
 <li>句子s(就是我们要标注的词性的句子)</li>
 <li>i,用来表示句子s中的第i个单词</li>
@@ -171,7 +173,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是条件随机场"><span class="toc-number">1.</span> <span class="toc-text">什么是条件随机场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从特征函数到概率"><span class="toc-number">2.</span> <span class="toc-text">从特征函数到概率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF与逻辑回归的比较"><span class="toc-number">3.</span> <span class="toc-text">CRF与逻辑回归的比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF与HMM的比较"><span class="toc-number">4.</span> <span class="toc-text">CRF与HMM的比较</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是条件随机场"><span class="toc-number">1.</span> <span class="toc-text">什么是条件随机场</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从例子说起———词性标注问题"><span class="toc-number">2.</span> <span class="toc-text">从例子说起———词性标注问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义CRF中的损失函数"><span class="toc-number">3.</span> <span class="toc-text">定义CRF中的损失函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从特征函数到概率"><span class="toc-number">4.</span> <span class="toc-text">从特征函数到概率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF与逻辑回归的比较"><span class="toc-number">5.</span> <span class="toc-text">CRF与逻辑回归的比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRF与HMM的比较"><span class="toc-number">6.</span> <span class="toc-text">CRF与HMM的比较</span></a></li></ol>
  
   </div>
 
