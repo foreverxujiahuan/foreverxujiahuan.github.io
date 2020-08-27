@@ -1,0 +1,531 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  
+    <title>序列标注中类别不均衡问题 | zzulixjh</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="zzulixjh">
+    
+
+    
+    <meta name="description" content="说一下最近在工作中遇到的一个问题,如何处理命名实体识别任务中实体种类不均衡的问题。 问题描述现在有一个任务，需要识别句子中的身高、体重、腰围等共计14种实体。可是我拿到的数据中各个实体的数量极其不平衡。比如身高体重在总样本中有各3万多个实体，而其他大部分的实体(如胸围、腰围)等均不到1000个，更有些实体不到50个。 解决方案常规的欠采样和过采样方法在序列标注任务上，稍微思考一下就是不靠谱的。在这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="序列标注中类别不均衡问题">
+<meta property="og:url" content="http://yoursite.com/2020/08/27/ner-sample/index.html">
+<meta property="og:site_name" content="zzulixjh">
+<meta property="og:description" content="说一下最近在工作中遇到的一个问题,如何处理命名实体识别任务中实体种类不均衡的问题。 问题描述现在有一个任务，需要识别句子中的身高、体重、腰围等共计14种实体。可是我拿到的数据中各个实体的数量极其不平衡。比如身高体重在总样本中有各3万多个实体，而其他大部分的实体(如胸围、腰围)等均不到1000个，更有些实体不到50个。 解决方案常规的欠采样和过采样方法在序列标注任务上，稍微思考一下就是不靠谱的。在这">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2020/08/27/ner-sample/a.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/27/ner-sample/b.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/27/ner-sample/c.png">
+<meta property="og:updated_time" content="2020-08-27T08:07:49.294Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="序列标注中类别不均衡问题">
+<meta name="twitter:description" content="说一下最近在工作中遇到的一个问题,如何处理命名实体识别任务中实体种类不均衡的问题。 问题描述现在有一个任务，需要识别句子中的身高、体重、腰围等共计14种实体。可是我拿到的数据中各个实体的数量极其不平衡。比如身高体重在总样本中有各3万多个实体，而其他大部分的实体(如胸围、腰围)等均不到1000个，更有些实体不到50个。 解决方案常规的欠采样和过采样方法在序列标注任务上，稍微思考一下就是不靠谱的。在这">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/27/ner-sample/a.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="zzulixjh" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="zzulixjh" title="zzulixjh"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="zzulixjh">zzulixjh</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2020/08/27/ner-sample/" title="序列标注中类别不均衡问题" itemprop="url">序列标注中类别不均衡问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="zzulixjh" target="_blank" itemprop="author">zzulixjh</a>
+		
+  <p class="article-time">
+    <time datetime="2020-08-27T07:31:20.000Z" itemprop="datePublished"> Published 2020-08-27</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改损失函数"><span class="toc-number">3.</span> <span class="toc-text">修改损失函数</span></a></li></ol>
+		
+		</div>
+		
+		<p>说一下最近在工作中遇到的一个问题,如何处理命名实体识别任务中实体种类不均衡的问题。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>现在有一个任务，需要识别句子中的身高、体重、腰围等共计14种实体。可是我拿到的数据中各个实体的数量极其不平衡。比如身高体重在总样本中有各3万多个实体，而其他大部分的实体(如胸围、腰围)等均不到1000个，更有些实体不到50个。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>常规的欠采样和过采样方法在序列标注任务上，稍微思考一下就是不靠谱的。在这个任务上如果直接在样本上操作，不能欠采样，导致样本多的类别也会表现不好。</p>
+<h2 id="修改损失函数"><a href="#修改损失函数" class="headerlink" title="修改损失函数"></a>修改损失函数</h2><p>一个好的方法是修改损失函数。<br>先来回顾一下二分类的交叉熵计算公式:<br><img src="/2020/08/27/ner-sample/a.png"><br>focal loss的计算也非常简单，增加了两个参数α和γ控制正负样本所占loss权重，具体计算公式为:<br><img src="/2020/08/27/ner-sample/b.png"><br>α和γ实验中调参取值，原文中取α=0.25，γ=2.Focal loss推广到多分类，计算公式为:<br><img src="/2020/08/27/ner-sample/c.png"><br>其中p为softmax的结果。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/NLP/">NLP</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2020/08/27/ner-sample/" data-title="序列标注中类别不均衡问题 | zzulixjh" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2020/08/21/CRF/"  title="条件随机场">
+ <strong>下一篇：</strong><br/> 
+ <span>条件随机场
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改损失函数"><span class="toc-number">3.</span> <span class="toc-text">修改损失函数</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="foreverxujiahuan" data-theme="medium"></div>
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Deep-Learning-TensorFlow/" title="Deep Learning&amp;TensorFlow">Deep Learning&amp;TensorFlow<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Java/" title="Java">Java<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Leetcode/" title="Leetcode">Leetcode<sup>14</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Linux/" title="Linux">Linux<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Machine-Learning/" title="Machine Learning">Machine Learning<sup>28</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Matlab/" title="Matlab">Matlab<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/NLP/" title="NLP">NLP<sup>8</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/PHP/" title="PHP">PHP<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>23</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/front/" title="前端">前端<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/爬虫/" title="爬虫">爬虫<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/life/" title="生活">生活<sup>15</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/算法/" title="算法">算法<sup>22</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/统计学/" title="统计学">统计学<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/pc/" title="计算机">计算机<sup>15</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://leetcode.com/zzulixjh/" target="_blank" title="我的leetcode">我的leetcode</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://blog.csdn.net/sinat_41547532" target="_blank" title="我的csdn">我的csdn</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://github.com/foreverxujiahuan" target="_blank" title="我的github">我的github</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.nowcoder.com/profile/5533836" target="_blank" title="我的牛客">我的牛客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m xujiahuan in zzuli. <br/>
+			This is my blog</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5638142666" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/foreverxujiahuan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="zzulixjh">zzulixjh</a>
+		
+		
+		</p>
+		<span id="busuanzi_container_site_pv">
+			本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
